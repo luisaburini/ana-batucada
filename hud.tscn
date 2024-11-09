@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpuv23l7ugco"]
+
+[ext_resource type="Texture2D" uid="uid://jnxxn0lxljfn" path="res://img/hud.png" id="1_c7dym"]
+[ext_resource type="Script" path="res://hud.gd" id="1_irc72"]
+[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="2_ykcev"]
+
+[node name="HUD" type="Node2D"]
+script = ExtResource("1_irc72")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1933.0
+offset_bottom = 1084.0
+texture = ExtResource("1_c7dym")
+
+[node name="AnaBatucada" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 44.0
+offset_right = 1894.0
+offset_bottom = 405.0
+theme_override_colors/font_color = Color(0, 1, 0.54902, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ykcev")
+theme_override_font_sizes/font_size = 300
+text = "Ana Batucada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 789.0
+offset_top = 919.0
+offset_right = 1088.0
+offset_bottom = 1048.0
+theme_override_fonts/font = ExtResource("2_ykcev")
+theme_override_font_sizes/font_size = 100
+text = "iniciar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
