@@ -35,4 +35,7 @@ theme_override_fonts/font = ExtResource("2_ykcev")
 theme_override_font_sizes/font_size = 100
 text = "iniciar"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -13,6 +13,6 @@ func _on_hud_init():
 
 
 func _on_controls_ended():
-	$Controls.hide()
+	$Controls.end()
 	$Score.set_pontos($Controls.get_pontos())
 	$Score.show()

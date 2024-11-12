@@ -1,6 +1,7 @@
 extends Node2D
 
 var current_sound = ""
+var event_to_catch = ""
 signal pressed
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +27,15 @@ func set_stream(path):
 	snd_file.close()
 	$AudioStreamPlayer2D.stream = stream
 	
-
+	
+func set_event_to_catch(to_catch):
+	event_to_catch = to_catch
+	print(to_catch)
+	
+func _input(event):
+	if event.is_action_pressed(event_to_catch):
+		print("Pressed " + event_to_catch)
+		_on_texture_button_pressed()
 
 func _on_texture_button_pressed():
 	if current_sound != "":

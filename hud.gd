@@ -10,4 +10,5 @@ func _ready():
 
 
 func _on_button_pressed():
+	$AudioStreamPlayer2D.stop()
 	init.emit()

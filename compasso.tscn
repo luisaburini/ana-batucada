@@ -97,6 +97,7 @@ layout_mode = 2
 texture = ExtResource("2_qhf8e")
 
 [node name="TimerSeta" type="Timer" parent="."]
+wait_time = 0.75
 
 [node name="Seta" type="CharacterBody2D" parent="."]
 position = Vector2(29, -40)
