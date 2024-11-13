@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://hvfgktj3o36l"]
+
+[ext_resource type="Script" path="res://MP3Loader.gd" id="1_kkpb5"]
+
+[node name="AudioLoader" type="Node2D"]
+script = ExtResource("1_kkpb5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

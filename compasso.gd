@@ -15,8 +15,11 @@ func _ready():
 
 
 func start_timer(bpm):
-	$TimerSeta.wait_time = 60/bpm
-	$TimerSeta.start()
+	if bpm > 0:
+		$TimerSeta.wait_time = 60/bpm
+		$TimerSeta.start()
+	else:
+		print("BPM is invalid " + str(bpm))
 
 func _on_timer_timeout():
 	if !finished:
@@ -46,7 +49,9 @@ func get_note(i):
 	return null
 
 func get_current_note():
-	return static_music[current_music_pos]
+	if current_music_pos < len(static_music):
+		return static_music[current_music_pos]
+	return "S"
 
 func update_compasso():
 	for i in range(notes_in_compasso+1):
