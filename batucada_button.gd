@@ -35,3 +35,6 @@ func _on_texture_button_pressed():
 	if current_sound != "":
 		$AudioLoader.play()
 	pressed.emit()
+
+func set_volume(volume):
+	$AudioLoader.set_volume(volume)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://n386jdcbvm5m"]
+[gd_scene load_steps=67 format=3 uid="uid://n386jdcbvm5m"]
 
 [ext_resource type="Texture2D" uid="uid://c366fispty6kc" path="res://img/controls.png" id="1_gfmhk"]
 [ext_resource type="Script" path="res://controls.gd" id="1_qbcre"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://cys6dxq8vox8v" path="res://fonts/Prisma.ttf" id="7_r7hve"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="8_he8l4"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="9_kpabq"]
+[ext_resource type="Texture2D" uid="uid://l857iwqsuyp4" path="res://img/metronome.png" id="10_7f7w8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6uk4"]
 atlas = ExtResource("2_8ardj")
@@ -412,7 +413,7 @@ offset_bottom = 1082.0
 texture = ExtResource("1_gfmhk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(958, 540)
+position = Vector2(958, 582)
 scale = Vector2(1.67917, 1.62963)
 sprite_frames = SubResource("SpriteFrames_qytev")
 
@@ -433,9 +434,9 @@ position = Vector2(15, 40)
 
 [node name="Pontuacao" type="Label" parent="."]
 offset_left = 667.0
-offset_top = 779.0
+offset_top = 839.0
 offset_right = 1285.0
-offset_bottom = 895.0
+offset_bottom = 955.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_147p2")
 theme_override_font_sizes/font_size = 100
@@ -443,9 +444,9 @@ text = "Pontuação"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 678.0
-offset_top = 888.0
+offset_top = 908.0
 offset_right = 1274.0
-offset_bottom = 1063.0
+offset_bottom = 1083.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_r7hve")
 theme_override_font_sizes/font_size = 100
@@ -457,6 +458,15 @@ vertical_alignment = 1
 
 [node name="AudioLoader" parent="." instance=ExtResource("9_kpabq")]
 
+[node name="MetronomoLoader" parent="." instance=ExtResource("9_kpabq")]
+
+[node name="Metronomo" type="TextureButton" parent="."]
+offset_left = 881.0
+offset_top = 179.0
+offset_right = 1061.0
+offset_bottom = 359.0
+texture_normal = ExtResource("10_7f7w8")
+
 [connection signal="pressed" from="A" to="." method="_on_a_pressed"]
 [connection signal="pressed" from="B" to="." method="_on_b_pressed"]
 [connection signal="pressed" from="C" to="." method="_on_c_pressed"]
@@ -465,3 +475,5 @@ vertical_alignment = 1
 [connection signal="seta_moved" from="Compasso" to="." method="_on_compasso_seta_moved"]
 [connection signal="ended" from="Tutorial" to="." method="_on_tutorial_ended"]
 [connection signal="finished" from="AudioLoader" to="." method="_on_mp_3_loader_finished"]
+[connection signal="finished" from="MetronomoLoader" to="." method="_on_metronomo_loader_finished"]
+[connection signal="pressed" from="Metronomo" to="." method="_on_metronomo_pressed"]

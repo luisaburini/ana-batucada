@@ -14,5 +14,7 @@ script = ExtResource("1_6bcuf")
 
 [node name="HUD" parent="." instance=ExtResource("2_dw5fr")]
 
+[connection signal="next" from="Score" to="." method="_on_score_next"]
+[connection signal="reset" from="Score" to="." method="_on_score_reset"]
 [connection signal="ended" from="Controls" to="." method="_on_controls_ended"]
 [connection signal="init" from="HUD" to="." method="_on_hud_init"]

@@ -25,3 +25,6 @@ func stop():
 
 func _on_audio_stream_player_2d_finished():
 	finished.emit()
+
+func set_volume(volume):
+	$AudioStreamPlayer2D.set_volume_db(volume)

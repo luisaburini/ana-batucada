@@ -7,8 +7,12 @@ signal ended
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	start()
+
+func start():
 	$Label.hide()
 	$AnimatedSprite2D.play()
+	show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,9 +24,12 @@ func _on_timer_timeout():
 		$Label.text = str(counter)
 		counter = counter-1
 		$Timer.start()
+		print(counter)
 		return
 	ended.emit()
 	hide()
+	$Timer.set_one_shot(true)
+	$Timer.stop()
 		
 func set_stream(path):
 	current_sound = path

@@ -11,12 +11,17 @@ signal seta_moved
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	update_compasso()
+	reset()
 
+func reset():
+	finished = false
+	current_arrow_pos = 0
+	current_music_pos = 0
+	update_compasso()
 
 func start_timer(bpm):
 	if bpm > 0:
-		$TimerSeta.wait_time = 60/bpm
+		$TimerSeta.wait_time = float(60.0/bpm)
 		$TimerSeta.start()
 	else:
 		print("BPM is invalid " + str(bpm))

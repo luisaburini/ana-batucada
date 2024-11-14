@@ -16,3 +16,11 @@ func _on_controls_ended():
 	$Controls.end()
 	$Score.set_pontos($Controls.get_pontos())
 	$Score.show()
+
+
+func _on_score_reset():
+	$Controls.reset()
+
+
+func _on_score_next():
+	$Controls.next()
