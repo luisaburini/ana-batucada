@@ -3,7 +3,8 @@ extends Node2D
 signal ended
 signal hide_next
 
-var phases = ["FASE1_80BPM", "FASE1_85BPM", "FASE1_90BPM"]
+#var phases = ["FASE1_80BPM", "FASE1_80BPM", "FASE1_85BPM", "FASE1_90BPM"]
+var phases = ["FASE1_60BPM"]
 var bpms = [80, 85, 90]
 var current_phase = 0
 var pontos = 0
@@ -15,7 +16,7 @@ var played_metronomo = false
 func _ready():
 	
 	$AnimatedSprite2D.play()
-	var btns = ["A", "B", "C", "D"]
+	var btns = ["W", "A", "O", "L"]
 	for b in btns:
 		var obj = get_node(b)
 		obj.set_stream("res://sounds/" + b + ".wav")
@@ -28,8 +29,8 @@ func start():
 	played_metronomo = false
 	$Metronomo.hide()
 	$Tutorial.start()
-	print("Tutorial play " + "res://sounds/" + phases[current_phase] + "_MUSICA.wav")
-	$Tutorial.set_stream("res://sounds/" + phases[current_phase] + "_MUSICA.wav")
+	print("Tutorial play " + "res://sounds/" + phases[current_phase] + "_MUSICA_COM_BONGO.wav")
+	$Tutorial.set_stream("res://sounds/" + phases[current_phase] + "_MUSICA_COM_BONGO.wav")
 	
 func next():
 	current_phase = (current_phase+1)%len(phases)

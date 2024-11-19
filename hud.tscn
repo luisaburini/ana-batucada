@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpuv23l7ugco"]
+[gd_scene load_steps=5 format=3 uid="uid://bpuv23l7ugco"]
 
-[ext_resource type="Texture2D" uid="uid://jnxxn0lxljfn" path="res://img/hud.png" id="1_c7dym"]
 [ext_resource type="Script" path="res://hud.gd" id="1_irc72"]
-[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="2_ykcev"]
+[ext_resource type="Texture2D" uid="uid://pjd4ihv31dmp" path="res://img/hud.jpg" id="2_dvmfd"]
+[ext_resource type="Texture2D" uid="uid://cquemrepff67c" path="res://img/iniciar.jpg" id="3_vq8kx"]
+[ext_resource type="AudioStream" uid="uid://cct26uumayyio" path="res://sounds/MUSICA_INICIAL_E_MENU_PAUSE_LOOP1.wav" id="4_d5481"]
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_irc72")
@@ -10,32 +11,18 @@ script = ExtResource("1_irc72")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1933.0
 offset_bottom = 1084.0
-texture = ExtResource("1_c7dym")
+texture = ExtResource("2_dvmfd")
 
-[node name="AnaBatucada" type="Label" parent="."]
-offset_left = 44.0
-offset_top = 44.0
-offset_right = 1894.0
-offset_bottom = 405.0
-theme_override_colors/font_color = Color(0.466667, 0.878431, 0.913725, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ykcev")
-theme_override_font_sizes/font_size = 300
-text = "Ana Batucada"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="."]
-offset_left = 789.0
-offset_top = 789.0
-offset_right = 1088.0
-offset_bottom = 918.0
-theme_override_fonts/font = ExtResource("2_ykcev")
-theme_override_font_sizes/font_size = 100
-text = "iniciar"
+[node name="Button" type="TextureButton" parent="."]
+offset_left = 751.0
+offset_top = 885.0
+offset_right = 1173.0
+offset_bottom = 1025.0
+texture_normal = ExtResource("3_vq8kx")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_d5481")
 autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

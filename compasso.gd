@@ -1,6 +1,5 @@
 extends Node2D
-var static_music = "AASSBBSSCCSSDDSSCCAABBAACCBBDDAA"
-#var static_music = "AASSBBSSCCSSDDSS"
+var static_music = "OAOALWLAOAOALWLAOAOALWLALWLALWLAOAOALWLAOAOALWLAOAOALWLALWLAOPPP"
 var current_arrow_pos = 0
 var current_music_pos = 0
 var compassos_size = 16
@@ -56,7 +55,7 @@ func get_note(i):
 func get_current_note():
 	if current_music_pos < len(static_music):
 		return static_music[current_music_pos]
-	return "S"
+	return "P"
 
 func update_compasso():
 	for i in range(notes_in_compasso+1):
@@ -70,7 +69,7 @@ func update_compasso():
 						var texture_index = current_music_pos+ notes_in_compasso*i + j
 						note.texture = load("res://img/"+ static_music[texture_index] +".png")
 					else:
-						var empty_node = "S"
+						var empty_node = "P"
 						var note = parent.get_node("Note" + str(index))
 						note.texture = load("res://img/"+ empty_node +".png")
 						

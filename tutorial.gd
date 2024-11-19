@@ -1,6 +1,7 @@
 extends Node2D
 
-var counter = 2
+var counter = 0
+var max = 5
 var current_sound = ""
 signal ended
 
@@ -20,9 +21,9 @@ func _process(delta):
 	pass
 
 func _on_timer_timeout():
-	if counter > 0:
+	counter = counter+1
+	if counter < max:
 		$Label.text = str(counter)
-		counter = counter-1
 		$Timer.start()
 		print(counter)
 		return
