@@ -5,7 +5,7 @@ signal hide_next
 
 #var phases = ["FASE1_80BPM", "FASE1_80BPM", "FASE1_85BPM", "FASE1_90BPM"]
 var phases = ["FASE1_60BPM"]
-var bpms = [80, 85, 90]
+var bpms = [60]
 var current_phase = 0
 var pontos = 0
 var was_pressed = false
@@ -14,7 +14,7 @@ var played_metronomo = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	$AudioLoader.set_volume(20)
 	$AnimatedSprite2D.play()
 	var btns = ["W", "A", "O", "L"]
 	for b in btns:
@@ -45,25 +45,6 @@ func reset():
 	show()
 
 var metronomo = false
-
-func _on_a_pressed():
-	if $Compasso.get_current_note() == "A":
-		update_pontos()
-
-
-func _on_b_pressed():
-	if $Compasso.get_current_note() == "B":
-		update_pontos()
-
-
-func _on_c_pressed():
-	if $Compasso.get_current_note() == "C":
-		update_pontos()
-
-
-func _on_d_pressed():
-	if $Compasso.get_current_note() == "D":
-		update_pontos()
 
 func update_pontos():
 	if !was_pressed:
@@ -96,7 +77,6 @@ func _on_tutorial_ended():
 
 
 func _on_metronomo_pressed():
-	print("played metronomo")
 	if played_metronomo:
 		$MetronomoLoader.stop()
 	else:
@@ -107,3 +87,24 @@ func _on_metronomo_pressed():
 func _on_metronomo_loader_finished():
 	if played_metronomo:
 		$MetronomoLoader.play()
+
+
+
+func _on_w_pressed():
+	if $Compasso.get_current_note() == "W":
+		update_pontos()
+
+
+func _on_a_pressed():
+	if $Compasso.get_current_note() == "A":
+		update_pontos()
+
+
+func _on_o_pressed():
+	if $Compasso.get_current_note() == "O":
+		update_pontos()
+
+
+func _on_l_pressed():
+	if $Compasso.get_current_note() == "L":
+		update_pontos()

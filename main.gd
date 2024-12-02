@@ -19,8 +19,10 @@ func _on_controls_ended():
 
 
 func _on_score_reset():
+	$Score.set_pontos($Controls.get_pontos())
 	$Controls.reset()
 
 
 func _on_score_next():
+	$Score.set_pontos($Controls.get_pontos())
 	$Controls.next()

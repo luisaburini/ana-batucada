@@ -20,7 +20,7 @@ func reset():
 
 func start_timer(bpm):
 	if bpm > 0:
-		$TimerSeta.wait_time = float(60.0/bpm)
+		$TimerSeta.wait_time = float(60.0/(2*bpm))
 		$TimerSeta.start()
 	else:
 		print("BPM is invalid " + str(bpm))

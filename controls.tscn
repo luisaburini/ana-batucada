@@ -89,10 +89,10 @@ offset_right = 551.0
 offset_bottom = 1008.0
 texture_normal = ExtResource("10_7f7w8")
 
-[connection signal="pressed" from="W" to="." method="_on_a_pressed"]
-[connection signal="pressed" from="A" to="." method="_on_b_pressed"]
-[connection signal="pressed" from="O" to="." method="_on_c_pressed"]
-[connection signal="pressed" from="L" to="." method="_on_d_pressed"]
+[connection signal="pressed" from="W" to="." method="_on_w_pressed"]
+[connection signal="pressed" from="A" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="O" to="." method="_on_o_pressed"]
+[connection signal="pressed" from="L" to="." method="_on_l_pressed"]
 [connection signal="ended" from="Compasso" to="." method="_on_compasso_ended"]
 [connection signal="seta_moved" from="Compasso" to="." method="_on_compasso_seta_moved"]
 [connection signal="ended" from="Tutorial" to="." method="_on_tutorial_ended"]

@@ -11,6 +11,7 @@ func _ready():
 	start()
 
 func start():
+	$AudioLoader.set_volume(20)
 	$Label.hide()
 	$AnimatedSprite2D.play()
 	show()
