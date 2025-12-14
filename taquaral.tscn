@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://djd5g50wdvimd"]
+
+[ext_resource type="Script" uid="uid://crevljbysayss" path="res://taquaral.gd" id="1_hyn5j"]
+[ext_resource type="Texture2D" uid="uid://bncopu6cannat" path="res://img/taquaral.jpg" id="1_s7qdt"]
+[ext_resource type="PackedScene" uid="uid://t6qfejjwvxo5" path="res://triangulo_controls.tscn" id="4_13thw"]
+[ext_resource type="PackedScene" uid="uid://bfjh6bn4m6uke" path="res://score.tscn" id="4_v1in7"]
+
+[node name="Taquaral" type="Node2D"]
+script = ExtResource("1_hyn5j")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_s7qdt")
+
+[node name="Score" parent="." instance=ExtResource("4_v1in7")]
+
+[node name="TrianguloControls" parent="." instance=ExtResource("4_13thw")]
+
+[connection signal="next" from="Score" to="." method="_on_score_next"]
+[connection signal="reset" from="Score" to="." method="_on_score_reset"]
+[connection signal="ended" from="TrianguloControls" to="." method="_on_controls_ended"]

@@ -2,13 +2,8 @@ extends Node2D
 
 signal init
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-
 func _on_button_pressed():
+	print("pressed button init")
 	$AudioStreamPlayer2D.stop()
 	init.emit()
 

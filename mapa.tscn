@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvtwc8fcdunxk"]
+
+[ext_resource type="Texture2D" uid="uid://p1oirkrbfi48" path="res://img/mapa.png" id="1_lrjei"]
+[ext_resource type="Script" uid="uid://cqkgpsa4rs2sx" path="res://mapa.gd" id="1_ltv3l"]
+[ext_resource type="Texture2D" uid="uid://bncopu6cannat" path="res://img/taquaral.jpg" id="2_5d3jg"]
+[ext_resource type="Texture2D" uid="uid://scdo6cwytciw" path="res://img/cerecamp-mogiana.jpg" id="3_wan0n"]
+[ext_resource type="Texture2D" uid="uid://ceqynjq3i84f5" path="res://img/estacao-cultura.jpg" id="4_auc41"]
+[ext_resource type="PackedScene" uid="uid://djd5g50wdvimd" path="res://taquaral.tscn" id="6_w30at"]
+[ext_resource type="PackedScene" uid="uid://cwhukrgyaq1pf" path="res://cerecamp_mogiana.tscn" id="7_2eut3"]
+[ext_resource type="PackedScene" uid="uid://bl3fwomlf1rvq" path="res://estacao_cultura.tscn" id="8_rugew"]
+
+[node name="Mapa" type="Node2D"]
+script = ExtResource("1_ltv3l")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1925.0
+offset_bottom = 1074.0
+texture = ExtResource("1_lrjei")
+
+[node name="TaquaralButton" type="TouchScreenButton" parent="."]
+position = Vector2(813, 31)
+scale = Vector2(0.3893229, 0.4461839)
+texture_normal = ExtResource("2_5d3jg")
+
+[node name="CerescampMogianaButton" type="TouchScreenButton" parent="."]
+position = Vector2(524, 502)
+scale = Vector2(0.51282054, 0.55528843)
+texture_normal = ExtResource("3_wan0n")
+
+[node name="EstacaoCulturaButton" type="TouchScreenButton" parent="."]
+position = Vector2(817, 828.00006)
+scale = Vector2(0.5745456, 0.552058)
+texture_normal = ExtResource("4_auc41")
+
+[node name="Taquaral" parent="." instance=ExtResource("6_w30at")]
+
+[node name="CerecampMogiana" parent="." instance=ExtResource("7_2eut3")]
+
+[node name="EstacaoCultura" parent="." instance=ExtResource("8_rugew")]
+
+[connection signal="pressed" from="TaquaralButton" to="." method="_on_taquaral_button_pressed"]
+[connection signal="pressed" from="CerescampMogianaButton" to="." method="_on_cerescamp_mogiana_button_pressed"]
+[connection signal="pressed" from="EstacaoCulturaButton" to="." method="_on_estacao_cultura_button_pressed"]
+[connection signal="finished" from="Taquaral" to="." method="_on_taquaral_finished"]
+[connection signal="finished" from="CerecampMogiana" to="." method="_on_cerecamp_mogiana_finished"]
+[connection signal="finished" from="EstacaoCultura" to="." method="_on_estacao_cultura_finished"]

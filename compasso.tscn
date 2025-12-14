@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvfci3ptk4mgy"]
 
-[ext_resource type="Script" path="res://compasso.gd" id="1_tv05q"]
+[ext_resource type="Script" uid="uid://cxsopt0v4duhr" path="res://compasso.gd" id="1_tv05q"]
 [ext_resource type="Texture2D" uid="uid://dr6s7k3lnyp0i" path="res://img/P.png" id="2_8jdos"]
 [ext_resource type="Texture2D" uid="uid://bgwpymfq0jqwm" path="res://img/seta.png" id="3_rn6xb"]
 

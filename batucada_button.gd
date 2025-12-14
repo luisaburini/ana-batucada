@@ -6,7 +6,7 @@ signal pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$TextureButton.hide()
+	$Texture.hide()
 	$Label.hide()
 
 
@@ -15,8 +15,9 @@ func set_text(text):
 	$Label.show()
 	
 func set_texture(path):
-	$TextureButton.texture_normal = load(path)
-	$TextureButton.show()
+	$Texture.texture_normal = load(path)
+	$Texture.show()
+	$Label.show()
 
 
 func set_stream(path):
@@ -26,15 +27,26 @@ func set_stream(path):
 	
 func set_event_to_catch(to_catch):
 	event_to_catch = to_catch
+	$Texture._set_event_to_catch(to_catch)
 	
-func _input(event):
-	if event.is_action_pressed(event_to_catch):
-		_on_texture_button_pressed()
 
-func _on_texture_button_pressed():
+func set_volume(volume):
+	$AudioLoader.set_volume(volume)
+
+func _on_texture_pressed() -> void:
 	if current_sound != "":
 		$AudioLoader.play()
 	pressed.emit()
 
-func set_volume(volume):
-	$AudioLoader.set_volume(volume)
+
+func _on_texture_event_action_strength(strength: Variant) -> void:
+	pass
+	#print("BATUCADA BUTTON texture event action strength ")
+	#$Label.text = "strength="
+	#$Label.text += str(strength)
+
+
+func _on_texture_event_pressure(pressure: Variant) -> void:
+	#print("BATUCADA BUTTON texture event PRESSURE ") 
+	$Label.text = "pressure="
+	$Label.text += str(pressure)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://kc53kmnctf4c"]
 
-[ext_resource type="Script" path="res://tutorial.gd" id="1_ph66d"]
+[ext_resource type="Script" uid="uid://lks6ofb2al6x" path="res://tutorial.gd" id="1_ph66d"]
 [ext_resource type="Texture2D" uid="uid://c3517vg6s5p64" path="res://img/tutorial.jpeg" id="2_ergnj"]
 [ext_resource type="FontFile" uid="uid://cys6dxq8vox8v" path="res://fonts/Prisma.ttf" id="3_pfg7a"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_cs41w"]
@@ -24,6 +24,7 @@ animations = [{
 script = ExtResource("1_ph66d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(960.5, 525)
 scale = Vector2(1.20312, 1.22889)
 sprite_frames = SubResource("SpriteFrames_c8106")
@@ -31,6 +32,7 @@ sprite_frames = SubResource("SpriteFrames_c8106")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_right = 1919.0
 offset_bottom = 1077.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)

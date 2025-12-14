@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5g75l2jle23l"]
+
+[ext_resource type="Script" uid="uid://dmdkxmforb6o1" path="res://triangulo.gd" id="1_a7cl0"]
+[ext_resource type="Texture2D" uid="uid://cnve4f37cuc4c" path="res://img/triangulo.png" id="1_r57vv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7cl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r57vv"]
+
+[node name="Triangulo" type="Node2D"]
+script = ExtResource("1_a7cl0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 800.0
+offset_bottom = 795.0
+texture = ExtResource("1_r57vv")
+
+[node name="Emcima" type="Area2D" parent="."]
+position = Vector2(270, 470)
+rotation = 0.51836276
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Emcima"]
+scale = Vector2(1, 20)
+shape = SubResource("RectangleShape2D_a7cl0")
+
+[node name="Embaixo" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Embaixo"]
+position = Vector2(370, 700)
+scale = Vector2(20, 1)
+shape = SubResource("RectangleShape2D_r57vv")
+
+[connection signal="area_entered" from="Emcima" to="." method="_on_emcima_area_entered"]
+[connection signal="area_entered" from="Embaixo" to="." method="_on_embaixo_area_entered"]

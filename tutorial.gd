@@ -13,13 +13,9 @@ func _ready():
 func start():
 	$AudioLoader.set_volume(20)
 	$Label.hide()
-	$AnimatedSprite2D.play()
+	#$AnimatedSprite2D.play()
 	show()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _on_timer_timeout():
 	counter = counter+1

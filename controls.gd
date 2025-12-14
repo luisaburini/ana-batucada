@@ -15,7 +15,7 @@ var played_metronomo = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AudioLoader.set_volume(20)
-	$AnimatedSprite2D.play()
+	#$AnimatedSprite2D.play()
 	var btns = ["W", "A", "O", "L"]
 	for b in btns:
 		var obj = get_node(b)
@@ -28,9 +28,10 @@ func start():
 	was_pressed = false
 	played_metronomo = false
 	$Metronomo.hide()
-	$Tutorial.start()
-	print("Tutorial play " + "res://sounds/" + phases[current_phase] + "_MUSICA_COM_BONGO.wav")
-	$Tutorial.set_stream("res://sounds/" + phases[current_phase] + "_MUSICA_COM_BONGO.wav")
+	_on_tutorial_ended()
+	#$Tutorial.start()
+	#print("Tutorial play " + "res://sounds/" + phases[current_phase] + "_MUSICA_COM_BONGO.wav")
+	#$Tutorial.set_stream("res://sounds/" + phases[current_phase] + "_MUSICA_COM_BONGO.wav")
 	
 func next():
 	current_phase = (current_phase+1)%len(phases)

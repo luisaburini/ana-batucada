@@ -12,6 +12,12 @@ signal seta_moved
 func _ready():
 	reset()
 
+func set_music(music):
+	static_music = music
+
+func set_compassos_size(comp_size):
+	compassos_size = comp_size
+
 func reset():
 	finished = false
 	current_arrow_pos = 0

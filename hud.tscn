@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpuv23l7ugco"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_irc72"]
+[ext_resource type="Script" uid="uid://caylvj2oejk8e" path="res://hud.gd" id="1_irc72"]
 [ext_resource type="Texture2D" uid="uid://pjd4ihv31dmp" path="res://img/hud.jpg" id="2_dvmfd"]
 [ext_resource type="Texture2D" uid="uid://cquemrepff67c" path="res://img/iniciar.jpg" id="3_vq8kx"]
 [ext_resource type="AudioStream" uid="uid://cct26uumayyio" path="res://sounds/MUSICA_INICIAL_E_MENU_PAUSE_LOOP1.wav" id="4_d5481"]
@@ -9,15 +9,14 @@
 script = ExtResource("1_irc72")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = 20
 offset_right = 1933.0
 offset_bottom = 1084.0
 texture = ExtResource("2_dvmfd")
 
-[node name="Button" type="TextureButton" parent="."]
-offset_left = 751.0
-offset_top = 885.0
-offset_right = 1173.0
-offset_bottom = 1025.0
+[node name="Button" type="TouchScreenButton" parent="."]
+z_index = 1000
+position = Vector2(755, 871)
 texture_normal = ExtResource("3_vq8kx")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
