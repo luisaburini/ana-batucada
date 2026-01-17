@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://t6qfejjwvxo5"]
+[gd_scene load_steps=9 format=3 uid="uid://t6qfejjwvxo5"]
 
 [ext_resource type="Script" uid="uid://cs6rcyuifxurf" path="res://triangulo_controls.gd" id="1_onpox"]
 [ext_resource type="Texture2D" uid="uid://bncopu6cannat" path="res://img/taquaral.jpg" id="2_16bo2"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c5g75l2jle23l" path="res://triangulo.tscn" id="5_lp6sv"]
 [ext_resource type="Texture2D" uid="uid://l857iwqsuyp4" path="res://img/metronome.png" id="7_2iu38"]
 [ext_resource type="Texture2D" uid="uid://gnxejbpyyfy8" path="res://img/maozinha.png" id="8_lp6sv"]
-[ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="9_ruwoj"]
 
 [node name="TrianguloControls" type="Node2D"]
 script = ExtResource("1_onpox")
@@ -43,9 +42,6 @@ rotation = 0.25830874
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("8_lp6sv")
 
-[node name="Tutorial" parent="." instance=ExtResource("9_ruwoj")]
-visible = false
-
 [node name="Label" type="Label" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,4 +62,3 @@ theme_override_font_sizes/font_size = 70
 [connection signal="is_dragging" from="Batedor" to="." method="_on_batedor_is_dragging"]
 [connection signal="pressed" from="Metronomo" to="." method="_on_metronomo_pressed"]
 [connection signal="pressed" from="Maozinha" to="." method="_on_maozinha_pressed"]
-[connection signal="ended" from="Tutorial" to="." method="_on_tutorial_ended"]

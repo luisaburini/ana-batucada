@@ -14,7 +14,8 @@ func _on_taquaral_button_pressed() -> void:
 	$CerecampMogiana.hide()
 	$EstacaoCultura.hide()
 	$TaquaralButton.hide()
-	$CerescampMogianaButton.show()
+	$CerescampMogianaButton.hide()
+	$EstacaoCulturaButton.hide()
 
 
 func _on_cerescamp_mogiana_button_pressed() -> void:
@@ -22,7 +23,7 @@ func _on_cerescamp_mogiana_button_pressed() -> void:
 	$CerecampMogiana._start()
 	$EstacaoCultura.hide()
 	$CerescampMogianaButton.hide()
-	$EstacaoCulturaButton.show()
+	
 
 
 func _on_estacao_cultura_button_pressed() -> void:
@@ -37,6 +38,7 @@ func _on_estacao_cultura_finished() -> void:
 
 func _on_taquaral_finished() -> void:
 	$Background.show()
+	$Taquaral.hide()
 	$CerescampMogianaButton.show()
 	
 

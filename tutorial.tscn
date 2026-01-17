@@ -1,48 +1,60 @@
 [gd_scene load_steps=7 format=3 uid="uid://kc53kmnctf4c"]
 
 [ext_resource type="Script" uid="uid://lks6ofb2al6x" path="res://tutorial.gd" id="1_ph66d"]
-[ext_resource type="Texture2D" uid="uid://c3517vg6s5p64" path="res://img/tutorial.jpeg" id="2_ergnj"]
 [ext_resource type="FontFile" uid="uid://cys6dxq8vox8v" path="res://fonts/Prisma.ttf" id="3_pfg7a"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_cs41w"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rl4su"]
-atlas = ExtResource("2_ergnj")
-region = Rect2(0, 0, 1600, 900)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_c8106"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rl4su")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://401cys5ia1nv" path="res://img/tutorial-11.png" id="4_hu44a"]
+[ext_resource type="Texture2D" uid="uid://hci0708u0fxo" path="res://img/tutorial-1.png" id="5_rwowx"]
+[ext_resource type="Texture2D" uid="uid://dskb8l7snlbxg" path="res://img/tutorial-2.png" id="6_hu44a"]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_ph66d")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(960.5, 525)
-scale = Vector2(1.20312, 1.22889)
-sprite_frames = SubResource("SpriteFrames_c8106")
-
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Cena3" type="TextureRect" parent="."]
 visible = false
-offset_right = 1919.0
-offset_bottom = 1077.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+offset_top = -33.0
+offset_right = 1993.0
+offset_bottom = 1114.0
+texture = ExtResource("6_hu44a")
+
+[node name="Cena2" type="TextureRect" parent="."]
+visible = false
+offset_top = -28.0
+offset_right = 1997.0
+offset_bottom = 1114.0
+texture = ExtResource("5_rwowx")
+
+[node name="Cena1" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_hu44a")
+
+[node name="Countdown" type="Label" parent="."]
+offset_top = -37.0
+offset_right = 1993.0
+offset_bottom = 1104.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_pfg7a")
-theme_override_font_sizes/font_size = 700
+theme_override_font_sizes/font_size = 800
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioLoader" parent="." instance=ExtResource("4_cs41w")]
+[node name="TimerCena1" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerCena2" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerCena3" type="Timer" parent="."]
+one_shot = true
+
+[node name="Metronomo" parent="." instance=ExtResource("4_cs41w")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="AudioLoader" to="." method="_on_mp_3_loader_finished"]
+[connection signal="timeout" from="TimerCena1" to="." method="_on_timer_cena_1_timeout"]
+[connection signal="timeout" from="TimerCena2" to="." method="_on_timer_cena_2_timeout"]
+[connection signal="timeout" from="TimerCena3" to="." method="_on_timer_cena_3_timeout"]

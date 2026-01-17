@@ -9,9 +9,8 @@
 script = ExtResource("1_d8xlv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1923.0
+offset_bottom = 1068.0
 texture = ExtResource("1_hiewa")
 
 [node name="Controls" parent="." instance=ExtResource("3_gi3fk")]

@@ -15,12 +15,7 @@ var maozinha_solta = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Compasso.start_timer(bpms[current_phase])
-	$MetronomoLoader.load_audio("res://sounds/" + phases[current_phase] + "_METRONOMO.wav")
-	$MetronomoLoader.set_volume(30)
-	$AudioLoader.load_audio("res://sounds/" + phases[current_phase] + "_MUSICA.wav")
-	$AudioLoader.play()
-	$Metronomo.show()
+	pass
 	#$AnimatedSprite2D.play()
 	#_on_tutorial_ended()
 
@@ -30,6 +25,13 @@ func _on_batedor_is_dragging(position: Variant) -> void:
 		#print(position)
 	
 func start():
+	$Compasso.start_timer(bpms[current_phase])
+	$MetronomoLoader.load_audio("res://sounds/" + phases[current_phase] + "_METRONOMO.wav")
+	$MetronomoLoader.set_volume(30)
+	$AudioLoader.set_volume(30)
+	$AudioLoader.load_audio("res://sounds/" + phases[current_phase] + "_MUSICA.wav")
+	$AudioLoader.play()
+	$Metronomo.show()
 	was_pressed = false
 	played_metronomo = false
 	#_on_tutorial_ended()

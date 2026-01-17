@@ -1,12 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvfci3ptk4mgy"]
+[gd_scene load_steps=6 format=3 uid="uid://bvfci3ptk4mgy"]
 
 [ext_resource type="Script" uid="uid://cxsopt0v4duhr" path="res://compasso.gd" id="1_tv05q"]
 [ext_resource type="Texture2D" uid="uid://dr6s7k3lnyp0i" path="res://img/P.png" id="2_8jdos"]
+[ext_resource type="Texture2D" uid="uid://5ijo8actm2fb" path="res://img/div.png" id="3_5wpxb"]
 [ext_resource type="Texture2D" uid="uid://bgwpymfq0jqwm" path="res://img/seta.png" id="3_rn6xb"]
+[ext_resource type="Texture2D" uid="uid://cfoaqgpc24h5u" path="res://img/compasso-bg.png" id="4_yv6ax"]
 
 [node name="Compassos" type="Node2D"]
-position = Vector2(1, 10)
+position = Vector2(1, 74)
 script = ExtResource("1_tv05q")
+
+[node name="Pentagrama" type="TextureRect" parent="."]
+offset_left = -4.0
+offset_top = -51.0
+offset_right = 1916.0
+offset_bottom = 148.0
+texture = ExtResource("4_yv6ax")
+
+[node name="Div1" type="TextureRect" parent="."]
+offset_left = 436.0
+offset_top = -24.0
+offset_right = 476.0
+offset_bottom = 106.0
+texture = ExtResource("3_5wpxb")
+
+[node name="Div2" type="TextureRect" parent="."]
+offset_left = 926.0
+offset_top = -22.0
+offset_right = 966.0
+offset_bottom = 108.0
+texture = ExtResource("3_5wpxb")
+
+[node name="Div3" type="TextureRect" parent="."]
+offset_left = 1412.0
+offset_top = -24.0
+offset_right = 1452.0
+offset_bottom = 106.0
+texture = ExtResource("3_5wpxb")
 
 [node name="HBoxContainer0" type="HBoxContainer" parent="."]
 offset_left = 1.0

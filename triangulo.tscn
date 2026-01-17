@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cnve4f37cuc4c" path="res://img/triangulo.png" id="1_r57vv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7cl0"]
+size = Vector2(15.640045, 22.099813)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r57vv"]
+size = Vector2(23.35, 20)
 
 [node name="Triangulo" type="Node2D"]
 script = ExtResource("1_a7cl0")
@@ -20,13 +22,14 @@ position = Vector2(270, 470)
 rotation = 0.51836276
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Emcima"]
+position = Vector2(-2.1799316, 20.998108)
 scale = Vector2(1, 20)
 shape = SubResource("RectangleShape2D_a7cl0")
 
 [node name="Embaixo" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Embaixo"]
-position = Vector2(370, 700)
+position = Vector2(403.5, 700)
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_r57vv")
 

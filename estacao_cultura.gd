@@ -6,9 +6,11 @@ func _ready() -> void:
 	$Score.hide()
 	$Controls.hide()
 	$TextureRect.hide()
+	$Controls/AudioLoader.stop()
 	hide()
 	
 func _start() -> void:
+	print("START ESTACAO CULTURA")
 	show()
 	$TextureRect.show()
 	$Controls.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfjh6bn4m6uke"]
+[gd_scene load_steps=8 format=3 uid="uid://bfjh6bn4m6uke"]
 
 [ext_resource type="Texture2D" uid="uid://c366fispty6kc" path="res://img/controls.png" id="1_oue7u"]
 [ext_resource type="Script" uid="uid://r2gdy4kq6khg" path="res://score.gd" id="1_rfo8l"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cys6dxq8vox8v" path="res://fonts/Prisma.ttf" id="3_gtcyh"]
 [ext_resource type="Texture2D" uid="uid://viuwg36ouuic" path="res://img/repeat.png" id="5_r725l"]
 [ext_resource type="Texture2D" uid="uid://cc7x8sy5q15ks" path="res://img/next.png" id="6_0t0mf"]
+[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="7_2paxd"]
 
 [node name="Score" type="Node2D"]
 script = ExtResource("1_rfo8l")
@@ -22,8 +23,8 @@ offset_right = 1884.0
 offset_bottom = 314.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_x2jbo")
-theme_override_font_sizes/font_size = 300
-text = "Pontuação"
+theme_override_font_sizes/font_size = 82
+text = "Quer ensaiar de novo ou encarar o show?"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 660.0
@@ -50,6 +51,17 @@ offset_top = 762.0
 offset_right = 1266.0
 offset_bottom = 1018.0
 texture_normal = ExtResource("6_0t0mf")
+
+[node name="LoserLabel" type="Label" parent="."]
+visible = false
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 1919.0
+offset_bottom = 306.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_2paxd")
+theme_override_font_sizes/font_size = 136
+text = "Vamos ensaiar mais um pouco?"
 
 [connection signal="pressed" from="ResetButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

@@ -10,7 +10,7 @@ func _input(event):
 		#print("TOUCH SCREEN BUTTON ")
 		#print("event action strength")
 		#print(event.get_action_strength("down"))
-		emit_signal("event_action_strength", event.get_action_strength("down"))
+		emit_signal("event_action_strength", event.get_action_strength("pressed", true))
 		if event is InputEventMouseMotion:
 			#print("event pressure")
 			#print(event.pressure)
