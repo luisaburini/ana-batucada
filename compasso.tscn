@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvfci3ptk4mgy"]
 
 [ext_resource type="Script" uid="uid://cxsopt0v4duhr" path="res://compasso.gd" id="1_tv05q"]
-[ext_resource type="Texture2D" uid="uid://dr6s7k3lnyp0i" path="res://img/P.png" id="2_8jdos"]
 [ext_resource type="Texture2D" uid="uid://5ijo8actm2fb" path="res://img/div.png" id="3_5wpxb"]
 [ext_resource type="Texture2D" uid="uid://bgwpymfq0jqwm" path="res://img/seta.png" id="3_rn6xb"]
 [ext_resource type="Texture2D" uid="uid://cfoaqgpc24h5u" path="res://img/compasso-bg.png" id="4_yv6ax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yv6ax"]
 
 [node name="Compassos" type="Node2D"]
 position = Vector2(1, 74)
@@ -12,119 +13,10 @@ script = ExtResource("1_tv05q")
 
 [node name="Pentagrama" type="TextureRect" parent="."]
 offset_left = -4.0
-offset_top = -51.0
+offset_top = -67.0
 offset_right = 1916.0
-offset_bottom = 148.0
+offset_bottom = 192.0
 texture = ExtResource("4_yv6ax")
-
-[node name="Div1" type="TextureRect" parent="."]
-offset_left = 436.0
-offset_top = -24.0
-offset_right = 476.0
-offset_bottom = 106.0
-texture = ExtResource("3_5wpxb")
-
-[node name="Div2" type="TextureRect" parent="."]
-offset_left = 926.0
-offset_top = -22.0
-offset_right = 966.0
-offset_bottom = 108.0
-texture = ExtResource("3_5wpxb")
-
-[node name="Div3" type="TextureRect" parent="."]
-offset_left = 1412.0
-offset_top = -24.0
-offset_right = 1452.0
-offset_bottom = 106.0
-texture = ExtResource("3_5wpxb")
-
-[node name="HBoxContainer0" type="HBoxContainer" parent="."]
-offset_left = 1.0
-offset_right = 213.0
-offset_bottom = 73.0
-alignment = 1
-
-[node name="Note0" type="TextureRect" parent="HBoxContainer0"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note1" type="TextureRect" parent="HBoxContainer0"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note2" type="TextureRect" parent="HBoxContainer0"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note3" type="TextureRect" parent="HBoxContainer0"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="HBoxContainer1" type="HBoxContainer" parent="."]
-offset_left = 490.0
-offset_top = 1.0
-offset_right = 932.0
-offset_bottom = 90.0
-
-[node name="Note4" type="TextureRect" parent="HBoxContainer1"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note5" type="TextureRect" parent="HBoxContainer1"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note6" type="TextureRect" parent="HBoxContainer1"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note7" type="TextureRect" parent="HBoxContainer1"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-offset_left = 975.0
-offset_top = -1.0
-offset_right = 1425.0
-offset_bottom = 88.0
-
-[node name="Note8" type="TextureRect" parent="HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note9" type="TextureRect" parent="HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note10" type="TextureRect" parent="HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note11" type="TextureRect" parent="HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="."]
-offset_left = 1463.0
-offset_top = -1.0
-offset_right = 1907.0
-offset_bottom = 88.0
-
-[node name="Note12" type="TextureRect" parent="HBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note13" type="TextureRect" parent="HBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note14" type="TextureRect" parent="HBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
-
-[node name="Note15" type="TextureRect" parent="HBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("2_8jdos")
 
 [node name="TimerSeta" type="Timer" parent="."]
 wait_time = 0.75
@@ -133,10 +25,236 @@ wait_time = 0.75
 position = Vector2(29, -40)
 
 [node name="TextureRect" type="TextureRect" parent="Seta"]
-offset_left = -18.0
-offset_top = -18.0
-offset_right = 67.0
-offset_bottom = 50.0
+offset_left = -75.0
+offset_top = -26.0
+offset_right = 10.0
+offset_bottom = 42.0
 texture = ExtResource("3_rn6xb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seta"]
+shape = SubResource("CircleShape2D_yv6ax")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 1908.0
+offset_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Compasso0" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Note0" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note1" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note2" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note3" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note4" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note5" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note6" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note7" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note8" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note9" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note10" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note11" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note12" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note13" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note14" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Note15" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+
+[node name="Div1" type="TextureRect" parent="HBoxContainer/Compasso0"]
+layout_mode = 2
+texture = ExtResource("3_5wpxb")
+
+[node name="Compasso1" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Note0" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note1" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note2" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note3" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note4" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note5" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note6" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note7" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note8" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note9" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note10" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note11" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note12" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note13" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note14" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Note15" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+
+[node name="Div2" type="TextureRect" parent="HBoxContainer/Compasso1"]
+layout_mode = 2
+texture = ExtResource("3_5wpxb")
+
+[node name="Compasso2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Note0" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note1" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note2" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note3" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note4" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note5" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note6" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note7" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note8" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note9" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note10" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note11" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note12" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note13" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note14" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Note15" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+
+[node name="Div3" type="TextureRect" parent="HBoxContainer/Compasso2"]
+layout_mode = 2
+texture = ExtResource("3_5wpxb")
+
+[node name="Compasso3" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Note0" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note1" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note2" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note3" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note4" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note5" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note6" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note7" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note8" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note9" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note10" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note11" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note12" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note13" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note14" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
+
+[node name="Note15" type="TextureRect" parent="HBoxContainer/Compasso3"]
+layout_mode = 2
 
 [connection signal="timeout" from="TimerSeta" to="." method="_on_timer_timeout"]

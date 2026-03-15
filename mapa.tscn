@@ -18,17 +18,17 @@ offset_bottom = 1074.0
 texture = ExtResource("1_lrjei")
 
 [node name="TaquaralButton" type="TouchScreenButton" parent="."]
-position = Vector2(1438, 117)
+position = Vector2(1093.0001, 70)
 scale = Vector2(1.02564, 0.9999999)
 texture_normal = ExtResource("3_ltv3l")
 
 [node name="CerescampMogianaButton" type="TouchScreenButton" parent="."]
-position = Vector2(1068, 634)
+position = Vector2(741.00006, 633)
 scale = Vector2(1.0666647, 0.95121896)
 texture_normal = ExtResource("4_ltv3l")
 
 [node name="EstacaoCulturaButton" type="TouchScreenButton" parent="."]
-position = Vector2(1139, 919)
+position = Vector2(813.00006, 920.99994)
 scale = Vector2(0.97727126, 0.9787233)
 texture_normal = ExtResource("5_ltv3l")
 

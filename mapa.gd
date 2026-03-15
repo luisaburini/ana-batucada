@@ -1,6 +1,7 @@
 extends Node2D
 
 signal finished
+signal clicked_taquaral
 
 func _ready():
 	$Taquaral.hide()
@@ -10,6 +11,7 @@ func _ready():
 	$EstacaoCulturaButton.hide()
 
 func _on_taquaral_button_pressed() -> void:
+	clicked_taquaral.emit()
 	$Taquaral._start()
 	$CerecampMogiana.hide()
 	$EstacaoCultura.hide()

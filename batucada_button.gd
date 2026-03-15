@@ -40,14 +40,8 @@ func _on_texture_pressed() -> void:
 
 
 func _on_texture_event_action_strength(strength: Variant) -> void:
-	#print("BATUCADA BUTTON texture event action strength ")
-	#$Label.text = "strength="
-	#$Label.text += str(strength)
 	pass
 
 
 func _on_texture_event_pressure(pressure: Variant) -> void:
-	#print("BATUCADA BUTTON texture event PRESSURE ") 
-	#$Label.text = "pressure="
-	#$Label.text += str(pressure)
 	pass

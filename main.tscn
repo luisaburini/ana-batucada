@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bswq83frl8imi"]
+[gd_scene load_steps=7 format=3 uid="uid://bswq83frl8imi"]
 
 [ext_resource type="Script" uid="uid://caclqu6ci2jwj" path="res://main.gd" id="1_6bcuf"]
 [ext_resource type="PackedScene" uid="uid://bpuv23l7ugco" path="res://hud.tscn" id="2_dw5fr"]
 [ext_resource type="Texture2D" uid="uid://cini0mo1ei2ly" path="res://img/fim.png" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cub7e4ouf0kwl" path="res://img/logo.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dvtwc8fcdunxk" path="res://mapa.tscn" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://cct26uumayyio" path="res://sounds/MUSICA_INICIAL_E_MENU_PAUSE_LOOP1.wav" id="6_272bh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_6bcuf")
@@ -30,6 +31,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_7mycd")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_272bh")
+
 [connection signal="init" from="HUD" to="." method="_on_hud_init"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="clicked_taquaral" from="Map" to="." method="_on_map_clicked_taquaral"]
 [connection signal="finished" from="Map" to="." method="_on_mapa_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

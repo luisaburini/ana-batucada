@@ -14,7 +14,8 @@ func _process(delta):
 	pass
 
 func load_audio(path):
-	$AudioStreamPlayer2D.set_stream(load(path))
+	current_sound = path
+	$AudioStreamPlayer2D.set_stream(load(current_sound))
 		
 		
 func play():

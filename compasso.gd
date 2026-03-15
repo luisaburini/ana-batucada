@@ -1,12 +1,11 @@
 extends Node2D
-var current_music = "OPOWPPWPLPWLOPPP"
-var current_arrow_pos = 0
-var current_music_pos = 0
-var compassos_size = 16
-var notes_in_compasso = 4
+var current_music = []
+var current_compasso = 0
+var index_in_compasso = 0
 var finished = false
 signal ended
 signal seta_moved(current_note)
+var timer_seta_seconds = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,61 +13,146 @@ func _ready():
 
 func set_music(music):
 	current_music = music
-
-func set_compassos_size(comp_size):
-	compassos_size = comp_size
+	update_compasso()
 
 func reset():
 	$Seta.position.x = 50
 	finished = false
-	current_arrow_pos = 0
-	current_music_pos = 0
+	index_in_compasso = 0
+	current_compasso = 0
 	update_compasso()
 
-func start_timer(bpm):
-	if bpm > 0:
-		$TimerSeta.start(-1+float(60/(2*bpm)))
+func start_timer(seconds):
+	if seconds > 0:
+		timer_seta_seconds = seconds
+		$TimerSeta.start(timer_seta_seconds)
+		reset()
 	else:
-		print("BPM is invalid " + str(bpm))
+		print("Time is invalid " + str(seconds))
+
+func is_semi_colcheia(note):
+	if note == "G":
+		return true
+	return false
+
+func is_colcheia_dot(note):
+	if note == "N":
+		return true
+	return false
+
+func is_colcheia(note):
+	if note == "b" || note == "p" || note == "O":
+		return true
+	return false
+	
+func is_seminima(note):
+	if note == "B" || note == "B" || note == "C":
+		return true
+	return false
+
+var times_playing_seminima = 0
+var times_playing_colcheia_dot = 0
+var times_playing_colcheia = 0
+
 
 func _on_timer_timeout():
+	if len(current_music) == 0:
+		return
 	if !finished:
-		# update arrow position
-		current_music_pos = current_music_pos+1
-		if current_music_pos < len(current_music):
-			current_arrow_pos = (current_arrow_pos+1)%compassos_size
-			var note = get_note(current_music_pos)
-			if note != null:
-				$Seta.position.x = note.global_position.x+50
-				seta_moved.emit(str(current_music[current_music_pos]))
-				if current_arrow_pos == 0:
-					update_compasso()
-		else:
+		#print(current_music[current_compasso][index_in_compasso])
+		if is_seminima(current_music[current_compasso][index_in_compasso]) &&  times_playing_seminima < 4:
+			times_playing_seminima = times_playing_seminima+1
+			return
+		
+		if is_colcheia_dot(current_music[current_compasso][index_in_compasso]) && times_playing_colcheia_dot < 3:
+			times_playing_colcheia_dot = times_playing_colcheia_dot+1
+			return
+			
+		if is_colcheia(current_music[current_compasso][index_in_compasso]) && times_playing_colcheia < 2:
+			times_playing_colcheia = times_playing_colcheia+1
+			return
+		
+		index_in_compasso = index_in_compasso+1
+		times_playing_seminima = 0
+		times_playing_colcheia = 0
+		times_playing_colcheia_dot = 0
+		
+		if index_in_compasso == len(current_music[current_compasso]):
+			index_in_compasso = 0
+			current_compasso = current_compasso+1
+		
+		if current_compasso == len(current_music):
 			finished = true
 			$TimerSeta.stop()
 			ended.emit()
+			return
+		
+		
+		var note = get_current_note() 
+		if note != null:
+			$Seta.position.x = note.global_position.x+52
+			seta_moved.emit(str(current_music[current_compasso][index_in_compasso]))
+			if current_compasso > 0 && current_compasso%4 == 0:
+				update_compasso()
+		else:
+			print("GET CURRENT NOTE IS NULL")
+	else:
+		finished = true
+		$TimerSeta.stop()
+		ended.emit()
 
 func get_previous_note():
-	if current_music_pos > 0:
-		return current_music[current_music_pos-1]
+	if index_in_compasso == 0 && current_compasso > 0:
+		return current_music[current_compasso-1][len(current_music[current_compasso-1])-1]
+	if current_compasso < len(current_music) && index_in_compasso < len(current_music[current_compasso]):
+		return current_music[current_compasso][index_in_compasso-1]
 	return "P"
 
-
-func get_note(i):
-	var hbox_index = int(i/notes_in_compasso)%notes_in_compasso
-	if has_node("HBoxContainer" + str(hbox_index)):
-		var parent = get_node("HBoxContainer" + str(hbox_index))
-		var index = (notes_in_compasso*((i/notes_in_compasso)%compassos_size)+current_music_pos%notes_in_compasso)%compassos_size
-		if parent.has_node("Note" + str(index)):
-			return parent.get_node("Note" + str(index))
-	return null
+func get_current_note_name():
+	if current_compasso < len(current_music) && index_in_compasso < len(current_music[current_compasso]):
+		return current_music[current_compasso][index_in_compasso]
+	return "P"
 
 func get_current_note():
-	if current_music_pos < len(current_music):
-		return current_music[current_music_pos]
-	return "P"
+	var pentagrama = get_node("HBoxContainer")
+	if pentagrama.has_node("Compasso" + str(current_compasso%4)):
+		var parent = pentagrama.get_node("Compasso" + str(current_compasso%4))
+		
+		if parent.has_node("Note" + str(index_in_compasso)):
+			return parent.get_node("Note" + str(index_in_compasso))
+	return null
+
 
 func update_compasso():
+	if current_music == null:
+		return 
+	if len(current_music) == 0:
+		return
+	
+	var pentagrama = get_node("HBoxContainer")
+	if pentagrama == null:
+		return
+	
+	
+	for i in range (0, 4):
+		var compasso_nome = "Compasso" + str(i)
+		if pentagrama.has_node(compasso_nome):
+			var compasso = pentagrama.get_node(compasso_nome)
+			for j in range (0, 15):
+				if current_compasso+i < len(current_music):
+					if compasso.has_node("Note"+str(j)):
+						var note = compasso.get_node("Note"+str(j))
+						if j < len(current_music[current_compasso+i]):
+							note.texture = load("res://img/"+current_music[current_compasso+i][j] +".png")
+						continue
+				var note = compasso.get_node("Note"+str(j))
+				note.texture = load("")
+				
+			
+	if current_compasso >= len(current_music):
+		return
+		
+	var notes_in_compasso = len(current_music[current_compasso])
 	for i in range(notes_in_compasso+1):
 		if has_node("HBoxContainer" + str(i)):
 			var parent = get_node("HBoxContainer" + str(i))
@@ -77,8 +161,7 @@ func update_compasso():
 				if parent.has_node("Note" + str(index)):
 					if index < len(current_music):
 						var note = parent.get_node("Note" + str(index))
-						var texture_index = current_music_pos+ notes_in_compasso*i + j
-						note.texture = load("res://img/"+ current_music[texture_index] +".png")
+						note.texture = load("res://img/"+ current_music[current_compasso][index_in_compasso] +".png")
 					else:
 						var empty_node = "P"
 						var note = parent.get_node("Note" + str(index))

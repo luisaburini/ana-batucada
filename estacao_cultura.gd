@@ -6,7 +6,6 @@ func _ready() -> void:
 	$Score.hide()
 	$Controls.hide()
 	$TextureRect.hide()
-	$Controls/AudioLoader.stop()
 	hide()
 	
 func _start() -> void:
@@ -16,9 +15,6 @@ func _start() -> void:
 	$Controls.show()
 	$Controls.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_controls_ended() -> void:
 	$Controls.end()

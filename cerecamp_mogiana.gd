@@ -3,7 +3,6 @@ extends Node2D
 signal finished
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Controls/AudioLoader.stop()
 	$Score.hide()
 	$Controls.hide()
 	$TextureRect.hide()
@@ -14,10 +13,6 @@ func _start() -> void:
 	$Controls.show()
 	$Controls.start()
 	$TextureRect.show()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_controls_ended() -> void:

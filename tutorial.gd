@@ -1,31 +1,37 @@
 extends Node2D
 
 var counter = 0
-var max = 5
 var current_sound = ""
 signal ended
 signal countdown_show
 var show_telas = true
+var first_screen = "res://img/tutorial1.png"
+var second_screen = "res://img/tutorial2.png"
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
+func set_first_screen(f):
+	first_screen = f
+
+func set_second_screen(s):
+	second_screen = s
+
 func start():
+	counter = 0
 	$TimerCena1.set_one_shot(true)
 	$TimerCena2.set_one_shot(true)
-	$TimerCena3.set_one_shot(true)
-	$Metronomo.set_volume(50)
-	$Metronomo.load_audio("res://sounds/FASE1_60BPM_METRONOMO.wav")
+	$Cena1.show()
 	if show_telas:
-		$Cena1.show()
-		$Cena2.hide()
-		$Cena3.hide()
+		$Cena1.texture = load(first_screen)
 		$TimerCena1.start(3)
 		$Countdown.hide()
 	else:
-		_on_timer_cena_3_timeout()
+		$Cena1.hide()
+		$Countdown.show()
+		$Timer.start()
 	show()
 
 func set_show_telas(new_show_telas):
@@ -36,11 +42,10 @@ func set_show_telas(new_show_telas):
 
 func _on_timer_timeout():
 	counter = counter+1
-	if counter < max:
+	if counter < 5:
 		$Countdown.text = str(counter)
 		$Timer.start()
 		return
-	$Metronomo.stop()
 	countdown_show.emit()
 	ended.emit()
 	hide()
@@ -49,21 +54,11 @@ func _on_timer_timeout():
 
 
 func _on_timer_cena_1_timeout() -> void:
-	$Cena1.hide()
-	$Cena2.show()
+	$Cena1.texture = load(second_screen)
 	$TimerCena2.start(3)
 
 
 func _on_timer_cena_2_timeout() -> void:
-	$Cena2.hide()
-	$Cena3.show()
-	$TimerCena3.start(3)
-
-
-func _on_timer_cena_3_timeout() -> void:
-	$Cena3.hide()
+	$Cena1.hide()
 	$Countdown.show()
 	$Timer.start()
-	print("Metronomo play")
-	$Metronomo.play()
-	
