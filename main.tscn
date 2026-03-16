@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cini0mo1ei2ly" path="res://img/fim.png" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cub7e4ouf0kwl" path="res://img/logo.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dvtwc8fcdunxk" path="res://mapa.tscn" id="6_7mycd"]
-[ext_resource type="AudioStream" uid="uid://cct26uumayyio" path="res://sounds/MUSICA_INICIAL_E_MENU_PAUSE_LOOP1.wav" id="6_272bh"]
+[ext_resource type="AudioStream" uid="uid://dxspstjsg1022" path="res://sounds/TEMA_AB.mp3" id="6_272bh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_6bcuf")

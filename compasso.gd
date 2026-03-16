@@ -109,7 +109,7 @@ func get_previous_note():
 	return "P"
 
 func get_current_note_name():
-	if current_compasso < len(current_music) && index_in_compasso < len(current_music[current_compasso]):
+	if current_music != null && current_compasso < len(current_music) && index_in_compasso < len(current_music[current_compasso]):
 		return current_music[current_compasso][index_in_compasso]
 	return "P"
 

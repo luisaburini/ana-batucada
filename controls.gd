@@ -161,9 +161,11 @@ func _on_compasso_ended():
 		$TouchBumbo1.hide()
 		$Tutorial.set_first_screen("res://img/tutorial-conga1.png")
 		$Tutorial.set_second_screen("res://img/tutorial-conga2.png")
+		$Tutorial.set_show_telas(true)
 		$Tutorial.start()
 		$PreJogo.set_first_screen("res://img/pre-jogo-conga1.png")
 		$PreJogo.set_second_screen("res://img/pre-jogo-conga2.png")
+		$PreJogo.set_show_telas(true)
 		$bumbo1.hide()
 		var btns = ["conga1", "conga2", "conga3", "conga4"]
 		init_phase_buttons(btns)
