@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b41pgt4p0nncy"
-path="res://.godot/imported/N.png-11ea1b62856712eb42f742c3f1eb7be2.ctex"
+uid="uid://cpinom81dtxfd"
+path="res://.godot/imported/touch_double.png-e6c3513d5545f75fb222cda027d178b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/N.png"
-dest_files=["res://.godot/imported/N.png-11ea1b62856712eb42f742c3f1eb7be2.ctex"]
+source_file="res://img/touch_double.png"
+dest_files=["res://.godot/imported/touch_double.png-e6c3513d5545f75fb222cda027d178b9.ctex"]
 
 [params]
 

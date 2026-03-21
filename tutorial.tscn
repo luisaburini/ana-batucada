@@ -1,28 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://kc53kmnctf4c"]
+[gd_scene load_steps=5 format=3 uid="uid://kc53kmnctf4c"]
 
 [ext_resource type="Script" uid="uid://lks6ofb2al6x" path="res://tutorial.gd" id="1_ph66d"]
 [ext_resource type="Texture2D" uid="uid://b5j5svjn40n67" path="res://img/tutorial1.png" id="2_ehuit"]
-[ext_resource type="FontFile" uid="uid://cys6dxq8vox8v" path="res://fonts/Prisma.ttf" id="3_pfg7a"]
+[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="3_ehuit"]
+[ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_5mrt3"]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_ph66d")
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
+wait_time = 0.4
 
 [node name="Cena1" type="TextureRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_ehuit")
 
 [node name="Countdown" type="Label" parent="."]
-visible = false
 offset_left = 4.0
 offset_top = -2.0
 offset_right = 1916.0
 offset_bottom = 1102.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_pfg7a")
+theme_override_fonts/font = ExtResource("3_ehuit")
 theme_override_font_sizes/font_size = 800
 text = "1"
 horizontal_alignment = 1
@@ -33,6 +34,8 @@ one_shot = true
 
 [node name="TimerCena2" type="Timer" parent="."]
 one_shot = true
+
+[node name="ClickAudio" parent="." instance=ExtResource("4_5mrt3")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerCena1" to="." method="_on_timer_cena_1_timeout"]

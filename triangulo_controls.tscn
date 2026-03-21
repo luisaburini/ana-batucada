@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://t6qfejjwvxo5"]
+[gd_scene load_steps=11 format=3 uid="uid://t6qfejjwvxo5"]
 
 [ext_resource type="Script" uid="uid://cs6rcyuifxurf" path="res://triangulo_controls.gd" id="1_onpox"]
 [ext_resource type="Texture2D" uid="uid://bncopu6cannat" path="res://img/taquaral.jpg" id="2_16bo2"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="3_dusqt"]
 [ext_resource type="PackedScene" uid="uid://chcrvuwqhrsb5" path="res://touchscreen_scene.tscn" id="4_dusqt"]
 [ext_resource type="PackedScene" uid="uid://c5g75l2jle23l" path="res://triangulo.tscn" id="5_lp6sv"]
-[ext_resource type="Texture2D" uid="uid://l857iwqsuyp4" path="res://img/metronome.png" id="7_2iu38"]
 [ext_resource type="Texture2D" uid="uid://gnxejbpyyfy8" path="res://img/maozinha.png" id="8_lp6sv"]
+[ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="8_ruwoj"]
+[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="9_ruwoj"]
+[ext_resource type="Texture2D" uid="uid://b12btamidxavx" path="res://img/stars.png" id="10_oh1e3"]
 
 [node name="TrianguloControls" type="Node2D"]
 script = ExtResource("1_onpox")
@@ -22,43 +24,59 @@ texture = ExtResource("2_16bo2")
 [node name="Compasso" parent="." instance=ExtResource("3_dusqt")]
 position = Vector2(19, 74)
 
-[node name="MetronomoLoader" parent="." instance=ExtResource("2_b6gyb")]
-
 [node name="Triangulo" parent="." instance=ExtResource("5_lp6sv")]
-position = Vector2(547, 19)
+position = Vector2(543, 128)
 
 [node name="Batedor" parent="." instance=ExtResource("4_dusqt")]
-position = Vector2(375, 575)
-
-[node name="AudioLoader" parent="." instance=ExtResource("2_b6gyb")]
-
-[node name="Metronomo" type="TouchScreenButton" parent="."]
-position = Vector2(1620, 838)
-texture_normal = ExtResource("7_2iu38")
+position = Vector2(452, 665)
 
 [node name="Maozinha" type="TouchScreenButton" parent="."]
-position = Vector2(987.9999, 256.99997)
+position = Vector2(1017.99994, 360)
 rotation = 0.25830874
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("8_lp6sv")
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 782.0
-offset_top = 934.0
-offset_right = 1074.0
-offset_bottom = 1030.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 70
+[node name="AudioMestra" parent="." instance=ExtResource("2_b6gyb")]
+
+[node name="AudioSemSolo" parent="." instance=ExtResource("2_b6gyb")]
+
+[node name="Tutorial" parent="." instance=ExtResource("8_ruwoj")]
+visible = false
+
+[node name="Pontuacao" type="Label" parent="."]
+offset_left = 1628.0
+offset_top = 506.0
+offset_right = 1847.0
+offset_bottom = 684.0
+size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("9_ruwoj")
+theme_override_font_sizes/font_size = 120
+text = "0%"
+
+[node name="PreJogo" parent="." instance=ExtResource("8_ruwoj")]
+visible = false
+
+[node name="BrilhoEmcima" type="TextureRect" parent="."]
+offset_left = 613.0
+offset_top = 459.0
+offset_right = 869.0
+offset_bottom = 715.0
+texture = ExtResource("10_oh1e3")
+
+[node name="BrilhoEmbaixo" type="TextureRect" parent="."]
+offset_left = 830.0
+offset_top = 750.0
+offset_right = 1086.0
+offset_bottom = 1006.0
+texture = ExtResource("10_oh1e3")
 
 [connection signal="ended" from="Compasso" to="." method="_on_compasso_ended"]
 [connection signal="seta_moved" from="Compasso" to="." method="_on_compasso_seta_moved"]
-[connection signal="finished" from="MetronomoLoader" to="." method="_on_metronomo_loader_finished"]
 [connection signal="entered_embaixo" from="Triangulo" to="." method="_on_triangulo_entered_embaixo"]
 [connection signal="entered_emcima" from="Triangulo" to="." method="_on_triangulo_entered_emcima"]
 [connection signal="is_dragging" from="Batedor" to="." method="_on_batedor_is_dragging"]
-[connection signal="pressed" from="Metronomo" to="." method="_on_metronomo_pressed"]
 [connection signal="pressed" from="Maozinha" to="." method="_on_maozinha_pressed"]
+[connection signal="countdown_show" from="Tutorial" to="." method="_on_tutorial_countdown_show"]
+[connection signal="ended" from="Tutorial" to="." method="_on_tutorial_ended"]
+[connection signal="countdown_show" from="PreJogo" to="." method="_on_pre_jogo_countdown_show"]
+[connection signal="ended" from="PreJogo" to="." method="_on_pre_jogo_ended"]

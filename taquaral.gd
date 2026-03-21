@@ -6,15 +6,23 @@ var current_phase = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Background.hide()
-	$Controls.hide()
+	$FunkMPCControls.hide()
+	$FunkTrianguloControls.hide()
 
 func _start() -> void:
 	show()
 	$Background.show()
-	$Controls.show()
-	$Controls.start()
+	$FunkMPCControls.show()
+	$FunkMPCControls.start()
 
 
 func _on_controls_ended() -> void:
-	$Controls.end()
-	$Controls.hide()
+	$FunkMPCControls.end()
+	$FunkMPCControls.hide()
+	$FunkTrianguloControls.show()
+	$FunkTrianguloControls.start()
+	
+
+
+func _on_funk_triangulo_controls_ended() -> void:
+	finished.emit()

@@ -12,10 +12,10 @@ position = Vector2(1, 74)
 script = ExtResource("1_tv05q")
 
 [node name="Pentagrama" type="TextureRect" parent="."]
-offset_left = -4.0
-offset_top = -67.0
-offset_right = 1916.0
-offset_bottom = 192.0
+offset_left = -18.0
+offset_top = -48.0
+offset_right = 1902.0
+offset_bottom = 211.0
 texture = ExtResource("4_yv6ax")
 
 [node name="TimerSeta" type="Timer" parent="."]

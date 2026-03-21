@@ -4,85 +4,84 @@
 [ext_resource type="Texture2D" uid="uid://cmi8p5pnb7xu6" path="res://img/mpc.png" id="3_cf7nr"]
 [ext_resource type="PackedScene" uid="uid://2r2auob8mpde" path="res://batucada_button.tscn" id="4_42pi2"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="5_abkn8"]
-[ext_resource type="FontFile" uid="uid://cys6dxq8vox8v" path="res://fonts/Prisma.ttf" id="7_r7hve"]
+[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="5_dob1i"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="8_he8l4"]
 [ext_resource type="Texture2D" uid="uid://be633cs8a02yc" path="res://img/touch.png" id="9_hkas0"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="9_kpabq"]
 
-[node name="FunkControls" type="Node2D"]
+[node name="FunkMPCControls" type="Node2D"]
 script = ExtResource("1_qbcre")
 
 [node name="MPCBackground" type="TextureRect" parent="."]
-offset_left = 347.0
-offset_top = 716.0
-offset_right = 1529.0
-offset_bottom = 1107.0
+offset_left = 459.0
+offset_top = 797.0
+offset_right = 1374.0
+offset_bottom = 1097.0
 texture = ExtResource("3_cf7nr")
 
 [node name="bumbo1" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(910, 787)
+position = Vector2(878, 903)
 
 [node name="conga1" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(607, 877)
+position = Vector2(601, 966)
 
 [node name="conga2" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(722, 844)
+position = Vector2(739, 924)
 
 [node name="conga3" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(1103, 837)
+position = Vector2(1022, 930)
 
 [node name="conga4" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(1226, 869)
+position = Vector2(1152, 974)
 
 [node name="Compasso" parent="." instance=ExtResource("5_abkn8")]
 position = Vector2(15, 40)
 
 [node name="Pontuacao" type="Label" parent="."]
-visible = false
 offset_left = 1565.0
 offset_top = 440.0
 offset_right = 1804.0
 offset_bottom = 579.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_r7hve")
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("5_dob1i")
+theme_override_font_sizes/font_size = 120
 text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TouchBumbo1" type="TextureRect" parent="."]
-offset_left = 891.0
-offset_top = 767.0
-offset_right = 1019.0
-offset_bottom = 895.0
+offset_left = 859.0
+offset_top = 879.0
+offset_right = 987.0
+offset_bottom = 1007.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga1" type="TextureRect" parent="."]
-offset_left = 587.0
-offset_top = 858.0
-offset_right = 715.0
-offset_bottom = 986.0
+offset_left = 583.0
+offset_top = 942.0
+offset_right = 711.0
+offset_bottom = 1070.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga2" type="TextureRect" parent="."]
-offset_left = 704.0
-offset_top = 825.0
-offset_right = 832.0
-offset_bottom = 953.0
+offset_left = 721.0
+offset_top = 902.0
+offset_right = 849.0
+offset_bottom = 1030.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga3" type="TextureRect" parent="."]
-offset_left = 1081.0
-offset_top = 816.0
-offset_right = 1209.0
-offset_bottom = 944.0
+offset_left = 1000.0
+offset_top = 908.0
+offset_right = 1128.0
+offset_bottom = 1036.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga4" type="TextureRect" parent="."]
-offset_left = 1208.0
-offset_top = 848.0
-offset_right = 1336.0
-offset_bottom = 976.0
+offset_left = 1134.0
+offset_top = 957.0
+offset_right = 1262.0
+offset_bottom = 1085.0
 texture = ExtResource("9_hkas0")
 
 [node name="Tutorial" parent="." instance=ExtResource("8_he8l4")]

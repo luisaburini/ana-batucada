@@ -31,7 +31,7 @@ func start_timer(seconds):
 		print("Time is invalid " + str(seconds))
 
 func is_semi_colcheia(note):
-	if note == "G":
+	if note == "G" || note == "T" || note == "R":
 		return true
 	return false
 

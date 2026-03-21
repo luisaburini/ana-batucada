@@ -11,7 +11,8 @@ var second_screen = "res://img/tutorial2.png"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$ClickAudio.set_volume(40)
+	$ClickAudio.load_audio("res://sounds/FASE1/CLICK.mp3")
 
 func set_first_screen(f):
 	first_screen = f
@@ -39,6 +40,7 @@ func set_show_telas(new_show_telas):
 	counter = 0
 	$Countdown.text = "1"
 	
+	
 
 func _on_timer_timeout():
 	counter = counter+1
@@ -51,6 +53,7 @@ func _on_timer_timeout():
 	hide()
 	$Timer.set_one_shot(true)
 	$Timer.stop()
+	$ClickAudio.stop()
 
 
 func _on_timer_cena_1_timeout() -> void:
@@ -60,5 +63,6 @@ func _on_timer_cena_1_timeout() -> void:
 
 func _on_timer_cena_2_timeout() -> void:
 	$Cena1.hide()
+	$ClickAudio.play()
 	$Countdown.show()
 	$Timer.start()
