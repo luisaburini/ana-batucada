@@ -35,7 +35,7 @@ position = Vector2(1022, 930)
 position = Vector2(1152, 974)
 
 [node name="Compasso" parent="." instance=ExtResource("5_abkn8")]
-position = Vector2(15, 40)
+position = Vector2(15, 13)
 
 [node name="Pontuacao" type="Label" parent="."]
 offset_left = 1565.0

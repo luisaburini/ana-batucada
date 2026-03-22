@@ -18,5 +18,7 @@ position = Vector2(-2, -2)
 
 [node name="FunkTrianguloControls" parent="." instance=ExtResource("4_v1in7")]
 
+[connection signal="bumbo_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_bumbo_ended"]
+[connection signal="conga_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_conga_ended"]
 [connection signal="ended" from="FunkMPCControls" to="." method="_on_controls_ended"]
 [connection signal="ended" from="FunkTrianguloControls" to="." method="_on_funk_triangulo_controls_ended"]

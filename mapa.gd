@@ -4,6 +4,7 @@ signal finished
 signal clicked_taquaral
 
 func _ready():
+	$Score.hide()
 	$Taquaral.hide()
 	$CerecampMogiana.hide()
 	$EstacaoCultura.hide()
@@ -39,12 +40,20 @@ func _on_estacao_cultura_finished() -> void:
 
 
 func _on_taquaral_finished() -> void:
-	$Background.show()
 	$Taquaral.hide()
-	$CerescampMogianaButton.show()
-	
-
+	var bumbo = $Taquaral.get_pontos_bumbo()
+	var conga = $Taquaral.get_pontos_conga()
+	var triangulo = $Taquaral.get_pontos_triangulo()
+	$Score.set_pontos(bumbo, conga, triangulo)
+	$Score.show()
+	$ScoreTimer.start(3)
 
 func _on_cerecamp_mogiana_finished() -> void:
 	$Background.show()
 	$EstacaoCulturaButton.show()
+
+
+func _on_score_timer_timeout() -> void:
+	$Score.hide()
+	$Background.show()
+	$CerescampMogianaButton.show()

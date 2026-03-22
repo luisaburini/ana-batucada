@@ -5,18 +5,20 @@ var index_in_compasso = 0
 var finished = false
 signal ended
 signal seta_moved(current_note)
-var timer_seta_seconds = 1
+var note_width = 52
+var _is_playing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset()
 
 func set_music(music):
+	current_music = []
 	current_music = music
-	update_compasso()
+	reset()
 
 func reset():
-	$Seta.position.x = 50
+	$Seta.position.x = note_width
 	finished = false
 	index_in_compasso = 0
 	current_compasso = 0
@@ -24,29 +26,30 @@ func reset():
 
 func start_timer(seconds):
 	if seconds > 0:
-		timer_seta_seconds = seconds
-		$TimerSeta.start(timer_seta_seconds)
+		$TimerSeta.autostart = true
+		_is_playing = true
+		$TimerSeta.start(seconds)
 		reset()
 	else:
 		print("Time is invalid " + str(seconds))
 
 func is_semi_colcheia(note):
-	if note == "G" || note == "T" || note == "R":
+	if note == "3" || note == "4" || note == "5" || note == "T" || note == "R":
 		return true
 	return false
 
 func is_colcheia_dot(note):
-	if note == "N":
+	if note == "8":
 		return true
 	return false
 
 func is_colcheia(note):
-	if note == "b" || note == "p" || note == "O":
+	if note == "b" || note == "p" || note == "2"  || note == "7":
 		return true
 	return false
 	
 func is_seminima(note):
-	if note == "B" || note == "B" || note == "C":
+	if note == "B" || note == "1" || note == "6":
 		return true
 	return false
 
@@ -55,11 +58,13 @@ var times_playing_colcheia_dot = 0
 var times_playing_colcheia = 0
 
 
+func is_playing():
+	return _is_playing
+
 func _on_timer_timeout():
 	if len(current_music) == 0:
 		return
 	if !finished:
-		#print(current_music[current_compasso][index_in_compasso])
 		if is_seminima(current_music[current_compasso][index_in_compasso]) &&  times_playing_seminima < 4:
 			times_playing_seminima = times_playing_seminima+1
 			return
@@ -84,13 +89,13 @@ func _on_timer_timeout():
 		if current_compasso == len(current_music):
 			finished = true
 			$TimerSeta.stop()
+			_is_playing = false
 			ended.emit()
 			return
 		
-		
 		var note = get_current_note() 
 		if note != null:
-			$Seta.position.x = note.global_position.x+52
+			$Seta.position.x = note.global_position.x+note_width
 			seta_moved.emit(str(current_music[current_compasso][index_in_compasso]))
 			if current_compasso > 0 && current_compasso%4 == 0:
 				update_compasso()
@@ -122,6 +127,9 @@ func get_current_note():
 			return parent.get_node("Note" + str(index_in_compasso))
 	return null
 
+
+func set_note_width(nw):
+	note_width = nw
 
 func update_compasso():
 	if current_music == null:

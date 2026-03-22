@@ -2,11 +2,14 @@ extends Node2D
 
 signal ended
 signal hide_next
-var phases = ["BUMBO", "CONGAS"]
+signal bumbo_ended(pontos)
+signal conga_ended(pontos)
+
+var instruments = ["BUMBO", "CONGAS"]
+var current_instrument = 0
+
 var btn_color = ["red", "blue", "green"]
 
-
-var current_phase = 0
 var pontos = 0
 var was_pressed = false
 var total_notas = 0
@@ -25,33 +28,42 @@ var bumbo_compasso69 = "BPpbpb"
 var bumbo_compasso70 = "BPbbP"
 var bumbo_compasso71 = "BPpbpb"
 
-# 1 - 1 tempo (seminima) de conga
-# 2 - meio tempo (colcheia) de conga
-# 3 - meio tempo (colcheia) mais meio de conga
-# 4 - um quarto de tempo (semicolcheia) de conga
-var conga_compasso1 = "41p1p4132"
-var conga_compasso2 = "41p1414"
-var conga_compasso3 = "41p1p4132"
-var conga_compasso4 = "41o1414"
-var conga_compasso5 = "41p1p4132"
-var conga_compasso6 = "41p13241"
-var conga_compasso7 = "41p1p132"
-var conga_compasso8 = "41p13241"
+# CONGA 1 - 1 - 1 tempo (seminima) de conga 1
+# CONGA 1 - 2 - meio tempo (colcheia) de conga 1
+# CONGA 1 - 3 - 1 quarto tempo (semicolcheia) de conga 1
+
+# CONGA 2 - 4 - um quarto de tempo (semicolcheia) de conga 2
+
+# CONGA 3 - 5 - um quarto de tempo (semicolcheia) de conga 3
+
+# CONGA 4 - 6 - 1 tempo (seminima) de conga 4
+# CONGA 4 - 7 - meio tempo (colcheia) de conga 4
+# CONGA 4 - 8 - 3 quartos de tempo de conga 4
+
+
+var conga_compasso1 = "83p2p7254"
+var conga_compasso2 = "83p2726"
+var conga_compasso3 = "83p2p7254"
+var conga_compasso4 = "83p2726"
+var conga_compasso5 = "83p2p7254"
+var conga_compasso6 = "83p25471"
+var conga_compasso7 = "83p2p7254"
+var conga_compasso8 = "83p25471"
 
 func music_according_to_phase():
-	if current_phase == 0:
+	if current_instrument == 0:
 		return  [bumbo_compasso65, bumbo_compasso66,	 bumbo_compasso67,	 bumbo_compasso68,
 				 bumbo_compasso69, bumbo_compasso70, bumbo_compasso71]
-	if current_phase == 1:
+	if current_instrument == 1:
 		return [conga_compasso1, conga_compasso2, conga_compasso3, conga_compasso4,
 				conga_compasso5, conga_compasso6, conga_compasso7, conga_compasso8]
 
 func current_audio_sem_solo():
-	return "res://sounds/FASE1/LOOPS_SEM_OS_SOLOS/LOOP_SEM_" + phases[current_phase] + ".mp3"
+	return "res://sounds/FASE1/LOOPS_SEM_OS_SOLOS/LOOP_SEM_" + instruments[current_instrument] + ".mp3"
 
 
 func current_audio_mestra():
-	return "res://sounds/FASE1/INSTRUMENTOS_SOLO/" + phases[current_phase] + "_SOLO.mp3"
+	return "res://sounds/FASE1/INSTRUMENTOS_SOLO/" + instruments[current_instrument] + "_SOLO.mp3"
 
 var showed_bumbo1 = false
 # Called when the node enters the scene tree for the first time.
@@ -62,7 +74,7 @@ func _ready():
 	$conga4.hide()
 	hide_all_touch()
 	$Compasso.set_music(music_according_to_phase())
-	if current_phase == 0:
+	if current_instrument == 0:
 		$TouchBumbo1.texture = load("res://img/touch.png")
 		$TouchBumbo1.show()
 		var btns = ["bumbo1"]
@@ -78,10 +90,8 @@ func init_phase_buttons(btns):
 	for b in btns:
 		i = i+1
 		var obj = get_node(b)
-		obj.set_stream("res://sounds/FASE1/INSTRUMENTOS_ONE_SHOT/" + phases[current_phase] + "/" + phases[current_phase] + str(i) + ".mp3")
-		obj.set_texture("res://img/mpc-button-" + btn_color[current_phase] +".png")
-		#obj.set_event_to_catch("pressed_b")
-		#obj.set_event_to_catch("pressed_B")
+		obj.set_stream("res://sounds/FASE1/INSTRUMENTOS_ONE_SHOT/" + instruments[current_instrument] + "/" + instruments[current_instrument] + str(i) + ".mp3")
+		obj.set_texture("res://img/mpc-button-" + btn_color[current_instrument] +".png")
 		obj.set_volume(30)
 		obj.show()
 	
@@ -90,7 +100,7 @@ func start():
 	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(10)
-	if current_phase >= len(phases):
+	if current_instrument >= len(instruments):
 		ended.emit()
 		return
 	was_pressed = false
@@ -99,11 +109,11 @@ func start():
 		$Compasso.set_music(music_according_to_phase())
 		$Compasso.reset()
 
-func set_phase(phase):
-	current_phase = phase
+func set_instrument(i):
+	current_instrument = i
 	
-func get_phase():
-	return current_phase
+func get_instrument():
+	return current_instrument
 	
 func next():
 	$Compasso.reset()
@@ -123,17 +133,18 @@ func reset():
 	$Compasso.reset()
 	$Compasso.show()
 	$MPCBackground.show()
-	if current_phase == 0:
+	if current_instrument == 0:
 		$bumbo1.show()
 		$TouchBumbo1.show()
 	start()
 	show()
 
 func update_pontos():
-	pontos = pontos+1
-	if total_notas > 0:
-		$Pontuacao.text = str(get_percent()) + "%"
-	was_pressed = true
+	if $Compasso.is_playing() && !was_pressed: 
+		pontos = pontos+1
+		if total_notas > 0:
+			$Pontuacao.text = str(get_percent()) + "%"
+		was_pressed = true
 
 var must_leave = false
 
@@ -143,16 +154,22 @@ func _on_compasso_ended():
 		must_leave = true
 		pontos = 0
 		$Pontuacao.text = "0%"
-		if current_phase == 0:
+		if current_instrument == 0:
 			$PreJogo.set_first_screen("res://img/pre-jogo1.png")
 			$PreJogo.set_second_screen("res://img/pre-jogo2.png")
-		if current_phase == 1:
+		if current_instrument == 1:
 			$PreJogo.set_first_screen("res://img/pre-jogo-conga1.png")
 			$PreJogo.set_second_screen("res://img/pre-jogo-conga2.png")
 		$PreJogo.show()
 		$PreJogo.start()
 		return
-	current_phase = current_phase+1
+		
+	if current_instrument == 0: 
+		bumbo_ended.emit(get_percent())
+	if current_instrument == 1:
+		conga_ended.emit(get_percent())
+		
+	current_instrument = current_instrument+1
 	$AudioMestra.stop()
 	$AudioSemSolo.stop()
 	tutorial_ended = false
@@ -162,8 +179,9 @@ func _on_compasso_ended():
 	$Compasso.set_music(music_according_to_phase())
 	$Compasso.reset()
 	
-	if current_phase == 1:
+	if current_instrument == 1:
 		# Start conga
+		$Compasso.set_note_width(42)
 		$Pontuacao.hide()
 		$TouchBumbo1.hide()
 		$Tutorial.set_first_screen("res://img/tutorial-conga1.png")
@@ -175,7 +193,7 @@ func _on_compasso_ended():
 		$TouchConga4.show()
 		var btns = ["conga1", "conga2", "conga3", "conga4"]
 		init_phase_buttons(btns)
-	if current_phase == 2:
+	if current_instrument == 2:
 		end()
 		ended.emit()
 		return
@@ -205,16 +223,16 @@ func update_touch(note):
 		showed_bumbo1 = !showed_bumbo1
 		$TouchBumbo1.show()
 		return
-	if note == "1":
+	if note == "1" || note == "2" || note == "3":
 		$TouchConga1.show()
 		return
-	if note == "2":
+	if note == "4":
 		$TouchConga2.show()
 		return
-	if note == "3":
+	if note == "5":
 		$TouchConga3.show()
 		return
-	if note == "4":
+	if note == "6" || note == "7" || note == "8":
 		$TouchConga4.show()
 
 
@@ -240,8 +258,7 @@ func hide_all_touch():
 var tutorial_ended = false
 	
 func _on_tutorial_ended():
-	print("Bumbo Tutorial ended ", current_phase)
-	if current_phase > 2:
+	if current_instrument > 2:
 		compasso_ended = true
 		ended.emit()
 		return
@@ -255,25 +272,21 @@ func _on_tutorial_ended():
 
 func _on_conga1_pressed():
 	var curr_note = $Compasso.get_current_note_name()
-	if curr_note == "1":
+	if curr_note == "1" || curr_note == "2" || curr_note == "3":
 		update_pontos()
 
 
 		
 func _on_mp_3_loader_finished():
-	print("MPC CONTROLS AUDIO ENDED")
 	if !compasso_ended:
 		$AudioSemSolo.play()
 		
 
 func instrument_time():
-	if current_phase == 0:
-		print("instrument_time CURRENT_PHASE 0")
+	if current_instrument == 0:
 		return 0.15
-	if current_phase == 1:
-		print("instrument_time CURRENT_PHASE 1")
-		return 0.14
-	print("instrument_time CURRENT_PHASE", str(current_phase))
+	if current_instrument == 1:
+		return 0.07
 	return 0.2
 
 func _on_tutorial_countdown_show() -> void:
@@ -291,19 +304,19 @@ func _on_bumbo_1_pressed() -> void:
 
 func _on_conga_2_pressed() -> void:
 	var curr_note = $Compasso.get_current_note_name()
-	if curr_note == "2":
+	if curr_note == "4":
 		update_pontos()
 
 
 func _on_conga_3_pressed() -> void:
 	var curr_note = $Compasso.get_current_note_name()
-	if curr_note == "3":
+	if curr_note == "5":
 		update_pontos()
 
 
 func _on_conga_4_pressed() -> void:
 	var curr_note = $Compasso.get_current_note_name()
-	if curr_note == "4":
+	if curr_note == "6" || curr_note == "7" || curr_note == "8":
 		update_pontos()
 
 
@@ -314,18 +327,20 @@ func _on_audio_sem_solo_finished() -> void:
 func _on_pre_jogo_countdown_show() -> void:
 	$Compasso.start_timer(instrument_time())
 	$AudioSemSolo.play()
-
+	if current_instrument == 1:
+		$TouchConga1.hide()
+		$TouchConga4.show()
 
 
 func _on_pre_jogo_ended() -> void:
-	if current_phase >= len(phases):
+	if current_instrument >= len(instruments):
 		compasso_ended = true
 		ended.emit()
 		return
 	$Pontuacao.show()
 	$Compasso.start_timer(instrument_time())
 	$AudioSemSolo.play()
-	if current_phase == 1:
+	if current_instrument == 1:
 		$TouchConga1.hide()
 		$TouchConga4.show()
 	

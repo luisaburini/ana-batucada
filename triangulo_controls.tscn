@@ -19,10 +19,10 @@ offset_right = 1924.0
 offset_bottom = 1076.0
 texture = ExtResource("2_16bo2")
 
-[node name="TrianguloLoader" parent="." instance=ExtResource("2_b6gyb")]
-
 [node name="Compasso" parent="." instance=ExtResource("3_dusqt")]
-position = Vector2(19, 74)
+position = Vector2(19, 15)
+
+[node name="TrianguloLoader" parent="." instance=ExtResource("2_b6gyb")]
 
 [node name="Triangulo" parent="." instance=ExtResource("5_lp6sv")]
 position = Vector2(543, 128)
@@ -41,7 +41,6 @@ texture_normal = ExtResource("8_lp6sv")
 [node name="AudioSemSolo" parent="." instance=ExtResource("2_b6gyb")]
 
 [node name="Tutorial" parent="." instance=ExtResource("8_ruwoj")]
-visible = false
 
 [node name="Pontuacao" type="Label" parent="."]
 offset_left = 1628.0
@@ -54,7 +53,6 @@ theme_override_font_sizes/font_size = 120
 text = "0%"
 
 [node name="PreJogo" parent="." instance=ExtResource("8_ruwoj")]
-visible = false
 
 [node name="BrilhoEmcima" type="TextureRect" parent="."]
 offset_left = 613.0
