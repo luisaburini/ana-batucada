@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hhqbx7cqpjci"
+path="res://.godot/imported/LOOP SEM TRIANGULO.mp3-36a0fca1611dfe3d8d5b2622a05a175e.mp3str"
+
+[deps]
+
+source_file="res://sounds/FASE1/80BPM/LOOPS SEM OS SOLO/LOOP SEM TRIANGULO.mp3"
+dest_files=["res://.godot/imported/LOOP SEM TRIANGULO.mp3-36a0fca1611dfe3d8d5b2622a05a175e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

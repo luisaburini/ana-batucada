@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gmwtxneo2fys"
+path="res://.godot/imported/CONGA 3.mp3-163e26b788f84f22740376c9a8686f46.mp3str"
+
+[deps]
+
+source_file="res://sounds/FASE1/80BPM/INSTRUMENTOS ONE SHOT/CONGA 3.mp3"
+dest_files=["res://.godot/imported/CONGA 3.mp3-163e26b788f84f22740376c9a8686f46.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

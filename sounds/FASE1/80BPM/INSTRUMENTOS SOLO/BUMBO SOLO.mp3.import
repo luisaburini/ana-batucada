@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhsyaejgp10ri"
+path="res://.godot/imported/BUMBO SOLO.mp3-24f251d2cf800e4f69c020203fea25c3.mp3str"
+
+[deps]
+
+source_file="res://sounds/FASE1/80BPM/INSTRUMENTOS SOLO/BUMBO SOLO.mp3"
+dest_files=["res://.godot/imported/BUMBO SOLO.mp3-24f251d2cf800e4f69c020203fea25c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

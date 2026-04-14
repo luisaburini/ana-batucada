@@ -2,8 +2,11 @@ extends Node2D
 
 signal finished
 signal clicked_taquaral
+var should_blink = false
+var _show_blink = true
 
 func _ready():
+	$BlinkTimer.start(0.5)
 	$Score.hide()
 	$Taquaral.hide()
 	$CerecampMogiana.hide()
@@ -57,3 +60,21 @@ func _on_score_timer_timeout() -> void:
 	$Score.hide()
 	$Background.show()
 	$CerescampMogianaButton.show()
+	
+
+func must_blink_map(command):
+	should_blink = command
+
+
+func _on_blink_timer_timeout() -> void:
+	if !should_blink:
+		return
+	$BlinkTimer.start(0.5)
+	if _show_blink:
+		$Background.hide()
+		$BackgroundBlink.show()
+	else:
+		$Background.show()
+		$BackgroundBlink.hide()
+	_show_blink = !_show_blink
+		

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://kc53kmnctf4c"]
 
 [ext_resource type="Script" uid="uid://lks6ofb2al6x" path="res://tutorial.gd" id="1_ph66d"]
-[ext_resource type="Texture2D" uid="uid://b5j5svjn40n67" path="res://img/tutorial1.png" id="2_ehuit"]
+[ext_resource type="Texture2D" uid="uid://cpo7e1a80yni0" path="res://img/tutorial1.jpeg" id="2_5mrt3"]
 [ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="3_ehuit"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_5mrt3"]
 
@@ -12,16 +12,15 @@ script = ExtResource("1_ph66d")
 wait_time = 0.4
 
 [node name="Cena1" type="TextureRect" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_ehuit")
+texture = ExtResource("2_5mrt3")
 
 [node name="Countdown" type="Label" parent="."]
 offset_left = 4.0
-offset_top = -2.0
-offset_right = 1916.0
-offset_bottom = 1102.0
+offset_top = -41.0
+offset_right = 1805.0
+offset_bottom = 920.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_ehuit")
 theme_override_font_sizes/font_size = 800
@@ -36,6 +35,16 @@ one_shot = true
 one_shot = true
 
 [node name="ClickAudio" parent="." instance=ExtResource("4_5mrt3")]
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = 311.0
+offset_top = 68.0
+offset_right = 1603.0
+offset_bottom = 681.0
+theme_override_font_sizes/font_size = 120
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerCena1" to="." method="_on_timer_cena_1_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh7wtmfco2rv6"
+path="res://.godot/imported/TRIANGULO SOLO.mp3-5bea3ba8f3593d7e77c4cdfa347fc10b.mp3str"
+
+[deps]
+
+source_file="res://sounds/FASE1/80BPM/INSTRUMENTOS SOLO/TRIANGULO SOLO.mp3"
+dest_files=["res://.godot/imported/TRIANGULO SOLO.mp3-5bea3ba8f3593d7e77c4cdfa347fc10b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

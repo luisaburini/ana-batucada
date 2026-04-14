@@ -59,11 +59,11 @@ func music_according_to_phase():
 				conga_compasso5, conga_compasso6, conga_compasso7, conga_compasso8]
 
 func current_audio_sem_solo():
-	return "res://sounds/FASE1/LOOPS_SEM_OS_SOLOS/LOOP_SEM_" + instruments[current_instrument] + ".mp3"
+	return "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/LOOPS_SEM_OS_SOLOS/LOOP_SEM_" + instruments[current_instrument] + ".mp3"
 
 
 func current_audio_mestra():
-	return "res://sounds/FASE1/INSTRUMENTOS_SOLO/" + instruments[current_instrument] + "_SOLO.mp3"
+	return "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_SOLO/" + instruments[current_instrument] + ".mp3"
 
 var showed_bumbo1 = false
 # Called when the node enters the scene tree for the first time.
@@ -90,7 +90,7 @@ func init_phase_buttons(btns):
 	for b in btns:
 		i = i+1
 		var obj = get_node(b)
-		obj.set_stream("res://sounds/FASE1/INSTRUMENTOS_ONE_SHOT/" + instruments[current_instrument] + "/" + instruments[current_instrument] + str(i) + ".mp3")
+		obj.set_stream("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/" + instruments[current_instrument] + "/" + instruments[current_instrument] + str(i) + ".mp3")
 		obj.set_texture("res://img/mpc-button-" + btn_color[current_instrument] +".png")
 		obj.set_volume(30)
 		obj.show()
@@ -105,6 +105,9 @@ func start():
 		return
 	was_pressed = false
 	if !tutorial_ended:
+		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
+		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
+		$Tutorial.set_show_telas(true)
 		$Tutorial.start()
 		$Compasso.set_music(music_according_to_phase())
 		$Compasso.reset()
@@ -141,6 +144,7 @@ func reset():
 
 func update_pontos():
 	if $Compasso.is_playing() && !was_pressed: 
+		Input.vibrate_handheld(100)
 		pontos = pontos+1
 		if total_notas > 0:
 			$Pontuacao.text = str(get_percent()) + "%"
@@ -155,11 +159,11 @@ func _on_compasso_ended():
 		pontos = 0
 		$Pontuacao.text = "0%"
 		if current_instrument == 0:
-			$PreJogo.set_first_screen("res://img/pre-jogo1.png")
-			$PreJogo.set_second_screen("res://img/pre-jogo2.png")
+			$PreJogo.set_first_screen("res://img/pre-jogo1.png", "aperte o botao em destaque quando piscar")
+			$PreJogo.set_second_screen("res://img/pre-jogo2.png", "bora tocar um pouco de bumbo!")
 		if current_instrument == 1:
-			$PreJogo.set_first_screen("res://img/pre-jogo-conga1.png")
-			$PreJogo.set_second_screen("res://img/pre-jogo-conga2.png")
+			$PreJogo.set_first_screen("res://img/pre-jogo-conga1.png", "aperte o botao em destaque quando piscar")
+			$PreJogo.set_second_screen("res://img/pre-jogo-conga2.png", "sua vez de tocar!")
 		$PreJogo.show()
 		$PreJogo.start()
 		return
@@ -184,8 +188,8 @@ func _on_compasso_ended():
 		$Compasso.set_note_width(42)
 		$Pontuacao.hide()
 		$TouchBumbo1.hide()
-		$Tutorial.set_first_screen("res://img/tutorial-conga1.png")
-		$Tutorial.set_second_screen("res://img/tutorial-conga2.png")
+		$Tutorial.set_first_screen("res://img/tutorial-conga1.png", "agora vamos usar o som das congas!")
+		$Tutorial.set_second_screen("res://img/tutorial-conga2.png", "veja como se faz")
 		$Tutorial.set_show_telas(true)
 		$Tutorial.start()
 		$PreJogo.set_show_telas(true)

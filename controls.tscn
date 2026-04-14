@@ -13,35 +13,35 @@
 script = ExtResource("1_qbcre")
 
 [node name="MPCBackground" type="TextureRect" parent="."]
-offset_left = 459.0
-offset_top = 797.0
-offset_right = 1374.0
-offset_bottom = 1097.0
+offset_left = 911.0
+offset_top = 408.0
+offset_right = 1957.0
+offset_bottom = 1064.0
 texture = ExtResource("3_cf7nr")
 
 [node name="bumbo1" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(878, 903)
+position = Vector2(1313, 693)
 
 [node name="conga1" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(601, 966)
+position = Vector2(1102, 758)
 
 [node name="conga2" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(739, 924)
+position = Vector2(1087, 687)
 
 [node name="conga3" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(1022, 930)
+position = Vector2(1204, 693)
 
 [node name="conga4" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(1152, 974)
+position = Vector2(1220, 764)
 
 [node name="Compasso" parent="." instance=ExtResource("5_abkn8")]
 position = Vector2(15, 13)
 
 [node name="Pontuacao" type="Label" parent="."]
-offset_left = 1565.0
-offset_top = 440.0
-offset_right = 1804.0
-offset_bottom = 579.0
+offset_left = 51.0
+offset_top = 487.0
+offset_right = 290.0
+offset_bottom = 632.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_dob1i")
 theme_override_font_sizes/font_size = 120
@@ -50,42 +50,46 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TouchBumbo1" type="TextureRect" parent="."]
-offset_left = 859.0
-offset_top = 879.0
-offset_right = 987.0
-offset_bottom = 1007.0
+visible = false
+offset_left = 1307.0
+offset_top = 669.0
+offset_right = 1435.0
+offset_bottom = 797.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga1" type="TextureRect" parent="."]
-offset_left = 583.0
-offset_top = 942.0
-offset_right = 711.0
-offset_bottom = 1070.0
+visible = false
+offset_left = 1092.0
+offset_top = 725.0
+offset_right = 1220.0
+offset_bottom = 853.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga2" type="TextureRect" parent="."]
-offset_left = 721.0
-offset_top = 902.0
-offset_right = 849.0
-offset_bottom = 1030.0
+visible = false
+offset_left = 1080.0
+offset_top = 657.0
+offset_right = 1208.0
+offset_bottom = 785.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga3" type="TextureRect" parent="."]
-offset_left = 1000.0
-offset_top = 908.0
-offset_right = 1128.0
-offset_bottom = 1036.0
+visible = false
+offset_left = 1200.0
+offset_top = 665.0
+offset_right = 1328.0
+offset_bottom = 793.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga4" type="TextureRect" parent="."]
-offset_left = 1134.0
-offset_top = 957.0
-offset_right = 1262.0
-offset_bottom = 1085.0
+visible = false
+offset_left = 1213.0
+offset_top = 736.0
+offset_right = 1341.0
+offset_bottom = 864.0
 texture = ExtResource("9_hkas0")
 
 [node name="Tutorial" parent="." instance=ExtResource("8_he8l4")]
-visible = false
 
 [node name="AudioMestra" parent="." instance=ExtResource("9_kpabq")]
 

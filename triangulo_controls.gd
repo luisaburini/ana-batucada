@@ -7,8 +7,8 @@ signal hide_next
 var already_played = false
 var must_leave = false
 var total_notas = 0
-var audio_sem_solo = "res://sounds/FASE1/LOOPS_SEM_OS_SOLOS/LOOP_SEM_TRIANGULO.mp3"
-var audio_mestra =  "res://sounds/FASE1/INSTRUMENTOS_SOLO/TRIANGULO_SOLO.mp3"
+var audio_sem_solo = "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/LOOPS_SEM_OS_SOLOS/LOOP_SEM_TRIANGULO.mp3"
+var audio_mestra =  "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_SOLO/TRIANGULO.mp3"
 var pontos = 0
 var maozinha_solta = false
 var tutorial_ended = false
@@ -34,10 +34,10 @@ func current_music_sheet():
 func _ready():
 	$BrilhoEmbaixo.hide()
 	$BrilhoEmcima.hide()
-	$Tutorial.set_first_screen("res://img/tutorial-triangulo1.png")
-	$Tutorial.set_second_screen("res://img/tutorial2.png")
-	$PreJogo.set_first_screen("res://img/pre-jogo-triangulo1.png")
-	$PreJogo.set_second_screen("res://img/pre-jogo-triangulo2.png")
+	$Tutorial.set_first_screen("res://img/tutorial-triangulo1.png", "o som agora e do triangulo")
+	$Tutorial.set_second_screen("res://img/tutorial2.png", "sente so como a Mestra faz")
+	$PreJogo.set_first_screen("res://img/pre-jogo-triangulo1.png", "bora tocar um pouco")
+	$PreJogo.set_second_screen("res://img/pre-jogo-triangulo2.png", "arraste o batedor ate o triangulo para tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
@@ -129,7 +129,7 @@ func _on_triangulo_entered_embaixo() -> void:
 		already_played = true
 		update_pontos()
 	$TrianguloLoader.set_volume(30)
-	$TrianguloLoader.load_audio("res://sounds/FASE1/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
+	$TrianguloLoader.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
 	$TrianguloLoader.play()
 
 
@@ -140,7 +140,7 @@ func _on_triangulo_entered_emcima() -> void:
 		already_played = true
 		update_pontos()
 	$TrianguloLoader.set_volume(30)
-	$TrianguloLoader.load_audio("res://sounds/FASE1/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
+	$TrianguloLoader.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
 	$TrianguloLoader.play()
 
 
