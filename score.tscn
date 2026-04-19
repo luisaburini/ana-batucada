@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3lv55xrdvjcd"]
 
 [ext_resource type="Script" uid="uid://wm01p0tg0rpd" path="res://score.gd" id="1_t1x8i"]
-[ext_resource type="Texture2D" uid="uid://4x6upm2j3ba2" path="res://img/score.png" id="2_vfhx4"]
+[ext_resource type="Texture2D" uid="uid://2kxgo3p77yfq" path="res://img/score.jpg" id="2_vfhx4"]
 [ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="3_3u2p1"]
 
 [node name="Score" type="Node2D"]
@@ -12,61 +12,68 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_vfhx4")
 
-[node name="Fase" type="Label" parent="Background"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -971.0
-offset_top = -119.0
-offset_right = 961.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.85882354, 0.9372549, 0.8235294, 1)
-theme_override_fonts/font = ExtResource("3_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "Concha Acustica do taquaral"
-horizontal_alignment = 1
-
 [node name="PontosTotal" type="Label" parent="Background"]
 layout_mode = 0
-offset_left = 1603.0
-offset_top = 821.0
-offset_right = 1743.0
-offset_bottom = 942.0
+offset_left = 1607.0
+offset_top = 738.0
+offset_right = 1747.0
+offset_bottom = 859.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 
 [node name="PontosTriangulo" type="Label" parent="Background"]
 layout_mode = 0
-offset_left = 1601.0
-offset_top = 665.0
-offset_right = 1741.0
-offset_bottom = 786.0
+offset_left = 1605.0
+offset_top = 546.0
+offset_right = 1745.0
+offset_bottom = 667.0
 theme_override_fonts/font = ExtResource("3_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 
 [node name="PontosConga" type="Label" parent="Background"]
 layout_mode = 0
-offset_left = 1599.0
-offset_top = 514.0
-offset_right = 1739.0
-offset_bottom = 635.0
+offset_left = 1600.0
+offset_top = 366.0
+offset_right = 1740.0
+offset_bottom = 487.0
 theme_override_fonts/font = ExtResource("3_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 
 [node name="PontosBumbo" type="Label" parent="Background"]
 layout_mode = 0
-offset_left = 1603.0
-offset_top = 367.0
-offset_right = 1743.0
-offset_bottom = 488.0
+offset_left = 1591.0
+offset_top = 186.0
+offset_right = 1731.0
+offset_bottom = 307.0
 theme_override_fonts/font = ExtResource("3_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "0%"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 284.0
+offset_top = 10.0
+offset_right = 1619.0
+offset_bottom = 110.0
+color = Color(1, 0.25882354, 0.13725491, 0.5647059)
+
+[node name="Fase" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -9.0
+offset_right = 1915.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.85882354, 1, 0.8235294, 1)
+theme_override_fonts/font = ExtResource("3_3u2p1")
+theme_override_font_sizes/font_size = 100
+text = "Concha Acustica do Taquaral"
+horizontal_alignment = 1

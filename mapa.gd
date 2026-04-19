@@ -47,6 +47,7 @@ func _on_taquaral_finished() -> void:
 	var bumbo = $Taquaral.get_pontos_bumbo()
 	var conga = $Taquaral.get_pontos_conga()
 	var triangulo = $Taquaral.get_pontos_triangulo()
+	$Score/Fase.text = "Concha Acustica do Taquaral"
 	$Score.set_pontos(bumbo, conga, triangulo)
 	$Score.show()
 	$ScoreTimer.start(3)

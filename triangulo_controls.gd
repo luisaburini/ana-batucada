@@ -14,30 +14,34 @@ var maozinha_solta = false
 var tutorial_ended = false
 # P - pausa de 1 tempo (Semínima)
 # p - pausa de meio tempo (colcheia)
-# T - 1 tempo (semínima) do triangulo
-# R - um quarto de tempo (semicolcheia) do triangulo
-var compasso65 = "RTRTRTRTRTRTRTRT"
-var compasso66 = "RRRRRRRRRRRRT"
-var compasso67 = "RTRTRTRTRTRTRTRT"
-var compasso68 = "RRRRRRRRRRRRT"
-var compasso69 = "RTRTRTRTRTRTRTRT"
-var compasso70 = "RRRRRRRRRRRRT"
-var compasso71 = "RTRTRTRTRTRTRTRT"
 
-var current_sheet = [compasso65, compasso66, compasso67, compasso68,
-						   compasso69, compasso70, compasso71]
+# R -  meio tempo (colcheia) do triangulo mao fechada
+# S - 1 tempo (seminima) do triangulo mao fechada
+# T - meio tempo (colcheia) do triangulo mao solta
+var compasso1 = "RTRTRTRT"
+var compasso2 = "RTRTRTRR"
+var compasso3 = "RTRTRTRR"
+var compasso4 = "RTRTRTS"
+var compasso5 = "RTRTRTRT"
+var compasso6 = "RTRTRTS"
+var compasso7 = "RTRTRTRT"
+var compasso8 = "RTRTRTS"
+
+var current_sheet = [compasso1, compasso2, compasso3, compasso4,
+					 compasso5, compasso6, compasso7, compasso8]
 
 func current_music_sheet():
 	return current_sheet
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$BrilhoEmbaixo.hide()
+	$Compasso.note_width = 42
 	$BrilhoEmcima.hide()
+	$BrilhoNaMao.hide()
 	$Tutorial.set_first_screen("res://img/tutorial-triangulo1.png", "o som agora e do triangulo")
-	$Tutorial.set_second_screen("res://img/tutorial2.png", "sente so como a Mestra faz")
+	$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "sente so como a Mestra faz")
 	$PreJogo.set_first_screen("res://img/pre-jogo-triangulo1.png", "bora tocar um pouco")
-	$PreJogo.set_second_screen("res://img/pre-jogo-triangulo2.png", "arraste o batedor ate o triangulo para tocar!")
+	$PreJogo.set_second_screen("res://img/pre-jogo-triangulo2.png", "clique no triangulo e na maozinha para tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
@@ -46,7 +50,7 @@ func _on_batedor_is_dragging(position: Variant) -> void:
 	pass
 
 func instrument_time():
-	return 0.075
+	return 0.05
 
 
 func set_audio_sem_solo(audio):
@@ -93,8 +97,8 @@ func _on_compasso_ended():
 		must_leave = true
 		pontos = 0
 		$Pontuacao.text = "0"
-		$BrilhoEmbaixo.hide()
 		$BrilhoEmcima.hide()
+		$BrilhoNaMao.hide()
 		$PreJogo.show()
 		$PreJogo.start()
 		return
@@ -119,30 +123,6 @@ func _on_tutorial_ended():
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
-
-
-func _on_triangulo_entered_embaixo() -> void:
-	
-	var note = "T"
-	var triangulo_sample = "1"
-	if $Compasso.get_current_note_name() == note:
-		already_played = true
-		update_pontos()
-	$TrianguloLoader.set_volume(30)
-	$TrianguloLoader.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
-	$TrianguloLoader.play()
-
-
-func _on_triangulo_entered_emcima() -> void:
-	var note = "R"
-	var triangulo_sample = "2"
-	if $Compasso.get_current_note_name() == note:
-		already_played = true
-		update_pontos()
-	$TrianguloLoader.set_volume(30)
-	$TrianguloLoader.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
-	$TrianguloLoader.play()
-
 
 func _on_maozinha_pressed() -> void:
 	maozinha_solta = !maozinha_solta
@@ -178,11 +158,29 @@ func _on_pre_jogo_ended() -> void:
 func _on_compasso_seta_moved(current_note: Variant) -> void:
 	already_played = false
 	total_notas = total_notas+1
-	$BrilhoEmbaixo.hide()
 	$BrilhoEmcima.hide()
+	$BrilhoNaMao.hide()
 	if $Compasso.get_current_note_name() == "T":
-		$BrilhoEmbaixo.show()
-		update_pontos()
-	if $Compasso.get_current_note_name() == "R":
 		$BrilhoEmcima.show()
 		update_pontos()
+	if $Compasso.get_current_note_name() == "R" || $Compasso.get_current_note_name() == "S":
+		$BrilhoNaMao.show()
+		update_pontos()
+
+
+func _on_triangulo_entered_triangulo() -> void:
+	var triangulo_sample = "3"
+	if $Compasso.get_current_note_name() == "T" && maozinha_solta:
+		already_played = true
+		update_pontos()
+	
+	if !maozinha_solta:
+		triangulo_sample = "2"
+		if $Compasso.get_current_note_name() == "R" || $Compasso.get_current_note_name() == "S":
+			already_played = true
+			update_pontos()
+	
+	$TrianguloLoader.set_volume(30)
+	$TrianguloLoader.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
+	print()
+	$TrianguloLoader.play()

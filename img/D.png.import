@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blxm45alxapu5"
-path="res://.godot/imported/mpc-button-pink.png-58e637cb7e13a428f9788d3e1c19c4ff.ctex"
+uid="uid://cyjxcxhxnb2gg"
+path="res://.godot/imported/D.png-edf8914f3d6162cf4511be7ced3a06e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/mpc-button-pink.png"
-dest_files=["res://.godot/imported/mpc-button-pink.png-58e637cb7e13a428f9788d3e1c19c4ff.ctex"]
+source_file="res://img/D.png"
+dest_files=["res://.godot/imported/D.png-edf8914f3d6162cf4511be7ced3a06e9.ctex"]
 
 [params]
 

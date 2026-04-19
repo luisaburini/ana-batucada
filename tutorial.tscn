@@ -17,6 +17,7 @@ offset_bottom = 40.0
 texture = ExtResource("2_5mrt3")
 
 [node name="Countdown" type="Label" parent="."]
+visible = false
 offset_left = 4.0
 offset_top = -41.0
 offset_right = 1805.0
@@ -37,10 +38,10 @@ one_shot = true
 [node name="ClickAudio" parent="." instance=ExtResource("4_5mrt3")]
 
 [node name="Instructions" type="Label" parent="."]
-offset_left = 311.0
-offset_top = 68.0
-offset_right = 1603.0
-offset_bottom = 681.0
+offset_left = 569.0
+offset_top = 19.0
+offset_right = 1474.0
+offset_bottom = 632.0
 theme_override_font_sizes/font_size = 120
 horizontal_alignment = 1
 vertical_alignment = 1

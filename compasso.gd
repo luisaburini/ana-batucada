@@ -18,7 +18,7 @@ func set_music(music):
 	reset()
 
 func reset():
-	$Seta.position.x = note_width
+	$Seta.position.x = 130
 	finished = false
 	index_in_compasso = 0
 	current_compasso = 0
@@ -34,7 +34,7 @@ func start_timer(seconds):
 		print("Time is invalid " + str(seconds))
 
 func is_semi_colcheia(note):
-	if note == "3" || note == "4" || note == "5" || note == "T" || note == "R":
+	if note == "D":
 		return true
 	return false
 
@@ -44,12 +44,12 @@ func is_colcheia_dot(note):
 	return false
 
 func is_colcheia(note):
-	if note == "b" || note == "p" || note == "2"  || note == "7":
+	if note == "b" || note == "p" || note == "2"  || note == "7" || note == "R" || note == "T":
 		return true
 	return false
 	
 func is_seminima(note):
-	if note == "B" || note == "1" || note == "6":
+	if note == "1" || note == "P" || note == "S":
 		return true
 	return false
 

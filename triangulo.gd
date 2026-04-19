@@ -1,7 +1,6 @@
 extends Node2D
 
-signal entered_emcima()
-signal entered_embaixo()
+signal entered_triangulo()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,10 +11,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_emcima_area_entered(area: Area2D) -> void:
-	emit_signal("entered_emcima")
-
-
-func _on_embaixo_area_entered(area: Area2D) -> void:
-	emit_signal("entered_embaixo")
+func _on_touch_screen_button_pressed() -> void:
+	emit_signal("entered_triangulo")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck6f7ukws0pc1"
-path="res://.godot/imported/6.png-5c0b18cb87e7f95d4709b312a8652188.ctex"
+uid="uid://bl1xvl0wdfk5i"
+path="res://.godot/imported/bate-triangulo.png-b34e65e8daae04a3120e4f3d3d6042e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/6.png"
-dest_files=["res://.godot/imported/6.png-5c0b18cb87e7f95d4709b312a8652188.ctex"]
+source_file="res://img/bate-triangulo.png"
+dest_files=["res://.godot/imported/bate-triangulo.png-b34e65e8daae04a3120e4f3d3d6042e4.ctex"]
 
 [params]
 
