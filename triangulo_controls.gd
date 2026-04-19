@@ -164,6 +164,7 @@ func _on_compasso_seta_moved(current_note: Variant) -> void:
 		$BrilhoEmcima.show()
 		update_pontos()
 	if $Compasso.get_current_note_name() == "R" || $Compasso.get_current_note_name() == "S":
+		$BrilhoEmcima.show()
 		$BrilhoNaMao.show()
 		update_pontos()
 
@@ -182,5 +183,4 @@ func _on_triangulo_entered_triangulo() -> void:
 	
 	$TrianguloLoader.set_volume(30)
 	$TrianguloLoader.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
-	print()
 	$TrianguloLoader.play()

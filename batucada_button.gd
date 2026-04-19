@@ -36,6 +36,7 @@ func set_volume(volume):
 func _on_texture_pressed() -> void:
 	if current_sound != "":
 		$AudioLoader.play()
+	Input.vibrate_handheld(500)	
 	pressed.emit()
 
 
