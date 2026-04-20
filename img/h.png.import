@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0m0xh0ihf1c"
-path="res://.godot/imported/mapa-concha-blink.jpeg-640154810fc725f722686285c547f2b8.ctex"
+uid="uid://cq3d2g3dosjcg"
+path="res://.godot/imported/h.png-07d1f2b28fe7b3f199b96493e9d96fd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/mapa-concha-blink.jpeg"
-dest_files=["res://.godot/imported/mapa-concha-blink.jpeg-640154810fc725f722686285c547f2b8.ctex"]
+source_file="res://img/h.png"
+dest_files=["res://.godot/imported/h.png-07d1f2b28fe7b3f199b96493e9d96fd3.ctex"]
 
 [params]
 

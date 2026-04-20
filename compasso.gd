@@ -18,11 +18,25 @@ func set_music(music):
 	reset()
 
 func reset():
+	clear_pentagrama()
+			
 	$Seta.position.x = 130
 	finished = false
 	index_in_compasso = 0
 	current_compasso = 0
 	update_compasso()
+	
+func clear_pentagrama():
+	var pentagrama = get_node("HBoxContainer")
+	if pentagrama == null:
+		return
+	for i in range (0, 4):
+		var compasso = pentagrama.get_node("Compasso"+str(i))
+		if pentagrama.has_node("Compasso"+str(i)):
+			for j in range (0, 15):
+				var note = compasso.get_node("Note"+str(j))
+				if compasso.has_node("Note"+str(j)):
+					note.texture = load("")			
 
 func start_timer(seconds):
 	if seconds > 0:
@@ -34,28 +48,34 @@ func start_timer(seconds):
 		print("Time is invalid " + str(seconds))
 
 func is_semi_colcheia(note):
-	if note == "D":
+	if note == "D" || note == "c":
 		return true
 	return false
 
 func is_colcheia_dot(note):
-	if note == "8":
+	if note == "8" || note == "d" || note == "G":
 		return true
 	return false
 
 func is_colcheia(note):
-	if note == "b" || note == "p" || note == "2"  || note == "7" || note == "R" || note == "T":
+	if note == "k" || note == "z" || note == "x" || note == "y" || note == "g" || note == "C" || note == "b" || note == "p" || note == "h" || note =="a" || note == "2"  || note == "7" || note == "R" || note == "T":
 		return true
 	return false
 	
 func is_seminima(note):
-	if note == "1" || note == "P" || note == "S":
+	if note == "Y" || note == "X" || note == "E" || note == "A" || note == "1" || note == "P" || note == "S":
+		return true
+	return false
+
+func is_minima(note):
+	if note == "O":
 		return true
 	return false
 
 var times_playing_seminima = 0
 var times_playing_colcheia_dot = 0
 var times_playing_colcheia = 0
+var times_playing_minima = 0
 
 
 func is_playing():
@@ -65,6 +85,10 @@ func _on_timer_timeout():
 	if len(current_music) == 0:
 		return
 	if !finished:
+		if is_minima(current_music[current_compasso][index_in_compasso]) && times_playing_minima < 8:
+			times_playing_minima = times_playing_minima+1
+			return
+			
 		if is_seminima(current_music[current_compasso][index_in_compasso]) &&  times_playing_seminima < 4:
 			times_playing_seminima = times_playing_seminima+1
 			return
@@ -77,7 +101,9 @@ func _on_timer_timeout():
 			times_playing_colcheia = times_playing_colcheia+1
 			return
 		
+		
 		index_in_compasso = index_in_compasso+1
+		times_playing_minima = 0
 		times_playing_seminima = 0
 		times_playing_colcheia = 0
 		times_playing_colcheia_dot = 0
@@ -140,7 +166,6 @@ func update_compasso():
 	var pentagrama = get_node("HBoxContainer")
 	if pentagrama == null:
 		return
-	
 	
 	for i in range (0, 4):
 		var compasso_nome = "Compasso" + str(i)

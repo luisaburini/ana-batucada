@@ -36,6 +36,8 @@ stream = ExtResource("6_272bh")
 
 [connection signal="init" from="HUD" to="." method="_on_hud_init"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="clicked_estacao_cultura" from="Map" to="." method="_on_map_clicked_estacao_cultura"]
+[connection signal="clicked_mogiana" from="Map" to="." method="_on_map_clicked_mogiana"]
 [connection signal="clicked_taquaral" from="Map" to="." method="_on_map_clicked_taquaral"]
 [connection signal="finished" from="Map" to="." method="_on_mapa_finished"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

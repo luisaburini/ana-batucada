@@ -2,6 +2,11 @@ extends Node2D
 
 signal finished
 signal clicked_taquaral
+var show_mogiana = false
+signal clicked_mogiana
+var show_estacao = false
+signal clicked_estacao_cultura
+var show_end = false
 var should_blink = false
 var _show_blink = true
 
@@ -15,6 +20,9 @@ func _ready():
 	$EstacaoCulturaButton.hide()
 
 func _on_taquaral_button_pressed() -> void:
+	should_blink = false
+	_show_blink = false
+	$BlinkTimer.stop()
 	clicked_taquaral.emit()
 	$Taquaral._start()
 	$CerecampMogiana.hide()
@@ -25,6 +33,10 @@ func _on_taquaral_button_pressed() -> void:
 
 
 func _on_cerescamp_mogiana_button_pressed() -> void:
+	should_blink = false
+	_show_blink = false
+	$BlinkTimer.stop()
+	clicked_mogiana.emit()
 	$Taquaral.hide()
 	$CerecampMogiana._start()
 	$EstacaoCultura.hide()
@@ -33,16 +45,37 @@ func _on_cerescamp_mogiana_button_pressed() -> void:
 
 
 func _on_estacao_cultura_button_pressed() -> void:
+	should_blink = false
+	_show_blink = false
+	$BlinkTimer.stop()
+	clicked_estacao_cultura.emit()
 	$Taquaral.hide()
 	$CerecampMogiana.hide()
 	$EstacaoCultura._start()
 
 
 func _on_estacao_cultura_finished() -> void:
-	emit_signal("finished")
+	show_estacao = false
+	show_mogiana = false
+	show_end = true
+	$Score/Fase.text = "Estacao Cultura"
+	var palmas = $EstacaoCultura.get_pontos_palmas()
+	var aro = $EstacaoCultura.get_pontos_aro()
+	var caixa = $EstacaoCultura.get_pontos_caixa()
+	var bumbo = $EstacaoCultura.get_pontos_bumbo()
+	$Score.set_pontos_fase3(palmas, aro, caixa, bumbo)
+	$Score.show()
+	$ScoreTimer.start(3)
 
 
 func _on_taquaral_finished() -> void:
+	show_estacao = false
+	show_mogiana = true
+	show_end = false
+	$Background.texture = load("res://img/mapa-cerescamp.jpeg")
+	_show_blink = true
+	should_blink = true
+	$BlinkTimer.start(0.5)
 	$Taquaral.hide()
 	var bumbo = $Taquaral.get_pontos_bumbo()
 	var conga = $Taquaral.get_pontos_conga()
@@ -53,14 +86,38 @@ func _on_taquaral_finished() -> void:
 	$ScoreTimer.start(3)
 
 func _on_cerecamp_mogiana_finished() -> void:
+	show_estacao = true
+	show_mogiana = false
+	show_end = false
+	$Background.texture = load("res://img/mapa-estacao-cultura.jpeg")
 	$Background.show()
+	_show_blink = true
+	should_blink = true
+	$BlinkTimer.start(0.5)
+	$CerescampMogianaButton.hide()
+	$CerecampMogiana.hide()
 	$EstacaoCulturaButton.show()
+	var hihat = $CerecampMogiana.get_pontos_hihat()
+	print("$CerecampMogiana.get_pontos_hihat()", hihat)
+	var bumbo = $CerecampMogiana.get_pontos_bumbo()
+	print("$CerecampMogiana.get_pontos_bumbo()", bumbo)
+	var caixa = $CerecampMogiana.get_pontos_caixa()
+	var gankogui = $CerecampMogiana.get_pontos_gankogui()
+	$Score/Fase.text = "Estadio Cerecamp Mogiana"
+	$Score.set_pontos_fase2(hihat, bumbo, caixa, gankogui)
+	$Score.show()
+	$ScoreTimer.start(3)
 
 
 func _on_score_timer_timeout() -> void:
 	$Score.hide()
 	$Background.show()
-	$CerescampMogianaButton.show()
+	if show_estacao:
+		$EstacaoCulturaButton.show()
+	if show_mogiana:
+		$CerescampMogianaButton.show()
+	if show_end:
+		finished.emit()
 	
 
 func must_blink_map(command):

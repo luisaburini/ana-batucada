@@ -1,9 +1,6 @@
 extends Node2D
 
-
 signal ended(pontos)
-signal hide_next
-
 var already_played = false
 var must_leave = false
 var total_notas = 0
@@ -12,6 +9,7 @@ var audio_mestra =  "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMEN
 var pontos = 0
 var maozinha_solta = false
 var tutorial_ended = false
+
 # P - pausa de 1 tempo (Semínima)
 # p - pausa de meio tempo (colcheia)
 
@@ -45,23 +43,8 @@ func _ready():
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
-
-func _on_batedor_is_dragging(position: Variant) -> void:
-	pass
-
 func instrument_time():
 	return 0.05
-
-
-func set_audio_sem_solo(audio):
-	audio_sem_solo = audio
-
-func set_audio_mestra(audio):
-	audio_mestra = audio
-
-func set_music_sheet(music):
-	current_sheet = music
-	$Compasso.set_music(music)
 
 func start():
 	$Compasso.set_music(current_music_sheet())
@@ -72,12 +55,6 @@ func start():
 	if !tutorial_ended:
 		$Tutorial.start()
 		$Compasso.reset()
-
-	
-func next():
-	$Compasso.reset()
-	start()
-	show()
 	
 func reset():
 	pontos = 0
@@ -164,7 +141,6 @@ func _on_compasso_seta_moved(current_note: Variant) -> void:
 		$BrilhoEmcima.show()
 		update_pontos()
 	if $Compasso.get_current_note_name() == "R" || $Compasso.get_current_note_name() == "S":
-		$BrilhoEmcima.show()
 		$BrilhoNaMao.show()
 		update_pontos()
 

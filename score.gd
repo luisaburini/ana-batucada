@@ -10,17 +10,77 @@ func _process(delta: float) -> void:
 	pass
 
 func set_pontos(bumbo, conga, triangulo):
+	$Fase1.show()
+	$Fase2.hide()
+	$Fase3.hide()
 	if bumbo != null:
-		print(bumbo)
-		$Background/PontosBumbo.text = str(bumbo) + "%"
+		$Fase1/PontosBumbo.text = str(bumbo) + "%"
 	else:
 		bumbo = 0
+		$Fase1/PontosBumbo.text = "0%"
 	if conga != null:
-		$Background/PontosConga.text = str(conga) + "%"
+		$Fase1/PontosConga.text = str(conga) + "%"
 	else:
 		conga = 0
+		$Fase1/PontosConga.text = "0%"
 	if triangulo != null:
-		$Background/PontosTriangulo.text = str(triangulo) + "%"
+		$Fase1/PontosTriangulo.text = str(triangulo) + "%"
 	else:
 		triangulo = 0
-	$Background/PontosTotal.text = str((bumbo+conga+triangulo)/3)+ "%"
+		$Fase1/PontosTriangulo.text = "0%"
+	$Fase1/PontosTotal.text = str((bumbo+conga+triangulo)/3)+ "%"
+
+func set_pontos_fase2(hihat, bumbo, caixa, gankogui):
+	$Fase.text = "Estadio Cerecamp Mogiana"
+	$Fase1.hide()
+	$Fase2.show()
+	$Fase3.hide()
+	if hihat != null:
+		print("HIHAT IS NOT NUL")
+		$Fase2/PontosHihat.text = str(hihat)+"%"
+	else:
+		hihat = 0
+		$Fase2/PontosHihat.text = "0%"
+	if bumbo != null:
+		$Fase2/PontosBumbo.text = str(bumbo)+"%"
+	else:
+		bumbo = 0
+		$Fase2/PontosBumbo.text = "0%"
+	if caixa != null:
+		$Fase2/PontosCaixa.text = str(caixa)+"%"
+	else:
+		caixa = 0
+		$Fase2/PontosCaixa.text = "0%"
+	if gankogui != null:
+		$Fase2/PontosGankogui.text = str(gankogui)+"%"
+	else:
+		gankogui = 0
+		$Fase2/PontosGankogui.text = "0%"
+	$Fase2/PontosTotal.text = str((hihat+bumbo+caixa+gankogui)/4) + "%"
+	
+func set_pontos_fase3(palmas, aro, caixa, bumbo):
+	$Fase.text = "Estacao Cultura"
+	$Fase1.hide()
+	$Fase2.hide()
+	$Fase3.show()
+	if palmas != null:
+		$Fase3/PontosPalmas.text = str(palmas)+"%"
+	else:
+		palmas = 0
+		$Fase3/PontosPalmas.text = "0%"
+	if aro != null:
+		$Fase3/PontosAro.text = str(aro)+"%"
+	else:
+		aro = 0
+		$Fase3/PontosAro.text = "0%"
+	if caixa != null:
+		$Fase3/PontosCaixa.text = str(caixa)+"%"
+	else:
+		caixa = 0
+		$Fase3/PontosCaixa.text = "0%"
+	if bumbo != null:
+		$Fase3/PontosBumbo.text = str(bumbo)+"%"
+	else:
+		bumbo = 0
+		$Fase3/PontosBumbo.text = "0%"
+	$Fase3/PontosTotal.text = str((palmas+aro+caixa+bumbo)/4) + "%"

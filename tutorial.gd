@@ -14,7 +14,7 @@ var second_text = "da uma olhada como se faz"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ClickAudio.set_volume(40)
-	$ClickAudio.load_audio("res://sounds/FASE1/CLICK.mp3")
+	$ClickAudio.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/CLICK.mp3")
 
 func set_first_screen(f, t):
 	first_screen = f

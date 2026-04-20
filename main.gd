@@ -26,6 +26,18 @@ func _on_audio_stream_player_finished() -> void:
 
 
 func _on_map_clicked_taquaral() -> void:
+	stop_music()
+
+
+func _on_map_clicked_mogiana() -> void:
+	stop_music()
+
+
+func _on_map_clicked_estacao_cultura() -> void:
+	stop_music()
+
+func stop_music():
 	$Map.must_blink_map(false)
 	$AudioStreamPlayer.stop()
 	replay_audio = false
+	

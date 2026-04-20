@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://cc3g5rea2cgn3"]
+
+[ext_resource type="Texture2D" uid="uid://cmi8p5pnb7xu6" path="res://img/mpc.png" id="1_af28q"]
+[ext_resource type="Script" uid="uid://br5gidnw5v4ll" path="res://afro_house_controls.gd" id="1_m2rn1"]
+[ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="2_h3cvg"]
+[ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="3_nc5uv"]
+[ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_54pm3"]
+[ext_resource type="PackedScene" uid="uid://2r2auob8mpde" path="res://batucada_button.tscn" id="5_chnpn"]
+[ext_resource type="Texture2D" uid="uid://be633cs8a02yc" path="res://img/touch.png" id="6_m2rn1"]
+[ext_resource type="Texture2D" uid="uid://cpinom81dtxfd" path="res://img/touch_double.png" id="8_76wvq"]
+[ext_resource type="FontFile" uid="uid://b41mq7yirpjeo" path="res://fonts/Super Funky.ttf" id="8_etg83"]
+
+[node name="AfroHouseControls" type="Node2D"]
+script = ExtResource("1_m2rn1")
+
+[node name="MPCBackground" type="TextureRect" parent="."]
+offset_left = 618.0
+offset_top = 550.0
+offset_right = 1394.0
+offset_bottom = 1066.0
+texture = ExtResource("1_af28q")
+
+[node name="Compassos" parent="." instance=ExtResource("2_h3cvg")]
+position = Vector2(19, 100)
+
+[node name="AudioMestra" parent="." instance=ExtResource("4_54pm3")]
+
+[node name="AudioSemSolo" parent="." instance=ExtResource("4_54pm3")]
+
+[node name="Hihat1" parent="." instance=ExtResource("5_chnpn")]
+visible = false
+position = Vector2(843, 881)
+
+[node name="Bumbo1" parent="." instance=ExtResource("5_chnpn")]
+visible = false
+position = Vector2(842, 881)
+
+[node name="Caixa1" parent="." instance=ExtResource("5_chnpn")]
+visible = false
+position = Vector2(844, 883)
+
+[node name="TouchHihat1" type="TextureRect" parent="."]
+visible = false
+offset_left = 833.0
+offset_top = 852.0
+offset_right = 961.0
+offset_bottom = 980.0
+texture = ExtResource("6_m2rn1")
+
+[node name="TouchBumbo1" type="TextureRect" parent="."]
+visible = false
+offset_left = 832.0
+offset_top = 856.0
+offset_right = 960.0
+offset_bottom = 984.0
+texture = ExtResource("6_m2rn1")
+
+[node name="TouchCaixa1" type="TextureRect" parent="."]
+offset_left = 834.0
+offset_top = 858.0
+offset_right = 962.0
+offset_bottom = 986.0
+texture = ExtResource("8_76wvq")
+
+[node name="Pontuacao" type="Label" parent="."]
+offset_left = 1630.0
+offset_top = 511.0
+offset_right = 1774.0
+offset_bottom = 672.0
+theme_override_fonts/font = ExtResource("8_etg83")
+theme_override_font_sizes/font_size = 100
+text = "0%"
+
+[node name="PreJogo" parent="." instance=ExtResource("3_nc5uv")]
+visible = false
+
+[node name="Tutorial" parent="." instance=ExtResource("3_nc5uv")]
+visible = false
+
+[connection signal="ended" from="Compassos" to="." method="_on_compassos_ended"]
+[connection signal="seta_moved" from="Compassos" to="." method="_on_compassos_seta_moved"]
+[connection signal="finished" from="AudioMestra" to="." method="_on_audio_mestra_finished"]
+[connection signal="finished" from="AudioSemSolo" to="." method="_on_audio_sem_solo_finished"]
+[connection signal="pressed" from="Hihat1" to="." method="_on_hihat_1_pressed"]
+[connection signal="visibility_changed" from="Hihat1" to="." method="_on_hihat_1_visibility_changed"]
+[connection signal="pressed" from="Bumbo1" to="." method="_on_bumbo_1_pressed"]
+[connection signal="pressed" from="Caixa1" to="." method="_on_caixa_1_pressed"]
+[connection signal="countdown_show" from="PreJogo" to="." method="_on_pre_jogo_countdown_show"]
+[connection signal="ended" from="PreJogo" to="." method="_on_pre_jogo_ended"]
+[connection signal="countdown_show" from="Tutorial" to="." method="_on_tutorial_countdown_show"]
+[connection signal="ended" from="Tutorial" to="." method="_on_tutorial_ended"]

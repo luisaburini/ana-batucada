@@ -32,10 +32,10 @@ position = Vector2(723, 767)
 position = Vector2(19, 100)
 
 [node name="Pontuacao" type="Label" parent="."]
-offset_left = 51.0
-offset_top = 487.0
-offset_right = 290.0
-offset_bottom = 632.0
+offset_left = 1612.0
+offset_top = 490.0
+offset_right = 1851.0
+offset_bottom = 635.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_dob1i")
 theme_override_font_sizes/font_size = 120

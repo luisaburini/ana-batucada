@@ -1,14 +1,15 @@
 extends Node2D
 
 signal ended
-signal hide_next
+var must_leave = false
+var tutorial_ended = false
 signal bumbo_ended(pontos)
 signal conga_ended(pontos)
 
 var instruments = ["BUMBO", "CONGAS"]
 var current_instrument = 0
 
-var btn_color = ["red", "blue", "green"]
+var btn_color = ["red", "blue"]
 
 var pontos = 0
 var was_pressed = false
@@ -131,7 +132,7 @@ func reset():
 	$MPCBackground.show()
 	if current_instrument == 0:
 		$bumbo1.show()
-		$Compasso.note_width = 70
+		$Compasso.set_note_width(70)
 		$TouchBumbo1.show()
 	start()
 	show()
@@ -144,7 +145,6 @@ func update_pontos():
 			$Pontuacao.text = str(get_percent()) + "%"
 		was_pressed = true
 
-var must_leave = false
 
 func _on_compasso_ended():
 	if tutorial_ended && !must_leave:
@@ -179,7 +179,7 @@ func _on_compasso_ended():
 	
 	if current_instrument == 1:
 		# Start conga
-		$Compasso.set_note_width(42)
+		$Compasso.set_note_width(52)
 		$Pontuacao.hide()
 		$TouchBumbo1.hide()
 		$Tutorial.set_first_screen("res://img/tutorial-conga1.png", "agora vamos usar o som das congas!")
@@ -191,7 +191,6 @@ func _on_compasso_ended():
 		$TouchConga2.show()
 		var btns = ["conga1", "conga2"]
 		init_phase_buttons(btns)
-		$Compasso.note_width = 52
 	if current_instrument == 2:
 		end()
 		ended.emit()
@@ -253,7 +252,6 @@ func hide_all_touch():
 	$TouchConga1.hide()
 	$TouchConga2.hide()
 
-var tutorial_ended = false
 	
 func _on_tutorial_ended():
 	if current_instrument > 2:
@@ -314,7 +312,6 @@ func _on_pre_jogo_countdown_show() -> void:
 	$AudioSemSolo.play()
 	if current_instrument == 1:
 		$TouchConga1.show()
-		$TouchConga2.show()
 
 
 func _on_pre_jogo_ended() -> void:
@@ -327,5 +324,4 @@ func _on_pre_jogo_ended() -> void:
 	$AudioSemSolo.play()
 	if current_instrument == 1:
 		$TouchConga1.show()
-		$TouchConga2.show()
 	
