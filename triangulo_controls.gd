@@ -26,6 +26,8 @@ var compasso7 = "RTRTRTRT"
 var compasso8 = "RTRTRTS"
 
 var current_sheet = [compasso1, compasso2, compasso3, compasso4,
+					 compasso5, compasso6, compasso7, compasso8,
+					 compasso1, compasso2, compasso3, compasso4,
 					 compasso5, compasso6, compasso7, compasso8]
 
 func current_music_sheet():
@@ -36,6 +38,7 @@ func _ready():
 	$Compasso.note_width = 42
 	$BrilhoEmcima.hide()
 	$BrilhoNaMao.hide()
+	$Tutorial.set_instruction_node("FunkTriangulo")
 	$Tutorial.set_first_screen("res://img/tutorial-triangulo1.png", "o som agora e do triangulo")
 	$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "sente so como a Mestra faz")
 	$PreJogo.set_first_screen("res://img/pre-jogo-triangulo1.png", "bora tocar um pouco")
@@ -50,7 +53,7 @@ func start():
 	$Compasso.set_music(current_music_sheet())
 	$AudioMestra.set_volume(30)
 	$AudioMestra.load_audio(audio_mestra)
-	$AudioSemSolo.set_volume(10)
+	$AudioSemSolo.set_volume(30)
 	$AudioSemSolo.load_audio(audio_sem_solo)
 	if !tutorial_ended:
 		$Tutorial.start()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8t67nsr3fxfu"
-path="res://.godot/imported/y.png-11e73d3622035e5ff94d1fd64f08b827.ctex"
+uid="uid://qr4ceskwskw1"
+path="res://.godot/imported/tutorial-funk-bumbo.png-fbf67b41a2b3c4c86e2f01ead5f4bafd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/y.png"
-dest_files=["res://.godot/imported/y.png-11e73d3622035e5ff94d1fd64f08b827.ctex"]
+source_file="res://img/tutorial-funk-bumbo.png"
+dest_files=["res://.godot/imported/tutorial-funk-bumbo.png-fbf67b41a2b3c4c86e2f01ead5f4bafd.ctex"]
 
 [params]
 

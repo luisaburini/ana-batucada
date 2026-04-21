@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="2_b6gyb"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="3_dusqt"]
 [ext_resource type="PackedScene" uid="uid://c5g75l2jle23l" path="res://triangulo.tscn" id="5_lp6sv"]
-[ext_resource type="Texture2D" uid="uid://gnxejbpyyfy8" path="res://img/maozinha.png" id="8_lp6sv"]
+[ext_resource type="Texture2D" uid="uid://cl4psa6y3n1cf" path="res://img/maozinha.png" id="8_lp6sv"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="8_ruwoj"]
 [ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="9_ruwoj"]
-[ext_resource type="Texture2D" uid="uid://cpinom81dtxfd" path="res://img/touch_double.png" id="10_acp3m"]
-[ext_resource type="Texture2D" uid="uid://b12btamidxavx" path="res://img/stars.png" id="10_oh1e3"]
+[ext_resource type="Texture2D" uid="uid://ce0ct8vgoklpu" path="res://img/touch_double.png" id="10_acp3m"]
+[ext_resource type="Texture2D" uid="uid://bg32sft8ugjjw" path="res://img/stars.png" id="10_oh1e3"]
 
 [node name="TrianguloControls" type="Node2D"]
 script = ExtResource("1_onpox")

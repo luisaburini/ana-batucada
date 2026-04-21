@@ -36,7 +36,6 @@ var bumbo_compasso8 = "bpPpbpb"
 # CONGA 2 - 7 - meio tempo (colcheia) de conga 2
 # CONGA 2 - 8 - 3 quartos de tempo de conga 2
 
-
 var conga_compasso1 = "82D2p727"
 var conga_compasso2 = "82D2771"
 var conga_compasso3 = "82D2p727"
@@ -49,9 +48,13 @@ var conga_compasso8 = "82D2771"
 func music_according_to_phase():
 	if current_instrument == 0:
 		return  [bumbo_compasso1, bumbo_compasso2,	 bumbo_compasso3,	 bumbo_compasso4,
+				 bumbo_compasso5, bumbo_compasso6, bumbo_compasso7, bumbo_compasso8,
+				 bumbo_compasso1, bumbo_compasso2,	 bumbo_compasso3,	 bumbo_compasso4,
 				 bumbo_compasso5, bumbo_compasso6, bumbo_compasso7, bumbo_compasso8]
 	if current_instrument == 1:
 		return [conga_compasso1, conga_compasso2, conga_compasso3, conga_compasso4,
+				conga_compasso5, conga_compasso6, conga_compasso7, conga_compasso8,
+				conga_compasso1, conga_compasso2, conga_compasso3, conga_compasso4,
 				conga_compasso5, conga_compasso6, conga_compasso7, conga_compasso8]
 
 func current_audio_sem_solo():
@@ -93,12 +96,13 @@ func start():
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(10)
+	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
 		ended.emit()
 		return
 	was_pressed = false
 	if !tutorial_ended:
+		$Tutorial.set_instruction_node("FunkBumbo")
 		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
@@ -182,6 +186,7 @@ func _on_compasso_ended():
 		$Compasso.set_note_width(52)
 		$Pontuacao.hide()
 		$TouchBumbo1.hide()
+		$Tutorial.set_instruction_node("FunkConga")
 		$Tutorial.set_first_screen("res://img/tutorial-conga1.png", "agora vamos usar o som das congas!")
 		$Tutorial.set_second_screen("res://img/tutorial-conga2.png", "veja como se faz")
 		$Tutorial.set_show_telas(true)
@@ -261,7 +266,7 @@ func _on_tutorial_ended():
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(10)
+	$AudioSemSolo.set_volume(30)
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
@@ -281,7 +286,7 @@ func instrument_time():
 	if current_instrument == 0:
 		return 0.105
 	if current_instrument == 1:
-		return 0.05
+		return 0.07
 	return 0.2
 
 func _on_tutorial_countdown_show() -> void:
@@ -304,7 +309,8 @@ func _on_conga_4_pressed() -> void:
 
 
 func _on_audio_sem_solo_finished() -> void:
-	$AudioSemSolo.play()
+	if !compasso_ended:
+		$AudioSemSolo.play()
 
 
 func _on_pre_jogo_countdown_show() -> void:
@@ -325,3 +331,8 @@ func _on_pre_jogo_ended() -> void:
 	if current_instrument == 1:
 		$TouchConga1.show()
 	
+
+
+func _on_audio_mestra_finished() -> void:
+	if !compasso_ended:
+		$AudioMestra.play()

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt0fcdbrecsy7"]
+
+[ext_resource type="PackedScene" uid="uid://diweymv6b86n2" path="res://afro_house_bumbo.tscn" id="1_cp51n"]
+[ext_resource type="Texture2D" uid="uid://c45mkva17nsnf" path="res://img/G.png" id="2_72xyp"]
+[ext_resource type="Texture2D" uid="uid://diomgnnnuea80" path="res://img/g.png" id="3_wxfa5"]
+[ext_resource type="Texture2D" uid="uid://ym5pntcfu3py" path="res://img/p.png" id="5_5d4vj"]
+[ext_resource type="Texture2D" uid="uid://caukw0433fevu" path="res://img/P.png" id="6_8ydif"]
+[ext_resource type="Texture2D" uid="uid://bm526bahdn5lm" path="res://img/O.png" id="7_62puu"]
+
+[node name="AfroHouseGankogui" instance=ExtResource("1_cp51n")]
+
+[node name="Title" parent="." index="1"]
+text = "AfroHouse Gankogui"
+
+[node name="HBoxContainer" parent="." index="2"]
+offset_left = 293.0
+offset_top = 227.0
+offset_right = 1595.0
+offset_bottom = 1147.0
+
+[node name="1stNote" parent="HBoxContainer/VBoxContainer2" index="0"]
+texture = ExtResource("3_wxfa5")
+
+[node name="2ndNote" parent="HBoxContainer/VBoxContainer2" index="1"]
+texture = ExtResource("2_72xyp")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2" index="3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_5d4vj")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer2" index="4"]
+layout_mode = 2
+texture = ExtResource("6_8ydif")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/VBoxContainer2" index="5"]
+layout_mode = 2
+texture = ExtResource("7_62puu")
+
+[node name="Dicab" parent="HBoxContainer/VBoxContainer" index="0"]
+text = "1/2 tempo de gankogui"
+
+[node name="DIcap" parent="HBoxContainer/VBoxContainer" index="1"]
+text = "3/4 tempo de gankogui"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer" index="3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "1/2 tempo de pausa"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer" index="4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "1 tempo de pausa"
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer" index="5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "2 tempos de pausa"

@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="3_am2wc"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_am2wc"]
 [ext_resource type="FontFile" uid="uid://b41mq7yirpjeo" path="res://fonts/Super Funky.ttf" id="5_xa10b"]
-[ext_resource type="Texture2D" uid="uid://dctxqv13ol0ss" path="res://img/gankogui.png" id="6_kt8hi"]
-[ext_resource type="Texture2D" uid="uid://b12btamidxavx" path="res://img/stars.png" id="7_kcwu8"]
+[ext_resource type="Texture2D" uid="uid://cu0onuvhrckor" path="res://img/gankogui.png" id="6_kt8hi"]
+[ext_resource type="Texture2D" uid="uid://bg32sft8ugjjw" path="res://img/stars.png" id="7_kcwu8"]
 
 [node name="GankoguiControls" type="Node2D"]
 script = ExtResource("1_28xwr")

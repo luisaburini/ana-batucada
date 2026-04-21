@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://n386jdcbvm5m"]
 
 [ext_resource type="Script" uid="uid://3f15466jb764" path="res://controls.gd" id="1_qbcre"]
-[ext_resource type="Texture2D" uid="uid://cmi8p5pnb7xu6" path="res://img/mpc.png" id="3_cf7nr"]
+[ext_resource type="Texture2D" uid="uid://bi1mtktmiqme2" path="res://img/mpc.png" id="3_cf7nr"]
 [ext_resource type="PackedScene" uid="uid://2r2auob8mpde" path="res://batucada_button.tscn" id="4_42pi2"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="5_abkn8"]
 [ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="5_dob1i"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="8_he8l4"]
-[ext_resource type="Texture2D" uid="uid://be633cs8a02yc" path="res://img/touch.png" id="9_hkas0"]
+[ext_resource type="Texture2D" uid="uid://qmq385yjvxp4" path="res://img/touch.png" id="9_hkas0"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="9_kpabq"]
 
 [node name="FunkMPCControls" type="Node2D"]
@@ -82,7 +82,7 @@ visible = false
 [connection signal="seta_moved" from="Compasso" to="." method="_on_compasso_seta_moved"]
 [connection signal="countdown_show" from="Tutorial" to="." method="_on_tutorial_countdown_show"]
 [connection signal="ended" from="Tutorial" to="." method="_on_tutorial_ended"]
-[connection signal="finished" from="AudioMestra" to="." method="_on_mp_3_loader_finished"]
+[connection signal="finished" from="AudioMestra" to="." method="_on_audio_mestra_finished"]
 [connection signal="finished" from="AudioSemSolo" to="." method="_on_audio_sem_solo_finished"]
 [connection signal="countdown_show" from="PreJogo" to="." method="_on_pre_jogo_countdown_show"]
 [connection signal="ended" from="PreJogo" to="." method="_on_pre_jogo_ended"]

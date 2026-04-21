@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvbxccne0wsak"]
+
+[ext_resource type="PackedScene" uid="uid://deai557pn1v2b" path="res://funk_bumbo.tscn" id="1_8rlmn"]
+[ext_resource type="Texture2D" uid="uid://c1hbxy310qvwy" path="res://img/h.png" id="2_cu464"]
+
+[node name="AfroHouseHihat" instance=ExtResource("1_8rlmn")]
+
+[node name="Title" parent="." index="1"]
+text = "AfroHouse Hihat"
+
+[node name="1stNote" parent="HBoxContainer/VBoxContainer2" index="0"]
+texture = ExtResource("2_cu464")
+
+[node name="Dicab" parent="HBoxContainer/VBoxContainer" index="0"]
+text = "1/2 tempo de hihat"

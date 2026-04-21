@@ -48,7 +48,7 @@ func start_timer(seconds):
 		print("Time is invalid " + str(seconds))
 
 func is_semi_colcheia(note):
-	if note == "D" || note == "c":
+	if note == "D":
 		return true
 	return false
 
@@ -58,12 +58,12 @@ func is_colcheia_dot(note):
 	return false
 
 func is_colcheia(note):
-	if note == "k" || note == "z" || note == "x" || note == "y" || note == "g" || note == "C" || note == "b" || note == "p" || note == "h" || note =="a" || note == "2"  || note == "7" || note == "R" || note == "T":
+	if note == "k" || note == "z" || note == "x" || note == "y" || note == "g" || note == "b" || note == "p" || note == "h" || note =="a" || note == "2"  || note == "7" || note == "R" || note == "T":
 		return true
 	return false
 	
 func is_seminima(note):
-	if note == "Y" || note == "X" || note == "E" || note == "A" || note == "1" || note == "P" || note == "S":
+	if note == "Y" || note == "X" ||  note == "A" || note == "1" || note == "P" || note == "S":
 		return true
 	return false
 

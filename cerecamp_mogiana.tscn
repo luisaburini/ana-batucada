@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwhukrgyaq1pf"]
 
 [ext_resource type="Script" uid="uid://b1412p6yha8a4" path="res://cerecamp_mogiana.gd" id="1_d8xlv"]
-[ext_resource type="Texture2D" uid="uid://scdo6cwytciw" path="res://img/cerecamp-mogiana.jpg" id="1_hiewa"]
+[ext_resource type="Texture2D" uid="uid://br1kj63wwjjwj" path="res://img/cerecamp-mogiana.jpg" id="1_hiewa"]
 [ext_resource type="PackedScene" uid="uid://sgp1dn83h0s4" path="res://gankogui_controls.tscn" id="4_gi3fk"]
 [ext_resource type="PackedScene" uid="uid://cc3g5rea2cgn3" path="res://afro_house_controls.tscn" id="4_trhlg"]
 
@@ -18,7 +18,6 @@ texture = ExtResource("1_hiewa")
 [node name="GankoguiControls" parent="." instance=ExtResource("4_gi3fk")]
 
 [connection signal="bumbo_ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_bumbo_ended"]
-[connection signal="caixa_ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_caixa_ended"]
 [connection signal="ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_ended"]
 [connection signal="hihat_ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_hihat_ended"]
 [connection signal="ended" from="GankoguiControls" to="." method="_on_gankogui_controls_ended"]

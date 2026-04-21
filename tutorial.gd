@@ -9,10 +9,25 @@ var first_screen = "res://img/tutorial1.png"
 var first_text = "vamos tocar um sample digital!\ndispare sons previamente gravados"
 var second_screen = "res://img/tutorial2.jpeg"
 var second_text = "da uma olhada como se faz"
+var instruction_node = ""
 
+func set_instruction_node(i):
+	instruction_node = i
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$FunkBumbo.hide()
+	$FunkConga.hide()
+	$FunkTriangulo.hide()
+	
+	$AfroHouseHihat.hide()
+	$AfroHouseBumbo.hide()
+	$AfroHouseGankogui.hide()
+	
+	$SambaTrapPalmas.hide()
+	$SambaTrapAro.hide()
+	$SambaTrapCaixa.hide()
+	
 	$ClickAudio.set_volume(40)
 	$ClickAudio.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/CLICK.mp3")
 
@@ -65,14 +80,29 @@ func _on_timer_timeout():
 
 
 func _on_timer_cena_1_timeout() -> void:
+	print("TIMER CENA 1 TIMEOUT")
 	$Cena1.texture = load(second_screen)
 	$Instructions.text = second_text
 	$TimerCena2.start(3)
 
 
 func _on_timer_cena_2_timeout() -> void:
+	print("TIMER CENA 2 TIMEOUT")
 	$Cena1.hide()
 	$Instructions.hide()
-	$ClickAudio.play()
-	$Countdown.show()
-	$Timer.start()
+	var inode = get_node(instruction_node)
+	if inode != null:
+		inode.show()
+		$TimerCena3.start(7)
+	else:
+		$ClickAudio.play()
+		$Countdown.show()
+		$Timer.start()
+
+func _on_timer_cena_3_timeout() -> void:
+	var inode = get_node(instruction_node)
+	if inode != null:
+		inode.hide()
+		$ClickAudio.play()
+		$Countdown.show()
+		$Timer.start()

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://doldo8sbeqxu4"]
+
+[ext_resource type="PackedScene" uid="uid://1sfxy05y8s6j" path="res://samba_trap_palmas.tscn" id="1_ff8gv"]
+[ext_resource type="Texture2D" uid="uid://dtinbr2718nhd" path="res://img/z.png" id="2_j73u6"]
+
+[node name="SambaTrapAro" instance=ExtResource("1_ff8gv")]
+
+[node name="Title" parent="." index="1"]
+text = "Samba Trap Aro"
+
+[node name="1stNote" parent="HBoxContainer/VBoxContainer2" index="0"]
+texture = ExtResource("2_j73u6")
+
+[node name="Dicab" parent="HBoxContainer/VBoxContainer" index="0"]
+text = "1/2 tempo de aro"

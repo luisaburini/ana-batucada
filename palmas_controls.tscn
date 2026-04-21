@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://b2qmvoucx2q4w" path="res://palmas_controls.gd" id="1_5v2qn"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="2_v8v4g"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="3_qpm5y"]
-[ext_resource type="Texture2D" uid="uid://mgt7a0mermaw" path="res://img/unclap.png" id="4_156ms"]
-[ext_resource type="Texture2D" uid="uid://b3lrl1aa411te" path="res://img/clap.png" id="5_rav1v"]
+[ext_resource type="Texture2D" uid="uid://dota1n1q4rd7e" path="res://img/unclap.png" id="4_156ms"]
+[ext_resource type="Texture2D" uid="uid://cqpssr4p4jvni" path="res://img/clap.png" id="5_rav1v"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="6_rav1v"]
 [ext_resource type="FontFile" uid="uid://bqjf8xqjuxcl7" path="res://fonts/Super Dream.ttf" id="7_mrb63"]
-[ext_resource type="Texture2D" uid="uid://be633cs8a02yc" path="res://img/touch.png" id="8_0k6iv"]
+[ext_resource type="Texture2D" uid="uid://qmq385yjvxp4" path="res://img/touch.png" id="8_0k6iv"]
 
 [node name="PalmasControls" type="Node2D"]
 script = ExtResource("1_5v2qn")

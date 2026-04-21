@@ -62,8 +62,7 @@ func _on_estacao_cultura_finished() -> void:
 	var palmas = $EstacaoCultura.get_pontos_palmas()
 	var aro = $EstacaoCultura.get_pontos_aro()
 	var caixa = $EstacaoCultura.get_pontos_caixa()
-	var bumbo = $EstacaoCultura.get_pontos_bumbo()
-	$Score.set_pontos_fase3(palmas, aro, caixa, bumbo)
+	$Score.set_pontos_fase3(palmas, aro, caixa)
 	$Score.show()
 	$ScoreTimer.start(3)
 
@@ -101,10 +100,10 @@ func _on_cerecamp_mogiana_finished() -> void:
 	print("$CerecampMogiana.get_pontos_hihat()", hihat)
 	var bumbo = $CerecampMogiana.get_pontos_bumbo()
 	print("$CerecampMogiana.get_pontos_bumbo()", bumbo)
-	var caixa = $CerecampMogiana.get_pontos_caixa()
 	var gankogui = $CerecampMogiana.get_pontos_gankogui()
+	print("$CerecampMogiana.get_pontos_gankogui()", gankogui)
 	$Score/Fase.text = "Estadio Cerecamp Mogiana"
-	$Score.set_pontos_fase2(hihat, bumbo, caixa, gankogui)
+	$Score.set_pontos_fase2(hihat, bumbo, gankogui)
 	$Score.show()
 	$ScoreTimer.start(3)
 

@@ -3,6 +3,7 @@ var replay_audio = true
 
 
 func _ready():
+	$AudioStreamPlayer.set_volume_linear(0.5)
 	$AudioStreamPlayer.play()
 	$End.hide()
 

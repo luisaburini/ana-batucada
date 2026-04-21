@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://caclqu6ci2jwj" path="res://main.gd" id="1_6bcuf"]
 [ext_resource type="PackedScene" uid="uid://bpuv23l7ugco" path="res://hud.tscn" id="2_dw5fr"]
-[ext_resource type="Texture2D" uid="uid://cini0mo1ei2ly" path="res://img/fim.png" id="5_7mycd"]
-[ext_resource type="Texture2D" uid="uid://cub7e4ouf0kwl" path="res://img/logo.png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cusgikkowl3kd" path="res://img/fim.png" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://clrpja0jnv4jn" path="res://img/logo.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dvtwc8fcdunxk" path="res://mapa.tscn" id="6_7mycd"]
 [ext_resource type="AudioStream" uid="uid://dxspstjsg1022" path="res://sounds/TEMA_AB.mp3" id="6_272bh"]
 

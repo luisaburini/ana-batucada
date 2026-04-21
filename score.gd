@@ -30,7 +30,7 @@ func set_pontos(bumbo, conga, triangulo):
 		$Fase1/PontosTriangulo.text = "0%"
 	$Fase1/PontosTotal.text = str((bumbo+conga+triangulo)/3)+ "%"
 
-func set_pontos_fase2(hihat, bumbo, caixa, gankogui):
+func set_pontos_fase2(hihat, bumbo, gankogui):
 	$Fase.text = "Estadio Cerecamp Mogiana"
 	$Fase1.hide()
 	$Fase2.show()
@@ -46,19 +46,14 @@ func set_pontos_fase2(hihat, bumbo, caixa, gankogui):
 	else:
 		bumbo = 0
 		$Fase2/PontosBumbo.text = "0%"
-	if caixa != null:
-		$Fase2/PontosCaixa.text = str(caixa)+"%"
-	else:
-		caixa = 0
-		$Fase2/PontosCaixa.text = "0%"
 	if gankogui != null:
 		$Fase2/PontosGankogui.text = str(gankogui)+"%"
 	else:
 		gankogui = 0
 		$Fase2/PontosGankogui.text = "0%"
-	$Fase2/PontosTotal.text = str((hihat+bumbo+caixa+gankogui)/4) + "%"
+	$Fase2/PontosTotal.text = str((hihat+bumbo+gankogui)/3) + "%"
 	
-func set_pontos_fase3(palmas, aro, caixa, bumbo):
+func set_pontos_fase3(palmas, aro, caixa):
 	$Fase.text = "Estacao Cultura"
 	$Fase1.hide()
 	$Fase2.hide()
@@ -78,9 +73,4 @@ func set_pontos_fase3(palmas, aro, caixa, bumbo):
 	else:
 		caixa = 0
 		$Fase3/PontosCaixa.text = "0%"
-	if bumbo != null:
-		$Fase3/PontosBumbo.text = str(bumbo)+"%"
-	else:
-		bumbo = 0
-		$Fase3/PontosBumbo.text = "0%"
-	$Fase3/PontosTotal.text = str((palmas+aro+caixa+bumbo)/4) + "%"
+	$Fase3/PontosTotal.text = str((palmas+aro+caixa)/4) + "%"

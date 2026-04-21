@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl3fwomlf1rvq"]
 
 [ext_resource type="Script" uid="uid://biuyiwapx80mg" path="res://estacao_cultura.gd" id="1_ahnhr"]
-[ext_resource type="Texture2D" uid="uid://ceqynjq3i84f5" path="res://img/estacao-cultura.jpg" id="1_hh0px"]
+[ext_resource type="Texture2D" uid="uid://b23kopq8rdtco" path="res://img/estacao-cultura.jpg" id="1_hh0px"]
 [ext_resource type="PackedScene" uid="uid://bt05l8viuiiid" path="res://samba_trap_controls.tscn" id="3_302fx"]
 [ext_resource type="PackedScene" uid="uid://cau0l3jvharvy" path="res://palmas_controls.tscn" id="4_qa10d"]
 

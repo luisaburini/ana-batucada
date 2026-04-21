@@ -2,13 +2,12 @@ extends Node2D
 
 signal ended
 var tutorial_ended = false
-var instruments = ["HIHAT", "BUMBO", "CAIXA"]
+var instruments = ["HIHAT", "BUMBO"]
 var current_instrument = 0
-var btn_color = ["red", "blue", "red"]
+var btn_color = ["red", "blue"]
 var must_leave = false
 
 signal hihat_ended(pontos)
-signal caixa_ended(pontos)
 signal bumbo_ended(pontos)
 
 var pontos = 0
@@ -19,7 +18,6 @@ var compasso_ended = false
 
 var showed_hihat1 = false
 var showed_bumbo1 = false
-var showed_caixa1 = false
 
 # O - pausa de 2 tempos (minima)
 # P - pausa de 1 tempo (semínima)
@@ -48,28 +46,18 @@ var compasso_bumbo6 = "AAaaA"
 var compasso_bumbo7 = "AAAA"
 var compasso_bumbo8 = "Aaaaaaa"
 
-# c - caixa de 1 quarto de tempo (semicolcheia)
-# C - caixa de meio tempo (colcheia)
-# E - caixa de 1 tempo (seminima)
-var compasso_caixa1 = "dcpCPE"
-var compasso_caixa2 = "dcpCO"
-var compasso_caixa3 = "dcpCPE"
-var compasso_caixa4 = "dcpCO"
-var compasso_caixa5 = "dcpCPE"
-var compasso_caixa6 = "dcpCO"
-var compasso_caixa7 = "dcpCPE"
-var compasso_caixa8 = "dcpCO"
-
 
 func music_according_to_phase():
 	if current_instrument == 0:
 		return [compasso_hihat1, compasso_hihat2, compasso_hihat3, compasso_hihat4,
+				compasso_hihat5, compasso_hihat6, compasso_hihat7, compasso_hihat8,
+				compasso_hihat1, compasso_hihat2, compasso_hihat3, compasso_hihat4,
 				compasso_hihat5, compasso_hihat6, compasso_hihat7, compasso_hihat8]
 	if current_instrument == 1:
 		return [compasso_bumbo1, compasso_bumbo2, compasso_bumbo3, compasso_bumbo4, 
+				compasso_bumbo5, compasso_bumbo6, compasso_bumbo7, compasso_bumbo8,
+				compasso_bumbo1, compasso_bumbo2, compasso_bumbo3, compasso_bumbo4, 
 				compasso_bumbo5, compasso_bumbo6, compasso_bumbo7, compasso_bumbo8]
-	return [compasso_caixa1, compasso_caixa2, compasso_caixa3, compasso_caixa4,
-			compasso_caixa5, compasso_caixa6, compasso_caixa7, compasso_caixa8]
 
 
 func current_audio_sem_solo():
@@ -83,7 +71,6 @@ func current_audio_mestra():
 func _ready() -> void:
 	$Hihat1.hide()
 	$Bumbo1.hide()
-	$Caixa1.hide()
 	hide_all_touch()
 	$Compassos.set_music(music_according_to_phase())
 	$Pontuacao.hide()
@@ -91,7 +78,6 @@ func _ready() -> void:
 
 func hide_all_touch():
 	$TouchHihat1.hide()
-	$TouchCaixa1.hide()
 	$TouchBumbo1.hide()
 
 func init_phase_buttons(btns):
@@ -108,12 +94,13 @@ func start():
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(10)
+	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
 		ended.emit()
 		return
 	was_pressed = false
 	if !tutorial_ended:
+		$Tutorial.set_instruction_node("AfroHouseHihat")
 		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
@@ -191,14 +178,6 @@ func update_touch(note):
 		showed_bumbo1 = !showed_bumbo1
 		$TouchBumbo1.show()
 		return
-	if note == "c" || note == "C" || note == "E":
-		if showed_caixa1:
-			$TouchCaixa1.texture = load("res://img/touch.png")
-		else:
-			$TouchCaixa1.texture = load("res://img/touch_double.png")
-		showed_caixa1 = !showed_caixa1
-		$TouchCaixa1.show()
-		return
 	if note == "h":
 		if showed_hihat1:
 			$TouchHihat1.texture = load("res://img/touch.png")
@@ -213,7 +192,6 @@ func end():
 	$Compassos.hide()
 	$MPCBackground.hide()
 	$Bumbo1.hide()
-	$Caixa1.hide()
 	$Hihat1.hide()
 	hide()
 
@@ -226,7 +204,7 @@ func _on_tutorial_ended() -> void:
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(10)
+	$AudioSemSolo.set_volume(30)
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
@@ -243,13 +221,6 @@ func _on_bumbo_1_pressed() -> void:
 	if curr_note == "a" || curr_note == "A":
 		update_pontos()
 
-
-func _on_caixa_1_pressed() -> void:
-	var curr_note = $Compassos.get_current_note_name()
-	if curr_note == "c" || curr_note == "C" || curr_note == "E":
-		update_pontos()
-
-
 func _on_audio_sem_solo_finished() -> void:
 	if !compasso_ended:
 		$AudioSemSolo.play()
@@ -259,7 +230,6 @@ func instrument_time():
 		return 0.1
 	if current_instrument == 1:
 		return 0.08
-	return 0.12
 
 func _on_tutorial_countdown_show() -> void:
 	hide_all_touch()
@@ -272,10 +242,6 @@ func _on_tutorial_countdown_show() -> void:
 		btns = ["Bumbo1"]
 		$Compassos.set_note_width(60)
 		$Bumbo1.show()
-	if current_instrument == 2:
-		btns = ["Caixa1"]
-		$Compassos.set_note_width(60)
-		$Caixa1.show()
 	init_phase_buttons(btns)
 	$Compassos.start_timer(instrument_time())
 	$Pontuacao.hide()
@@ -291,13 +257,10 @@ func _on_audio_mestra_finished() -> void:
 func _on_pre_jogo_countdown_show() -> void:
 	$Hihat1.hide()
 	$Bumbo1.hide()
-	$Caixa1.hide()
 	if current_instrument == 0:
 		$Hihat1.show()
 	if current_instrument == 1:
 		$Bumbo1.show()
-	if current_instrument == 2:
-		$Caixa1.show()
 	$Compassos.start_timer(instrument_time())
 	$AudioSemSolo.play()
 	$Pontuacao.show()
@@ -317,7 +280,6 @@ func _on_compassos_ended() -> void:
 	$Pontuacao.hide()
 	$Hihat1.hide()
 	$Bumbo1.hide()
-	$Caixa1.hide()
 	hide_all_touch()
 	if tutorial_ended && !must_leave:
 		reset()
@@ -330,10 +292,6 @@ func _on_compassos_ended() -> void:
 		if current_instrument == 1:
 			$PreJogo.set_first_screen("res://img/pre-jogo1.png", "aperte o botao em destaque quando piscar")
 			$PreJogo.set_second_screen("res://img/pre-jogo2.png", "sua vez de tocar bumbo!")
-		if current_instrument == 2:
-			$PreJogo.set_first_screen("res://img/pre-jogo-caixa1.png", "aperte o botao em destaque quando piscar")
-			$PreJogo.set_second_screen("res://img/pre-jogo-caixa2.png", "sua vez de tocar caixa!")
-		
 		$PreJogo.show()
 		$PreJogo.start()
 		return
@@ -343,8 +301,6 @@ func _on_compassos_ended() -> void:
 		hihat_ended.emit(get_percent())
 	if current_instrument == 1:
 		bumbo_ended.emit(get_percent())
-	if current_instrument == 2:
-		caixa_ended.emit(get_percent())
 		
 	current_instrument = current_instrument+1
 	$AudioMestra.stop()
@@ -355,28 +311,16 @@ func _on_compassos_ended() -> void:
 	pontos = 0
 	$Compassos.set_music(music_according_to_phase())
 	$Compassos.reset()
-	
 	if current_instrument == 1:
 		# Start bumbo		
 		$Pontuacao.hide()
-		$TouchCaixa1.hide()
+		$Tutorial.set_instruction_node("AfroHouseBumbo")
 		$Tutorial.set_first_screen("res://img/tutorial-bumbo1.png", "agora vamos tocar bumbo!")
 		$Tutorial.set_second_screen("res://img/tutorial-bumbo2.png", "veja como se faz")
 		$Tutorial.set_show_telas(true)
 		$Tutorial.start()
 		$PreJogo.set_show_telas(true)
-		$Caixa1.hide()
-	if current_instrument == 2:
-		# Start caixa
-		$Pontuacao.hide()
-		$TouchHihat1.hide()
-		$Tutorial.set_first_screen("res://img/tutorial-caixa1.png", "agora vamos usar o som da caixa!")
-		$Tutorial.set_second_screen("res://img/tutorial-caixa2.png", "veja como se faz")
-		$Tutorial.set_show_telas(true)
-		$Tutorial.start()
-		$PreJogo.set_show_telas(true)
-		$Hihat1.hide()
-	if current_instrument == 3:
+	if current_instrument >= len(instruments):
 		end()
 		ended.emit()
 

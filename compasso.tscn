@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvfci3ptk4mgy"]
 
 [ext_resource type="Script" uid="uid://cxsopt0v4duhr" path="res://compasso.gd" id="1_tv05q"]
-[ext_resource type="Texture2D" uid="uid://5ijo8actm2fb" path="res://img/div.png" id="3_5wpxb"]
-[ext_resource type="Texture2D" uid="uid://bgwpymfq0jqwm" path="res://img/seta.png" id="3_rn6xb"]
-[ext_resource type="Texture2D" uid="uid://cfoaqgpc24h5u" path="res://img/compasso-bg.png" id="4_yv6ax"]
+[ext_resource type="Texture2D" uid="uid://ciw0s5ifvmbm0" path="res://img/div.png" id="3_5wpxb"]
+[ext_resource type="Texture2D" uid="uid://cs5trq2epf2rc" path="res://img/seta.png" id="3_rn6xb"]
+[ext_resource type="Texture2D" uid="uid://b5b7wy7psxlyy" path="res://img/compasso-bg.png" id="4_yv6ax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yv6ax"]
 

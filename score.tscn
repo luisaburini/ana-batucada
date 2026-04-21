@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3lv55xrdvjcd"]
 
 [ext_resource type="Script" uid="uid://wm01p0tg0rpd" path="res://score.gd" id="1_t1x8i"]
-[ext_resource type="Texture2D" uid="uid://2kxgo3p77yfq" path="res://img/score.jpg" id="2_vfhx4"]
+[ext_resource type="Texture2D" uid="uid://c88kocon7s2og" path="res://img/score.jpg" id="2_vfhx4"]
 [ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="3_3u2p1"]
 [ext_resource type="FontFile" uid="uid://b41mq7yirpjeo" path="res://fonts/Super Funky.ttf" id="4_3u2p1"]
 
@@ -9,6 +9,7 @@
 script = ExtResource("1_t1x8i")
 
 [node name="Fase1" type="TextureRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_vfhx4")
@@ -103,6 +104,7 @@ theme_override_font_sizes/font_size = 100
 text = "0%"
 
 [node name="Fase2" type="TextureRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_vfhx4")
@@ -138,29 +140,19 @@ text = "Hihat"
 [node name="Bumbo" type="Label" parent="Fase2"]
 layout_mode = 0
 offset_left = 180.0
-offset_top = 300.0
+offset_top = 326.0
 offset_right = 1766.0
-offset_bottom = 461.0
+offset_bottom = 487.0
 theme_override_fonts/font = ExtResource("4_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "Bumbo"
 
-[node name="Caixa" type="Label" parent="Fase2"]
-layout_mode = 0
-offset_left = 178.0
-offset_top = 437.0
-offset_right = 1764.0
-offset_bottom = 598.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "caixa"
-
 [node name="Guinkogui" type="Label" parent="Fase2"]
 layout_mode = 0
 offset_left = 184.0
-offset_top = 570.0
+offset_top = 482.0
 offset_right = 1770.0
-offset_bottom = 731.0
+offset_bottom = 643.0
 theme_override_fonts/font = ExtResource("4_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "Gankogui"
@@ -179,20 +171,9 @@ horizontal_alignment = 2
 [node name="PontosBumbo" type="Label" parent="Fase2"]
 layout_mode = 0
 offset_left = 1419.0
-offset_top = 318.0
+offset_top = 323.0
 offset_right = 1770.0
-offset_bottom = 479.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "0%"
-horizontal_alignment = 2
-
-[node name="PontosCaixa" type="Label" parent="Fase2"]
-layout_mode = 0
-offset_left = 1419.0
-offset_top = 443.0
-offset_right = 1770.0
-offset_bottom = 604.0
+offset_bottom = 484.0
 theme_override_fonts/font = ExtResource("4_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "0%"
@@ -201,9 +182,9 @@ horizontal_alignment = 2
 [node name="PontosGankogui" type="Label" parent="Fase2"]
 layout_mode = 0
 offset_left = 1419.0
-offset_top = 566.0
+offset_top = 478.0
 offset_right = 1770.0
-offset_bottom = 727.0
+offset_bottom = 639.0
 theme_override_fonts/font = ExtResource("4_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "0%"
@@ -255,10 +236,10 @@ text = "Palmas"
 
 [node name="Aro" type="Label" parent="Fase3"]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 300.0
-offset_right = 1766.0
-offset_bottom = 461.0
+offset_left = 176.0
+offset_top = 313.0
+offset_right = 1762.0
+offset_bottom = 474.0
 theme_override_fonts/font = ExtResource("4_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "Aro"
@@ -266,22 +247,12 @@ text = "Aro"
 [node name="Caixa" type="Label" parent="Fase3"]
 layout_mode = 0
 offset_left = 178.0
-offset_top = 437.0
+offset_top = 462.0
 offset_right = 1764.0
-offset_bottom = 598.0
+offset_bottom = 623.0
 theme_override_fonts/font = ExtResource("4_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "caixa"
-
-[node name="Bumbo" type="Label" parent="Fase3"]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 570.0
-offset_right = 1770.0
-offset_bottom = 731.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "Bumbo"
 
 [node name="PontosPalmas" type="Label" parent="Fase3"]
 layout_mode = 0
@@ -308,20 +279,9 @@ horizontal_alignment = 2
 [node name="PontosCaixa" type="Label" parent="Fase3"]
 layout_mode = 0
 offset_left = 1419.0
-offset_top = 443.0
+offset_top = 463.0
 offset_right = 1770.0
-offset_bottom = 604.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "0%"
-horizontal_alignment = 2
-
-[node name="PontosBumbo" type="Label" parent="Fase3"]
-layout_mode = 0
-offset_left = 1419.0
-offset_top = 566.0
-offset_right = 1770.0
-offset_bottom = 727.0
+offset_bottom = 624.0
 theme_override_fonts/font = ExtResource("4_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "0%"
