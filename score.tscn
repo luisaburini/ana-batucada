@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3lv55xrdvjcd"]
+[gd_scene load_steps=6 format=3 uid="uid://c3lv55xrdvjcd"]
 
 [ext_resource type="Script" uid="uid://wm01p0tg0rpd" path="res://score.gd" id="1_t1x8i"]
 [ext_resource type="Texture2D" uid="uid://c88kocon7s2og" path="res://img/score.jpg" id="2_vfhx4"]
 [ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="3_3u2p1"]
 [ext_resource type="FontFile" uid="uid://b41mq7yirpjeo" path="res://fonts/Super Funky.ttf" id="4_3u2p1"]
+[ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_i4m08"]
 
 [node name="Score" type="Node2D"]
 script = ExtResource("1_t1x8i")
@@ -320,3 +321,5 @@ theme_override_fonts/font = ExtResource("3_3u2p1")
 theme_override_font_sizes/font_size = 100
 text = "Concha Acustica do Taquaral"
 horizontal_alignment = 1
+
+[node name="Ambiente" parent="." instance=ExtResource("5_i4m08")]

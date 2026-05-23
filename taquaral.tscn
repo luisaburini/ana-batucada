@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djd5g50wdvimd"]
+[gd_scene load_steps=6 format=3 uid="uid://djd5g50wdvimd"]
 
 [ext_resource type="Script" uid="uid://crevljbysayss" path="res://taquaral.gd" id="1_hyn5j"]
 [ext_resource type="Texture2D" uid="uid://b1nxe5051ch7j" path="res://img/taquaral.jpg" id="1_s7qdt"]
 [ext_resource type="PackedScene" uid="uid://t6qfejjwvxo5" path="res://triangulo_controls.tscn" id="4_v1in7"]
 [ext_resource type="PackedScene" uid="uid://n386jdcbvm5m" path="res://controls.tscn" id="5_13thw"]
+[ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_sslfs"]
 
 [node name="Taquaral" type="Node2D"]
 script = ExtResource("1_hyn5j")
@@ -17,6 +18,8 @@ texture = ExtResource("1_s7qdt")
 position = Vector2(-2, -2)
 
 [node name="FunkTrianguloControls" parent="." instance=ExtResource("4_v1in7")]
+
+[node name="Ambiente" parent="." instance=ExtResource("5_sslfs")]
 
 [connection signal="bumbo_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_bumbo_ended"]
 [connection signal="conga_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_conga_ended"]

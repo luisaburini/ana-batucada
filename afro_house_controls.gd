@@ -87,14 +87,14 @@ func init_phase_buttons(btns):
 		var obj = get_node(b)
 		obj.set_stream("res://sounds/FASE2/100BPM/ONE_SHOT/" + instruments[current_instrument] + str(i) + ".mp3")
 		obj.set_texture("res://img/mpc-button-" + btn_color[current_instrument] +".png")
-		obj.set_volume(30)
+		obj.set_volume(20)
 		obj.show()
 
 func start():
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(20)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(30)
+	$AudioSemSolo.set_volume(20)
 	if current_instrument >= len(instruments):
 		ended.emit()
 		return
@@ -202,9 +202,9 @@ func _on_tutorial_ended() -> void:
 		ended.emit()
 		return
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(20)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(30)
+	$AudioSemSolo.set_volume(20)
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()

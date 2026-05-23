@@ -1,7 +1,6 @@
 extends Node2D
 
 var counter = 0
-var current_sound = ""
 signal ended
 signal countdown_show
 var show_telas = true
@@ -16,6 +15,8 @@ func set_instruction_node(i):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Ambiente.load_audio("res://sounds/MUSICA_TUTORIAL_MESTRA.mp3")
+	$Ambiente.set_volume(20)
 	$FunkBumbo.hide()
 	$FunkConga.hide()
 	$FunkTriangulo.hide()
@@ -41,6 +42,7 @@ func set_second_screen(s, t):
 	second_text = t
 
 func start():
+	$Ambiente.play()
 	counter = 0
 	$TimerCena1.set_one_shot(true)
 	$TimerCena2.set_one_shot(true)
@@ -73,6 +75,7 @@ func _on_timer_timeout():
 		return
 	countdown_show.emit()
 	ended.emit()
+	$Ambiente.stop()
 	hide()
 	$Timer.set_one_shot(true)
 	$Timer.stop()

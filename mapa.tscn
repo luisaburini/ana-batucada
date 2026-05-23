@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvtwc8fcdunxk"]
+[gd_scene load_steps=12 format=3 uid="uid://dvtwc8fcdunxk"]
 
 [ext_resource type="Script" uid="uid://cqkgpsa4rs2sx" path="res://mapa.gd" id="1_ltv3l"]
 [ext_resource type="Texture2D" uid="uid://cucjks6tnl8t6" path="res://img/mapa-concha.jpeg" id="2_2eut3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cwhukrgyaq1pf" path="res://cerecamp_mogiana.tscn" id="7_2eut3"]
 [ext_resource type="PackedScene" uid="uid://bl3fwomlf1rvq" path="res://estacao_cultura.tscn" id="8_rugew"]
 [ext_resource type="PackedScene" uid="uid://c3lv55xrdvjcd" path="res://score.tscn" id="9_w30at"]
+[ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="11_rugew"]
 
 [node name="Mapa" type="Node2D"]
 script = ExtResource("1_ltv3l")
@@ -57,6 +58,10 @@ one_shot = true
 
 [node name="BlinkTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="ButtonClick" parent="." instance=ExtResource("11_rugew")]
+
+[node name="Fanfarra" parent="." instance=ExtResource("11_rugew")]
 
 [connection signal="pressed" from="TaquaralButton" to="." method="_on_taquaral_button_pressed"]
 [connection signal="pressed" from="CerescampMogianaButton" to="." method="_on_cerescamp_mogiana_button_pressed"]

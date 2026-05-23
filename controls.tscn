@@ -19,18 +19,6 @@ offset_right = 1577.0
 offset_bottom = 1070.0
 texture = ExtResource("3_cf7nr")
 
-[node name="bumbo1" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(855, 848)
-
-[node name="conga1" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(1058, 771)
-
-[node name="conga2" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(723, 767)
-
-[node name="Compasso" parent="." instance=ExtResource("5_abkn8")]
-position = Vector2(19, 100)
-
 [node name="Pontuacao" type="Label" parent="."]
 offset_left = 1612.0
 offset_top = 490.0
@@ -42,6 +30,21 @@ theme_override_font_sizes/font_size = 120
 text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Compasso" parent="." instance=ExtResource("5_abkn8")]
+position = Vector2(19, 100)
+
+[node name="bumbo1" parent="." instance=ExtResource("4_42pi2")]
+visible = false
+position = Vector2(855, 848)
+
+[node name="conga1" parent="." instance=ExtResource("4_42pi2")]
+visible = false
+position = Vector2(1058, 771)
+
+[node name="conga2" parent="." instance=ExtResource("4_42pi2")]
+visible = false
+position = Vector2(723, 767)
 
 [node name="TouchBumbo1" type="TextureRect" parent="."]
 visible = false
@@ -66,23 +69,22 @@ offset_bottom = 863.0
 texture = ExtResource("9_hkas0")
 
 [node name="Tutorial" parent="." instance=ExtResource("8_he8l4")]
+
+[node name="PreJogo" parent="." instance=ExtResource("8_he8l4")]
 visible = false
 
 [node name="AudioMestra" parent="." instance=ExtResource("9_kpabq")]
 
 [node name="AudioSemSolo" parent="." instance=ExtResource("9_kpabq")]
 
-[node name="PreJogo" parent="." instance=ExtResource("8_he8l4")]
-visible = false
-
+[connection signal="ended" from="Compasso" to="." method="_on_compasso_ended"]
+[connection signal="seta_moved" from="Compasso" to="." method="_on_compasso_seta_moved"]
 [connection signal="pressed" from="bumbo1" to="." method="_on_bumbo_1_pressed"]
 [connection signal="pressed" from="conga1" to="." method="_on_conga1_pressed"]
 [connection signal="pressed" from="conga2" to="." method="_on_conga_4_pressed"]
-[connection signal="ended" from="Compasso" to="." method="_on_compasso_ended"]
-[connection signal="seta_moved" from="Compasso" to="." method="_on_compasso_seta_moved"]
 [connection signal="countdown_show" from="Tutorial" to="." method="_on_tutorial_countdown_show"]
 [connection signal="ended" from="Tutorial" to="." method="_on_tutorial_ended"]
-[connection signal="finished" from="AudioMestra" to="." method="_on_audio_mestra_finished"]
-[connection signal="finished" from="AudioSemSolo" to="." method="_on_audio_sem_solo_finished"]
 [connection signal="countdown_show" from="PreJogo" to="." method="_on_pre_jogo_countdown_show"]
 [connection signal="ended" from="PreJogo" to="." method="_on_pre_jogo_ended"]
+[connection signal="finished" from="AudioMestra" to="." method="_on_audio_mestra_finished"]
+[connection signal="finished" from="AudioSemSolo" to="." method="_on_audio_sem_solo_finished"]

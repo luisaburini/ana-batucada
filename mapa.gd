@@ -11,6 +11,9 @@ var should_blink = false
 var _show_blink = true
 
 func _ready():
+	$Fanfarra.load_audio("res://sounds/FANFARRA_DE_VITORIA.mp3")
+	$Fanfarra.set_volume(30)
+	$ButtonClick.set_volume(50)
 	$BlinkTimer.start(0.5)
 	$Score.hide()
 	$Taquaral.hide()
@@ -20,6 +23,8 @@ func _ready():
 	$EstacaoCulturaButton.hide()
 
 func _on_taquaral_button_pressed() -> void:
+	$ButtonClick.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/BOTAO_INICIAR1.mp3")
+	$ButtonClick.play()
 	should_blink = false
 	_show_blink = false
 	$BlinkTimer.stop()
@@ -33,6 +38,8 @@ func _on_taquaral_button_pressed() -> void:
 
 
 func _on_cerescamp_mogiana_button_pressed() -> void:
+	$ButtonClick.load_audio("res://sounds/FASE2/100BPM/BOTAO_INICIAR2.mp3")
+	$ButtonClick.play()
 	should_blink = false
 	_show_blink = false
 	$BlinkTimer.stop()
@@ -45,6 +52,8 @@ func _on_cerescamp_mogiana_button_pressed() -> void:
 
 
 func _on_estacao_cultura_button_pressed() -> void:
+	$ButtonClick.load_audio("res://sounds/FASE3/100BPM/BOTAO_INICIAR3.mp3")
+	$ButtonClick.play()
 	should_blink = false
 	_show_blink = false
 	$BlinkTimer.stop()
@@ -63,6 +72,7 @@ func _on_estacao_cultura_finished() -> void:
 	var aro = $EstacaoCultura.get_pontos_aro()
 	var caixa = $EstacaoCultura.get_pontos_caixa()
 	$Score.set_pontos_fase3(palmas, aro, caixa)
+	$Fanfarra.play()
 	$Score.show()
 	$ScoreTimer.start(3)
 
@@ -81,6 +91,7 @@ func _on_taquaral_finished() -> void:
 	var triangulo = $Taquaral.get_pontos_triangulo()
 	$Score/Fase.text = "Concha Acustica do Taquaral"
 	$Score.set_pontos(bumbo, conga, triangulo)
+	$Fanfarra.play()
 	$Score.show()
 	$ScoreTimer.start(3)
 
@@ -104,11 +115,13 @@ func _on_cerecamp_mogiana_finished() -> void:
 	print("$CerecampMogiana.get_pontos_gankogui()", gankogui)
 	$Score/Fase.text = "Estadio Cerecamp Mogiana"
 	$Score.set_pontos_fase2(hihat, bumbo, gankogui)
+	$Fanfarra.play()
 	$Score.show()
 	$ScoreTimer.start(3)
 
 
 func _on_score_timer_timeout() -> void:
+	$Fanfarra.stop()
 	$Score.hide()
 	$Background.show()
 	if show_estacao:

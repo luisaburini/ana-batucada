@@ -9,6 +9,8 @@ var bumbo = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Ambiente.load_audio("res://sounds/FASE3/100BPM/AMBIENTE_ESTACAO_CULTURA.mp3")
+	$Ambiente.set_volume(20)
 	$SambaTrapControls.hide()
 	$PalmasControls.hide()
 	$TextureRect.hide()
@@ -39,6 +41,7 @@ func get_pontos_caixa():
 	return caixa
 
 func _on_samba_trap_controls_ended() -> void:
+	$Ambiente.stop()
 	finished.emit()
 
 func get_pontos_palmas():

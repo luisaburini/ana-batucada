@@ -85,6 +85,8 @@ visible = false
 [node name="TimerCena3" type="Timer" parent="."]
 one_shot = true
 
+[node name="Ambiente" parent="." instance=ExtResource("4_5mrt3")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerCena1" to="." method="_on_timer_cena_1_timeout"]
 [connection signal="timeout" from="TimerCena2" to="." method="_on_timer_cena_2_timeout"]

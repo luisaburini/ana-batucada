@@ -8,6 +8,8 @@ var triangulo_percent = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Ambiente.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/AMBIENTE_CONCHA.mp3")
+	$Ambiente.set_volume(20)
 	$Background.hide()
 	$FunkMPCControls.hide()
 	$FunkTrianguloControls.hide()
@@ -17,6 +19,7 @@ func _start() -> void:
 	$Background.show()
 	$FunkMPCControls.show()
 	$FunkMPCControls.start()
+	$Ambiente.play()
 
 
 func _on_controls_ended() -> void:
@@ -30,6 +33,7 @@ func _on_controls_ended() -> void:
 func _on_funk_triangulo_controls_ended(pontos: Variant) -> void:
 	print("Ended triangulo" + str(pontos))
 	triangulo_percent = pontos
+	$Ambiente.stop()
 	finished.emit()
 
 

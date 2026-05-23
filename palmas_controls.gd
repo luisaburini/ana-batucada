@@ -87,7 +87,7 @@ func get_pontos():
 	return pontos
 
 func instrument_time():
-	return 0.07
+	return 0.09
 
 
 func end():

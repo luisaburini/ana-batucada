@@ -73,11 +73,6 @@ func _ready():
 	$conga2.hide()
 	hide_all_touch()
 	$Compasso.set_music(music_according_to_phase())
-	if current_instrument == 0:
-		$TouchBumbo1.texture = load("res://img/touch.png")
-		$TouchBumbo1.show()
-		var btns = ["bumbo1"]
-		init_phase_buttons(btns)
 	$Pontuacao.hide()
 	$PreJogo.hide()
 	
@@ -93,6 +88,9 @@ func init_phase_buttons(btns):
 		obj.show()
 	
 func start():
+	$bumbo1.hide()
+	$conga1.hide()
+	$conga2.hide()
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
@@ -107,6 +105,9 @@ func start():
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
 		$Tutorial.start()
+		$bumbo1.hide()
+		$conga1.hide()
+		$conga2.hide()
 		$Compasso.set_music(music_according_to_phase())
 		$Compasso.reset()
 
@@ -186,6 +187,9 @@ func _on_compasso_ended():
 		$Compasso.set_note_width(52)
 		$Pontuacao.hide()
 		$TouchBumbo1.hide()
+		$bumbo1.hide()
+		$conga1.hide()
+		$conga2.hide()
 		$Tutorial.set_instruction_node("FunkConga")
 		$Tutorial.set_first_screen("res://img/tutorial-conga1.png", "agora vamos usar o som das congas!")
 		$Tutorial.set_second_screen("res://img/tutorial-conga2.png", "veja como se faz")
@@ -224,6 +228,7 @@ func update_touch(note):
 		else:
 			$TouchBumbo1.texture = load("res://img/touch_double.png")
 		showed_bumbo1 = !showed_bumbo1
+		$bumbo1.show()
 		$TouchBumbo1.show()
 		return
 	if note == "1" || note == "2":
@@ -290,6 +295,12 @@ func instrument_time():
 	return 0.2
 
 func _on_tutorial_countdown_show() -> void:
+	if current_instrument == 0:
+		$TouchBumbo1.texture = load("res://img/touch.png")
+		$TouchBumbo1.show()
+		var btns = ["bumbo1"]
+		init_phase_buttons(btns)
+	
 	$Compasso.start_timer(instrument_time())
 	$Pontuacao.hide()
 	$AudioSemSolo.play()
@@ -316,7 +327,12 @@ func _on_audio_sem_solo_finished() -> void:
 func _on_pre_jogo_countdown_show() -> void:
 	$Compasso.start_timer(instrument_time())
 	$AudioSemSolo.play()
+	if current_instrument == 0:
+		$bumbo1.show()
+		$TouchBumbo1.show()
 	if current_instrument == 1:
+		$conga1.show()
+		$conga2.show()
 		$TouchConga1.show()
 
 
