@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="2_o5udf"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="3_am2wc"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_am2wc"]
-[ext_resource type="FontFile" uid="uid://b41mq7yirpjeo" path="res://fonts/Super Funky.ttf" id="5_xa10b"]
-[ext_resource type="Texture2D" uid="uid://cu0onuvhrckor" path="res://img/gankogui.png" id="6_kt8hi"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="4_kcwu8"]
+[ext_resource type="Texture2D" uid="uid://dw1uo3m5ayyq2" path="res://img/agogo.png" id="5_kcwu8"]
 [ext_resource type="Texture2D" uid="uid://bg32sft8ugjjw" path="res://img/stars.png" id="7_kcwu8"]
 
 [node name="GankoguiControls" type="Node2D"]
@@ -19,17 +19,18 @@ position = Vector2(19, 100)
 [node name="AudioSemSolo" parent="." instance=ExtResource("4_am2wc")]
 
 [node name="Pontuacao" type="Label" parent="."]
-offset_left = 1657.0
+offset_left = 1577.0
 offset_top = 532.0
-offset_right = 1801.0
+offset_right = 1921.0
 offset_bottom = 693.0
-theme_override_fonts/font = ExtResource("5_xa10b")
+theme_override_fonts/font = ExtResource("4_kcwu8")
 theme_override_font_sizes/font_size = 100
 text = "0%"
+horizontal_alignment = 2
 
 [node name="Gankogui1" type="TouchScreenButton" parent="."]
-position = Vector2(790, 548)
-texture_normal = ExtResource("6_kt8hi")
+position = Vector2(550, 432)
+texture_normal = ExtResource("5_kcwu8")
 
 [node name="TouchGankogui1" type="TextureRect" parent="."]
 offset_left = 851.0
@@ -41,8 +42,10 @@ texture = ExtResource("7_kcwu8")
 [node name="Gankogui1Audio" parent="." instance=ExtResource("4_am2wc")]
 
 [node name="PreJogo" parent="." instance=ExtResource("2_o5udf")]
+visible = false
 
 [node name="Tutorial" parent="." instance=ExtResource("2_o5udf")]
+visible = false
 
 [connection signal="ended" from="Compassos" to="." method="_on_compassos_ended"]
 [connection signal="seta_moved" from="Compassos" to="." method="_on_compassos_seta_moved"]

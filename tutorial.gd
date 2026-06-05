@@ -16,7 +16,7 @@ func set_instruction_node(i):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Ambiente.load_audio("res://sounds/MUSICA_TUTORIAL_MESTRA.mp3")
-	$Ambiente.set_volume(20)
+	$Ambiente.set_volume(15)
 	$FunkBumbo.hide()
 	$FunkConga.hide()
 	$FunkTriangulo.hide()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lks6ofb2al6x" path="res://tutorial.gd" id="1_ph66d"]
 [ext_resource type="Texture2D" uid="uid://c245xurpgs5rx" path="res://img/tutorial1.jpeg" id="2_5mrt3"]
-[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="3_ehuit"]
+[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="3_4hjyh"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_5mrt3"]
 [ext_resource type="PackedScene" uid="uid://deai557pn1v2b" path="res://funk_bumbo.tscn" id="5_4hjyh"]
 [ext_resource type="PackedScene" uid="uid://c3vgn35yhuanh" path="res://funk_conga.tscn" id="6_bsk3x"]
@@ -27,11 +27,11 @@ texture = ExtResource("2_5mrt3")
 
 [node name="Countdown" type="Label" parent="."]
 offset_left = 4.0
-offset_top = -41.0
-offset_right = 1805.0
-offset_bottom = 920.0
+offset_top = -1.0
+offset_right = 1925.0
+offset_bottom = 1077.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_ehuit")
+theme_override_fonts/font = ExtResource("3_4hjyh")
 theme_override_font_sizes/font_size = 800
 text = "1"
 horizontal_alignment = 1
@@ -50,31 +50,25 @@ offset_left = 569.0
 offset_top = 19.0
 offset_right = 1474.0
 offset_bottom = 632.0
+theme_override_fonts/font = ExtResource("3_4hjyh")
 theme_override_font_sizes/font_size = 120
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="FunkBumbo" parent="." instance=ExtResource("5_4hjyh")]
-visible = false
 
 [node name="FunkConga" parent="." instance=ExtResource("6_bsk3x")]
-visible = false
 
 [node name="FunkTriangulo" parent="." instance=ExtResource("7_dl7dh")]
-visible = false
 
 [node name="AfroHouseHihat" parent="." instance=ExtResource("8_r4o0u")]
-visible = false
 
 [node name="AfroHouseBumbo" parent="." instance=ExtResource("9_k08xv")]
-visible = false
 
 [node name="AfroHouseGankogui" parent="." instance=ExtResource("10_g52lx")]
-visible = false
 
 [node name="SambaTrapPalmas" parent="." instance=ExtResource("11_0lped")]
-visible = false
 
 [node name="SambaTrapAro" parent="." instance=ExtResource("12_dudfa")]
 visible = false
@@ -86,6 +80,7 @@ visible = false
 one_shot = true
 
 [node name="Ambiente" parent="." instance=ExtResource("4_5mrt3")]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerCena1" to="." method="_on_timer_cena_1_timeout"]

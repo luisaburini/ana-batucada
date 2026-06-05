@@ -32,8 +32,6 @@ var compasso_palmas8 = "kppkO"
 
 
 var current_sheet = [compasso_palmas1, compasso_palmas2, compasso_palmas3, compasso_palmas4,
-					 compasso_palmas5, compasso_palmas6, compasso_palmas7, compasso_palmas8,
-					 compasso_palmas1, compasso_palmas2, compasso_palmas3, compasso_palmas4,
 					 compasso_palmas5, compasso_palmas6, compasso_palmas7, compasso_palmas8]
 
 func music_according_to_phase():
@@ -41,7 +39,7 @@ func music_according_to_phase():
 
 func start():
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(50)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
@@ -49,7 +47,7 @@ func start():
 		return
 	was_pressed = false
 	if !tutorial_ended:
-		$Tutorial.set_instruction_node("SammbaTrapPalmas")
+		$Tutorial.set_instruction_node("SambaTrapPalmas")
 		$Tutorial.set_first_screen("res://img/tutorial-palmas1.png", "o som agora e das palmas")
 		$Tutorial.set_second_screen("res://img/tutorial-palmas2.png", "sente so como a Mestra faz")
 		$Tutorial.set_show_telas(true)
@@ -87,7 +85,7 @@ func get_pontos():
 	return pontos
 
 func instrument_time():
-	return 0.09
+	return 0.11
 
 
 func end():
@@ -108,7 +106,7 @@ func _on_tutorial_ended() -> void:
 
 func _on_tutorial_countdown_show() -> void:
 	$PalmasAudio.load_audio("res://sounds/FASE3/100BPM/ONE_SHOTS/PALMAS.mp3")
-	$PalmasAudio.set_volume(30)
+	$PalmasAudio.set_volume(40)
 	$Compassos.start_timer(instrument_time())
 	$Pontuacao.hide()
 	$AudioSemSolo.play()

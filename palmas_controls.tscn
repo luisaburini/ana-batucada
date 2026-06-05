@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dota1n1q4rd7e" path="res://img/unclap.png" id="4_156ms"]
 [ext_resource type="Texture2D" uid="uid://cqpssr4p4jvni" path="res://img/clap.png" id="5_rav1v"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="6_rav1v"]
-[ext_resource type="FontFile" uid="uid://bqjf8xqjuxcl7" path="res://fonts/Super Dream.ttf" id="7_mrb63"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="7_0k6iv"]
 [ext_resource type="Texture2D" uid="uid://qmq385yjvxp4" path="res://img/touch.png" id="8_0k6iv"]
 
 [node name="PalmasControls" type="Node2D"]
@@ -32,11 +32,11 @@ visible = false
 visible = false
 
 [node name="Pontuacao" type="Label" parent="."]
-offset_left = 1633.0
+offset_left = 1520.0
 offset_top = 523.0
 offset_right = 1912.0
-offset_bottom = 640.0
-theme_override_fonts/font = ExtResource("7_mrb63")
+offset_bottom = 645.0
+theme_override_fonts/font = ExtResource("7_0k6iv")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2

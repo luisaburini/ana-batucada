@@ -13,7 +13,7 @@ var _show_blink = true
 func _ready():
 	$Fanfarra.load_audio("res://sounds/FANFARRA_DE_VITORIA.mp3")
 	$Fanfarra.set_volume(30)
-	$ButtonClick.set_volume(50)
+	$ButtonClick.set_volume(30)
 	$BlinkTimer.start(0.5)
 	$Score.hide()
 	$Taquaral.hide()
@@ -23,7 +23,7 @@ func _ready():
 	$EstacaoCulturaButton.hide()
 
 func _on_taquaral_button_pressed() -> void:
-	$ButtonClick.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/BOTAO_INICIAR1.mp3")
+	$ButtonClick.load_audio("res://sounds/FASE3/100BPM/BOTAO_INICIAR3.mp3")
 	$ButtonClick.play()
 	should_blink = false
 	_show_blink = false
@@ -52,7 +52,7 @@ func _on_cerescamp_mogiana_button_pressed() -> void:
 
 
 func _on_estacao_cultura_button_pressed() -> void:
-	$ButtonClick.load_audio("res://sounds/FASE3/100BPM/BOTAO_INICIAR3.mp3")
+	$ButtonClick.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/BOTAO_INICIAR1.mp3")
 	$ButtonClick.play()
 	should_blink = false
 	_show_blink = false
@@ -61,6 +61,7 @@ func _on_estacao_cultura_button_pressed() -> void:
 	$Taquaral.hide()
 	$CerecampMogiana.hide()
 	$EstacaoCultura._start()
+	
 
 
 func _on_estacao_cultura_finished() -> void:
@@ -68,10 +69,10 @@ func _on_estacao_cultura_finished() -> void:
 	show_mogiana = false
 	show_end = true
 	$Score/Fase.text = "Estacao Cultura"
-	var palmas = $EstacaoCultura.get_pontos_palmas()
-	var aro = $EstacaoCultura.get_pontos_aro()
-	var caixa = $EstacaoCultura.get_pontos_caixa()
-	$Score.set_pontos_fase3(palmas, aro, caixa)
+	var bumbo = $EstacaoCultura.get_pontos_bumbo()
+	var conga = $EstacaoCultura.get_pontos_conga()
+	var triangulo = $EstacaoCultura.get_pontos_triangulo()
+	$Score.set_pontos_fase3(bumbo, conga, triangulo)
 	$Fanfarra.play()
 	$Score.show()
 	$ScoreTimer.start(3)
@@ -86,11 +87,11 @@ func _on_taquaral_finished() -> void:
 	should_blink = true
 	$BlinkTimer.start(0.5)
 	$Taquaral.hide()
-	var bumbo = $Taquaral.get_pontos_bumbo()
-	var conga = $Taquaral.get_pontos_conga()
-	var triangulo = $Taquaral.get_pontos_triangulo()
+	var palmas = $Taquaral.get_pontos_palmas()
+	var aro = $Taquaral.get_pontos_aro()
+	var caixa = $Taquaral.get_pontos_caixa()
+	$Score.set_pontos_fase1(palmas, aro, caixa)
 	$Score/Fase.text = "Concha Acustica do Taquaral"
-	$Score.set_pontos(bumbo, conga, triangulo)
 	$Fanfarra.play()
 	$Score.show()
 	$ScoreTimer.start(3)

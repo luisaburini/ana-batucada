@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://biuyiwapx80mg" path="res://estacao_cultura.gd" id="1_ahnhr"]
 [ext_resource type="Texture2D" uid="uid://b23kopq8rdtco" path="res://img/estacao-cultura.jpg" id="1_hh0px"]
-[ext_resource type="PackedScene" uid="uid://bt05l8viuiiid" path="res://samba_trap_controls.tscn" id="3_302fx"]
-[ext_resource type="PackedScene" uid="uid://cau0l3jvharvy" path="res://palmas_controls.tscn" id="4_qa10d"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_m7j7k"]
+[ext_resource type="PackedScene" uid="uid://n386jdcbvm5m" path="res://controls.tscn" id="6_uqgng"]
+[ext_resource type="PackedScene" uid="uid://t6qfejjwvxo5" path="res://triangulo_controls.tscn" id="7_1u60a"]
 
 [node name="EstacaoCultura" type="Node2D"]
 script = ExtResource("1_ahnhr")
@@ -14,14 +14,14 @@ offset_right = 1917.0
 offset_bottom = 1083.0
 texture = ExtResource("1_hh0px")
 
-[node name="SambaTrapControls" parent="." instance=ExtResource("3_302fx")]
-
-[node name="PalmasControls" parent="." instance=ExtResource("4_qa10d")]
-
 [node name="Ambiente" parent="." instance=ExtResource("5_m7j7k")]
 
+[node name="FunkMPCControls" parent="." instance=ExtResource("6_uqgng")]
+
+[node name="TrianguloControls" parent="." instance=ExtResource("7_1u60a")]
+
 [connection signal="finished" from="." to="." method="_on_finished"]
-[connection signal="aro_ended" from="SambaTrapControls" to="." method="_on_samba_trap_controls_aro_ended"]
-[connection signal="caixa_ended" from="SambaTrapControls" to="." method="_on_samba_trap_controls_caixa_ended"]
-[connection signal="ended" from="SambaTrapControls" to="." method="_on_samba_trap_controls_ended"]
-[connection signal="ended" from="PalmasControls" to="." method="_on_palmas_controls_ended"]
+[connection signal="bumbo_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_bumbo_ended"]
+[connection signal="conga_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_conga_ended"]
+[connection signal="ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_ended"]
+[connection signal="ended" from="TrianguloControls" to="." method="_on_triangulo_controls_ended"]

@@ -2,20 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="1_qbt76"]
 [ext_resource type="Script" uid="uid://cmod3buq7cidu" path="res://samba_trap_controls.gd" id="1_t6qil"]
-[ext_resource type="Texture2D" uid="uid://bi1mtktmiqme2" path="res://img/mpc.png" id="2_gin45"]
+[ext_resource type="Texture2D" uid="uid://203eaaj8pvp5" path="res://img/mpc 1.png" id="2_gin45"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="2_t6qil"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="3_iq31b"]
 [ext_resource type="PackedScene" uid="uid://2r2auob8mpde" path="res://batucada_button.tscn" id="5_iq31b"]
 [ext_resource type="Texture2D" uid="uid://ce0ct8vgoklpu" path="res://img/touch_double.png" id="7_lk4ox"]
-[ext_resource type="FontFile" uid="uid://bqjf8xqjuxcl7" path="res://fonts/Super Dream.ttf" id="9_lk4ox"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="8_gin45"]
 
 [node name="SambaTrapControls" type="Node2D"]
 script = ExtResource("1_t6qil")
 
 [node name="MPCBackground" type="TextureRect" parent="."]
-offset_left = 587.0
-offset_top = 555.0
-offset_right = 1363.0
+offset_left = 473.0
+offset_top = 413.0
+offset_right = 1479.0
 offset_bottom = 1071.0
 texture = ExtResource("2_gin45")
 
@@ -27,23 +27,29 @@ texture = ExtResource("2_gin45")
 position = Vector2(19, 100)
 
 [node name="Aro1" parent="." instance=ExtResource("5_iq31b")]
-position = Vector2(812, 890)
+visible = false
+position = Vector2(716.99994, 716)
+scale = Vector2(0.68, 0.68)
 
 [node name="Caixa1" parent="." instance=ExtResource("5_iq31b")]
-position = Vector2(812, 887)
+visible = false
+position = Vector2(720, 713)
+scale = Vector2(0.68, 0.68)
 
 [node name="TouchAro1" type="TextureRect" parent="."]
-offset_left = 801.0
-offset_top = 856.0
-offset_right = 929.0
-offset_bottom = 984.0
+visible = false
+offset_left = 745.0
+offset_top = 734.0
+offset_right = 1135.0
+offset_bottom = 1009.0
 texture = ExtResource("7_lk4ox")
 
 [node name="TouchCaixa1" type="TextureRect" parent="."]
-offset_left = 799.0
-offset_top = 867.0
-offset_right = 927.0
-offset_bottom = 995.0
+visible = false
+offset_left = 715.0
+offset_top = 713.0
+offset_right = 1144.0
+offset_bottom = 1007.0
 texture = ExtResource("7_lk4ox")
 
 [node name="Tutorial" parent="." instance=ExtResource("3_iq31b")]
@@ -53,11 +59,11 @@ visible = false
 visible = false
 
 [node name="Pontuacao" type="Label" parent="."]
-offset_left = 1638.0
+offset_left = 1537.0
 offset_top = 488.0
 offset_right = 1914.0
 offset_bottom = 611.0
-theme_override_fonts/font = ExtResource("9_lk4ox")
+theme_override_fonts/font = ExtResource("8_gin45")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2

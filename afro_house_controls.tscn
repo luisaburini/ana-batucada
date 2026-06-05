@@ -1,23 +1,23 @@
 [gd_scene load_steps=9 format=3 uid="uid://cc3g5rea2cgn3"]
 
-[ext_resource type="Texture2D" uid="uid://bi1mtktmiqme2" path="res://img/mpc.png" id="1_af28q"]
 [ext_resource type="Script" uid="uid://br5gidnw5v4ll" path="res://afro_house_controls.gd" id="1_m2rn1"]
+[ext_resource type="Texture2D" uid="uid://203eaaj8pvp5" path="res://img/mpc 1.png" id="2_etg83"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="2_h3cvg"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="3_nc5uv"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_54pm3"]
 [ext_resource type="PackedScene" uid="uid://2r2auob8mpde" path="res://batucada_button.tscn" id="5_chnpn"]
 [ext_resource type="Texture2D" uid="uid://qmq385yjvxp4" path="res://img/touch.png" id="6_m2rn1"]
-[ext_resource type="FontFile" uid="uid://b41mq7yirpjeo" path="res://fonts/Super Funky.ttf" id="8_etg83"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="7_etg83"]
 
 [node name="AfroHouseControls" type="Node2D"]
 script = ExtResource("1_m2rn1")
 
 [node name="MPCBackground" type="TextureRect" parent="."]
-offset_left = 618.0
-offset_top = 550.0
-offset_right = 1394.0
-offset_bottom = 1066.0
-texture = ExtResource("1_af28q")
+offset_left = 561.0
+offset_top = 424.0
+offset_right = 1567.0
+offset_bottom = 1082.0
+texture = ExtResource("2_etg83")
 
 [node name="Compassos" parent="." instance=ExtResource("2_h3cvg")]
 position = Vector2(19, 100)
@@ -27,37 +27,38 @@ position = Vector2(19, 100)
 [node name="AudioSemSolo" parent="." instance=ExtResource("4_54pm3")]
 
 [node name="Hihat1" parent="." instance=ExtResource("5_chnpn")]
-visible = false
-position = Vector2(843, 881)
+position = Vector2(804, 722)
+scale = Vector2(0.68, 0.68)
 
 [node name="Bumbo1" parent="." instance=ExtResource("5_chnpn")]
-visible = false
-position = Vector2(842, 881)
+position = Vector2(811.00006, 730.00006)
+scale = Vector2(0.68, 0.68)
 
 [node name="TouchHihat1" type="TextureRect" parent="."]
 visible = false
-offset_left = 833.0
-offset_top = 852.0
-offset_right = 961.0
-offset_bottom = 980.0
+offset_left = 802.0
+offset_top = 736.0
+offset_right = 1250.0
+offset_bottom = 1043.0
 texture = ExtResource("6_m2rn1")
 
 [node name="TouchBumbo1" type="TextureRect" parent="."]
 visible = false
 offset_left = 832.0
-offset_top = 856.0
-offset_right = 960.0
-offset_bottom = 984.0
+offset_top = 740.0
+offset_right = 1233.0
+offset_bottom = 1028.0
 texture = ExtResource("6_m2rn1")
 
 [node name="Pontuacao" type="Label" parent="."]
-offset_left = 1630.0
+offset_left = 1550.0
 offset_top = 511.0
-offset_right = 1774.0
+offset_right = 1911.0
 offset_bottom = 672.0
-theme_override_fonts/font = ExtResource("8_etg83")
+theme_override_fonts/font = ExtResource("7_etg83")
 theme_override_font_sizes/font_size = 100
 text = "0%"
+horizontal_alignment = 2
 
 [node name="PreJogo" parent="." instance=ExtResource("3_nc5uv")]
 visible = false

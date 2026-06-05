@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckre5ub6t88hm" path="res://batucada_button.gd" id="1_uw08i"]
 [ext_resource type="Script" uid="uid://cupm57o1p33hg" path="res://texture.gd" id="2_37sd7"]
-[ext_resource type="Texture2D" uid="uid://ba66wilhv642r" path="res://img/mpc-button-red.png" id="2_afkg7"]
+[ext_resource type="Texture2D" uid="uid://bqyearv1skh1b" path="res://img/mpc-button-green.png" id="2_afkg7"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="2_ygjc1"]
 
 [node name="BatucadaButton" type="Node2D"]

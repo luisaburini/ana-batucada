@@ -1,23 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3vgn35yhuanh"]
+[gd_scene load_steps=10 format=3 uid="uid://c3vgn35yhuanh"]
 
 [ext_resource type="PackedScene" uid="uid://deai557pn1v2b" path="res://funk_bumbo.tscn" id="1_62kbj"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="2_dbs3s"]
 [ext_resource type="Texture2D" uid="uid://cr05oglalee6a" path="res://img/7.png" id="2_e174k"]
 [ext_resource type="Texture2D" uid="uid://cipt5vc6u2pja" path="res://img/8.png" id="3_pwpnj"]
 [ext_resource type="Texture2D" uid="uid://ym5pntcfu3py" path="res://img/p.png" id="4_bd6aj"]
 [ext_resource type="Texture2D" uid="uid://c8bwq2qn0agon" path="res://img/D.png" id="4_e174k"]
 [ext_resource type="Texture2D" uid="uid://tn4r1carv1ho" path="res://img/2.png" id="6_dv5e3"]
 [ext_resource type="Texture2D" uid="uid://f85swpo67t0s" path="res://img/1.png" id="7_1itcs"]
+[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="9_bkd7w"]
 
 [node name="FunkConga" instance=ExtResource("1_62kbj")]
 
 [node name="Title" parent="." index="1"]
+theme_override_fonts/font = ExtResource("2_dbs3s")
+theme_override_font_sizes/font_size = 150
 text = "Funk Conga"
 
 [node name="HBoxContainer" parent="." index="2"]
-offset_left = 173.0
+offset_left = 60.0
 offset_top = 182.0
-offset_right = 1800.0
-offset_bottom = 640.0
+offset_right = 1859.0
+offset_bottom = 1599.0
 
 [node name="1stNote" parent="HBoxContainer/VBoxContainer2" index="0"]
 texture = ExtResource("2_e174k")
@@ -50,27 +54,39 @@ layout_mode = 2
 texture = ExtResource("7_1itcs")
 
 [node name="Dicab" parent="HBoxContainer/VBoxContainer" index="0"]
+theme_override_fonts/font = ExtResource("9_bkd7w")
+theme_override_font_sizes/font_size = 120
 text = "1/2 tempo de conga esquerda"
 
 [node name="DIcap" parent="HBoxContainer/VBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("9_bkd7w")
+theme_override_font_sizes/font_size = 120
 text = "3/4 tempo de pausa"
+
+[node name="Spacing" parent="HBoxContainer/VBoxContainer" index="2"]
+visible = false
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer" index="3"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("9_bkd7w")
+theme_override_font_sizes/font_size = 120
 text = "1/2 tempo de pausa"
 
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer" index="4"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("9_bkd7w")
+theme_override_font_sizes/font_size = 120
 text = "1/4 tempo de pausa"
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer" index="5"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("9_bkd7w")
+theme_override_font_sizes/font_size = 120
 text = "1/2 tempo de conga direita"
 vertical_alignment = 1
 
 [node name="Label" parent="HBoxContainer/VBoxContainer" index="6"]
+theme_override_fonts/font = ExtResource("9_bkd7w")
+theme_override_font_sizes/font_size = 120
 text = "1 tempo de conga direita"

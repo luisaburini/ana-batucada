@@ -26,7 +26,6 @@ autostart = true
 [node name="Map" parent="." instance=ExtResource("6_7mycd")]
 
 [node name="End" type="TextureRect" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_7mycd")

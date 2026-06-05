@@ -9,8 +9,6 @@ signal conga_ended(pontos)
 var instruments = ["BUMBO", "CONGAS"]
 var current_instrument = 0
 
-var btn_color = ["red", "blue"]
-
 var pontos = 0
 var was_pressed = false
 var total_notas = 0
@@ -48,13 +46,9 @@ var conga_compasso8 = "82D2771"
 func music_according_to_phase():
 	if current_instrument == 0:
 		return  [bumbo_compasso1, bumbo_compasso2,	 bumbo_compasso3,	 bumbo_compasso4,
-				 bumbo_compasso5, bumbo_compasso6, bumbo_compasso7, bumbo_compasso8,
-				 bumbo_compasso1, bumbo_compasso2,	 bumbo_compasso3,	 bumbo_compasso4,
 				 bumbo_compasso5, bumbo_compasso6, bumbo_compasso7, bumbo_compasso8]
 	if current_instrument == 1:
 		return [conga_compasso1, conga_compasso2, conga_compasso3, conga_compasso4,
-				conga_compasso5, conga_compasso6, conga_compasso7, conga_compasso8,
-				conga_compasso1, conga_compasso2, conga_compasso3, conga_compasso4,
 				conga_compasso5, conga_compasso6, conga_compasso7, conga_compasso8]
 
 func current_audio_sem_solo():
@@ -77,14 +71,15 @@ func _ready():
 	$PreJogo.hide()
 	
 
-func init_phase_buttons(btns):
+func init_phase_buttons(btns, btn_color):
 	var i = 0
 	for b in btns:
-		i = i+1
 		var obj = get_node(b)
+		obj.set_texture("res://img/mpc-button-" + btn_color[i] +".png")
+		print("res://img/mpc-button-" + btn_color[i] +".png")
+		i = i+1
 		obj.set_stream("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/" + instruments[current_instrument] + "/" + instruments[current_instrument] + str(i) + ".mp3")
-		obj.set_texture("res://img/mpc-button-" + btn_color[current_instrument] +".png")
-		obj.set_volume(30)
+		obj.set_volume(40)
 		obj.show()
 	
 func start():
@@ -92,7 +87,7 @@ func start():
 	$conga1.hide()
 	$conga2.hide()
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(50)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
@@ -199,7 +194,7 @@ func _on_compasso_ended():
 		$bumbo1.hide()
 		$TouchConga2.show()
 		var btns = ["conga1", "conga2"]
-		init_phase_buttons(btns)
+		init_phase_buttons(btns, ["blue", "orange"])
 	if current_instrument == 2:
 		end()
 		ended.emit()
@@ -269,7 +264,7 @@ func _on_tutorial_ended():
 		ended.emit()
 		return
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(50)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	tutorial_ended = true
@@ -299,7 +294,7 @@ func _on_tutorial_countdown_show() -> void:
 		$TouchBumbo1.texture = load("res://img/touch.png")
 		$TouchBumbo1.show()
 		var btns = ["bumbo1"]
-		init_phase_buttons(btns)
+		init_phase_buttons(btns, ["red"])
 	
 	$Compasso.start_timer(instrument_time())
 	$Pontuacao.hide()

@@ -1,18 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpuv23l7ugco"]
+[gd_scene load_steps=6 format=3 uid="uid://bpuv23l7ugco"]
 
 [ext_resource type="Script" uid="uid://caylvj2oejk8e" path="res://hud.gd" id="1_irc72"]
 [ext_resource type="Texture2D" uid="uid://b87ymuobb6h8f" path="res://img/mestra.png" id="2_640wx"]
 [ext_resource type="Texture2D" uid="uid://cpwvcx5cdmwdk" path="res://img/iniciar.jpg" id="3_vq8kx"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_640wx"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="4_a2258"]
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_irc72")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = 20
-offset_right = 1933.0
-offset_bottom = 1084.0
-texture = ExtResource("2_640wx")
 
 [node name="Button" type="TouchScreenButton" parent="."]
 z_index = 1000
@@ -21,5 +16,23 @@ scale = Vector2(1.2085308, 1.2)
 texture_normal = ExtResource("3_vq8kx")
 
 [node name="ButtonClick" parent="." instance=ExtResource("4_640wx")]
+
+[node name="Titulo" type="Label" parent="."]
+z_index = 300
+offset_left = 3.0
+offset_top = 726.0
+offset_right = 1927.0
+offset_bottom = 1081.0
+theme_override_fonts/font = ExtResource("4_a2258")
+theme_override_font_sizes/font_size = 200
+text = "Ana Batucada"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 20
+offset_right = 1933.0
+offset_bottom = 1084.0
+texture = ExtResource("2_640wx")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

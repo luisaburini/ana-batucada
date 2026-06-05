@@ -4,7 +4,6 @@ signal ended
 var tutorial_ended = false
 var instruments = ["ARO", "CAIXA"]
 var current_instrument = 0
-var btn_color = ["red", "blue"]
 var must_leave = false
 
 signal aro_ended(pontos)
@@ -50,13 +49,9 @@ var compasso_caixa8 = "OxxX"
 func music_according_to_phase():
 	if current_instrument == 0:
 		return [compasso_aro1, compasso_aro2, compasso_aro3, compasso_aro4,
-				compasso_aro5, compasso_aro6, compasso_aro7, compasso_aro8,
-				compasso_aro1, compasso_aro2, compasso_aro3, compasso_aro4,
 				compasso_aro5, compasso_aro6, compasso_aro7, compasso_aro8]
 	if current_instrument == 1:
 		return  [compasso_caixa1, compasso_caixa2, compasso_caixa3, compasso_caixa4,
-				compasso_caixa5, compasso_caixa6, compasso_caixa7, compasso_caixa8,
-				compasso_caixa1, compasso_caixa2, compasso_caixa3, compasso_caixa4,
 				compasso_caixa5, compasso_caixa6, compasso_caixa7, compasso_caixa8]
 
 func current_audio_sem_solo():
@@ -68,7 +63,9 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Aro1.set_texture("res://img/mpb-button-green.png")
 	$Aro1.hide()
+	$Caixa1.set_texture("res://img/mpb-button-green.png")
 	$Caixa1.hide()
 	hide_all_touch()
 	$Compassos.set_music(music_according_to_phase())
@@ -88,13 +85,13 @@ func init_phase_buttons(btns):
 		var obj = get_node(b)
 		print("res://sounds/FASE3/100BPM/ONE_SHOTS/" + instruments[current_instrument] + str(i) + ".mp3")
 		obj.set_stream("res://sounds/FASE3/100BPM/ONE_SHOTS/" + instruments[current_instrument] + str(i) + ".mp3")
-		obj.set_texture("res://img/mpc-button-" + btn_color[current_instrument] +".png")
-		obj.set_volume(30)
+		obj.set_texture("res://img/mpc-button-green.png")
+		obj.set_volume(40)
 		obj.show()
 
 func start():
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(40)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
@@ -192,7 +189,7 @@ func _on_tutorial_ended() -> void:
 		ended.emit()
 		return
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(40)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	tutorial_ended = true
@@ -201,9 +198,9 @@ func _on_tutorial_ended() -> void:
 
 func instrument_time():
 	if current_instrument == 0:
-		return 0.12
+		return 0.10
 	if current_instrument == 1:
-		return 0.1
+		return 0.08
 	return 0.1
 
 

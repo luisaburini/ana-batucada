@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://wm01p0tg0rpd" path="res://score.gd" id="1_t1x8i"]
 [ext_resource type="Texture2D" uid="uid://c88kocon7s2og" path="res://img/score.jpg" id="2_vfhx4"]
-[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="3_3u2p1"]
-[ext_resource type="FontFile" uid="uid://b41mq7yirpjeo" path="res://fonts/Super Funky.ttf" id="4_3u2p1"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_i4m08"]
+[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="5_jm6bp"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="6_2paxd"]
 
 [node name="Score" type="Node2D"]
 script = ExtResource("1_t1x8i")
 
 [node name="Fase1" type="TextureRect" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_vfhx4")
@@ -23,86 +22,93 @@ offset_right = 1778.0
 offset_bottom = 887.0
 color = Color(0.9254902, 0.50980395, 0.17254902, 0.5176471)
 
-[node name="Total" type="Label" parent="Fase1"]
+[node name="Palmas" type="Label" parent="Fase1"]
 layout_mode = 0
-offset_left = 199.0
-offset_top = 744.0
-offset_right = 1748.0
-offset_bottom = 865.0
-theme_override_fonts/font = ExtResource("3_3u2p1")
+offset_left = 175.0
+offset_top = 171.0
+offset_right = 1772.0
+offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
-text = "Total"
+text = "Palmas"
+
+[node name="Aro" type="Label" parent="Fase1"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 313.0
+offset_right = 1762.0
+offset_bottom = 474.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "Aro"
+
+[node name="Caixa" type="Label" parent="Fase1"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 485.0
+offset_right = 1764.0
+offset_bottom = 646.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "Caixa"
+
+[node name="PontosPalmas" type="Label" parent="Fase1"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 163.0
+offset_right = 1778.0
+offset_bottom = 324.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "0%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PontosAro" type="Label" parent="Fase1"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 308.0
+offset_right = 1776.0
+offset_bottom = 469.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "0%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PontosCaixa" type="Label" parent="Fase1"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 465.0
+offset_right = 1772.0
+offset_bottom = 626.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "0%"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="PontosTotal" type="Label" parent="Fase1"]
 layout_mode = 0
-offset_left = 1607.0
-offset_top = 738.0
-offset_right = 1747.0
-offset_bottom = 859.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_3u2p1")
+offset_left = 172.0
+offset_top = 709.0
+offset_right = 1770.0
+offset_bottom = 870.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Triangulo" type="Label" parent="Fase1"]
+[node name="Total" type="Label" parent="Fase1"]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 553.0
-offset_right = 1754.0
-offset_bottom = 674.0
-theme_override_fonts/font = ExtResource("3_3u2p1")
+offset_left = 182.0
+offset_top = 716.0
+offset_right = 1768.0
+offset_bottom = 877.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
-text = "Triangulo"
-
-[node name="PontosTriangulo" type="Label" parent="Fase1"]
-layout_mode = 0
-offset_left = 1605.0
-offset_top = 546.0
-offset_right = 1745.0
-offset_bottom = 667.0
-theme_override_fonts/font = ExtResource("3_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "0%"
-
-[node name="Congas" type="Label" parent="Fase1"]
-layout_mode = 0
-offset_left = 181.0
-offset_top = 371.0
-offset_right = 1745.0
-offset_bottom = 492.0
-theme_override_fonts/font = ExtResource("3_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "Congas"
-
-[node name="PontosConga" type="Label" parent="Fase1"]
-layout_mode = 0
-offset_left = 1600.0
-offset_top = 366.0
-offset_right = 1740.0
-offset_bottom = 487.0
-theme_override_fonts/font = ExtResource("3_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "0%"
-
-[node name="Bumbo" type="Label" parent="Fase1"]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 194.0
-offset_right = 1754.0
-offset_bottom = 315.0
-theme_override_fonts/font = ExtResource("3_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "Bumbo"
-
-[node name="PontosBumbo" type="Label" parent="Fase1"]
-layout_mode = 0
-offset_left = 1591.0
-offset_top = 186.0
-offset_right = 1731.0
-offset_bottom = 307.0
-theme_override_fonts/font = ExtResource("3_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "0%"
+text = "Total"
 
 [node name="Fase2" type="TextureRect" parent="."]
 visible = false
@@ -124,7 +130,7 @@ offset_left = 182.0
 offset_top = 716.0
 offset_right = 1768.0
 offset_bottom = 877.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Total"
 
@@ -134,7 +140,7 @@ offset_left = 175.0
 offset_top = 171.0
 offset_right = 1772.0
 offset_bottom = 332.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Hihat"
 
@@ -144,7 +150,7 @@ offset_left = 180.0
 offset_top = 326.0
 offset_right = 1766.0
 offset_bottom = 487.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Bumbo"
 
@@ -154,9 +160,9 @@ offset_left = 184.0
 offset_top = 482.0
 offset_right = 1770.0
 offset_bottom = 643.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
-text = "Gankogui"
+text = "Agogo"
 
 [node name="PontosHihat" type="Label" parent="Fase2"]
 layout_mode = 0
@@ -164,7 +170,7 @@ offset_left = 1428.0
 offset_top = 169.0
 offset_right = 1779.0
 offset_bottom = 330.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
@@ -175,7 +181,7 @@ offset_left = 1419.0
 offset_top = 323.0
 offset_right = 1770.0
 offset_bottom = 484.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
@@ -186,7 +192,7 @@ offset_left = 1419.0
 offset_top = 478.0
 offset_right = 1770.0
 offset_bottom = 639.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
@@ -197,12 +203,13 @@ offset_left = 1419.0
 offset_top = 710.0
 offset_right = 1770.0
 offset_bottom = 871.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
 [node name="Fase3" type="TextureRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_vfhx4")
@@ -217,87 +224,84 @@ color = Color(0.09019608, 0.08235294, 1, 0.5921569)
 
 [node name="Total" type="Label" parent="Fase3"]
 layout_mode = 0
-offset_left = 182.0
-offset_top = 716.0
-offset_right = 1768.0
-offset_bottom = 877.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+offset_left = 199.0
+offset_top = 744.0
+offset_right = 1748.0
+offset_bottom = 865.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Total"
 
-[node name="Palmas" type="Label" parent="Fase3"]
-layout_mode = 0
-offset_left = 175.0
-offset_top = 171.0
-offset_right = 1772.0
-offset_bottom = 332.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "Palmas"
-
-[node name="Aro" type="Label" parent="Fase3"]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 313.0
-offset_right = 1762.0
-offset_bottom = 474.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "Aro"
-
-[node name="Caixa" type="Label" parent="Fase3"]
-layout_mode = 0
-offset_left = 178.0
-offset_top = 462.0
-offset_right = 1764.0
-offset_bottom = 623.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "caixa"
-
-[node name="PontosPalmas" type="Label" parent="Fase3"]
-layout_mode = 0
-offset_left = 1428.0
-offset_top = 169.0
-offset_right = 1779.0
-offset_bottom = 330.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "0%"
-horizontal_alignment = 2
-
-[node name="PontosAro" type="Label" parent="Fase3"]
-layout_mode = 0
-offset_left = 1419.0
-offset_top = 318.0
-offset_right = 1770.0
-offset_bottom = 479.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "0%"
-horizontal_alignment = 2
-
-[node name="PontosCaixa" type="Label" parent="Fase3"]
-layout_mode = 0
-offset_left = 1419.0
-offset_top = 463.0
-offset_right = 1770.0
-offset_bottom = 624.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
-theme_override_font_sizes/font_size = 100
-text = "0%"
-horizontal_alignment = 2
-
 [node name="PontosTotal" type="Label" parent="Fase3"]
 layout_mode = 0
-offset_left = 1419.0
-offset_top = 710.0
-offset_right = 1770.0
-offset_bottom = 871.0
-theme_override_fonts/font = ExtResource("4_3u2p1")
+offset_left = 1607.0
+offset_top = 738.0
+offset_right = 1747.0
+offset_bottom = 859.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
-horizontal_alignment = 2
+
+[node name="Triangulo" type="Label" parent="Fase3"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 553.0
+offset_right = 1754.0
+offset_bottom = 674.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "Triangulo"
+
+[node name="PontosTriangulo" type="Label" parent="Fase3"]
+layout_mode = 0
+offset_left = 1605.0
+offset_top = 546.0
+offset_right = 1745.0
+offset_bottom = 667.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "0%"
+
+[node name="Congas" type="Label" parent="Fase3"]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 371.0
+offset_right = 1745.0
+offset_bottom = 492.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "Congas"
+
+[node name="PontosConga" type="Label" parent="Fase3"]
+layout_mode = 0
+offset_left = 1600.0
+offset_top = 366.0
+offset_right = 1740.0
+offset_bottom = 487.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "0%"
+
+[node name="Bumbo" type="Label" parent="Fase3"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 194.0
+offset_right = 1754.0
+offset_bottom = 315.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "Bumbo"
+
+[node name="PontosBumbo" type="Label" parent="Fase3"]
+layout_mode = 0
+offset_left = 1591.0
+offset_top = 186.0
+offset_right = 1731.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("5_jm6bp")
+theme_override_font_sizes/font_size = 100
+text = "0%"
 
 [node name="TitleShadow" type="ColorRect" parent="."]
 offset_left = 295.0
@@ -312,13 +316,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 121.0
+offset_left = 2.0
+offset_top = 12.0
+offset_right = 1922.0
+offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.85882354, 1, 0.8235294, 1)
-theme_override_fonts/font = ExtResource("3_3u2p1")
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("6_2paxd")
+theme_override_font_sizes/font_size = 75
 text = "Concha Acustica do Taquaral"
 horizontal_alignment = 1
 

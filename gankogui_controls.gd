@@ -29,8 +29,6 @@ var gankogui_compasso7 = "GgDgpgP"
 var gankogui_compasso8 = "GgDgO"
 
 var current_sheet = [gankogui_compasso1, gankogui_compasso2, gankogui_compasso3, gankogui_compasso4,
-					 gankogui_compasso5, gankogui_compasso6, gankogui_compasso7, gankogui_compasso8,
-					 gankogui_compasso1, gankogui_compasso2, gankogui_compasso3, gankogui_compasso4,
 					 gankogui_compasso5, gankogui_compasso6, gankogui_compasso7, gankogui_compasso8]
 
 func music_according_to_phase():
@@ -38,7 +36,7 @@ func music_according_to_phase():
 
 func start():
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(40)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
@@ -47,7 +45,7 @@ func start():
 	was_pressed = false
 	if !tutorial_ended:
 		$Tutorial.set_instruction_node("AfroHouseGankogui")
-		$Tutorial.set_first_screen("res://img/tutorial-gankogui1.png", "o som agora e do sino gankogui")
+		$Tutorial.set_first_screen("res://img/tutorial-gankogui1.png", "o som agora e do agogo")
 		$Tutorial.set_second_screen("res://img/tutorial-gankogui2.png", "sente so como a Mestra faz")
 		$Tutorial.set_show_telas(true)
 		$Tutorial.start()
@@ -66,7 +64,7 @@ func _ready() -> void:
 	$TouchGankogui1.hide()
 
 	$PreJogo.set_first_screen("res://img/pre-jogo-gankogui1.png", "bora tocar um pouco")
-	$PreJogo.set_second_screen("res://img/pre-jogo-gankogui2.png", "clique no sino gankogui para tocar!")
+	$PreJogo.set_second_screen("res://img/pre-jogo-gankogui2.png", "clique no agogo para tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
@@ -84,7 +82,7 @@ func get_pontos():
 	return pontos
 
 func instrument_time():
-	return 0.07
+	return 0.09
 
 func end():
 	$AudioMestra.stop()

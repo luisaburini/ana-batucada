@@ -23,7 +23,7 @@ func _on_mapa_finished() -> void:
 	
 func _on_audio_stream_player_finished() -> void:
 	if replay_audio:
-		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer.play()
 
 
 func _on_map_clicked_taquaral() -> void:

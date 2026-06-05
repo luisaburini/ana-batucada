@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="2_b6gyb"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="3_dusqt"]
 [ext_resource type="PackedScene" uid="uid://c5g75l2jle23l" path="res://triangulo.tscn" id="5_lp6sv"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="7_ruwoj"]
 [ext_resource type="Texture2D" uid="uid://cl4psa6y3n1cf" path="res://img/maozinha.png" id="8_lp6sv"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="8_ruwoj"]
-[ext_resource type="FontFile" uid="uid://q12fa4m6b3uh" path="res://fonts/mexcellent 3d.otf" id="9_ruwoj"]
 [ext_resource type="Texture2D" uid="uid://ce0ct8vgoklpu" path="res://img/touch_double.png" id="10_acp3m"]
 [ext_resource type="Texture2D" uid="uid://bg32sft8ugjjw" path="res://img/stars.png" id="10_oh1e3"]
 
@@ -19,10 +19,10 @@ position = Vector2(19, 100)
 [node name="TrianguloLoader" parent="." instance=ExtResource("2_b6gyb")]
 
 [node name="Triangulo" parent="." instance=ExtResource("5_lp6sv")]
-position = Vector2(543, 215)
+position = Vector2(626, 283)
 
 [node name="Maozinha" type="TouchScreenButton" parent="."]
-position = Vector2(988, 441)
+position = Vector2(1014.00006, 432.99997)
 rotation = 0.25830874
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("8_lp6sv")
@@ -35,30 +35,31 @@ texture_normal = ExtResource("8_lp6sv")
 visible = false
 
 [node name="Pontuacao" type="Label" parent="."]
-offset_left = 1628.0
+offset_left = 1412.0
 offset_top = 506.0
-offset_right = 1847.0
+offset_right = 1913.0
 offset_bottom = 684.0
 size_flags_stretch_ratio = 0.0
-theme_override_fonts/font = ExtResource("9_ruwoj")
+theme_override_fonts/font = ExtResource("7_ruwoj")
 theme_override_font_sizes/font_size = 120
 text = "0%"
+horizontal_alignment = 2
 
 [node name="PreJogo" parent="." instance=ExtResource("8_ruwoj")]
 visible = false
 
 [node name="BrilhoEmcima" type="TextureRect" parent="."]
-offset_left = 608.0
-offset_top = 545.0
-offset_right = 864.0
-offset_bottom = 801.0
+offset_left = 569.0
+offset_top = 625.0
+offset_right = 825.0
+offset_bottom = 881.0
 texture = ExtResource("10_oh1e3")
 
 [node name="BrilhoNaMao" type="TextureRect" parent="."]
-offset_left = 1044.0
-offset_top = 494.0
-offset_right = 1300.0
-offset_bottom = 750.0
+offset_left = 1031.0
+offset_top = 515.0
+offset_right = 1287.0
+offset_bottom = 771.0
 texture = ExtResource("10_acp3m")
 
 [connection signal="ended" from="Compasso" to="." method="_on_compasso_ended"]

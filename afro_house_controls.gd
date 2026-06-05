@@ -4,7 +4,6 @@ signal ended
 var tutorial_ended = false
 var instruments = ["HIHAT", "BUMBO"]
 var current_instrument = 0
-var btn_color = ["red", "blue"]
 var must_leave = false
 
 signal hihat_ended(pontos)
@@ -50,13 +49,9 @@ var compasso_bumbo8 = "Aaaaaaa"
 func music_according_to_phase():
 	if current_instrument == 0:
 		return [compasso_hihat1, compasso_hihat2, compasso_hihat3, compasso_hihat4,
-				compasso_hihat5, compasso_hihat6, compasso_hihat7, compasso_hihat8,
-				compasso_hihat1, compasso_hihat2, compasso_hihat3, compasso_hihat4,
 				compasso_hihat5, compasso_hihat6, compasso_hihat7, compasso_hihat8]
 	if current_instrument == 1:
 		return [compasso_bumbo1, compasso_bumbo2, compasso_bumbo3, compasso_bumbo4, 
-				compasso_bumbo5, compasso_bumbo6, compasso_bumbo7, compasso_bumbo8,
-				compasso_bumbo1, compasso_bumbo2, compasso_bumbo3, compasso_bumbo4, 
 				compasso_bumbo5, compasso_bumbo6, compasso_bumbo7, compasso_bumbo8]
 
 
@@ -69,6 +64,8 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Hihat1.set_texture("res://img/mpc-button-green.png")
+	$Bumbo1.set_texture("res://img/mpc-button-green.png")
 	$Hihat1.hide()
 	$Bumbo1.hide()
 	hide_all_touch()
@@ -86,13 +83,13 @@ func init_phase_buttons(btns):
 		i = i+1
 		var obj = get_node(b)
 		obj.set_stream("res://sounds/FASE2/100BPM/ONE_SHOT/" + instruments[current_instrument] + str(i) + ".mp3")
-		obj.set_texture("res://img/mpc-button-" + btn_color[current_instrument] +".png")
-		obj.set_volume(20)
+		obj.set_texture("res://img/mpc-button-green.png")
+		obj.set_volume(40)
 		obj.show()
 
 func start():
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(20)
+	$AudioMestra.set_volume(40)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(20)
 	if current_instrument >= len(instruments):
@@ -202,7 +199,7 @@ func _on_tutorial_ended() -> void:
 		ended.emit()
 		return
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(20)
+	$AudioMestra.set_volume(40)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(20)
 	tutorial_ended = true
@@ -229,7 +226,7 @@ func instrument_time():
 	if current_instrument == 0:
 		return 0.1
 	if current_instrument == 1:
-		return 0.08
+		return 0.09
 
 func _on_tutorial_countdown_show() -> void:
 	hide_all_touch()
