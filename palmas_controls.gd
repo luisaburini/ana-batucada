@@ -11,7 +11,7 @@ var must_leave = false
 var total_notas = 0
 var pontos = 0
 var showed_palmas = false
-
+var must_vibrate = false
 
 # O - pausa de 2 tempos (minima)
 # P - pausa de 1 tempo (semínima)
@@ -47,6 +47,8 @@ func start():
 		return
 	was_pressed = false
 	if !tutorial_ended:
+		must_vibrate = false
+		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("SambaTrapPalmas")
 		$Tutorial.set_first_screen("res://img/tutorial-palmas1.png", "o som agora e das palmas")
 		$Tutorial.set_second_screen("res://img/tutorial-palmas2.png", "sente so como a Mestra faz")
@@ -72,13 +74,12 @@ func _ready() -> void:
 	$PreJogo.hide()
 
 func update_pontos():
-	if $Compassos.is_playing():
-		pontos = pontos+1
-		$Pontuacao.text = str(get_percent()) + "%"
+	pontos = pontos+1
+	$Pontuacao.text = str(get_percent()) + "%"
 
 func get_percent():
 	if total_notas == 0:
-		return 0
+		return 100
 	return 100*pontos/total_notas
 	
 func get_pontos():
@@ -114,6 +115,8 @@ func _on_tutorial_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	must_vibrate = true
+	$Compassos.set_is_tutorial(false)
 	$Pontuacao.show()
 	$Compassos.start_timer(instrument_time())
 	$AudioSemSolo.play()
@@ -127,6 +130,9 @@ func _on_pre_jogo_countdown_show() -> void:
 func _on_palmas_pressed() -> void:
 	$PalmasAudio.play()
 	$TouchPalmas.show()
+	if must_vibrate:
+		Input.vibrate_handheld(500)
+		print("VIBROU PALMAS")
 
 
 func _on_compassos_ended() -> void:
@@ -159,10 +165,14 @@ func reset():
 func _on_compassos_seta_moved(current_note: Variant) -> void:
 	$TouchPalmas.hide()
 	total_notas = total_notas+1
+	if current_note == "p" or current_note =="P" or current_note == "d" or current_note == "D" or current_note == "O":
+		update_pontos()
 	if  current_note == "k":
+		pontos = pontos+1
+		update_pontos()
 		if showed_palmas:
 			$TouchPalmas.texture = load("res://img/touch.png")
 		else:
 			$TouchPalmas.texture = load("res://img/touch-double.png")
 		$TouchPalmas.show()
-		update_pontos()
+		

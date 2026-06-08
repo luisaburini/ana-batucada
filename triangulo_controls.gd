@@ -9,6 +9,7 @@ var audio_mestra =  "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMEN
 var pontos = 0
 var maozinha_solta = false
 var tutorial_ended = false
+var _is_tutorial = true
 
 # P - pausa de 1 tempo (Semínima)
 # p - pausa de meio tempo (colcheia)
@@ -56,6 +57,8 @@ func start():
 	$AudioSemSolo.set_volume(30)
 	$AudioSemSolo.load_audio(audio_sem_solo)
 	if !tutorial_ended:
+		$Compasso.set_is_tutorial(true)
+		_is_tutorial = true
 		$Tutorial.start()
 		$Compasso.reset()
 	
@@ -130,6 +133,8 @@ func _on_pre_jogo_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	$Compasso.set_is_tutorial(false)
+	_is_tutorial = false
 	$Pontuacao.show()
 	$Compasso.start_timer(instrument_time())
 	$AudioSemSolo.play()
@@ -149,6 +154,9 @@ func _on_compasso_seta_moved(current_note: Variant) -> void:
 
 
 func _on_triangulo_entered_triangulo() -> void:
+	if not _is_tutorial:
+		print("Vibrate triangle")
+		Input.vibrate_handheld(500)
 	var triangulo_sample = "3"
 	if $Compasso.get_current_note_name() == "T" && maozinha_solta:
 		already_played = true

@@ -64,6 +64,7 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Bumbo1.set_volume(10)
 	$Hihat1.set_texture("res://img/mpc-button-green.png")
 	$Bumbo1.set_texture("res://img/mpc-button-green.png")
 	$Hihat1.hide()
@@ -84,12 +85,12 @@ func init_phase_buttons(btns):
 		var obj = get_node(b)
 		obj.set_stream("res://sounds/FASE2/100BPM/ONE_SHOT/" + instruments[current_instrument] + str(i) + ".mp3")
 		obj.set_texture("res://img/mpc-button-green.png")
-		obj.set_volume(40)
+		obj.set_volume(20)
 		obj.show()
 
 func start():
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(40)
+	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(20)
 	if current_instrument >= len(instruments):
@@ -97,6 +98,8 @@ func start():
 		return
 	was_pressed = false
 	if !tutorial_ended:
+		$Hihat1.set_is_tutorial(true)
+		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseHihat")
 		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
@@ -136,12 +139,10 @@ func reset():
 	show()
 
 func update_pontos():
-	if $Compassos.is_playing() && !was_pressed: 
-		Input.vibrate_handheld(100)
-		pontos = pontos+1
-		if total_notas > 0:
-			$Pontuacao.text = str(get_percent()) + "%"
-		was_pressed = true
+	pontos = pontos+1
+	if total_notas > 0:
+		$Pontuacao.text = str(get_percent()) + "%"
+	was_pressed = true
 
 func get_pontos():
 	return pontos
@@ -151,7 +152,7 @@ func get_percent():
 		return 0
 	var p = 100*pontos/total_notas
 	if p > 100:
-		return p - 100
+		return 100
 	return p
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -160,6 +161,8 @@ func _process(delta: float) -> void:
 
 
 func _on_compassos_seta_moved(current_note: Variant) -> void:
+	if current_note == " " or current_note == "p" or current_note == "P" or current_note == "d" or current_note == "D" or current_note == "O":
+		update_pontos()
 	update_touch(current_note)
 	was_pressed = false
 	total_notas = total_notas+1
@@ -199,7 +202,7 @@ func _on_tutorial_ended() -> void:
 		ended.emit()
 		return
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(40)
+	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(20)
 	tutorial_ended = true
@@ -226,7 +229,7 @@ func instrument_time():
 	if current_instrument == 0:
 		return 0.1
 	if current_instrument == 1:
-		return 0.09
+		return 0.11
 
 func _on_tutorial_countdown_show() -> void:
 	hide_all_touch()
@@ -264,12 +267,18 @@ func _on_pre_jogo_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	$Hihat1.set_is_tutorial(false)
+	$Bumbo1.set_is_tutorial(false)
+	$Compassos.set_is_tutorial(false)
 	if current_instrument >= len(instruments):
 		compasso_ended = true
 		ended.emit()
 		return
 	$Compassos.start_timer(instrument_time())
 	$AudioSemSolo.play()
+	$Compassos.set_is_tutorial(false)
+	$Bumbo1.set_is_tutorial(false)
+	$Hihat1.set_is_tutorial(false)
 		
 
 
@@ -311,10 +320,13 @@ func _on_compassos_ended() -> void:
 	if current_instrument == 1:
 		# Start bumbo		
 		$Pontuacao.hide()
+		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseBumbo")
 		$Tutorial.set_first_screen("res://img/tutorial-bumbo1.png", "agora vamos tocar bumbo!")
 		$Tutorial.set_second_screen("res://img/tutorial-bumbo2.png", "veja como se faz")
 		$Tutorial.set_show_telas(true)
+		$Compassos.set_is_tutorial(true)
+		$Bumbo1.set_is_tutorial(true)
 		$Tutorial.start()
 		$PreJogo.set_show_telas(true)
 	if current_instrument >= len(instruments):

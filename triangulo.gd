@@ -12,5 +12,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_touch_screen_button_pressed() -> void:
-	Input.vibrate_handheld(500)
 	emit_signal("entered_triangulo")

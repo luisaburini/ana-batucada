@@ -9,6 +9,7 @@ var already_played = false
 var must_leave = false
 var total_notas = 0
 var pontos = 0
+var _is_tutorial = false
 
 # GANKOGUI - g - meio tempo (colcheia)
 # GANKOGUI - G - 3 quartos de tempo (colcheia ponto)
@@ -44,6 +45,8 @@ func start():
 		return
 	was_pressed = false
 	if !tutorial_ended:
+		$Compassos.set_is_tutorial(true)
+		_is_tutorial = true
 		$Tutorial.set_instruction_node("AfroHouseGankogui")
 		$Tutorial.set_first_screen("res://img/tutorial-gankogui1.png", "o som agora e do agogo")
 		$Tutorial.set_second_screen("res://img/tutorial-gankogui2.png", "sente so como a Mestra faz")
@@ -69,21 +72,22 @@ func _ready() -> void:
 	$PreJogo.hide()
 
 func update_pontos():
-	if $Compassos.is_playing():
-		pontos = pontos+1
-		$Pontuacao.text = str(get_percent()) + "%"
+	pontos = pontos+2
+	$Pontuacao.text = str(get_percent()) + "%"
 
 func get_percent():
 	if total_notas == 0:
 		return 0
+	if 100*pontos/total_notas > 100:
+		return 100
 	return 100*pontos/total_notas
 	
 func get_pontos():
 	return pontos
 
 func instrument_time():
-	return 0.09
-
+	return 0.117
+	
 func end():
 	$AudioMestra.stop()
 	$AudioSemSolo.stop()
@@ -115,6 +119,8 @@ func _on_pre_jogo_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	_is_tutorial = false
+	$Compassos.set_is_tutorial(false)
 	$Pontuacao.show()
 	$Compassos.start_timer(instrument_time())
 	$AudioSemSolo.play()
@@ -123,9 +129,13 @@ func _on_pre_jogo_ended() -> void:
 func _on_gankogui_1_pressed() -> void:
 	$TouchGankogui1.show()
 	$Gankogui1Audio.play()
+	if not _is_tutorial:
+		Input.vibrate_handheld(500)
 
 
 func _on_compassos_seta_moved(current_note: Variant) -> void:
+	if current_note == "p" or current_note == "P" or current_note == "d" or current_note == "D" or current_note == "O":
+		update_pontos()
 	$TouchGankogui1.hide()
 	total_notas = total_notas+1
 	if  current_note == "G" || current_note == "g":

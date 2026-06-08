@@ -3,12 +3,15 @@ extends Node2D
 var current_sound = ""
 var event_to_catch = ""
 signal pressed
+var _is_tutorial = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Texture.hide()
 	$Label.hide()
 
+func set_is_tutorial(is_tutorial):
+	_is_tutorial = is_tutorial
 
 func set_text(text):
 	$Label.text = text
@@ -36,7 +39,9 @@ func set_volume(volume):
 func _on_texture_pressed() -> void:
 	if current_sound != "":
 		$AudioLoader.play()
-	Input.vibrate_handheld(500)	
+	if not _is_tutorial:
+		Input.vibrate_handheld(500)
+		print("VIBRA botao")
 	pressed.emit()
 
 

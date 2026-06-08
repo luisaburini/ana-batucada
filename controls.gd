@@ -63,7 +63,9 @@ var showed_conga1 = false
 var showed_conga2 = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$conga1.set_texture("res://img/mpc-button-blue.png")
 	$conga1.hide()
+	$conga2.set_texture("res://img/mpc-button-orange.png")
 	$conga2.hide()
 	hide_all_touch()
 	$Compasso.set_music(music_according_to_phase())
@@ -79,7 +81,7 @@ func init_phase_buttons(btns, btn_color):
 		print("res://img/mpc-button-" + btn_color[i] +".png")
 		i = i+1
 		obj.set_stream("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/" + instruments[current_instrument] + "/" + instruments[current_instrument] + str(i) + ".mp3")
-		obj.set_volume(40)
+		obj.set_volume(30)
 		obj.show()
 	
 func start():
@@ -87,7 +89,7 @@ func start():
 	$conga1.hide()
 	$conga2.hide()
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(50)
+	$AudioMestra.set_volume(40)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
@@ -95,6 +97,8 @@ func start():
 		return
 	was_pressed = false
 	if !tutorial_ended:
+		$Compasso.set_is_tutorial(true)
+		$bumbo1.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("FunkBumbo")
 		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
@@ -189,7 +193,11 @@ func _on_compasso_ended():
 		$Tutorial.set_first_screen("res://img/tutorial-conga1.png", "agora vamos usar o som das congas!")
 		$Tutorial.set_second_screen("res://img/tutorial-conga2.png", "veja como se faz")
 		$Tutorial.set_show_telas(true)
+		$Compasso.set_is_tutorial(true)
+		$conga1.set_is_tutorial(true)
+		$conga2.set_is_tutorial(true)
 		$Tutorial.start()
+		$MPCBackground.texture = load("res://img/MPC4.png")
 		$PreJogo.set_show_telas(true)
 		$bumbo1.hide()
 		$TouchConga2.show()
@@ -210,6 +218,8 @@ func get_percent():
 	return 100*pontos/total_notas
 
 func _on_compasso_seta_moved(note):
+	if note == "p" or note == "P" or note == "d" or note == "D" or note == "O":
+		update_pontos()
 	update_touch(note)
 	was_pressed = false
 	total_notas = total_notas+1
@@ -264,7 +274,7 @@ func _on_tutorial_ended():
 		ended.emit()
 		return
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(50)
+	$AudioMestra.set_volume(40)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	tutorial_ended = true
@@ -294,7 +304,7 @@ func _on_tutorial_countdown_show() -> void:
 		$TouchBumbo1.texture = load("res://img/touch.png")
 		$TouchBumbo1.show()
 		var btns = ["bumbo1"]
-		init_phase_buttons(btns, ["red"])
+		init_phase_buttons(btns, ["green"])
 	
 	$Compasso.start_timer(instrument_time())
 	$Pontuacao.hide()
@@ -332,6 +342,10 @@ func _on_pre_jogo_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	$bumbo1.set_is_tutorial(false)
+	$conga1.set_is_tutorial(false)
+	$conga2.set_is_tutorial(false)
+	$Compasso.set_is_tutorial(false)
 	if current_instrument >= len(instruments):
 		compasso_ended = true
 		ended.emit()

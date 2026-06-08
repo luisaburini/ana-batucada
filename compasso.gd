@@ -7,10 +7,14 @@ signal ended
 signal seta_moved(current_note)
 var note_width = 52
 var _is_playing = false
+var _is_tutorial = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset()
+
+func set_is_tutorial(is_tutorial):
+	_is_tutorial = is_tutorial
 
 func set_music(music):
 	current_music = []
@@ -33,7 +37,7 @@ func clear_pentagrama():
 	for i in range (0, 4):
 		var compasso = pentagrama.get_node("Compasso"+str(i))
 		if pentagrama.has_node("Compasso"+str(i)):
-			for j in range (0, 15):
+			for j in range (0, 16):
 				var note = compasso.get_node("Note"+str(j))
 				if compasso.has_node("Note"+str(j)):
 					note.texture = load("")			
@@ -72,6 +76,9 @@ func is_minima(note):
 		return true
 	return false
 
+func not_pausa(note):
+	return note != "P" && note != "p" && note != "d" && note != "D" && note != "O"
+
 var times_playing_seminima = 0
 var times_playing_colcheia_dot = 0
 var times_playing_colcheia = 0
@@ -87,18 +94,30 @@ func _on_timer_timeout():
 	if !finished:
 		if is_minima(current_music[current_compasso][index_in_compasso]) && times_playing_minima < 8:
 			times_playing_minima = times_playing_minima+1
+			if times_playing_minima == 1 and _is_tutorial and not_pausa(current_music[current_compasso][index_in_compasso]):
+				Input.vibrate_handheld(500)
+				print("VIBROU minima!")
 			return
 			
 		if is_seminima(current_music[current_compasso][index_in_compasso]) &&  times_playing_seminima < 4:
 			times_playing_seminima = times_playing_seminima+1
+			if times_playing_seminima == 1 and _is_tutorial and not_pausa(current_music[current_compasso][index_in_compasso]):
+				Input.vibrate_handheld(500)
+				print("VIBROU seminima!")
 			return
 		
 		if is_colcheia_dot(current_music[current_compasso][index_in_compasso]) && times_playing_colcheia_dot < 3:
 			times_playing_colcheia_dot = times_playing_colcheia_dot+1
+			if times_playing_colcheia_dot == 1 and _is_tutorial and not_pausa(current_music[current_compasso][index_in_compasso]):
+				Input.vibrate_handheld(500)
+				print("VIBROU colcheia ponto!")
 			return
 			
 		if is_colcheia(current_music[current_compasso][index_in_compasso]) && times_playing_colcheia < 2:
 			times_playing_colcheia = times_playing_colcheia+1
+			if times_playing_colcheia == 1 and _is_tutorial and not_pausa(current_music[current_compasso][index_in_compasso]):
+				Input.vibrate_handheld(500)
+				print("VIBROU colcheia!")
 			return
 		
 		

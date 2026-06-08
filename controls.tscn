@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://n386jdcbvm5m"]
 
 [ext_resource type="Script" uid="uid://3f15466jb764" path="res://controls.gd" id="1_qbcre"]
-[ext_resource type="Texture2D" uid="uid://biucadul8a6sr" path="res://img/MPC4.png" id="2_dob1i"]
+[ext_resource type="Texture2D" uid="uid://203eaaj8pvp5" path="res://img/mpc 1.png" id="2_dob1i"]
 [ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="3_dob1i"]
 [ext_resource type="PackedScene" uid="uid://2r2auob8mpde" path="res://batucada_button.tscn" id="4_42pi2"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="5_abkn8"]
@@ -13,10 +13,10 @@
 script = ExtResource("1_qbcre")
 
 [node name="MPCBackground" type="TextureRect" parent="."]
-offset_left = 531.0
-offset_top = 414.0
-offset_right = 1577.0
-offset_bottom = 1070.0
+offset_left = 514.0
+offset_top = 419.0
+offset_right = 1520.0
+offset_bottom = 1077.0
 texture = ExtResource("2_dob1i")
 
 [node name="Pontuacao" type="Label" parent="."]
@@ -36,32 +36,31 @@ position = Vector2(19, 100)
 
 [node name="bumbo1" parent="." instance=ExtResource("4_42pi2")]
 visible = false
-position = Vector2(798.00006, 849.00006)
+position = Vector2(751, 714)
 scale = Vector2(0.68, 0.68)
 
 [node name="conga1" parent="." instance=ExtResource("4_42pi2")]
 visible = false
-position = Vector2(771, 688)
+position = Vector2(757, 713)
 scale = Vector2(0.68, 0.68)
 
 [node name="conga2" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(1010.00006, 836.00006)
+position = Vector2(1031, 843.00006)
 scale = Vector2(0.68, 0.68)
 
 [node name="TouchBumbo1" type="TextureRect" parent="."]
-visible = false
 offset_left = 804.0
-offset_top = 845.0
-offset_right = 1003.0
+offset_top = 748.0
+offset_right = 1127.0
 offset_bottom = 1011.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga1" type="TextureRect" parent="."]
 visible = false
-offset_left = 788.0
-offset_top = 691.0
-offset_right = 995.0
-offset_bottom = 828.0
+offset_left = 749.0
+offset_top = 707.0
+offset_right = 956.0
+offset_bottom = 844.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga2" type="TextureRect" parent="."]

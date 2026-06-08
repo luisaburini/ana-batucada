@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://caf4cod8ffq5"]
+[gd_scene load_steps=6 format=3 uid="uid://caf4cod8ffq5"]
 
 [ext_resource type="PackedScene" uid="uid://1sfxy05y8s6j" path="res://samba_trap_palmas.tscn" id="1_xn2h4"]
 [ext_resource type="Texture2D" uid="uid://dthn3bpgccmf0" path="res://img/X.png" id="2_sws61"]
 [ext_resource type="Texture2D" uid="uid://5hagtvo0d4ln" path="res://img/x.png" id="3_f00i8"]
-[ext_resource type="Texture2D" uid="uid://caukw0433fevu" path="res://img/P.png" id="4_dida6"]
 [ext_resource type="Texture2D" uid="uid://bm526bahdn5lm" path="res://img/O.png" id="5_iy1do"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="6_f00i8"]
 
@@ -18,12 +17,12 @@ texture = ExtResource("2_sws61")
 [node name="2ndNote" parent="HBoxContainer/VBoxContainer2" index="1"]
 texture = ExtResource("3_f00i8")
 
-[node name="3rdNote" parent="HBoxContainer/VBoxContainer2" index="2"]
-texture = ExtResource("4_dida6")
-
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2" index="3"]
 layout_mode = 2
 texture = ExtResource("5_iy1do")
+
+[node name="4thNote" parent="HBoxContainer/VBoxContainer2" index="4"]
+texture = null
 
 [node name="Dicab" parent="HBoxContainer/VBoxContainer" index="0"]
 text = "1 tempo de caixa"
@@ -34,10 +33,6 @@ theme_override_font_sizes/font_size = 1
 
 [node name="DIcap" parent="HBoxContainer/VBoxContainer" index="2"]
 text = "1/2 tempo de caixa"
-
-[node name="Label" parent="HBoxContainer/VBoxContainer" index="3"]
-theme_override_font_sizes/font_size = 1
-text = "  "
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer" index="4"]
 layout_mode = 2
@@ -53,3 +48,10 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("6_f00i8")
 theme_override_font_sizes/font_size = 120
 text = "2 tempos de pausa"
+
+[node name="Label" parent="HBoxContainer/VBoxContainer" index="7"]
+theme_override_font_sizes/font_size = 1
+text = "  "
+
+[node name="Filler2" parent="HBoxContainer/VBoxContainer" index="8"]
+text = ""

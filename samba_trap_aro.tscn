@@ -11,5 +11,14 @@ text = "Samba Trap Aro"
 [node name="1stNote" parent="HBoxContainer/VBoxContainer2" index="0"]
 texture = ExtResource("2_j73u6")
 
+[node name="3rdNote" parent="HBoxContainer/VBoxContainer2" index="2"]
+texture = null
+
 [node name="Dicab" parent="HBoxContainer/VBoxContainer" index="0"]
 text = "1/2 tempo de aro"
+
+[node name="Label" parent="HBoxContainer/VBoxContainer" index="3"]
+text = "2 tempos de pausa"
+
+[node name="Filler2" parent="HBoxContainer/VBoxContainer" index="4"]
+text = ""

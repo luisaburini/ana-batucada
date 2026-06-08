@@ -32,7 +32,7 @@ var compasso_aro4 = "pzpzpzzp"
 var compasso_aro5 = "zpzppzpz"
 var compasso_aro6 = "pzpzpzzp"
 var compasso_aro7 = "zpzppzpz"
-var compasso_aro8 = "pzpzO"
+var compasso_aro8 = "pzpzO   "
 
 # CAIXA - x - meio tempo (colcheia) de caixa
 # CAIXA - X - 1 tempo (seminima) de caixa
@@ -100,7 +100,9 @@ func start():
 	was_pressed = false
 	if !tutorial_ended:
 		$Tutorial.set_instruction_node("SambaTrapAro")
-		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
+		$Compassos.set_is_tutorial(true)
+		$Aro1.set_is_tutorial(true)
+		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital de Aro!")
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
 		$Aro1.show()
@@ -142,7 +144,7 @@ func get_percent():
 		return 0
 	var p = 100*pontos/total_notas
 	if p > 100:
-		return p - 100
+		return 100
 	return p
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -153,6 +155,8 @@ func _on_compassos_seta_moved(current_note: Variant) -> void:
 	update_touch(current_note)
 	was_pressed = false
 	total_notas = total_notas+1
+	if current_note == "p" or current_note =="P" or current_note == "d" or current_note == "D" or current_note == "O":
+		pontos = pontos+1
 	$Pontuacao.text = str(get_percent()) + "%"
 	
 func update_touch(note):
@@ -200,8 +204,8 @@ func instrument_time():
 	if current_instrument == 0:
 		return 0.10
 	if current_instrument == 1:
-		return 0.08
-	return 0.1
+		return 0.123
+	return 0.08
 
 
 func _on_tutorial_countdown_show() -> void:
@@ -235,6 +239,9 @@ func _on_pre_jogo_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	$Compassos.set_is_tutorial(false)
+	$Aro1.set_is_tutorial(false)
+	$Caixa1.set_is_tutorial(false)
 	if current_instrument >= len(instruments):
 		compasso_ended = true
 		ended.emit()
@@ -285,6 +292,8 @@ func _on_compassos_ended() -> void:
 		$Pontuacao.hide()
 		$TouchAro1.hide()
 		$Aro1.hide()
+		$Compassos.set_is_tutorial(true)
+		$Caixa1.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("SambaTrapCaixa")
 		$Tutorial.set_first_screen("res://img/tutorial-caixa1.png", "agora vamos usar o som da caixa!")
 		$Tutorial.set_second_screen("res://img/tutorial-caixa2.png", "veja como se faz")

@@ -57,21 +57,27 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="FunkBumbo" parent="." instance=ExtResource("5_4hjyh")]
+visible = false
 
 [node name="FunkConga" parent="." instance=ExtResource("6_bsk3x")]
+visible = false
 
 [node name="FunkTriangulo" parent="." instance=ExtResource("7_dl7dh")]
+visible = false
 
 [node name="AfroHouseHihat" parent="." instance=ExtResource("8_r4o0u")]
+visible = false
 
 [node name="AfroHouseBumbo" parent="." instance=ExtResource("9_k08xv")]
+visible = false
 
 [node name="AfroHouseGankogui" parent="." instance=ExtResource("10_g52lx")]
+visible = false
 
 [node name="SambaTrapPalmas" parent="." instance=ExtResource("11_0lped")]
+visible = false
 
 [node name="SambaTrapAro" parent="." instance=ExtResource("12_dudfa")]
-visible = false
 
 [node name="SambaTrapCaixa" parent="." instance=ExtResource("13_5gpbq")]
 visible = false
