@@ -8,7 +8,7 @@ var gankogui = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Ambiente.load_audio("res://sounds/FASE2/100BPM/AMBIENTE_ESTADIO.mp3")
-	$Ambiente.set_volume(20)
+	$Ambiente.set_volume(25)
 	$AfroHouseControls.hide()
 	$TextureRect.hide()
 	
@@ -63,3 +63,19 @@ func _on_gankogui_controls_ended(pontos: Variant) -> void:
 	gankogui = pontos
 	$Ambiente.stop()
 	finished.emit()
+
+
+func _on_afro_house_controls_play_ambient() -> void:
+	$Ambiente.play()
+
+
+func _on_afro_house_controls_stop_ambient() -> void:
+	$Ambiente.stop()
+
+
+func _on_gankogui_controls_play_ambient() -> void:
+	$Ambiente.play()
+
+
+func _on_gankogui_controls_stop_ambient() -> void:
+	$Ambiente.stop()

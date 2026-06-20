@@ -9,7 +9,7 @@ var bumbo = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Ambiente.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/AMBIENTE_CONCHA.mp3")
-	$Ambiente.set_volume(20)
+	$Ambiente.set_volume(25)
 	$Background.hide()
 	$SambaTrapControls.hide()
 	$PalmasControls.hide()
@@ -19,7 +19,6 @@ func _start() -> void:
 	$Background.show()
 	$PalmasControls.show()
 	$PalmasControls.start()
-	$Ambiente.play()
 	
 func get_pontos_aro():
 	return aro
@@ -47,3 +46,19 @@ func _on_samba_trap_controls_caixa_ended(pontos: Variant) -> void:
 	$SambaTrapControls.hide()
 	$Ambiente.stop()
 	finished.emit()
+
+
+func _on_samba_trap_controls_play_ambient() -> void:
+	$Ambiente.play()
+
+
+func _on_samba_trap_controls_stop_ambient() -> void:
+	$Ambiente.stop()
+
+
+func _on_palmas_controls_play_ambient() -> void:
+	$Ambiente.play()
+
+
+func _on_palmas_controls_stop_ambient() -> void:
+	$Ambiente.stop()

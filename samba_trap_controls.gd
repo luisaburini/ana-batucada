@@ -1,17 +1,17 @@
 extends Node2D
 
 signal ended
+signal aro_ended(pontos)
+signal caixa_ended(pontos)
+signal play_ambient()
+signal stop_ambient()
+
 var tutorial_ended = false
 var instruments = ["ARO", "CAIXA"]
 var current_instrument = 0
 var must_leave = false
-
-signal aro_ended(pontos)
-signal caixa_ended(pontos)
-
 var showed_aro1 = false
 var showed_caixa1 = false
-
 var pontos = 0
 var was_pressed = false
 var total_notas = 0
@@ -106,6 +106,7 @@ func start():
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
 		$Aro1.show()
+		stop_ambient.emit()
 		$Tutorial.start()
 		$Compassos.set_music(music_according_to_phase())
 		$Compassos.reset()
@@ -155,7 +156,7 @@ func _on_compassos_seta_moved(current_note: Variant) -> void:
 	update_touch(current_note)
 	was_pressed = false
 	total_notas = total_notas+1
-	if current_note == "p" or current_note =="P" or current_note == "d" or current_note == "D" or current_note == "O":
+	if current_note == " " or current_note == "p" or current_note =="P" or current_note == "d" or current_note == "D" or current_note == "O":
 		pontos = pontos+1
 	$Pontuacao.text = str(get_percent()) + "%"
 	
@@ -188,6 +189,7 @@ func end():
 	hide()
 
 func _on_tutorial_ended() -> void:
+	play_ambient.emit()
 	if current_instrument > 3:
 		compasso_ended = true
 		ended.emit()
@@ -239,6 +241,7 @@ func _on_pre_jogo_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	play_ambient.emit()
 	$Compassos.set_is_tutorial(false)
 	$Aro1.set_is_tutorial(false)
 	$Caixa1.set_is_tutorial(false)
@@ -269,6 +272,7 @@ func _on_compassos_ended() -> void:
 			$PreJogo.set_second_screen("res://img/pre-jogo-caixa2.png", "sua vez de tocar caixa!")
 		
 		$PreJogo.show()
+		stop_ambient.emit()
 		$PreJogo.start()
 		return
 		
@@ -298,6 +302,7 @@ func _on_compassos_ended() -> void:
 		$Tutorial.set_first_screen("res://img/tutorial-caixa1.png", "agora vamos usar o som da caixa!")
 		$Tutorial.set_second_screen("res://img/tutorial-caixa2.png", "veja como se faz")
 		$Tutorial.set_show_telas(true)
+		stop_ambient.emit()
 		$Tutorial.start()
 		$PreJogo.set_show_telas(true)
 	if current_instrument == 2:

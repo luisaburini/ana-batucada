@@ -9,7 +9,7 @@ var triangulo_percent = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Ambiente.load_audio("res://sounds/FASE3/100BPM/AMBIENTE_ESTACAO_CULTURA.mp3")
-	$Ambiente.set_volume(20)
+	$Ambiente.set_volume(25)
 	$TrianguloControls.hide()
 	$FunkMPCControls.hide()
 	$TextureRect.hide()
@@ -52,3 +52,19 @@ func _on_funk_mpc_controls_ended() -> void:
 	$FunkMPCControls.hide()
 	$TrianguloControls.start()
 	$TrianguloControls.show()
+
+
+func _on_funk_mpc_controls_play_ambient() -> void:
+	$Ambiente.play()
+
+
+func _on_funk_mpc_controls_stop_ambient() -> void:
+	$Ambiente.stop()
+
+
+func _on_triangulo_controls_play_ambient() -> void:
+	$Ambiente.play()
+
+
+func _on_triangulo_controls_stop_ambient() -> void:
+	$Ambiente.stop()

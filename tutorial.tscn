@@ -78,9 +78,9 @@ visible = false
 visible = false
 
 [node name="SambaTrapAro" parent="." instance=ExtResource("12_dudfa")]
+visible = false
 
 [node name="SambaTrapCaixa" parent="." instance=ExtResource("13_5gpbq")]
-visible = false
 
 [node name="TimerCena3" type="Timer" parent="."]
 one_shot = true

@@ -1,6 +1,9 @@
 extends Node2D
 
 signal ended(pontos)
+signal play_ambient()
+signal stop_ambient()
+
 var already_played = false
 var must_leave = false
 var total_notas = 0
@@ -10,6 +13,7 @@ var pontos = 0
 var maozinha_solta = false
 var tutorial_ended = false
 var _is_tutorial = true
+
 
 # P - pausa de 1 tempo (Semínima)
 # p - pausa de meio tempo (colcheia)
@@ -59,6 +63,7 @@ func start():
 	if !tutorial_ended:
 		$Compasso.set_is_tutorial(true)
 		_is_tutorial = true
+		stop_ambient.emit()
 		$Tutorial.start()
 		$Compasso.reset()
 	
@@ -83,6 +88,7 @@ func _on_compasso_ended():
 		$BrilhoEmcima.hide()
 		$BrilhoNaMao.hide()
 		$PreJogo.show()
+		stop_ambient.emit()
 		$PreJogo.start()
 		return
 	$AudioMestra.stop()
@@ -106,6 +112,7 @@ func _on_tutorial_ended():
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
+	play_ambient.emit()
 
 func _on_maozinha_pressed() -> void:
 	maozinha_solta = !maozinha_solta
@@ -138,6 +145,7 @@ func _on_pre_jogo_ended() -> void:
 	$Pontuacao.show()
 	$Compasso.start_timer(instrument_time())
 	$AudioSemSolo.play()
+	play_ambient.emit()
 
 
 func _on_compasso_seta_moved(current_note: Variant) -> void:
@@ -168,6 +176,6 @@ func _on_triangulo_entered_triangulo() -> void:
 			already_played = true
 			update_pontos()
 	
-	$TrianguloLoader.set_volume(30)
+	$TrianguloLoader.set_volume(40)
 	$TrianguloLoader.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
 	$TrianguloLoader.play()

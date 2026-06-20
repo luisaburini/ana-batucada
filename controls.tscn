@@ -36,7 +36,7 @@ position = Vector2(19, 100)
 
 [node name="bumbo1" parent="." instance=ExtResource("4_42pi2")]
 visible = false
-position = Vector2(751, 714)
+position = Vector2(758.00006, 722.00006)
 scale = Vector2(0.68, 0.68)
 
 [node name="conga1" parent="." instance=ExtResource("4_42pi2")]
@@ -45,10 +45,11 @@ position = Vector2(757, 713)
 scale = Vector2(0.68, 0.68)
 
 [node name="conga2" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(1031, 843.00006)
+position = Vector2(980.00006, 857.00006)
 scale = Vector2(0.68, 0.68)
 
 [node name="TouchBumbo1" type="TextureRect" parent="."]
+visible = false
 offset_left = 804.0
 offset_top = 748.0
 offset_right = 1127.0
@@ -64,6 +65,7 @@ offset_bottom = 844.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga2" type="TextureRect" parent="."]
+visible = false
 offset_left = 1032.0
 offset_top = 842.0
 offset_right = 1237.0

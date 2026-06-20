@@ -23,4 +23,8 @@ texture = ExtResource("1_s7qdt")
 [connection signal="aro_ended" from="SambaTrapControls" to="." method="_on_samba_trap_controls_aro_ended"]
 [connection signal="caixa_ended" from="SambaTrapControls" to="." method="_on_samba_trap_controls_caixa_ended"]
 [connection signal="ended" from="SambaTrapControls" to="." method="_on_samba_trap_controls_ended"]
+[connection signal="play_ambient" from="SambaTrapControls" to="." method="_on_samba_trap_controls_play_ambient"]
+[connection signal="stop_ambient" from="SambaTrapControls" to="." method="_on_samba_trap_controls_stop_ambient"]
 [connection signal="ended" from="PalmasControls" to="." method="_on_palmas_controls_ended"]
+[connection signal="play_ambient" from="PalmasControls" to="." method="_on_palmas_controls_play_ambient"]
+[connection signal="stop_ambient" from="PalmasControls" to="." method="_on_palmas_controls_stop_ambient"]

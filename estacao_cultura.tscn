@@ -24,4 +24,8 @@ texture = ExtResource("1_hh0px")
 [connection signal="bumbo_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_bumbo_ended"]
 [connection signal="conga_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_conga_ended"]
 [connection signal="ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_ended"]
+[connection signal="play_ambient" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_play_ambient"]
+[connection signal="stop_ambient" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_stop_ambient"]
 [connection signal="ended" from="TrianguloControls" to="." method="_on_triangulo_controls_ended"]
+[connection signal="play_ambient" from="TrianguloControls" to="." method="_on_triangulo_controls_play_ambient"]
+[connection signal="stop_ambient" from="TrianguloControls" to="." method="_on_triangulo_controls_stop_ambient"]

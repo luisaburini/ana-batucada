@@ -1,6 +1,9 @@
 extends Node2D
 
 signal ended(pontos)
+signal play_ambient()
+signal stop_ambient()
+
 var instruments = ["GANKOGUI"]
 var current_instrument = 0
 var was_pressed = false
@@ -52,6 +55,7 @@ func start():
 		$Tutorial.set_second_screen("res://img/tutorial-gankogui2.png", "sente so como a Mestra faz")
 		$Tutorial.set_show_telas(true)
 		$Tutorial.start()
+		stop_ambient.emit()
 		$Compassos.set_music(music_according_to_phase())
 		$Compassos.reset()
 
@@ -86,7 +90,7 @@ func get_pontos():
 	return pontos
 
 func instrument_time():
-	return 0.117
+	return 0.11
 	
 func end():
 	$AudioMestra.stop()
@@ -101,6 +105,7 @@ func _on_tutorial_ended() -> void:
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
+	play_ambient.emit()
 
 
 func _on_tutorial_countdown_show() -> void:
@@ -124,6 +129,7 @@ func _on_pre_jogo_ended() -> void:
 	$Pontuacao.show()
 	$Compassos.start_timer(instrument_time())
 	$AudioSemSolo.play()
+	play_ambient.emit()
 
 
 func _on_gankogui_1_pressed() -> void:
@@ -158,6 +164,7 @@ func _on_compassos_ended() -> void:
 		$TouchGankogui1.hide()
 		$PreJogo.show()
 		$PreJogo.start()
+		stop_ambient.emit()
 		return
 	$AudioMestra.stop()
 	$AudioSemSolo.stop()

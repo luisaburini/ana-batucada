@@ -1,13 +1,16 @@
 extends Node2D
 
 signal ended
+signal hihat_ended(pontos)
+signal bumbo_ended(pontos)
+signal stop_ambient()
+signal play_ambient()
+
 var tutorial_ended = false
 var instruments = ["HIHAT", "BUMBO"]
 var current_instrument = 0
 var must_leave = false
 
-signal hihat_ended(pontos)
-signal bumbo_ended(pontos)
 
 var pontos = 0
 var was_pressed = false
@@ -64,7 +67,8 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Bumbo1.set_volume(10)
+	$Bumbo1.set_volume(15)
+	$Hihat1.set_volume(40)
 	$Hihat1.set_texture("res://img/mpc-button-green.png")
 	$Bumbo1.set_texture("res://img/mpc-button-green.png")
 	$Hihat1.hide()
@@ -85,7 +89,6 @@ func init_phase_buttons(btns):
 		var obj = get_node(b)
 		obj.set_stream("res://sounds/FASE2/100BPM/ONE_SHOT/" + instruments[current_instrument] + str(i) + ".mp3")
 		obj.set_texture("res://img/mpc-button-green.png")
-		obj.set_volume(20)
 		obj.show()
 
 func start():
@@ -105,6 +108,7 @@ func start():
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
 		$Hihat1.show()
+		stop_ambient.emit()
 		$Tutorial.start()
 		$Compassos.set_music(music_according_to_phase())
 		$Compassos.reset()
@@ -161,7 +165,8 @@ func _process(delta: float) -> void:
 
 
 func _on_compassos_seta_moved(current_note: Variant) -> void:
-	if current_note == " " or current_note == "p" or current_note == "P" or current_note == "d" or current_note == "D" or current_note == "O":
+	if current_note == "p" or current_note == "P" or current_note == "d" or current_note == "D" or current_note == "O":
+		print("Update pontos", current_note)
 		update_pontos()
 	update_touch(current_note)
 	was_pressed = false
@@ -197,6 +202,7 @@ func end():
 
 
 func _on_tutorial_ended() -> void:
+	play_ambient.emit()
 	if current_instrument > 3:
 		compasso_ended = true
 		ended.emit()
@@ -213,12 +219,14 @@ func _on_tutorial_ended() -> void:
 func _on_hihat_1_pressed() -> void:
 	var curr_note = $Compassos.get_current_note_name()
 	if curr_note == "h":
+		print("Update pontos: ", curr_note)
 		update_pontos()
 
 
 func _on_bumbo_1_pressed() -> void:
 	var curr_note = $Compassos.get_current_note_name()
 	if curr_note == "a" || curr_note == "A":
+		print("Update pontos: ", curr_note)
 		update_pontos()
 
 func _on_audio_sem_solo_finished() -> void:
@@ -229,7 +237,7 @@ func instrument_time():
 	if current_instrument == 0:
 		return 0.1
 	if current_instrument == 1:
-		return 0.11
+		return 0.12
 
 func _on_tutorial_countdown_show() -> void:
 	hide_all_touch()
@@ -267,6 +275,7 @@ func _on_pre_jogo_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	play_ambient.emit()
 	$Hihat1.set_is_tutorial(false)
 	$Bumbo1.set_is_tutorial(false)
 	$Compassos.set_is_tutorial(false)
@@ -299,6 +308,7 @@ func _on_compassos_ended() -> void:
 			$PreJogo.set_first_screen("res://img/pre-jogo1.png", "aperte o botao em destaque quando piscar")
 			$PreJogo.set_second_screen("res://img/pre-jogo2.png", "sua vez de tocar bumbo!")
 		$PreJogo.show()
+		stop_ambient.emit()
 		$PreJogo.start()
 		return
 		
@@ -327,6 +337,7 @@ func _on_compassos_ended() -> void:
 		$Tutorial.set_show_telas(true)
 		$Compassos.set_is_tutorial(true)
 		$Bumbo1.set_is_tutorial(true)
+		stop_ambient.emit()
 		$Tutorial.start()
 		$PreJogo.set_show_telas(true)
 	if current_instrument >= len(instruments):

@@ -1,7 +1,9 @@
 extends Node2D
 
-
 signal ended(pontos)
+signal play_ambient()
+signal stop_ambient()
+
 var instruments = ["PALMAS"]
 var current_instrument = 0
 var was_pressed = false
@@ -53,6 +55,7 @@ func start():
 		$Tutorial.set_first_screen("res://img/tutorial-palmas1.png", "o som agora e das palmas")
 		$Tutorial.set_second_screen("res://img/tutorial-palmas2.png", "sente so como a Mestra faz")
 		$Tutorial.set_show_telas(true)
+		stop_ambient.emit()
 		$Tutorial.start()
 		$Compassos.set_music(music_according_to_phase())
 		$Compassos.reset()
@@ -100,6 +103,7 @@ func _process(delta: float) -> void:
 
 
 func _on_tutorial_ended() -> void:
+	play_ambient.emit()
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
@@ -115,6 +119,7 @@ func _on_tutorial_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	play_ambient.emit()
 	must_vibrate = true
 	$Compassos.set_is_tutorial(false)
 	$Pontuacao.show()
@@ -143,6 +148,7 @@ func _on_compassos_ended() -> void:
 		$Pontuacao.text = "0"
 		$TouchPalmas.hide()
 		$PreJogo.show()
+		stop_ambient.emit()
 		$PreJogo.start()
 		return
 	$AudioMestra.stop()

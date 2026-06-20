@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvtwc8fcdunxk"]
+[gd_scene load_steps=13 format=3 uid="uid://dvtwc8fcdunxk"]
 
 [ext_resource type="Script" uid="uid://cqkgpsa4rs2sx" path="res://mapa.gd" id="1_ltv3l"]
 [ext_resource type="Texture2D" uid="uid://cucjks6tnl8t6" path="res://img/mapa-concha.jpeg" id="2_2eut3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bl3fwomlf1rvq" path="res://estacao_cultura.tscn" id="8_rugew"]
 [ext_resource type="PackedScene" uid="uid://c3lv55xrdvjcd" path="res://score.tscn" id="9_w30at"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="11_rugew"]
+[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="12_o68h1"]
 
 [node name="Mapa" type="Node2D"]
 script = ExtResource("1_ltv3l")
@@ -63,6 +64,42 @@ wait_time = 0.5
 [node name="ButtonClick" parent="." instance=ExtResource("11_rugew")]
 
 [node name="Fanfarra" parent="." instance=ExtResource("11_rugew")]
+
+[node name="Campinas" type="Label" parent="."]
+offset_left = 1236.0
+offset_top = 343.0
+offset_right = 1573.0
+offset_bottom = 432.0
+theme_override_fonts/font = ExtResource("12_o68h1")
+theme_override_font_sizes/font_size = 79
+text = "Campinas"
+
+[node name="TaquaralLabel" type="Label" parent="."]
+offset_left = 1325.0
+offset_top = 137.0
+offset_right = 1628.0
+offset_bottom = 185.0
+theme_override_fonts/font = ExtResource("12_o68h1")
+theme_override_font_sizes/font_size = 40
+text = "Concha Acustica"
+
+[node name="EstadioLabel" type="Label" parent="."]
+offset_left = 943.0
+offset_top = 680.0
+offset_right = 1243.0
+offset_bottom = 728.0
+theme_override_fonts/font = ExtResource("12_o68h1")
+theme_override_font_sizes/font_size = 40
+text = "Estadio Mogiana"
+
+[node name="EstacaoCulturaLabel" type="Label" parent="."]
+offset_left = 1018.0
+offset_top = 965.0
+offset_right = 1301.0
+offset_bottom = 1013.0
+theme_override_fonts/font = ExtResource("12_o68h1")
+theme_override_font_sizes/font_size = 40
+text = "Estaçao Cultura"
 
 [connection signal="pressed" from="TaquaralButton" to="." method="_on_taquaral_button_pressed"]
 [connection signal="pressed" from="CerescampMogianaButton" to="." method="_on_cerescamp_mogiana_button_pressed"]

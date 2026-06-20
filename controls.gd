@@ -5,6 +5,8 @@ var must_leave = false
 var tutorial_ended = false
 signal bumbo_ended(pontos)
 signal conga_ended(pontos)
+signal stop_ambient()
+signal play_ambient()
 
 var instruments = ["BUMBO", "CONGAS"]
 var current_instrument = 0
@@ -52,11 +54,16 @@ func music_according_to_phase():
 				conga_compasso5, conga_compasso6, conga_compasso7, conga_compasso8]
 
 func current_audio_sem_solo():
-	return "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/LOOPS_SEM_OS_SOLOS/LOOP_SEM_" + instruments[current_instrument] + ".mp3"
+	if current_instrument < len(instruments):
+		print("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/LOOPS_SEM_OS_SOLOS/LOOP_SEM_" + instruments[current_instrument] + ".mp3")
+		return "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/LOOPS_SEM_OS_SOLOS/LOOP_SEM_" + instruments[current_instrument] + ".mp3"
+	return ""
 
 
 func current_audio_mestra():
-	return "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_SOLO/" + instruments[current_instrument] + ".mp3"
+	if current_instrument < len(instruments):
+		return "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_SOLO/" + instruments[current_instrument] + ".mp3"
+	return ""
 
 var showed_bumbo1 = false
 var showed_conga1 = false
@@ -103,6 +110,7 @@ func start():
 		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
+		stop_ambient.emit()
 		$Tutorial.start()
 		$bumbo1.hide()
 		$conga1.hide()
@@ -163,6 +171,7 @@ func _on_compasso_ended():
 			$PreJogo.set_first_screen("res://img/pre-jogo-conga1.png", "aperte o botao em destaque quando piscar")
 			$PreJogo.set_second_screen("res://img/pre-jogo-conga2.png", "sua vez de tocar!")
 		$PreJogo.show()
+		stop_ambient.emit()
 		$PreJogo.start()
 		return
 		
@@ -196,6 +205,7 @@ func _on_compasso_ended():
 		$Compasso.set_is_tutorial(true)
 		$conga1.set_is_tutorial(true)
 		$conga2.set_is_tutorial(true)
+		stop_ambient.emit()
 		$Tutorial.start()
 		$MPCBackground.texture = load("res://img/MPC4.png")
 		$PreJogo.set_show_telas(true)
@@ -269,6 +279,7 @@ func hide_all_touch():
 
 	
 func _on_tutorial_ended():
+	play_ambient.emit()
 	if current_instrument > 2:
 		compasso_ended = true
 		ended.emit()
@@ -296,7 +307,7 @@ func instrument_time():
 	if current_instrument == 0:
 		return 0.105
 	if current_instrument == 1:
-		return 0.07
+		return 0.08
 	return 0.2
 
 func _on_tutorial_countdown_show() -> void:
@@ -325,7 +336,9 @@ func _on_conga_4_pressed() -> void:
 
 
 func _on_audio_sem_solo_finished() -> void:
+	print("Audio sem solo finished")
 	if !compasso_ended:
+		print("compasso ended, play again")
 		$AudioSemSolo.play()
 
 
@@ -342,6 +355,7 @@ func _on_pre_jogo_countdown_show() -> void:
 
 
 func _on_pre_jogo_ended() -> void:
+	play_ambient.emit()
 	$bumbo1.set_is_tutorial(false)
 	$conga1.set_is_tutorial(false)
 	$conga2.set_is_tutorial(false)

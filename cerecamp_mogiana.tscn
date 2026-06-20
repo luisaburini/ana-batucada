@@ -23,4 +23,8 @@ texture = ExtResource("1_hiewa")
 [connection signal="bumbo_ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_bumbo_ended"]
 [connection signal="ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_ended"]
 [connection signal="hihat_ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_hihat_ended"]
+[connection signal="play_ambient" from="AfroHouseControls" to="." method="_on_afro_house_controls_play_ambient"]
+[connection signal="stop_ambient" from="AfroHouseControls" to="." method="_on_afro_house_controls_stop_ambient"]
 [connection signal="ended" from="GankoguiControls" to="." method="_on_gankogui_controls_ended"]
+[connection signal="play_ambient" from="GankoguiControls" to="." method="_on_gankogui_controls_play_ambient"]
+[connection signal="stop_ambient" from="GankoguiControls" to="." method="_on_gankogui_controls_stop_ambient"]

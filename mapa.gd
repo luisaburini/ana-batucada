@@ -19,7 +19,9 @@ func _ready():
 	$Taquaral.hide()
 	$CerecampMogiana.hide()
 	$EstacaoCultura.hide()
+	$EstadioLabel.hide()
 	$CerescampMogianaButton.hide()
+	$EstacaoCulturaLabel.hide()
 	$EstacaoCulturaButton.hide()
 
 func _on_taquaral_button_pressed() -> void:
@@ -30,14 +32,19 @@ func _on_taquaral_button_pressed() -> void:
 	$BlinkTimer.stop()
 	clicked_taquaral.emit()
 	$Taquaral._start()
+	$Campinas.hide()
 	$CerecampMogiana.hide()
 	$EstacaoCultura.hide()
 	$TaquaralButton.hide()
+	$TaquaralLabel.hide()
+	$EstadioLabel.hide()
 	$CerescampMogianaButton.hide()
+	$EstacaoCulturaLabel.hide()
 	$EstacaoCulturaButton.hide()
 
 
 func _on_cerescamp_mogiana_button_pressed() -> void:
+	$Campinas.hide()
 	$ButtonClick.load_audio("res://sounds/FASE2/100BPM/BOTAO_INICIAR2.mp3")
 	$ButtonClick.play()
 	should_blink = false
@@ -47,11 +54,14 @@ func _on_cerescamp_mogiana_button_pressed() -> void:
 	$Taquaral.hide()
 	$CerecampMogiana._start()
 	$EstacaoCultura.hide()
+	$EstadioLabel.hide()
 	$CerescampMogianaButton.hide()
 	
 
 
 func _on_estacao_cultura_button_pressed() -> void:
+	$Campinas.hide()
+	$EstacaoCulturaLabel.hide()
 	$ButtonClick.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/BOTAO_INICIAR1.mp3")
 	$ButtonClick.play()
 	should_blink = false
@@ -105,6 +115,7 @@ func _on_cerecamp_mogiana_finished() -> void:
 	_show_blink = true
 	should_blink = true
 	$BlinkTimer.start(0.5)
+	$EstadioLabel.hide()
 	$CerescampMogianaButton.hide()
 	$CerecampMogiana.hide()
 	$EstacaoCulturaButton.show()
@@ -126,8 +137,12 @@ func _on_score_timer_timeout() -> void:
 	$Score.hide()
 	$Background.show()
 	if show_estacao:
+		$Campinas.show()
+		$EstacaoCulturaLabel.show()
 		$EstacaoCulturaButton.show()
 	if show_mogiana:
+		$Campinas.show()
+		$EstadioLabel.show()
 		$CerescampMogianaButton.show()
 	if show_end:
 		finished.emit()
