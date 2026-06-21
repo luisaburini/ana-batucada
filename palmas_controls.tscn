@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cau0l3jvharvy"]
+[gd_scene format=3 uid="uid://cau0l3jvharvy"]
 
 [ext_resource type="Script" uid="uid://b2qmvoucx2q4w" path="res://palmas_controls.gd" id="1_5v2qn"]
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="2_v8v4g"]
@@ -9,29 +9,29 @@
 [ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="7_0k6iv"]
 [ext_resource type="Texture2D" uid="uid://qmq385yjvxp4" path="res://img/touch.png" id="8_0k6iv"]
 
-[node name="PalmasControls" type="Node2D"]
+[node name="PalmasControls" type="Node2D" unique_id=2108414612]
 script = ExtResource("1_5v2qn")
 
-[node name="Compassos" parent="." instance=ExtResource("2_v8v4g")]
+[node name="Compassos" parent="." unique_id=187875891 instance=ExtResource("2_v8v4g")]
 position = Vector2(19, 100)
 
-[node name="Palmas" type="TouchScreenButton" parent="."]
+[node name="Palmas" type="TouchScreenButton" parent="." unique_id=1499034703]
 position = Vector2(693, 413)
 scale = Vector2(1.237443, 1.2371428)
 texture_normal = ExtResource("4_156ms")
 texture_pressed = ExtResource("5_rav1v")
 
-[node name="AudioMestra" parent="." instance=ExtResource("6_rav1v")]
+[node name="AudioMestra" parent="." unique_id=1636664117 instance=ExtResource("6_rav1v")]
 
-[node name="AudioSemSolo" parent="." instance=ExtResource("6_rav1v")]
+[node name="AudioSemSolo" parent="." unique_id=414584930 instance=ExtResource("6_rav1v")]
 
-[node name="PreJogo" parent="." instance=ExtResource("3_qpm5y")]
+[node name="PreJogo" parent="." unique_id=519809489 instance=ExtResource("3_qpm5y")]
 visible = false
 
-[node name="Tutorial" parent="." instance=ExtResource("3_qpm5y")]
+[node name="Tutorial" parent="." unique_id=1084270378 instance=ExtResource("3_qpm5y")]
 visible = false
 
-[node name="Pontuacao" type="Label" parent="."]
+[node name="Pontuacao" type="Label" parent="." unique_id=674705516]
 offset_left = 1520.0
 offset_top = 523.0
 offset_right = 1912.0
@@ -41,14 +41,14 @@ theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
-[node name="TouchPalmas" type="TextureRect" parent="."]
+[node name="TouchPalmas" type="TextureRect" parent="." unique_id=751911857]
 offset_left = 739.0
 offset_top = 486.0
 offset_right = 1133.0
 offset_bottom = 805.0
 texture = ExtResource("8_0k6iv")
 
-[node name="PalmasAudio" parent="." instance=ExtResource("6_rav1v")]
+[node name="PalmasAudio" parent="." unique_id=1465967472 instance=ExtResource("6_rav1v")]
 
 [connection signal="ended" from="Compassos" to="." method="_on_compassos_ended"]
 [connection signal="seta_moved" from="Compassos" to="." method="_on_compassos_seta_moved"]

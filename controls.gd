@@ -300,6 +300,8 @@ func _on_conga1_pressed():
 		
 func _on_mp_3_loader_finished():
 	if !compasso_ended:
+		$AudioSemSolo.load_audio(current_audio_sem_solo())
+		$AudioSemSolo.set_volume(30)
 		$AudioSemSolo.play()
 		
 
@@ -339,6 +341,8 @@ func _on_audio_sem_solo_finished() -> void:
 	print("Audio sem solo finished")
 	if !compasso_ended:
 		print("compasso ended, play again")
+		$AudioSemSolo.load_audio(current_audio_sem_solo())
+		$AudioSemSolo.set_volume(30)
 		$AudioSemSolo.play()
 
 

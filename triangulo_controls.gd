@@ -56,7 +56,7 @@ func instrument_time():
 
 func start():
 	$Compasso.set_music(current_music_sheet())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(40)
 	$AudioMestra.load_audio(audio_mestra)
 	$AudioSemSolo.set_volume(30)
 	$AudioSemSolo.load_audio(audio_sem_solo)

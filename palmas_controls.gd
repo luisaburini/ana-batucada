@@ -17,9 +17,7 @@ var must_vibrate = false
 
 # O - pausa de 2 tempos (minima)
 # P - pausa de 1 tempo (semínima)
-# d - pausa de 3 quartos de tempo
 # p - pausa de meio tempo (colcheia)
-# D - pausa de 1 quarto de tempo (semicolcheia)
 
 # PALMAS - k - meio tempo (colcheia) de palmas
 

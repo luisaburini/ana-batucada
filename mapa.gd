@@ -11,6 +11,8 @@ var should_blink = false
 var _show_blink = true
 
 func _ready():
+	$MogianaStory.hide()
+	$EstacaoCulturaStory.hide()
 	$Fanfarra.load_audio("res://sounds/FANFARRA_DE_VITORIA.mp3")
 	$Fanfarra.set_volume(30)
 	$ButtonClick.set_volume(30)
@@ -137,13 +139,12 @@ func _on_score_timer_timeout() -> void:
 	$Score.hide()
 	$Background.show()
 	if show_estacao:
-		$Campinas.show()
-		$EstacaoCulturaLabel.show()
-		$EstacaoCulturaButton.show()
+		$EstacaoCulturaStory.show()
+		$EstacaoCulturaStory.start()
 	if show_mogiana:
-		$Campinas.show()
-		$EstadioLabel.show()
-		$CerescampMogianaButton.show()
+		$MogianaStory.show()
+		$MogianaStory.start()
+		
 	if show_end:
 		finished.emit()
 	
@@ -164,3 +165,17 @@ func _on_blink_timer_timeout() -> void:
 		$BackgroundBlink.hide()
 	_show_blink = !_show_blink
 		
+
+
+func _on_mogiana_story_ended() -> void:
+	$MogianaStory.hide()
+	$Campinas.show()
+	$EstadioLabel.show()
+	$CerescampMogianaButton.show()
+
+
+func _on_estacao_cultura_story_ended() -> void:
+	$EstacaoCulturaStory.hide()
+	$Campinas.show()
+	$EstacaoCulturaLabel.show()
+	$EstacaoCulturaButton.show()

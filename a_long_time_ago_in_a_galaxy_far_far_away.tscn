@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ckk4uo0h6vosq"]
+
+[ext_resource type="Script" uid="uid://5ohtvmtymvm2" path="res://a_long_time_ago_in_a_galaxy_far_far_away.gd" id="1_25y03"]
+[ext_resource type="Texture2D" uid="uid://c0f02lrlhpuur" path="res://img/bg-galaxy-far-far.jpg" id="2_wja45"]
+[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="3_d8ffl"]
+[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="4_aot3v"]
+[ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="5_wja45"]
+
+[node name="ALongTimeAgoInAGalaxyFarFarAway" type="Node2D" unique_id=517388781]
+script = ExtResource("1_25y03")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1000272919]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_wja45")
+
+[node name="Timer" type="Timer" parent="." unique_id=1453758382]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1618137125]
+offset_right = 1920.0
+offset_bottom = 1083.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=128931116]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_d8ffl")
+theme_override_font_sizes/font_size = 100
+text = "Nova Campinas, 2100."
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1849939074]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "  "
+
+[node name="LongText" type="Label" parent="VBoxContainer" unique_id=327813063]
+use_parent_material = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_aot3v")
+theme_override_font_sizes/font_size = 50
+text = "
+    Após o Grande Blecaute, quando todos os servidores, computadores e celulares foram desligados e a internet extinta, poucas pessoas ainda sabiam fazer música.
+
+    Mestra Batera é uma delas e seu objetivo é transformar a neta, a rebelde Ana Batucada, em uma percussionista afro-brasileira, para que a música ainda exista no futuro.
+
+    O jogo tem 3 cenários: Estação Cultura, Estádio Cerecamp Mogiana e Concha Acústica. Em cada um desses lugares, Mestra Batera passa exercícios para você se preparar até poder tocar as músicas de cada cenário, em diferentes ritmos como: samba, funk e trap."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Pular" type="TouchScreenButton" parent="." unique_id=877811030]
+position = Vector2(1582, 888)
+texture_normal = ExtResource("5_wja45")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Pular" to="." method="_on_touch_screen_button_pressed"]

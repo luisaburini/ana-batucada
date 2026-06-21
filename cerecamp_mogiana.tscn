@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwhukrgyaq1pf"]
+[gd_scene format=3 uid="uid://cwhukrgyaq1pf"]
 
 [ext_resource type="Script" uid="uid://b1412p6yha8a4" path="res://cerecamp_mogiana.gd" id="1_d8xlv"]
 [ext_resource type="Texture2D" uid="uid://br1kj63wwjjwj" path="res://img/cerecamp-mogiana.jpg" id="1_hiewa"]
@@ -6,19 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://cc3g5rea2cgn3" path="res://afro_house_controls.tscn" id="4_trhlg"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_trhlg"]
 
-[node name="CerecampMogiana" type="Node2D"]
+[node name="CerecampMogiana" type="Node2D" unique_id=1767447133]
 script = ExtResource("1_d8xlv")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=326353954]
 offset_right = 1923.0
 offset_bottom = 1068.0
 texture = ExtResource("1_hiewa")
 
-[node name="AfroHouseControls" parent="." instance=ExtResource("4_trhlg")]
+[node name="AfroHouseControls" parent="." unique_id=739737449 instance=ExtResource("4_trhlg")]
 
-[node name="GankoguiControls" parent="." instance=ExtResource("4_gi3fk")]
+[node name="GankoguiControls" parent="." unique_id=1895400936 instance=ExtResource("4_gi3fk")]
 
-[node name="Ambiente" parent="." instance=ExtResource("5_trhlg")]
+[node name="Ambiente" parent="." unique_id=752494171 instance=ExtResource("5_trhlg")]
 
 [connection signal="bumbo_ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_bumbo_ended"]
 [connection signal="ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_ended"]

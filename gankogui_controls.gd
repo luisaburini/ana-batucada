@@ -15,7 +15,7 @@ var pontos = 0
 var _is_tutorial = false
 
 # GANKOGUI - g - meio tempo (colcheia)
-# GANKOGUI - G - 3 quartos de tempo (colcheia ponto)
+# GANKOGUI - G - 3 quartos de tempo (colcheia pontuada)
 
 # O - pausa de 2 tempos (minima)
 # P - pausa de 1 tempo (semínima)

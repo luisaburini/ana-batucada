@@ -1,76 +1,111 @@
-[gd_scene load_steps=6 format=3 uid="uid://deai557pn1v2b"]
+[gd_scene format=3 uid="uid://deai557pn1v2b"]
 
 [ext_resource type="Texture2D" uid="uid://biucxfjwp4kw3" path="res://img/b.png" id="1_fymtq"]
-[ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="1_lyj5g"]
 [ext_resource type="Texture2D" uid="uid://ym5pntcfu3py" path="res://img/p.png" id="2_yav62"]
 [ext_resource type="Texture2D" uid="uid://caukw0433fevu" path="res://img/P.png" id="3_an8db"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="5_1t4sa"]
 
-[node name="FunkBumbo" type="Node2D"]
+[node name="FunkBumbo" type="Node2D" unique_id=1803017267]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1042979515]
 offset_right = 1922.0
 offset_bottom = 1082.0
 color = Color(0, 0, 0.32941177, 1)
 
-[node name="Title" type="Label" parent="."]
-offset_right = 1917.0
-offset_bottom = 207.0
-theme_override_fonts/font = ExtResource("1_lyj5g")
-theme_override_font_sizes/font_size = 150
-text = "Funk Bumbo"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=989367586]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 1759.0
+offset_bottom = 889.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 250.0
-offset_top = 320.0
-offset_right = 1580.0
-offset_bottom = 778.0
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer2" unique_id=815210751]
 layout_mode = 2
+theme_override_constants/separation = 150
 
-[node name="1stNote" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+[node name="Nota" type="Label" parent="VBoxContainer2/VBoxContainer" unique_id=463863417]
 layout_mode = 2
-texture = ExtResource("1_fymtq")
+theme_override_fonts/font = ExtResource("5_1t4sa")
+theme_override_font_sizes/font_size = 75
+text = "Nota"
 
-[node name="2ndNote" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+[node name="Pausa" type="Label" parent="VBoxContainer2/VBoxContainer" unique_id=341248236]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_1t4sa")
+theme_override_font_sizes/font_size = 75
+text = "Pausa"
+
+[node name="Tempo" type="Label" parent="VBoxContainer2/VBoxContainer" unique_id=2058216044]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_1t4sa")
+theme_override_font_sizes/font_size = 75
+text = "Tempo"
+
+[node name="Nomenclatura" type="Label" parent="VBoxContainer2/VBoxContainer" unique_id=2037746402]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_1t4sa")
+theme_override_font_sizes/font_size = 75
+text = "Nomenclatura"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer2" unique_id=848195263]
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="1stNote" type="TextureRect" parent="VBoxContainer2/VBoxContainer2" unique_id=170803903]
+custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture = ExtResource("1_fymtq")
+
+[node name="Spacing" type="Label" parent="VBoxContainer2/VBoxContainer2" unique_id=1583407823]
+layout_mode = 2
+
+[node name="1stPause" type="TextureRect" parent="VBoxContainer2/VBoxContainer2" unique_id=1406105847]
+custom_minimum_size = Vector2(55, 200)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 texture = ExtResource("2_yav62")
 
-[node name="3rdNote" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+[node name="MeioTempo" type="Label" parent="VBoxContainer2/VBoxContainer2" unique_id=1563145725]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_1t4sa")
+theme_override_font_sizes/font_size = 120
+text = "   1/2 "
+
+[node name="Colcheia" type="Label" parent="VBoxContainer2/VBoxContainer2" unique_id=1069355433]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_1t4sa")
+theme_override_font_sizes/font_size = 100
+text = " colcheia"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="VBoxContainer2" unique_id=165020114]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 198
+
+[node name="Spacing" type="Label" parent="VBoxContainer2/VBoxContainer3" unique_id=316418798]
+layout_mode = 2
+
+[node name="Spacing2" type="Label" parent="VBoxContainer2/VBoxContainer3" unique_id=1227498589]
+layout_mode = 2
+
+[node name="3rdNote" type="TextureRect" parent="VBoxContainer2/VBoxContainer3" unique_id=404956080]
+custom_minimum_size = Vector2(70, 150)
 layout_mode = 2
 texture = ExtResource("3_an8db")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+[node name="1Tempo" type="Label" parent="VBoxContainer2/VBoxContainer3" unique_id=1574803834]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_1t4sa")
+theme_override_font_sizes/font_size = 120
+text = "  1"
 
-[node name="Spacing" type="Label" parent="HBoxContainer/VBoxContainer3"]
+[node name="Seminima" type="Label" parent="VBoxContainer2/VBoxContainer3" unique_id=1748007601]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_1t4sa")
 theme_override_font_sizes/font_size = 100
-text = "     "
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Dicab" type="Label" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_1t4sa")
-theme_override_font_sizes/font_size = 120
-text = "1/2 tempo de bumbo"
-
-[node name="DIcap" type="Label" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_1t4sa")
-theme_override_font_sizes/font_size = 120
-text = "1/2 tempo de pausa"
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_1t4sa")
-theme_override_font_sizes/font_size = 120
-text = "1 tempo de pausa"
+text = "seminima"

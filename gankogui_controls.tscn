@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://sgp1dn83h0s4"]
+[gd_scene format=3 uid="uid://sgp1dn83h0s4"]
 
 [ext_resource type="Script" uid="uid://cp7d4eepv2ecw" path="res://gankogui_controls.gd" id="1_28xwr"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="2_o5udf"]
@@ -8,17 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://dw1uo3m5ayyq2" path="res://img/agogo.png" id="5_kcwu8"]
 [ext_resource type="Texture2D" uid="uid://bg32sft8ugjjw" path="res://img/stars.png" id="7_kcwu8"]
 
-[node name="GankoguiControls" type="Node2D"]
+[node name="GankoguiControls" type="Node2D" unique_id=1998961382]
 script = ExtResource("1_28xwr")
 
-[node name="Compassos" parent="." instance=ExtResource("3_am2wc")]
+[node name="Compassos" parent="." unique_id=173030632 instance=ExtResource("3_am2wc")]
 position = Vector2(19, 100)
 
-[node name="AudioMestra" parent="." instance=ExtResource("4_am2wc")]
+[node name="AudioMestra" parent="." unique_id=428218864 instance=ExtResource("4_am2wc")]
 
-[node name="AudioSemSolo" parent="." instance=ExtResource("4_am2wc")]
+[node name="AudioSemSolo" parent="." unique_id=337687805 instance=ExtResource("4_am2wc")]
 
-[node name="Pontuacao" type="Label" parent="."]
+[node name="Pontuacao" type="Label" parent="." unique_id=506694659]
 offset_left = 1577.0
 offset_top = 532.0
 offset_right = 1921.0
@@ -28,23 +28,23 @@ theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
-[node name="Gankogui1" type="TouchScreenButton" parent="."]
+[node name="Gankogui1" type="TouchScreenButton" parent="." unique_id=197576665]
 position = Vector2(550, 432)
 texture_normal = ExtResource("5_kcwu8")
 
-[node name="TouchGankogui1" type="TextureRect" parent="."]
+[node name="TouchGankogui1" type="TextureRect" parent="." unique_id=691688901]
 offset_left = 851.0
 offset_top = 508.0
 offset_right = 1107.0
 offset_bottom = 764.0
 texture = ExtResource("7_kcwu8")
 
-[node name="Gankogui1Audio" parent="." instance=ExtResource("4_am2wc")]
+[node name="Gankogui1Audio" parent="." unique_id=782643373 instance=ExtResource("4_am2wc")]
 
-[node name="PreJogo" parent="." instance=ExtResource("2_o5udf")]
+[node name="PreJogo" parent="." unique_id=730973541 instance=ExtResource("2_o5udf")]
 visible = false
 
-[node name="Tutorial" parent="." instance=ExtResource("2_o5udf")]
+[node name="Tutorial" parent="." unique_id=1474988589 instance=ExtResource("2_o5udf")]
 visible = false
 
 [connection signal="ended" from="Compassos" to="." method="_on_compassos_ended"]

@@ -1,57 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://caf4cod8ffq5"]
+[gd_scene format=3 uid="uid://caf4cod8ffq5"]
 
 [ext_resource type="PackedScene" uid="uid://1sfxy05y8s6j" path="res://samba_trap_palmas.tscn" id="1_xn2h4"]
 [ext_resource type="Texture2D" uid="uid://dthn3bpgccmf0" path="res://img/X.png" id="2_sws61"]
 [ext_resource type="Texture2D" uid="uid://5hagtvo0d4ln" path="res://img/x.png" id="3_f00i8"]
-[ext_resource type="Texture2D" uid="uid://bm526bahdn5lm" path="res://img/O.png" id="5_iy1do"]
-[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="6_f00i8"]
 
-[node name="SambaTrapCaixa" instance=ExtResource("1_xn2h4")]
+[node name="SambaTrapCaixa" unique_id=1652256900 instance=ExtResource("1_xn2h4")]
 
-[node name="Title" parent="." index="1"]
-text = "Samba Trap Caixa"
+[node name="HBoxContainer_VBoxContainer#Label3" type="Label" parent="." index="1" unique_id=28878739]
+theme_override_font_sizes/font_size = 1
 
-[node name="1stNote" parent="HBoxContainer/VBoxContainer2" index="0"]
-texture = ExtResource("2_sws61")
+[node name="VBoxContainer" parent="VBoxContainer2" parent_id_path=PackedInt32Array(989367586) index="0" unique_id=815210751]
+theme_override_constants/separation = 172
 
-[node name="2ndNote" parent="HBoxContainer/VBoxContainer2" index="1"]
+[node name="1stNote" parent="VBoxContainer2/VBoxContainer2" parent_id_path=PackedInt32Array(848195263) index="0" unique_id=170803903]
 texture = ExtResource("3_f00i8")
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2" index="3"]
+[node name="MeioTempo" parent="VBoxContainer2/VBoxContainer2" parent_id_path=PackedInt32Array(848195263) index="3" unique_id=1563145725]
+text = "    1/2 "
+
+[node name="Colcheia" parent="VBoxContainer2/VBoxContainer2" parent_id_path=PackedInt32Array(848195263) index="4" unique_id=1069355433]
+text = "    colcheia"
+
+[node name="VBoxContainer3" parent="VBoxContainer2" parent_id_path=PackedInt32Array(989367586) index="2" unique_id=165020114]
+theme_override_constants/separation = 264
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/VBoxContainer3" index="0" unique_id=172452577]
+custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
-texture = ExtResource("5_iy1do")
+texture = ExtResource("2_sws61")
 
-[node name="4thNote" parent="HBoxContainer/VBoxContainer2" index="4"]
-texture = null
+[node name="Spacing" parent="VBoxContainer2/VBoxContainer3" index="1" unique_id=316418798]
+visible = false
 
-[node name="Dicab" parent="HBoxContainer/VBoxContainer" index="0"]
-text = "1 tempo de caixa"
+[node name="Spacing2" parent="VBoxContainer2/VBoxContainer3" index="2" unique_id=1227498589]
+visible = false
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer" index="1"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 1
+[node name="Seminima" parent="VBoxContainer2/VBoxContainer3" index="5" unique_id=1748007601]
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="DIcap" parent="HBoxContainer/VBoxContainer" index="2"]
-text = "1/2 tempo de caixa"
+[node name="2Tempos" parent="VBoxContainer2/VBoxContainer4" parent_id_path=PackedInt32Array(574618207) index="3" unique_id=1589833112]
+text = "   2"
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer" index="4"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_f00i8")
-theme_override_font_sizes/font_size = 120
-text = "1 tempo de pausa"
-
-[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer" index="5"]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer" index="6"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_f00i8")
-theme_override_font_sizes/font_size = 120
-text = "2 tempos de pausa"
-
-[node name="Label" parent="HBoxContainer/VBoxContainer" index="7"]
-theme_override_font_sizes/font_size = 1
-text = "  "
-
-[node name="Filler2" parent="HBoxContainer/VBoxContainer" index="8"]
-text = ""
+[node name="Seminima" parent="VBoxContainer2/VBoxContainer4" parent_id_path=PackedInt32Array(574618207) index="4" unique_id=15448944]
+text = "      minima"

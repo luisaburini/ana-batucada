@@ -3,14 +3,16 @@ var replay_audio = true
 
 
 func _ready():
+	$ALongTimeAgoInAGalaxyFarFarAway.hide()
+	$InitialStory.hide()
 	$AudioStreamPlayer.set_volume_linear(0.5)
 	$AudioStreamPlayer.play()
 	$End.hide()
 
 func _on_hud_init():
 	$HUD.hide()
-	$Map.show()
-	$Map.must_blink_map(true)
+	$ALongTimeAgoInAGalaxyFarFarAway.show()
+	$ALongTimeAgoInAGalaxyFarFarAway.start()
 
 func _on_timer_timeout() -> void:
 	$Logos.hide()
@@ -42,3 +44,15 @@ func stop_music():
 	$AudioStreamPlayer.stop()
 	replay_audio = false
 	
+
+
+func _on_initial_story_ended() -> void:
+	$InitialStory.hide()
+	$Map.show()
+	$Map.must_blink_map(true)
+
+
+func _on_a_long_time_ago_in_a_galaxy_far_far_away_ended() -> void:
+	$ALongTimeAgoInAGalaxyFarFarAway.hide()
+	$InitialStory.show()
+	$InitialStory.start()

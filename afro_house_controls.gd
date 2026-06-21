@@ -21,11 +21,8 @@ var compasso_ended = false
 var showed_hihat1 = false
 var showed_bumbo1 = false
 
-# O - pausa de 2 tempos (minima)
 # P - pausa de 1 tempo (semínima)
-# d - pausa de 3 quartos de tempo
 # p - pausa de meio tempo (colcheia)
-# D - pausa de 1 quarto de tempo (semicolcheia)
 
 # h - hihat de meio tempo (colcheia)
 var compasso_hihat1 = "phphphph"
@@ -67,7 +64,7 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Bumbo1.set_volume(15)
+	$Bumbo1.set_volume(25)
 	$Hihat1.set_volume(40)
 	$Hihat1.set_texture("res://img/mpc-button-green.png")
 	$Bumbo1.set_texture("res://img/mpc-button-green.png")

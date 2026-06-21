@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bswq83frl8imi"]
+[gd_scene format=3 uid="uid://bswq83frl8imi"]
 
 [ext_resource type="Script" uid="uid://caclqu6ci2jwj" path="res://main.gd" id="1_6bcuf"]
 [ext_resource type="PackedScene" uid="uid://bpuv23l7ugco" path="res://hud.tscn" id="2_dw5fr"]
@@ -6,32 +6,38 @@
 [ext_resource type="Texture2D" uid="uid://clrpja0jnv4jn" path="res://img/logo.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dvtwc8fcdunxk" path="res://mapa.tscn" id="6_7mycd"]
 [ext_resource type="AudioStream" uid="uid://dxspstjsg1022" path="res://sounds/TEMA_AB.mp3" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://d26jgm6mdlk02" path="res://initial_story.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://ckk4uo0h6vosq" path="res://a_long_time_ago_in_a_galaxy_far_far_away.tscn" id="8_5vw27"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=2024718014]
 script = ExtResource("1_6bcuf")
 
-[node name="HUD" parent="." instance=ExtResource("2_dw5fr")]
+[node name="HUD" parent="." unique_id=381557931 instance=ExtResource("2_dw5fr")]
 
-[node name="Logos" type="TextureRect" parent="."]
+[node name="Logos" type="TextureRect" parent="." unique_id=516520677]
 z_index = 4096
 offset_right = 1942.0
 offset_bottom = 1084.0
 texture = ExtResource("5_lquwl")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=109654600]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="Map" parent="." instance=ExtResource("6_7mycd")]
+[node name="Map" parent="." unique_id=523234685 instance=ExtResource("6_7mycd")]
 
-[node name="End" type="TextureRect" parent="."]
+[node name="End" type="TextureRect" parent="." unique_id=72759139]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_7mycd")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1057062210]
 stream = ExtResource("6_272bh")
+
+[node name="InitialStory" parent="." unique_id=1939244834 instance=ExtResource("7_272bh")]
+
+[node name="ALongTimeAgoInAGalaxyFarFarAway" parent="." unique_id=517388781 instance=ExtResource("8_5vw27")]
 
 [connection signal="init" from="HUD" to="." method="_on_hud_init"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
@@ -40,3 +46,5 @@ stream = ExtResource("6_272bh")
 [connection signal="clicked_taquaral" from="Map" to="." method="_on_map_clicked_taquaral"]
 [connection signal="finished" from="Map" to="." method="_on_mapa_finished"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="ended" from="InitialStory" to="." method="_on_initial_story_ended"]
+[connection signal="ended" from="ALongTimeAgoInAGalaxyFarFarAway" to="." method="_on_a_long_time_ago_in_a_galaxy_far_far_away_ended"]

@@ -19,9 +19,7 @@ var compasso_ended = false
 
 # O - pausa de 2 tempos (minima)
 # P - pausa de 1 tempo (seminima)
-# d - pausa de 3 quartos de tempo
 # p - pausa de meio tempo (colcheia)
-# D - pausa de 1 quarto de tempo (semicolcheia)
 
 # ARO - z - meio tempo (colcheia) de aro 
 
@@ -156,7 +154,7 @@ func _on_compassos_seta_moved(current_note: Variant) -> void:
 	update_touch(current_note)
 	was_pressed = false
 	total_notas = total_notas+1
-	if current_note == " " or current_note == "p" or current_note =="P" or current_note == "d" or current_note == "D" or current_note == "O":
+	if current_note == "p" or current_note =="P" or current_note == "d" or current_note == "D" or current_note == "O":
 		pontos = pontos+1
 	$Pontuacao.text = str(get_percent()) + "%"
 	

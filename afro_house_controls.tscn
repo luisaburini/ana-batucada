@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc3g5rea2cgn3"]
+[gd_scene format=3 uid="uid://cc3g5rea2cgn3"]
 
 [ext_resource type="Script" uid="uid://br5gidnw5v4ll" path="res://afro_house_controls.gd" id="1_m2rn1"]
 [ext_resource type="Texture2D" uid="uid://203eaaj8pvp5" path="res://img/mpc 1.png" id="2_etg83"]
@@ -9,32 +9,32 @@
 [ext_resource type="Texture2D" uid="uid://qmq385yjvxp4" path="res://img/touch.png" id="6_m2rn1"]
 [ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="7_etg83"]
 
-[node name="AfroHouseControls" type="Node2D"]
+[node name="AfroHouseControls" type="Node2D" unique_id=465310935]
 script = ExtResource("1_m2rn1")
 
-[node name="MPCBackground" type="TextureRect" parent="."]
+[node name="MPCBackground" type="TextureRect" parent="." unique_id=757037644]
 offset_left = 561.0
 offset_top = 424.0
 offset_right = 1567.0
 offset_bottom = 1082.0
 texture = ExtResource("2_etg83")
 
-[node name="Compassos" parent="." instance=ExtResource("2_h3cvg")]
+[node name="Compassos" parent="." unique_id=550749537 instance=ExtResource("2_h3cvg")]
 position = Vector2(19, 100)
 
-[node name="AudioMestra" parent="." instance=ExtResource("4_54pm3")]
+[node name="AudioMestra" parent="." unique_id=376399410 instance=ExtResource("4_54pm3")]
 
-[node name="AudioSemSolo" parent="." instance=ExtResource("4_54pm3")]
+[node name="AudioSemSolo" parent="." unique_id=427576726 instance=ExtResource("4_54pm3")]
 
-[node name="Hihat1" parent="." instance=ExtResource("5_chnpn")]
+[node name="Hihat1" parent="." unique_id=1607672310 instance=ExtResource("5_chnpn")]
 position = Vector2(804, 722)
 scale = Vector2(0.68, 0.68)
 
-[node name="Bumbo1" parent="." instance=ExtResource("5_chnpn")]
+[node name="Bumbo1" parent="." unique_id=1454103767 instance=ExtResource("5_chnpn")]
 position = Vector2(811.00006, 730.00006)
 scale = Vector2(0.68, 0.68)
 
-[node name="TouchHihat1" type="TextureRect" parent="."]
+[node name="TouchHihat1" type="TextureRect" parent="." unique_id=1883084716]
 visible = false
 offset_left = 802.0
 offset_top = 736.0
@@ -42,7 +42,7 @@ offset_right = 1250.0
 offset_bottom = 1043.0
 texture = ExtResource("6_m2rn1")
 
-[node name="TouchBumbo1" type="TextureRect" parent="."]
+[node name="TouchBumbo1" type="TextureRect" parent="." unique_id=471596058]
 visible = false
 offset_left = 832.0
 offset_top = 740.0
@@ -50,7 +50,7 @@ offset_right = 1233.0
 offset_bottom = 1028.0
 texture = ExtResource("6_m2rn1")
 
-[node name="Pontuacao" type="Label" parent="."]
+[node name="Pontuacao" type="Label" parent="." unique_id=252213298]
 offset_left = 1550.0
 offset_top = 511.0
 offset_right = 1911.0
@@ -60,10 +60,10 @@ theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
-[node name="PreJogo" parent="." instance=ExtResource("3_nc5uv")]
+[node name="PreJogo" parent="." unique_id=1714331342 instance=ExtResource("3_nc5uv")]
 visible = false
 
-[node name="Tutorial" parent="." instance=ExtResource("3_nc5uv")]
+[node name="Tutorial" parent="." unique_id=1312375854 instance=ExtResource("3_nc5uv")]
 visible = false
 
 [connection signal="ended" from="Compassos" to="." method="_on_compassos_ended"]

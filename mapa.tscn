@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvtwc8fcdunxk"]
+[gd_scene format=3 uid="uid://dvtwc8fcdunxk"]
 
 [ext_resource type="Script" uid="uid://cqkgpsa4rs2sx" path="res://mapa.gd" id="1_ltv3l"]
 [ext_resource type="Texture2D" uid="uid://cucjks6tnl8t6" path="res://img/mapa-concha.jpeg" id="2_2eut3"]
@@ -12,60 +12,62 @@
 [ext_resource type="PackedScene" uid="uid://c3lv55xrdvjcd" path="res://score.tscn" id="9_w30at"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="11_rugew"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="12_o68h1"]
+[ext_resource type="PackedScene" uid="uid://bpn6g8xpvryhc" path="res://mogiana_story.tscn" id="14_00yci"]
+[ext_resource type="PackedScene" uid="uid://hwgcanrppq7n" path="res://estacao_cultura_story.tscn" id="14_tbd83"]
 
-[node name="Mapa" type="Node2D"]
+[node name="Mapa" type="Node2D" unique_id=1613251423]
 script = ExtResource("1_ltv3l")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1148802800]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_2eut3")
 
-[node name="BackgroundBlink" type="TextureRect" parent="."]
+[node name="BackgroundBlink" type="TextureRect" parent="." unique_id=1016828307]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("3_2eut3")
 
-[node name="TaquaralButton" type="TouchScreenButton" parent="."]
+[node name="TaquaralButton" type="TouchScreenButton" parent="." unique_id=1429618717]
 position = Vector2(1436, 96)
 scale = Vector2(0.78, 0.5999999)
 texture_normal = ExtResource("3_ltv3l")
 
-[node name="CerescampMogianaButton" type="TouchScreenButton" parent="."]
+[node name="CerescampMogianaButton" type="TouchScreenButton" parent="." unique_id=523086403]
 position = Vector2(1058.0001, 630)
 scale = Vector2(0.6199975, 0.5328462)
 texture_normal = ExtResource("4_ltv3l")
 
-[node name="EstacaoCulturaButton" type="TouchScreenButton" parent="."]
+[node name="EstacaoCulturaButton" type="TouchScreenButton" parent="." unique_id=1136600884]
 position = Vector2(1127, 909.99994)
 scale = Vector2(0.67999935, 0.72638613)
 texture_normal = ExtResource("5_ltv3l")
 
-[node name="Taquaral" parent="." instance=ExtResource("6_w30at")]
+[node name="Taquaral" parent="." unique_id=13345832 instance=ExtResource("6_w30at")]
 visible = false
 
-[node name="CerecampMogiana" parent="." instance=ExtResource("7_2eut3")]
+[node name="CerecampMogiana" parent="." unique_id=1282545839 instance=ExtResource("7_2eut3")]
 visible = false
 
-[node name="EstacaoCultura" parent="." instance=ExtResource("8_rugew")]
+[node name="EstacaoCultura" parent="." unique_id=676620077 instance=ExtResource("8_rugew")]
 visible = false
 
-[node name="Score" parent="." instance=ExtResource("9_w30at")]
+[node name="Score" parent="." unique_id=658535700 instance=ExtResource("9_w30at")]
 visible = false
 position = Vector2(4, 3)
 
-[node name="ScoreTimer" type="Timer" parent="."]
+[node name="ScoreTimer" type="Timer" parent="." unique_id=160980679]
 wait_time = 3.0
 one_shot = true
 
-[node name="BlinkTimer" type="Timer" parent="."]
+[node name="BlinkTimer" type="Timer" parent="." unique_id=1471567551]
 wait_time = 0.5
 
-[node name="ButtonClick" parent="." instance=ExtResource("11_rugew")]
+[node name="ButtonClick" parent="." unique_id=1852744659 instance=ExtResource("11_rugew")]
 
-[node name="Fanfarra" parent="." instance=ExtResource("11_rugew")]
+[node name="Fanfarra" parent="." unique_id=2105110977 instance=ExtResource("11_rugew")]
 
-[node name="Campinas" type="Label" parent="."]
+[node name="Campinas" type="Label" parent="." unique_id=1444290952]
 offset_left = 1236.0
 offset_top = 343.0
 offset_right = 1573.0
@@ -74,7 +76,7 @@ theme_override_fonts/font = ExtResource("12_o68h1")
 theme_override_font_sizes/font_size = 79
 text = "Campinas"
 
-[node name="TaquaralLabel" type="Label" parent="."]
+[node name="TaquaralLabel" type="Label" parent="." unique_id=1300800905]
 offset_left = 1325.0
 offset_top = 137.0
 offset_right = 1628.0
@@ -83,7 +85,7 @@ theme_override_fonts/font = ExtResource("12_o68h1")
 theme_override_font_sizes/font_size = 40
 text = "Concha Acustica"
 
-[node name="EstadioLabel" type="Label" parent="."]
+[node name="EstadioLabel" type="Label" parent="." unique_id=683493436]
 offset_left = 943.0
 offset_top = 680.0
 offset_right = 1243.0
@@ -92,7 +94,7 @@ theme_override_fonts/font = ExtResource("12_o68h1")
 theme_override_font_sizes/font_size = 40
 text = "Estadio Mogiana"
 
-[node name="EstacaoCulturaLabel" type="Label" parent="."]
+[node name="EstacaoCulturaLabel" type="Label" parent="." unique_id=194373327]
 offset_left = 1018.0
 offset_top = 965.0
 offset_right = 1301.0
@@ -100,6 +102,10 @@ offset_bottom = 1013.0
 theme_override_fonts/font = ExtResource("12_o68h1")
 theme_override_font_sizes/font_size = 40
 text = "Estaçao Cultura"
+
+[node name="MogianaStory" parent="." unique_id=1555040148 instance=ExtResource("14_00yci")]
+
+[node name="EstacaoCulturaStory" parent="." unique_id=179103994 instance=ExtResource("14_tbd83")]
 
 [connection signal="pressed" from="TaquaralButton" to="." method="_on_taquaral_button_pressed"]
 [connection signal="pressed" from="CerescampMogianaButton" to="." method="_on_cerescamp_mogiana_button_pressed"]
@@ -109,3 +115,5 @@ text = "Estaçao Cultura"
 [connection signal="finished" from="EstacaoCultura" to="." method="_on_estacao_cultura_finished"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
+[connection signal="ended" from="MogianaStory" to="." method="_on_mogiana_story_ended"]
+[connection signal="ended" from="EstacaoCulturaStory" to="." method="_on_estacao_cultura_story_ended"]

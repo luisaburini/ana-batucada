@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bpn6g8xpvryhc"]
+
+[ext_resource type="Script" uid="uid://cfwhhd57v6y8q" path="res://mogiana_story.gd" id="1_i1uq0"]
+[ext_resource type="Texture2D" uid="uid://rgeg0ktufa1f" path="res://img/init-story2.jpeg" id="1_yjsj0"]
+[ext_resource type="Texture2D" uid="uid://d1x26r44e5cos" path="res://img/baloon1.png" id="3_stsx8"]
+[ext_resource type="Texture2D" uid="uid://bp6lde755gkew" path="res://img/baloon2.png" id="4_gmkcc"]
+[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="4_n2moj"]
+[ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="6_f7ya4"]
+
+[node name="MogianaStory" type="Node2D" unique_id=1555040148]
+script = ExtResource("1_i1uq0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1194041020]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_yjsj0")
+
+[node name="BaloonMestra" type="TextureRect" parent="." unique_id=1582707007]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_stsx8")
+
+[node name="Mestra1" type="Label" parent="BaloonMestra" unique_id=263127288]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 141.0
+offset_right = 1464.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0.12156863, 0, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("4_n2moj")
+theme_override_font_sizes/font_size = 50
+text = "vamos la para o estadio Mogiana!"
+
+[node name="Mestra2" type="Label" parent="BaloonMestra" unique_id=1902206973]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 88.0
+offset_right = 1482.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0.12156863, 0, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("4_n2moj")
+theme_override_font_sizes/font_size = 50
+text = "Concluído em 17 de junho de 1940, na época era o principal estádio de futebol do interior,"
+autowrap_mode = 3
+
+[node name="Mestra3" type="Label" parent="BaloonMestra" unique_id=924314601]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 47.0
+offset_right = 1417.0
+offset_bottom = 548.0
+theme_override_colors/font_color = Color(0.12156863, 0, 0.29803923, 1)
+theme_override_font_sizes/font_size = 39
+text = "só perdendo no Brasil em termos de qualidade e arquitetura para o recém inaugurado Pacaembu em São Paulo, e também para o estádio de São Januário no Rio de Janeiro!"
+autowrap_mode = 3
+
+[node name="BaloonAna" type="TextureRect" parent="." unique_id=597650353]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_gmkcc")
+
+[node name="Ana" type="Label" parent="BaloonAna" unique_id=2001600646]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 826.0
+offset_right = 1104.0
+offset_bottom = 995.0
+theme_override_font_sizes/font_size = 60
+text = "vou so pegar a minha mochila"
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=2076246811]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=125799338]
+position = Vector2(1569, 63)
+texture_normal = ExtResource("6_f7ya4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kc53kmnctf4c"]
+[gd_scene format=3 uid="uid://kc53kmnctf4c"]
 
 [ext_resource type="Script" uid="uid://lks6ofb2al6x" path="res://tutorial.gd" id="1_ph66d"]
 [ext_resource type="Texture2D" uid="uid://c245xurpgs5rx" path="res://img/tutorial1.jpeg" id="2_5mrt3"]
@@ -14,18 +14,18 @@
 [ext_resource type="PackedScene" uid="uid://doldo8sbeqxu4" path="res://samba_trap_aro.tscn" id="12_dudfa"]
 [ext_resource type="PackedScene" uid="uid://caf4cod8ffq5" path="res://samba_trap_caixa.tscn" id="13_5gpbq"]
 
-[node name="Tutorial" type="Node2D"]
+[node name="Tutorial" type="Node2D" unique_id=372437428]
 script = ExtResource("1_ph66d")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=831120650]
 wait_time = 0.4
 
-[node name="Cena1" type="TextureRect" parent="."]
+[node name="Cena1" type="TextureRect" parent="." unique_id=467098806]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_5mrt3")
 
-[node name="Countdown" type="Label" parent="."]
+[node name="Countdown" type="Label" parent="." unique_id=1331645891]
 offset_left = 4.0
 offset_top = -1.0
 offset_right = 1925.0
@@ -37,15 +37,15 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TimerCena1" type="Timer" parent="."]
+[node name="TimerCena1" type="Timer" parent="." unique_id=1066388177]
 one_shot = true
 
-[node name="TimerCena2" type="Timer" parent="."]
+[node name="TimerCena2" type="Timer" parent="." unique_id=1316956684]
 one_shot = true
 
-[node name="ClickAudio" parent="." instance=ExtResource("4_5mrt3")]
+[node name="ClickAudio" parent="." unique_id=1557772249 instance=ExtResource("4_5mrt3")]
 
-[node name="Instructions" type="Label" parent="."]
+[node name="Instructions" type="Label" parent="." unique_id=28640877]
 offset_left = 569.0
 offset_top = 19.0
 offset_right = 1474.0
@@ -56,36 +56,37 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="FunkBumbo" parent="." instance=ExtResource("5_4hjyh")]
+[node name="FunkBumbo" parent="." unique_id=2100182725 instance=ExtResource("5_4hjyh")]
 visible = false
 
-[node name="FunkConga" parent="." instance=ExtResource("6_bsk3x")]
+[node name="FunkConga" parent="." unique_id=2067175657 instance=ExtResource("6_bsk3x")]
 visible = false
 
-[node name="FunkTriangulo" parent="." instance=ExtResource("7_dl7dh")]
+[node name="FunkTriangulo" parent="." unique_id=1231501180 instance=ExtResource("7_dl7dh")]
 visible = false
 
-[node name="AfroHouseHihat" parent="." instance=ExtResource("8_r4o0u")]
+[node name="AfroHouseHihat" parent="." unique_id=675015080 instance=ExtResource("8_r4o0u")]
 visible = false
 
-[node name="AfroHouseBumbo" parent="." instance=ExtResource("9_k08xv")]
+[node name="AfroHouseBumbo" parent="." unique_id=486686198 instance=ExtResource("9_k08xv")]
 visible = false
 
-[node name="AfroHouseGankogui" parent="." instance=ExtResource("10_g52lx")]
+[node name="AfroHouseGankogui" parent="." unique_id=727150547 instance=ExtResource("10_g52lx")]
 visible = false
 
-[node name="SambaTrapPalmas" parent="." instance=ExtResource("11_0lped")]
+[node name="SambaTrapPalmas" parent="." unique_id=1888383227 instance=ExtResource("11_0lped")]
 visible = false
 
-[node name="SambaTrapAro" parent="." instance=ExtResource("12_dudfa")]
+[node name="SambaTrapAro" parent="." unique_id=2146229922 instance=ExtResource("12_dudfa")]
 visible = false
 
-[node name="SambaTrapCaixa" parent="." instance=ExtResource("13_5gpbq")]
+[node name="SambaTrapCaixa" parent="." unique_id=223969965 instance=ExtResource("13_5gpbq")]
+visible = false
 
-[node name="TimerCena3" type="Timer" parent="."]
+[node name="TimerCena3" type="Timer" parent="." unique_id=2111081410]
 one_shot = true
 
-[node name="Ambiente" parent="." instance=ExtResource("4_5mrt3")]
+[node name="Ambiente" parent="." unique_id=1391179761 instance=ExtResource("4_5mrt3")]
 visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://n386jdcbvm5m"]
+[gd_scene format=3 uid="uid://n386jdcbvm5m"]
 
 [ext_resource type="Script" uid="uid://3f15466jb764" path="res://controls.gd" id="1_qbcre"]
 [ext_resource type="Texture2D" uid="uid://203eaaj8pvp5" path="res://img/mpc 1.png" id="2_dob1i"]
@@ -9,17 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://qmq385yjvxp4" path="res://img/touch.png" id="9_hkas0"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="9_kpabq"]
 
-[node name="FunkMPCControls" type="Node2D"]
+[node name="FunkMPCControls" type="Node2D" unique_id=725123467]
 script = ExtResource("1_qbcre")
 
-[node name="MPCBackground" type="TextureRect" parent="."]
+[node name="MPCBackground" type="TextureRect" parent="." unique_id=1447243446]
 offset_left = 514.0
 offset_top = 419.0
 offset_right = 1520.0
 offset_bottom = 1077.0
 texture = ExtResource("2_dob1i")
 
-[node name="Pontuacao" type="Label" parent="."]
+[node name="Pontuacao" type="Label" parent="." unique_id=2023255541]
 offset_left = 1432.0
 offset_top = 490.0
 offset_right = 1917.0
@@ -31,24 +31,24 @@ text = "0%"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Compasso" parent="." instance=ExtResource("5_abkn8")]
+[node name="Compasso" parent="." unique_id=1598304374 instance=ExtResource("5_abkn8")]
 position = Vector2(19, 100)
 
-[node name="bumbo1" parent="." instance=ExtResource("4_42pi2")]
+[node name="bumbo1" parent="." unique_id=1047769169 instance=ExtResource("4_42pi2")]
 visible = false
 position = Vector2(758.00006, 722.00006)
 scale = Vector2(0.68, 0.68)
 
-[node name="conga1" parent="." instance=ExtResource("4_42pi2")]
+[node name="conga1" parent="." unique_id=1306869961 instance=ExtResource("4_42pi2")]
 visible = false
 position = Vector2(757, 713)
 scale = Vector2(0.68, 0.68)
 
-[node name="conga2" parent="." instance=ExtResource("4_42pi2")]
-position = Vector2(980.00006, 857.00006)
+[node name="conga2" parent="." unique_id=223240742 instance=ExtResource("4_42pi2")]
+position = Vector2(980.00006, 862.00006)
 scale = Vector2(0.68, 0.68)
 
-[node name="TouchBumbo1" type="TextureRect" parent="."]
+[node name="TouchBumbo1" type="TextureRect" parent="." unique_id=1547759006]
 visible = false
 offset_left = 804.0
 offset_top = 748.0
@@ -56,7 +56,7 @@ offset_right = 1127.0
 offset_bottom = 1011.0
 texture = ExtResource("9_hkas0")
 
-[node name="TouchConga1" type="TextureRect" parent="."]
+[node name="TouchConga1" type="TextureRect" parent="." unique_id=1593378176]
 visible = false
 offset_left = 749.0
 offset_top = 707.0
@@ -64,7 +64,7 @@ offset_right = 956.0
 offset_bottom = 844.0
 texture = ExtResource("9_hkas0")
 
-[node name="TouchConga2" type="TextureRect" parent="."]
+[node name="TouchConga2" type="TextureRect" parent="." unique_id=1561741824]
 visible = false
 offset_left = 1032.0
 offset_top = 842.0
@@ -72,15 +72,15 @@ offset_right = 1237.0
 offset_bottom = 1010.0
 texture = ExtResource("9_hkas0")
 
-[node name="Tutorial" parent="." instance=ExtResource("8_he8l4")]
+[node name="Tutorial" parent="." unique_id=891634545 instance=ExtResource("8_he8l4")]
 visible = false
 
-[node name="PreJogo" parent="." instance=ExtResource("8_he8l4")]
+[node name="PreJogo" parent="." unique_id=94705770 instance=ExtResource("8_he8l4")]
 visible = false
 
-[node name="AudioMestra" parent="." instance=ExtResource("9_kpabq")]
+[node name="AudioMestra" parent="." unique_id=1998384049 instance=ExtResource("9_kpabq")]
 
-[node name="AudioSemSolo" parent="." instance=ExtResource("9_kpabq")]
+[node name="AudioSemSolo" parent="." unique_id=2144692336 instance=ExtResource("9_kpabq")]
 
 [connection signal="ended" from="Compasso" to="." method="_on_compasso_ended"]
 [connection signal="seta_moved" from="Compasso" to="." method="_on_compasso_seta_moved"]

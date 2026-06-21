@@ -96,7 +96,7 @@ func _on_timer_cena_2_timeout() -> void:
 	var inode = get_node(instruction_node)
 	if inode != null:
 		inode.show()
-		$TimerCena3.start(7)
+		$TimerCena3.start(10)
 	else:
 		$ClickAudio.play()
 		$Countdown.show()

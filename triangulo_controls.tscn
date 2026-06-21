@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://t6qfejjwvxo5"]
+[gd_scene format=3 uid="uid://t6qfejjwvxo5"]
 
 [ext_resource type="Script" uid="uid://cs6rcyuifxurf" path="res://triangulo_controls.gd" id="1_onpox"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="2_b6gyb"]
@@ -10,31 +10,31 @@
 [ext_resource type="Texture2D" uid="uid://ce0ct8vgoklpu" path="res://img/touch_double.png" id="10_acp3m"]
 [ext_resource type="Texture2D" uid="uid://bg32sft8ugjjw" path="res://img/stars.png" id="10_oh1e3"]
 
-[node name="TrianguloControls" type="Node2D"]
+[node name="TrianguloControls" type="Node2D" unique_id=1571301834]
 script = ExtResource("1_onpox")
 
-[node name="Compasso" parent="." instance=ExtResource("3_dusqt")]
+[node name="Compasso" parent="." unique_id=1128237120 instance=ExtResource("3_dusqt")]
 position = Vector2(19, 100)
 
-[node name="TrianguloLoader" parent="." instance=ExtResource("2_b6gyb")]
+[node name="TrianguloLoader" parent="." unique_id=1259770350 instance=ExtResource("2_b6gyb")]
 
-[node name="Triangulo" parent="." instance=ExtResource("5_lp6sv")]
+[node name="Triangulo" parent="." unique_id=1324412938 instance=ExtResource("5_lp6sv")]
 position = Vector2(626, 283)
 
-[node name="Maozinha" type="TouchScreenButton" parent="."]
+[node name="Maozinha" type="TouchScreenButton" parent="." unique_id=485194699]
 position = Vector2(1014.00006, 432.99997)
 rotation = 0.25830874
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("8_lp6sv")
 
-[node name="AudioMestra" parent="." instance=ExtResource("2_b6gyb")]
+[node name="AudioMestra" parent="." unique_id=712855729 instance=ExtResource("2_b6gyb")]
 
-[node name="AudioSemSolo" parent="." instance=ExtResource("2_b6gyb")]
+[node name="AudioSemSolo" parent="." unique_id=1750115203 instance=ExtResource("2_b6gyb")]
 
-[node name="Tutorial" parent="." instance=ExtResource("8_ruwoj")]
+[node name="Tutorial" parent="." unique_id=1735259041 instance=ExtResource("8_ruwoj")]
 visible = false
 
-[node name="Pontuacao" type="Label" parent="."]
+[node name="Pontuacao" type="Label" parent="." unique_id=1785546562]
 offset_left = 1412.0
 offset_top = 506.0
 offset_right = 1913.0
@@ -45,17 +45,17 @@ theme_override_font_sizes/font_size = 120
 text = "0%"
 horizontal_alignment = 2
 
-[node name="PreJogo" parent="." instance=ExtResource("8_ruwoj")]
+[node name="PreJogo" parent="." unique_id=579611150 instance=ExtResource("8_ruwoj")]
 visible = false
 
-[node name="BrilhoEmcima" type="TextureRect" parent="."]
+[node name="BrilhoEmcima" type="TextureRect" parent="." unique_id=958269315]
 offset_left = 569.0
 offset_top = 625.0
 offset_right = 825.0
 offset_bottom = 881.0
 texture = ExtResource("10_oh1e3")
 
-[node name="BrilhoNaMao" type="TextureRect" parent="."]
+[node name="BrilhoNaMao" type="TextureRect" parent="." unique_id=616275140]
 offset_left = 1031.0
 offset_top = 515.0
 offset_right = 1287.0

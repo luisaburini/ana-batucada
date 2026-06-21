@@ -1,15 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvbxccne0wsak"]
+[gd_scene format=3 uid="uid://dvbxccne0wsak"]
 
 [ext_resource type="PackedScene" uid="uid://deai557pn1v2b" path="res://funk_bumbo.tscn" id="1_8rlmn"]
-[ext_resource type="Texture2D" uid="uid://c1hbxy310qvwy" path="res://img/h.png" id="2_cu464"]
+[ext_resource type="Texture2D" uid="uid://brjruosk4lffl" path="res://img/a.png" id="2_wbgvv"]
+[ext_resource type="Texture2D" uid="uid://bfteau2kcfko" path="res://img/A.png" id="3_lk02q"]
 
-[node name="AfroHouseHihat" instance=ExtResource("1_8rlmn")]
+[node name="AfroHouseHihat" unique_id=1240257173 instance=ExtResource("1_8rlmn")]
 
-[node name="Title" parent="." index="1"]
-text = "AfroHouse Hihat"
+[node name="VBoxContainer2" parent="." index="1" unique_id=989367586]
+offset_left = 370.0
+offset_top = 300.0
+offset_right = 1540.0
+offset_bottom = 727.0
 
-[node name="1stNote" parent="HBoxContainer/VBoxContainer2" index="0"]
-texture = ExtResource("2_cu464")
+[node name="Pausa" parent="VBoxContainer2/VBoxContainer" parent_id_path=PackedInt32Array(815210751) index="1" unique_id=341248236]
+visible = false
 
-[node name="Dicab" parent="HBoxContainer/VBoxContainer" index="0"]
-text = "1/2 tempo de hihat"
+[node name="VBoxContainer2" parent="VBoxContainer2" index="1" unique_id=848195263]
+theme_override_constants/separation = 172
+
+[node name="1stNote" parent="VBoxContainer2/VBoxContainer2" index="0" unique_id=170803903]
+custom_minimum_size = Vector2(70, 180)
+texture = ExtResource("2_wbgvv")
+
+[node name="Spacing" parent="VBoxContainer2/VBoxContainer2" index="1" unique_id=1583407823]
+visible = false
+
+[node name="Spacing2" type="Label" parent="VBoxContainer2/VBoxContainer2" index="2" unique_id=903012537]
+visible = false
+layout_mode = 2
+
+[node name="1stPause" parent="VBoxContainer2/VBoxContainer2" index="3" unique_id=1406105847]
+visible = false
+
+[node name="1stNote" type="TextureRect" parent="VBoxContainer2/VBoxContainer3" parent_id_path=PackedInt32Array(165020114) index="0" unique_id=804746814]
+layout_mode = 2
+texture = ExtResource("3_lk02q")
+
+[node name="Spacing" parent="VBoxContainer2/VBoxContainer3" parent_id_path=PackedInt32Array(165020114) index="1" unique_id=316418798]
+visible = false
+
+[node name="Spacing2" parent="VBoxContainer2/VBoxContainer3" parent_id_path=PackedInt32Array(165020114) index="2" unique_id=1227498589]
+visible = false
+
+[node name="3rdNote" parent="VBoxContainer2/VBoxContainer3" parent_id_path=PackedInt32Array(165020114) index="3" unique_id=404956080]
+visible = false
+
+[node name="1Tempo" parent="VBoxContainer2/VBoxContainer3" parent_id_path=PackedInt32Array(165020114) index="4" unique_id=1574803834]
+text = "    1"
+
+[node name="Seminima" parent="VBoxContainer2/VBoxContainer3" parent_id_path=PackedInt32Array(165020114) index="5" unique_id=1748007601]
+text = "  seminima"
