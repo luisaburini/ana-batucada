@@ -12,28 +12,27 @@
 [node name="SambaTrapControls" type="Node2D" unique_id=1658120540]
 script = ExtResource("1_t6qil")
 
-[node name="MPCBackground" type="TextureRect" parent="." unique_id=630613862]
-offset_left = 473.0
-offset_top = 413.0
-offset_right = 1479.0
-offset_bottom = 1071.0
-texture = ExtResource("2_gin45")
-
 [node name="AudioMestra" parent="." unique_id=562896498 instance=ExtResource("1_qbt76")]
 
 [node name="AudioSemSolo" parent="." unique_id=1470525406 instance=ExtResource("1_qbt76")]
 
 [node name="Compassos" parent="." unique_id=779608916 instance=ExtResource("2_t6qil")]
-position = Vector2(19, 100)
+position = Vector2(8, 11)
+
+[node name="MPCBackground" type="TextureRect" parent="." unique_id=630613862]
+offset_left = 473.0
+offset_top = 417.0
+offset_right = 1479.0
+offset_bottom = 1075.0
+texture = ExtResource("2_gin45")
 
 [node name="Aro1" parent="." unique_id=773309404 instance=ExtResource("5_iq31b")]
-visible = false
 position = Vector2(716.99994, 716)
 scale = Vector2(0.68, 0.68)
 
 [node name="Caixa1" parent="." unique_id=921551257 instance=ExtResource("5_iq31b")]
 visible = false
-position = Vector2(720, 713)
+position = Vector2(720, 717)
 scale = Vector2(0.68, 0.68)
 
 [node name="TouchAro1" type="TextureRect" parent="." unique_id=1328349803]

@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cdncafoa6632y" path="res://initial_story.gd" id="1_u1oer"]
 [ext_resource type="Texture2D" uid="uid://bsekflhp0tecj" path="res://img/init-story1.jpeg" id="1_u3aum"]
-[ext_resource type="Texture2D" uid="uid://d1x26r44e5cos" path="res://img/baloon1.png" id="2_65i44"]
-[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="3_65i44"]
-[ext_resource type="Texture2D" uid="uid://bp6lde755gkew" path="res://img/baloon2.png" id="3_u1oer"]
 [ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="6_2cd72"]
+[ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="7_gi5ig"]
 
 [node name="InitialStory" type="Node2D" unique_id=1939244834]
 script = ExtResource("1_u1oer")
@@ -15,70 +13,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_u3aum")
 
-[node name="BaloonMestra" type="TextureRect" parent="." unique_id=449108912]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_65i44")
-
-[node name="Mestra1" type="Label" parent="BaloonMestra" unique_id=128777335]
-visible = false
-layout_mode = 0
-offset_left = 644.0
-offset_top = 124.0
-offset_right = 1488.0
-offset_bottom = 333.0
-theme_override_colors/font_color = Color(0, 0, 0.32941177, 1)
-theme_override_fonts/font = ExtResource("3_65i44")
-theme_override_font_sizes/font_size = 57
-text = "Ana Batucada, isso sao horas de 
-acordar? Esta atrasada!
-"
-
-[node name="Mestra2" type="Label" parent="BaloonMestra" unique_id=1326741352]
-visible = false
-layout_mode = 0
-offset_left = 659.0
-offset_top = 49.0
-offset_right = 1411.0
-offset_bottom = 277.0
-theme_override_colors/font_color = Color(0, 0, 0.32941177, 1)
-theme_override_fonts/font = ExtResource("3_65i44")
-theme_override_font_sizes/font_size = 62
-text = "Hoje e sua primeira aula! 
-Vamos começar na concha
-acustica do Taquaral!"
-
-[node name="Mestra3" type="Label" parent="BaloonMestra" unique_id=2016020612]
-visible = false
-layout_mode = 0
-offset_left = 703.0
-offset_top = 77.0
-offset_right = 1455.0
-offset_bottom = 305.0
-theme_override_colors/font_color = Color(0, 0, 0.32941177, 1)
-theme_override_fonts/font = ExtResource("3_65i44")
-theme_override_font_sizes/font_size = 90
-text = "Vi muito show la!"
-
-[node name="BaloonAna" type="TextureRect" parent="." unique_id=800745188]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_u1oer")
-
-[node name="Ana" type="Label" parent="BaloonAna" unique_id=65046886]
-visible = false
-layout_mode = 0
-offset_left = 598.0
-offset_top = 853.0
-offset_right = 1118.0
-offset_bottom = 1042.0
-theme_override_fonts/font = ExtResource("3_65i44")
-theme_override_font_sizes/font_size = 74
-text = "Desculpa, vovo!"
-
 [node name="Timer" type="Timer" parent="." unique_id=2146285752]
+
+[node name="AudioLoader" parent="." unique_id=532616890 instance=ExtResource("7_gi5ig")]
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=1640186640]
 position = Vector2(1564, 57)

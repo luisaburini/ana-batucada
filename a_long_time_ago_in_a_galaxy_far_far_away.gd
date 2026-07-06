@@ -13,6 +13,8 @@ func _process(delta: float) -> void:
 
 func start():
 	$Timer.start(10)
+	$AudioLoader.load_audio("res://sounds/CLICK.mp3")
+	$AudioLoader.set_volume(20)
 	
 
 func _on_timer_timeout() -> void:
@@ -23,3 +25,4 @@ func _on_timer_timeout() -> void:
 func _on_touch_screen_button_pressed() -> void:
 	$Timer.stop()
 	ended.emit()
+	$AudioLoader.play()

@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://1sfxy05y8s6j" path="res://samba_trap_palmas.tscn" id="11_0lped"]
 [ext_resource type="PackedScene" uid="uid://doldo8sbeqxu4" path="res://samba_trap_aro.tscn" id="12_dudfa"]
 [ext_resource type="PackedScene" uid="uid://caf4cod8ffq5" path="res://samba_trap_caixa.tscn" id="13_5gpbq"]
+[ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="14_bsk3x"]
 
 [node name="Tutorial" type="Node2D" unique_id=372437428]
 script = ExtResource("1_ph66d")
@@ -37,21 +38,15 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TimerCena1" type="Timer" parent="." unique_id=1066388177]
-one_shot = true
-
-[node name="TimerCena2" type="Timer" parent="." unique_id=1316956684]
-one_shot = true
-
 [node name="ClickAudio" parent="." unique_id=1557772249 instance=ExtResource("4_5mrt3")]
 
 [node name="Instructions" type="Label" parent="." unique_id=28640877]
-offset_left = 569.0
+offset_left = 11.0
 offset_top = 19.0
-offset_right = 1474.0
-offset_bottom = 632.0
+offset_right = 1915.0
+offset_bottom = 909.0
 theme_override_fonts/font = ExtResource("3_4hjyh")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 70
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -83,13 +78,15 @@ visible = false
 [node name="SambaTrapCaixa" parent="." unique_id=223969965 instance=ExtResource("13_5gpbq")]
 visible = false
 
-[node name="TimerCena3" type="Timer" parent="." unique_id=2111081410]
-one_shot = true
-
 [node name="Ambiente" parent="." unique_id=1391179761 instance=ExtResource("4_5mrt3")]
 visible = false
 
+[node name="Next" type="TouchScreenButton" parent="." unique_id=1403383476]
+position = Vector2(1688, 936.99994)
+scale = Vector2(0.64666665, 0.68666685)
+texture_normal = ExtResource("14_bsk3x")
+
+[node name="ClickNext" parent="." unique_id=659444863 instance=ExtResource("4_5mrt3")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="TimerCena1" to="." method="_on_timer_cena_1_timeout"]
-[connection signal="timeout" from="TimerCena2" to="." method="_on_timer_cena_2_timeout"]
-[connection signal="timeout" from="TimerCena3" to="." method="_on_timer_cena_3_timeout"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

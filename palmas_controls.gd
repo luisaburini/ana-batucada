@@ -32,45 +32,58 @@ var compasso_palmas8 = "kppkO"
 
 
 var current_sheet = [compasso_palmas1, compasso_palmas2, compasso_palmas3, compasso_palmas4,
-					 compasso_palmas5, compasso_palmas6, compasso_palmas7, compasso_palmas8]
+					 compasso_palmas5, compasso_palmas6, compasso_palmas7, compasso_palmas8,
+					compasso_palmas1, compasso_palmas2]
 
 func music_according_to_phase():
 	return current_sheet
 
 func start():
+	$Compassos/Partitura.set_current_fase("Fase1Palmas", 0.6)
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(50)
+	$AudioMestra.set_volume(20)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(30)
+	$AudioSemSolo.set_volume(25)
 	if current_instrument >= len(instruments):
 		ended.emit(get_percent())
 		return
 	was_pressed = false
 	if !tutorial_ended:
+		$Compassos.reset()
 		must_vibrate = false
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("SambaTrapPalmas")
-		$Tutorial.set_first_screen("res://img/tutorial-palmas1.png", "o som agora e das palmas")
-		$Tutorial.set_second_screen("res://img/tutorial-palmas2.png", "sente so como a Mestra faz")
+		$Tutorial.set_first_screen("res://img/tutorial-palmas1.png", "Para não esquecermos as músicas,
+escrevemos partituras.
+Quando tem uma nota, tocamos,
+quando tem uma pausa, fazemos silêncio.")
+		$Tutorial.set_second_screen("res://img/tutorial-palmas2.png", "Eu toco primeiro, depois é a sua vez!
+		Habilite a vibração do seu celular e
+bora, Ana Batucada!")
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
+		$TouchPalmas.hide()
+		$TouchPalmas.texture = load("")
+		$PalmasAudio.load_audio("")
 		$Tutorial.start()
 		$Compassos.set_music(music_according_to_phase())
-		$Compassos.reset()
+		
 
 
 func current_audio_sem_solo():
-	return "res://sounds/FASE3/100BPM/LOOPS/FASE3_LOOP_SEM_" + instruments[current_instrument] + ".mp3"
+	return "res://sounds/FASE1/100BPM/LOOPS/FASE1_LOOP_SEM_" + instruments[current_instrument] + ".mp3"
 
 func current_audio_mestra():
-	return "res://sounds/FASE3/100BPM/SOLOS/" + instruments[current_instrument] + "_SOLO_INTEIRA.mp3"
+	return "res://sounds/FASE1/100BPM/SOLOS/" + instruments[current_instrument] + "_SOLO_INTEIRA.mp3"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Compassos.note_width = 42
+	$TouchPalmas.texture = load("")
 	$TouchPalmas.hide()
-	$PreJogo.set_first_screen("res://img/pre-jogo-palmas1.png", "bora tocar um pouco")
-	$PreJogo.set_second_screen("res://img/pre-jogo-palmas2.png", "clique para bater palmas!")
+	$PreJogo.set_first_screen("res://img/pre-jogo-palmas1.png", "Sua vez, Ana Batucada!
+Bora tocar um pouco!")
+	$PreJogo.set_second_screen("res://img/pre-jogo-palmas2.png", "Clique para bater palmas!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
@@ -105,29 +118,33 @@ func _on_tutorial_ended() -> void:
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
+	$Compassos.start_timer(instrument_time())
 
 
 func _on_tutorial_countdown_show() -> void:
-	$PalmasAudio.load_audio("res://sounds/FASE3/100BPM/ONE_SHOTS/PALMAS.mp3")
-	$PalmasAudio.set_volume(40)
-	$Compassos.start_timer(instrument_time())
+	$PalmasAudio.load_audio("res://sounds/FASE1/100BPM/ONE_SHOTS/PALMAS.mp3")
+	$PalmasAudio.set_volume(35)
+	$Compassos/Partitura.set_current_fase("Fase1Palmas", 0.6)
+	$Compassos/Partitura.reset()
 	$Pontuacao.hide()
-	$AudioSemSolo.play()
-	$AudioMestra.play()
+	
 
 
 func _on_pre_jogo_ended() -> void:
 	play_ambient.emit()
 	must_vibrate = true
-	$Compassos.set_is_tutorial(false)
 	$Pontuacao.show()
-	$Compassos.start_timer(instrument_time())
 	$AudioSemSolo.play()
+	
 
 
 func _on_pre_jogo_countdown_show() -> void:
+	$PalmasAudio.load_audio("res://sounds/FASE1/100BPM/ONE_SHOTS/PALMAS.mp3")
+	$PalmasAudio.set_volume(35)
+	$Compassos/Partitura.set_current_fase("Fase1Palmas", 0.6)
+	$Compassos/Partitura.reset()
+	$Compassos.set_is_tutorial(false)
 	$Compassos.start_timer(instrument_time())
-	$AudioSemSolo.play()
 
 
 func _on_palmas_pressed() -> void:
@@ -140,13 +157,17 @@ func _on_palmas_pressed() -> void:
 
 func _on_compassos_ended() -> void:
 	if tutorial_ended && !must_leave:
+		$Compassos/Partitura.set_current_fase("Fase1Palmas", 0.6)
+		$Compassos/Partitura.reset()
 		reset()
 		must_leave = true
 		pontos = 0
 		$Pontuacao.text = "0"
 		$TouchPalmas.hide()
+		$TouchPalmas.texture = load("")
+		$PalmasAudio.load_audio("")
 		$PreJogo.show()
-		stop_ambient.emit()
+		stop_ambient.emit()		
 		$PreJogo.start()
 		return
 	$AudioMestra.stop()
@@ -167,16 +188,18 @@ func reset():
 
 
 func _on_compassos_seta_moved(current_note: Variant) -> void:
-	$TouchPalmas.hide()
 	total_notas = total_notas+1
+	$TouchPalmas.hide()
 	if current_note == "p" or current_note =="P" or current_note == "d" or current_note == "D" or current_note == "O":
 		update_pontos()
 	if  current_note == "k":
+		print("Current note is ", current_note)
+		$TouchPalmas.show()
 		pontos = pontos+1
 		update_pontos()
 		if showed_palmas:
 			$TouchPalmas.texture = load("res://img/touch.png")
 		else:
-			$TouchPalmas.texture = load("res://img/touch-double.png")
-		$TouchPalmas.show()
+			$TouchPalmas.texture = load("res://img/touch_double.png")
+		showed_palmas = !showed_palmas
 		

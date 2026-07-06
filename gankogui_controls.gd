@@ -33,12 +33,15 @@ var gankogui_compasso7 = "GgDgpgP"
 var gankogui_compasso8 = "GgDgO"
 
 var current_sheet = [gankogui_compasso1, gankogui_compasso2, gankogui_compasso3, gankogui_compasso4,
-					 gankogui_compasso5, gankogui_compasso6, gankogui_compasso7, gankogui_compasso8]
+					 gankogui_compasso5, gankogui_compasso6, gankogui_compasso7, gankogui_compasso8,
+					 gankogui_compasso1]
 
 func music_according_to_phase():
 	return current_sheet
 
 func start():
+	$Compassos/Partitura.set_current_fase("Fase2Agogo", 0.6)
+	$Compassos/Partitura.reset()
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(40)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
@@ -54,6 +57,7 @@ func start():
 		$Tutorial.set_first_screen("res://img/tutorial-gankogui1.png", "o som agora e do agogo")
 		$Tutorial.set_second_screen("res://img/tutorial-gankogui2.png", "sente so como a Mestra faz")
 		$Tutorial.set_show_telas(true)
+		$Gankogui1Audio.load_audio("")
 		$Tutorial.start()
 		stop_ambient.emit()
 		$Compassos.set_music(music_according_to_phase())
@@ -90,7 +94,7 @@ func get_pontos():
 	return pontos
 
 func instrument_time():
-	return 0.11
+	return 0.112
 	
 func end():
 	$AudioMestra.stop()
@@ -102,6 +106,8 @@ func _process(delta: float) -> void:
 
 
 func _on_tutorial_ended() -> void:
+	$Gankogui1Audio.load_audio("res://sounds/FASE2/100BPM/ONE_SHOT/GANKOGUI1.mp3")
+	$Gankogui1Audio.set_volume(40)
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
@@ -109,6 +115,8 @@ func _on_tutorial_ended() -> void:
 
 
 func _on_tutorial_countdown_show() -> void:
+	$Compassos/Partitura.set_current_fase("Fase2Agogo", 0.6)
+	$Compassos/Partitura.reset()
 	$Gankogui1Audio.load_audio("res://sounds/FASE2/100BPM/ONE_SHOT/GANKOGUI1.mp3")
 	$Gankogui1Audio.set_volume(40)
 	$Compassos.start_timer(instrument_time())
@@ -118,12 +126,18 @@ func _on_tutorial_countdown_show() -> void:
 
 
 func _on_pre_jogo_countdown_show() -> void:
+	$Compassos/Partitura.set_current_fase("Fase2Agogo", 0.6)
+	$Compassos/Partitura.reset()
+	$Gankogui1Audio.load_audio("res://sounds/FASE2/100BPM/ONE_SHOT/GANKOGUI1.mp3")
+	$Gankogui1Audio.set_volume(40)
 	$Compassos.start_timer(instrument_time())
 	$AudioSemSolo.play()
 	
 
 
 func _on_pre_jogo_ended() -> void:
+	$Gankogui1Audio.load_audio("res://sounds/FASE2/100BPM/ONE_SHOT/GANKOGUI1.mp3")
+	$Gankogui1Audio.set_volume(40)
 	_is_tutorial = false
 	$Compassos.set_is_tutorial(false)
 	$Pontuacao.show()
@@ -163,6 +177,7 @@ func _on_compassos_ended() -> void:
 		$Pontuacao.text = "0"
 		$TouchGankogui1.hide()
 		$PreJogo.show()
+		$Gankogui1Audio.load_audio("")
 		$PreJogo.start()
 		stop_ambient.emit()
 		return

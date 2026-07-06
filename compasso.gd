@@ -23,7 +23,6 @@ func set_music(music):
 
 func reset():
 	clear_pentagrama()
-			
 	$Seta.position.x = 130
 	finished = false
 	index_in_compasso = 0
@@ -47,9 +46,13 @@ func start_timer(seconds):
 		$TimerSeta.autostart = true
 		_is_playing = true
 		$TimerSeta.start(seconds)
+		$Partitura.start()
 		reset()
 	else:
 		print("Time is invalid " + str(seconds))
+
+func set_partitura(fase, timeout):
+	$Partitura.set_current_fase(fase, timeout)
 
 func is_semi_colcheia(note):
 	if note == "D":
@@ -96,28 +99,24 @@ func _on_timer_timeout():
 			times_playing_minima = times_playing_minima+1
 			if times_playing_minima == 1 and _is_tutorial and not_pausa(current_music[current_compasso][index_in_compasso]):
 				Input.vibrate_handheld(500)
-				print("VIBROU minima!")
 			return
 			
 		if is_seminima(current_music[current_compasso][index_in_compasso]) &&  times_playing_seminima < 4:
 			times_playing_seminima = times_playing_seminima+1
 			if times_playing_seminima == 1 and _is_tutorial and not_pausa(current_music[current_compasso][index_in_compasso]):
 				Input.vibrate_handheld(500)
-				print("VIBROU seminima!")
 			return
 		
 		if is_colcheia_dot(current_music[current_compasso][index_in_compasso]) && times_playing_colcheia_dot < 3:
 			times_playing_colcheia_dot = times_playing_colcheia_dot+1
 			if times_playing_colcheia_dot == 1 and _is_tutorial and not_pausa(current_music[current_compasso][index_in_compasso]):
 				Input.vibrate_handheld(500)
-				print("VIBROU colcheia ponto!")
 			return
 			
 		if is_colcheia(current_music[current_compasso][index_in_compasso]) && times_playing_colcheia < 2:
 			times_playing_colcheia = times_playing_colcheia+1
 			if times_playing_colcheia == 1 and _is_tutorial and not_pausa(current_music[current_compasso][index_in_compasso]):
 				Input.vibrate_handheld(500)
-				print("VIBROU colcheia!")
 			return
 		
 		
@@ -135,6 +134,7 @@ func _on_timer_timeout():
 			finished = true
 			$TimerSeta.stop()
 			_is_playing = false
+			$Partitura.stop()
 			ended.emit()
 			return
 		

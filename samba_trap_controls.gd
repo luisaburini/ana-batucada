@@ -42,6 +42,11 @@ var compasso_caixa5 = "OXP"
 var compasso_caixa6 = "OxxX"
 var compasso_caixa7 = "OxxP"
 var compasso_caixa8 = "OxxX"
+var compasso_caixa9 = "OXP"
+var compasso_caixa10 = "OXP"
+var compasso_caixa11 = "OXP"
+var compasso_caixa12 = "OxxX"
+var compasso_caixa13 = "OXP"
 
 
 func music_according_to_phase():
@@ -50,13 +55,15 @@ func music_according_to_phase():
 				compasso_aro5, compasso_aro6, compasso_aro7, compasso_aro8]
 	if current_instrument == 1:
 		return  [compasso_caixa1, compasso_caixa2, compasso_caixa3, compasso_caixa4,
-				compasso_caixa5, compasso_caixa6, compasso_caixa7, compasso_caixa8]
+				compasso_caixa5, compasso_caixa6, compasso_caixa7, compasso_caixa8,
+				compasso_caixa9, compasso_caixa10, compasso_caixa11, compasso_caixa12,
+				compasso_caixa13 ]
 
 func current_audio_sem_solo():
-	return "res://sounds/FASE3/100BPM/LOOPS/FASE3_LOOP_SEM_" + instruments[current_instrument] + ".mp3"
+	return "res://sounds/FASE1/100BPM/LOOPS/FASE1_LOOP_SEM_" + instruments[current_instrument] + ".mp3"
 
 func current_audio_mestra():
-	return "res://sounds/FASE3/100BPM/SOLOS/" + instruments[current_instrument] + "_SOLO_INTEIRA.mp3"
+	return "res://sounds/FASE1/100BPM/SOLOS/" + instruments[current_instrument] + "_SOLO_INTEIRA.mp3"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -66,6 +73,7 @@ func _ready() -> void:
 	$Caixa1.set_texture("res://img/mpb-button-green.png")
 	$Caixa1.hide()
 	hide_all_touch()
+	$Compassos/Partitura.set_current_fase("Fase1Aro", 0.6)
 	$Compassos.set_music(music_according_to_phase())
 	$Pontuacao.hide()
 	$PreJogo.hide()
@@ -81,8 +89,8 @@ func init_phase_buttons(btns):
 	for b in btns:
 		i = i+1
 		var obj = get_node(b)
-		print("res://sounds/FASE3/100BPM/ONE_SHOTS/" + instruments[current_instrument] + str(i) + ".mp3")
-		obj.set_stream("res://sounds/FASE3/100BPM/ONE_SHOTS/" + instruments[current_instrument] + str(i) + ".mp3")
+		print("res://sounds/FASE1/100BPM/ONE_SHOTS/" + instruments[current_instrument] + str(i) + ".mp3")
+		obj.set_stream("res://sounds/FASE1/100BPM/ONE_SHOTS/" + instruments[current_instrument] + str(i) + ".mp3")
 		obj.set_texture("res://img/mpc-button-green.png")
 		obj.set_volume(40)
 		obj.show()
@@ -100,12 +108,14 @@ func start():
 		$Tutorial.set_instruction_node("SambaTrapAro")
 		$Compassos.set_is_tutorial(true)
 		$Aro1.set_is_tutorial(true)
+		$Tutorial.reset()
 		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital de Aro!")
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
 		$Aro1.show()
 		stop_ambient.emit()
 		$Tutorial.start()
+		$Compassos/Partitura.set_current_fase("Fase1Aro", 0.6)
 		$Compassos.set_music(music_according_to_phase())
 		$Compassos.reset()
 
@@ -227,6 +237,7 @@ func _on_tutorial_countdown_show() -> void:
 
 
 func _on_pre_jogo_countdown_show() -> void:
+	$Tutorial.hide()
 	$Aro1.hide()
 	$Caixa1.hide()
 	if current_instrument == 0:
@@ -243,6 +254,7 @@ func _on_pre_jogo_ended() -> void:
 	$Compassos.set_is_tutorial(false)
 	$Aro1.set_is_tutorial(false)
 	$Caixa1.set_is_tutorial(false)
+	$Compassos/Partitura.reset()
 	if current_instrument >= len(instruments):
 		compasso_ended = true
 		ended.emit()
@@ -265,11 +277,14 @@ func _on_compassos_ended() -> void:
 		if current_instrument == 0:
 			$PreJogo.set_first_screen("res://img/pre-jogo-aro1.png", "aperte o botao em destaque quando piscar")
 			$PreJogo.set_second_screen("res://img/pre-jogo-aro2.png", "bora tocar um pouco de aro!")
+			$Compassos/Partitura.set_current_fase("Fase1Aro", 0.6)
 		if current_instrument == 1:
 			$PreJogo.set_first_screen("res://img/pre-jogo-caixa1.png", "aperte o botao em destaque quando piscar")
 			$PreJogo.set_second_screen("res://img/pre-jogo-caixa2.png", "sua vez de tocar caixa!")
-		
+			$Compassos/Partitura.set_current_fase("Fase1Caixa", 0.6)
+		$Compassos/Partitura.reset()
 		$PreJogo.show()
+		$PreJogo.reset()
 		stop_ambient.emit()
 		$PreJogo.start()
 		return
@@ -297,6 +312,9 @@ func _on_compassos_ended() -> void:
 		$Compassos.set_is_tutorial(true)
 		$Caixa1.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("SambaTrapCaixa")
+		$Tutorial.reset()
+		$Compassos/Partitura.set_current_fase("Fase1Caixa", 0.6)
+		$Compassos/Partitura.reset()
 		$Tutorial.set_first_screen("res://img/tutorial-caixa1.png", "agora vamos usar o som da caixa!")
 		$Tutorial.set_second_screen("res://img/tutorial-caixa2.png", "veja como se faz")
 		$Tutorial.set_show_telas(true)

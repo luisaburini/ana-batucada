@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://caclqu6ci2jwj" path="res://main.gd" id="1_6bcuf"]
 [ext_resource type="PackedScene" uid="uid://bpuv23l7ugco" path="res://hud.tscn" id="2_dw5fr"]
+[ext_resource type="Texture2D" uid="uid://dtgjv7uf8h2p" path="res://img/01 - Logos.jpg" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dr77tj21vy1yj" path="res://img/02 - Logos.jpg" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://cusgikkowl3kd" path="res://img/fim.png" id="5_7mycd"]
-[ext_resource type="Texture2D" uid="uid://clrpja0jnv4jn" path="res://img/logo.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dvtwc8fcdunxk" path="res://mapa.tscn" id="6_7mycd"]
 [ext_resource type="AudioStream" uid="uid://dxspstjsg1022" path="res://sounds/TEMA_AB.mp3" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://d26jgm6mdlk02" path="res://initial_story.tscn" id="7_272bh"]
@@ -14,20 +15,16 @@ script = ExtResource("1_6bcuf")
 
 [node name="HUD" parent="." unique_id=381557931 instance=ExtResource("2_dw5fr")]
 
-[node name="Logos" type="TextureRect" parent="." unique_id=516520677]
-z_index = 4096
-offset_right = 1942.0
-offset_bottom = 1084.0
-texture = ExtResource("5_lquwl")
-
 [node name="Timer" type="Timer" parent="." unique_id=109654600]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
 [node name="Map" parent="." unique_id=523234685 instance=ExtResource("6_7mycd")]
+visible = false
 
 [node name="End" type="TextureRect" parent="." unique_id=72759139]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_7mycd")
@@ -36,8 +33,22 @@ texture = ExtResource("5_7mycd")
 stream = ExtResource("6_272bh")
 
 [node name="InitialStory" parent="." unique_id=1939244834 instance=ExtResource("7_272bh")]
+visible = false
 
 [node name="ALongTimeAgoInAGalaxyFarFarAway" parent="." unique_id=517388781 instance=ExtResource("8_5vw27")]
+visible = false
+
+[node name="Logos2" type="TextureRect" parent="." unique_id=987621027]
+z_index = 500
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_kek77")
+
+[node name="Logos1" type="TextureRect" parent="." unique_id=516520677]
+z_index = 4096
+offset_right = 1942.0
+offset_bottom = 1084.0
+texture = ExtResource("3_5vw27")
 
 [connection signal="init" from="HUD" to="." method="_on_hud_init"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

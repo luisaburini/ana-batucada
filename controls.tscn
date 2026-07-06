@@ -12,27 +12,27 @@
 [node name="FunkMPCControls" type="Node2D" unique_id=725123467]
 script = ExtResource("1_qbcre")
 
+[node name="Compasso" parent="." unique_id=1598304374 instance=ExtResource("5_abkn8")]
+position = Vector2(10, 11)
+
 [node name="MPCBackground" type="TextureRect" parent="." unique_id=1447243446]
-offset_left = 514.0
-offset_top = 419.0
-offset_right = 1520.0
-offset_bottom = 1077.0
+offset_left = 509.0
+offset_top = 422.0
+offset_right = 1515.0
+offset_bottom = 1080.0
 texture = ExtResource("2_dob1i")
 
 [node name="Pontuacao" type="Label" parent="." unique_id=2023255541]
 offset_left = 1432.0
-offset_top = 490.0
+offset_top = 378.0
 offset_right = 1917.0
-offset_bottom = 636.0
+offset_bottom = 524.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_dob1i")
 theme_override_font_sizes/font_size = 120
 text = "0%"
 horizontal_alignment = 2
 vertical_alignment = 1
-
-[node name="Compasso" parent="." unique_id=1598304374 instance=ExtResource("5_abkn8")]
-position = Vector2(19, 100)
 
 [node name="bumbo1" parent="." unique_id=1047769169 instance=ExtResource("4_42pi2")]
 visible = false
@@ -57,18 +57,16 @@ offset_bottom = 1011.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga1" type="TextureRect" parent="." unique_id=1593378176]
-visible = false
-offset_left = 749.0
-offset_top = 707.0
-offset_right = 956.0
-offset_bottom = 844.0
+offset_left = 755.0
+offset_top = 726.0
+offset_right = 962.0
+offset_bottom = 863.0
 texture = ExtResource("9_hkas0")
 
 [node name="TouchConga2" type="TextureRect" parent="." unique_id=1561741824]
-visible = false
-offset_left = 1032.0
+offset_left = 999.0
 offset_top = 842.0
-offset_right = 1237.0
+offset_right = 1204.0
 offset_bottom = 1010.0
 texture = ExtResource("9_hkas0")
 

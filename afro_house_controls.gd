@@ -52,7 +52,8 @@ func music_according_to_phase():
 				compasso_hihat5, compasso_hihat6, compasso_hihat7, compasso_hihat8]
 	if current_instrument == 1:
 		return [compasso_bumbo1, compasso_bumbo2, compasso_bumbo3, compasso_bumbo4, 
-				compasso_bumbo5, compasso_bumbo6, compasso_bumbo7, compasso_bumbo8]
+				compasso_bumbo5, compasso_bumbo6, compasso_bumbo7, compasso_bumbo8,
+				compasso_bumbo1, compasso_bumbo2, compasso_bumbo3]
 
 
 func current_audio_sem_solo():
@@ -64,10 +65,12 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Bumbo1.set_volume(25)
-	$Hihat1.set_volume(40)
+	$Bumbo1.set_volume(30)
+	$Hihat1.set_volume(35)
 	$Hihat1.set_texture("res://img/mpc-button-green.png")
 	$Bumbo1.set_texture("res://img/mpc-button-green.png")
+	$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
+	$Compassos/Partitura.reset()
 	$Hihat1.hide()
 	$Bumbo1.hide()
 	hide_all_touch()
@@ -90,9 +93,9 @@ func init_phase_buttons(btns):
 
 func start():
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(35)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(20)
+	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
 		ended.emit()
 		return
@@ -104,6 +107,7 @@ func start():
 		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
 		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
 		$Tutorial.set_show_telas(true)
+		$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
 		$Hihat1.show()
 		stop_ambient.emit()
 		$Tutorial.start()
@@ -171,6 +175,7 @@ func _on_compassos_seta_moved(current_note: Variant) -> void:
 	$Pontuacao.text = str(get_percent()) + "%"
 	
 func update_touch(note):
+	print("UPDATE TOUCH")
 	hide_all_touch()
 	if note == "A" || note == "a":
 		if showed_bumbo1:
@@ -205,9 +210,9 @@ func _on_tutorial_ended() -> void:
 		ended.emit()
 		return
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(30)
+	$AudioMestra.set_volume(35)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
-	$AudioSemSolo.set_volume(20)
+	$AudioSemSolo.set_volume(30)
 	tutorial_ended = true
 	$AudioMestra.play()
 	$AudioSemSolo.play()
@@ -234,7 +239,7 @@ func instrument_time():
 	if current_instrument == 0:
 		return 0.1
 	if current_instrument == 1:
-		return 0.12
+		return 0.115
 
 func _on_tutorial_countdown_show() -> void:
 	hide_all_touch()
@@ -243,10 +248,13 @@ func _on_tutorial_countdown_show() -> void:
 		btns = ["Hihat1"]
 		$Compassos.set_note_width(52)
 		$Hihat1.show()
+		$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
 	if current_instrument == 1:
 		btns = ["Bumbo1"]
 		$Compassos.set_note_width(60)
 		$Bumbo1.show()
+		$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
+	$Compassos/Partitura.reset()
 	init_phase_buttons(btns)
 	$Compassos.start_timer(instrument_time())
 	$Pontuacao.hide()
@@ -264,9 +272,12 @@ func _on_pre_jogo_countdown_show() -> void:
 	$Bumbo1.hide()
 	if current_instrument == 0:
 		$Hihat1.show()
+		$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
 	if current_instrument == 1:
 		$Bumbo1.show()
+		$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
 	$Compassos.start_timer(instrument_time())
+	$Compassos/Partitura.reset()
 	$AudioSemSolo.play()
 	$Pontuacao.show()
 
@@ -301,14 +312,20 @@ func _on_compassos_ended() -> void:
 		if current_instrument == 0:
 			$PreJogo.set_first_screen("res://img/pre-jogo-hihat1.png", "aperte o botao em destaque quando piscar")
 			$PreJogo.set_second_screen("res://img/pre-jogo-hihat2.png", "bora tocar um pouco de hihat!")
+			$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
 		if current_instrument == 1:
 			$PreJogo.set_first_screen("res://img/pre-jogo1.png", "aperte o botao em destaque quando piscar")
 			$PreJogo.set_second_screen("res://img/pre-jogo2.png", "sua vez de tocar bumbo!")
+			$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
+		$Compassos/Partitura.reset()
+		$PreJogo.reset()
 		$PreJogo.show()
 		stop_ambient.emit()
+		$Tutorial.reset()
 		$PreJogo.start()
 		return
 		
+	$Compassos/Partitura.reset()
 	if current_instrument == 0: 
 		print("HIHAT ENDED", get_percent(), total_notas)
 		hihat_ended.emit(get_percent())
@@ -331,6 +348,8 @@ func _on_compassos_ended() -> void:
 		$Tutorial.set_instruction_node("AfroHouseBumbo")
 		$Tutorial.set_first_screen("res://img/tutorial-bumbo1.png", "agora vamos tocar bumbo!")
 		$Tutorial.set_second_screen("res://img/tutorial-bumbo2.png", "veja como se faz")
+		$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
+		$Compassos/Partitura.reset()
 		$Tutorial.set_show_telas(true)
 		$Compassos.set_is_tutorial(true)
 		$Bumbo1.set_is_tutorial(true)

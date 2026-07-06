@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwhukrgyaq1pf"]
 
 [ext_resource type="Script" uid="uid://b1412p6yha8a4" path="res://cerecamp_mogiana.gd" id="1_d8xlv"]
-[ext_resource type="Texture2D" uid="uid://br1kj63wwjjwj" path="res://img/cerecamp-mogiana.jpg" id="1_hiewa"]
+[ext_resource type="Texture2D" uid="uid://brn7e0bmr5f3m" path="res://img/estadio-final.jpeg" id="2_trhlg"]
 [ext_resource type="PackedScene" uid="uid://sgp1dn83h0s4" path="res://gankogui_controls.tscn" id="4_gi3fk"]
 [ext_resource type="PackedScene" uid="uid://cc3g5rea2cgn3" path="res://afro_house_controls.tscn" id="4_trhlg"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_trhlg"]
@@ -12,13 +12,19 @@ script = ExtResource("1_d8xlv")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=326353954]
 offset_right = 1923.0
 offset_bottom = 1068.0
-texture = ExtResource("1_hiewa")
+texture = ExtResource("2_trhlg")
 
 [node name="AfroHouseControls" parent="." unique_id=739737449 instance=ExtResource("4_trhlg")]
+visible = false
 
 [node name="GankoguiControls" parent="." unique_id=1895400936 instance=ExtResource("4_gi3fk")]
+visible = false
 
 [node name="Ambiente" parent="." unique_id=752494171 instance=ExtResource("5_trhlg")]
+
+[node name="Timer" type="Timer" parent="." unique_id=401293039]
+
+[node name="AudioLoader" parent="." unique_id=2078524904 instance=ExtResource("5_trhlg")]
 
 [connection signal="bumbo_ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_bumbo_ended"]
 [connection signal="ended" from="AfroHouseControls" to="." method="_on_afro_house_controls_ended"]
@@ -28,3 +34,4 @@ texture = ExtResource("1_hiewa")
 [connection signal="ended" from="GankoguiControls" to="." method="_on_gankogui_controls_ended"]
 [connection signal="play_ambient" from="GankoguiControls" to="." method="_on_gankogui_controls_play_ambient"]
 [connection signal="stop_ambient" from="GankoguiControls" to="." method="_on_gankogui_controls_stop_ambient"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

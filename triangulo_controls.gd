@@ -7,8 +7,8 @@ signal stop_ambient()
 var already_played = false
 var must_leave = false
 var total_notas = 0
-var audio_sem_solo = "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/LOOPS_SEM_OS_SOLOS/LOOP_SEM_TRIANGULO.mp3"
-var audio_mestra =  "res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_SOLO/TRIANGULO.mp3"
+var audio_sem_solo = "res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/LOOPS_SEM_OS_SOLOS/LOOP_SEM_TRIANGULO.mp3"
+var audio_mestra =  "res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_SOLO/TRIANGULO.mp3"
 var pontos = 0
 var maozinha_solta = false
 var tutorial_ended = false
@@ -40,6 +40,8 @@ func current_music_sheet():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Compasso/Partitura.set_current_fase("Fase3Triangulo", 0.6)
+	$Compasso/Partitura.reset()
 	$Compasso.note_width = 42
 	$BrilhoEmcima.hide()
 	$BrilhoNaMao.hide()
@@ -123,6 +125,8 @@ func _on_maozinha_pressed() -> void:
 
 
 func _on_tutorial_countdown_show() -> void:
+	$Compasso/Partitura.set_current_fase("Fase3Triangulo", 0.6)
+	$Compasso/Partitura.reset()
 	$Compasso.start_timer(instrument_time())
 	$Pontuacao.hide()
 	$AudioSemSolo.play()
@@ -135,6 +139,8 @@ func get_percent():
 
 
 func _on_pre_jogo_countdown_show() -> void:
+	$Compasso/Partitura.set_current_fase("Fase3Triangulo", 0.6)
+	$Compasso/Partitura.reset()
 	$Compasso.start_timer(instrument_time())
 	$AudioSemSolo.play()
 
@@ -177,5 +183,5 @@ func _on_triangulo_entered_triangulo() -> void:
 			update_pontos()
 	
 	$TrianguloLoader.set_volume(40)
-	$TrianguloLoader.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
+	$TrianguloLoader.load_audio("res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_ONE_SHOT/TRIANGULO/TRIANGULO"+triangulo_sample+".mp3")
 	$TrianguloLoader.play()

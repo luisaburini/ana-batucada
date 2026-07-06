@@ -27,7 +27,7 @@ func _ready():
 	$EstacaoCulturaButton.hide()
 
 func _on_taquaral_button_pressed() -> void:
-	$ButtonClick.load_audio("res://sounds/FASE3/100BPM/BOTAO_INICIAR3.mp3")
+	$ButtonClick.load_audio("res://sounds/FASE1/100BPM/BOTAO_INICIAR3.mp3")
 	$ButtonClick.play()
 	should_blink = false
 	_show_blink = false
@@ -91,13 +91,10 @@ func _on_estacao_cultura_finished() -> void:
 
 
 func _on_taquaral_finished() -> void:
+	print("TAQUARAL FINISHED")
 	show_estacao = false
 	show_mogiana = true
 	show_end = false
-	$Background.texture = load("res://img/mapa-cerescamp.jpeg")
-	_show_blink = true
-	should_blink = true
-	$BlinkTimer.start(0.5)
 	$Taquaral.hide()
 	var palmas = $Taquaral.get_pontos_palmas()
 	var aro = $Taquaral.get_pontos_aro()
@@ -131,17 +128,23 @@ func _on_cerecamp_mogiana_finished() -> void:
 	$Score.set_pontos_fase2(hihat, bumbo, gankogui)
 	$Fanfarra.play()
 	$Score.show()
+	print("Start score timer")
 	$ScoreTimer.start(3)
 
 
 func _on_score_timer_timeout() -> void:
+	$ScoreTimer.set_one_shot(true)
+	$ScoreTimer.stop()
+	print("SCORE TIMEOUT")
 	$Fanfarra.stop()
 	$Score.hide()
 	$Background.show()
 	if show_estacao:
+		print("Estacao")
 		$EstacaoCulturaStory.show()
 		$EstacaoCulturaStory.start()
 	if show_mogiana:
+		print("Mogiana")
 		$MogianaStory.show()
 		$MogianaStory.start()
 		
@@ -156,6 +159,7 @@ func must_blink_map(command):
 func _on_blink_timer_timeout() -> void:
 	if !should_blink:
 		return
+	print("Blink timeout")
 	$BlinkTimer.start(0.5)
 	if _show_blink:
 		$Background.hide()
@@ -168,13 +172,28 @@ func _on_blink_timer_timeout() -> void:
 
 
 func _on_mogiana_story_ended() -> void:
+	print("MOGIANA ENDED")
+	$Background.texture = load("res://img/mapa-cerescamp.jpeg")
+	$BackgroundBlink.texture = load("res://img/mapa-blink.jpeg")
+	$Background.show()
+	$BlinkTimer.start(0.5)
+	_show_blink = true
+	should_blink = true
 	$MogianaStory.hide()
 	$Campinas.show()
 	$EstadioLabel.show()
 	$CerescampMogianaButton.show()
+	$Background.show()
 
 
 func _on_estacao_cultura_story_ended() -> void:
+	print("ESTACAO CULTURA ENDED")
+	$Background.texture = load("res://img/mapa-estacao-cultura.jpeg")
+	$BackgroundBlink.texture = load("res://img/mapa-blink.jpeg")
+	$Background.show()
+	$BlinkTimer.start(0.5)
+	_show_blink = true
+	should_blink = true
 	$EstacaoCulturaStory.hide()
 	$Campinas.show()
 	$EstacaoCulturaLabel.show()

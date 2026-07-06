@@ -7,11 +7,8 @@ signal ended()
 func _ready() -> void:
 	print("ready baloon 0")
 	baloon = 0
-	$BaloonAna.hide()
-	$BaloonMestra.hide()
-	$BaloonMestra/Mestra1.hide()
-	$BaloonMestra/Mestra2.hide()
-	$BaloonMestra/Mestra3.hide()
+	$TextureRect.texture = load("res://img/Conversas/Conversaestadio1.jpg")
+	$TextureRect.show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,36 +27,10 @@ func _on_timer_timeout() -> void:
 	$Timer.start(3)
 	baloon = baloon+1
 	print("timer timeout baloon ", baloon)
-	if baloon == 1:
-		$BaloonAna.hide()
-		$BaloonMestra.show()
-		$BaloonMestra/Mestra1.show()
-		$BaloonMestra/Mestra2.hide()
-		$BaloonMestra/Mestra3.hide()
+	if baloon >= 1 and baloon <= 5:
+		$TextureRect.texture = load("res://img/Conversas/Conversaestadio"+str(baloon)+".jpg")
 		return
-	if baloon == 2:
-		$BaloonAna.show()
-		$BaloonAna/Ana.show()
-		$BaloonMestra.hide()
-		$BaloonMestra/Mestra1.hide()
-		$BaloonMestra/Mestra2.hide()
-		$BaloonMestra/Mestra3.hide()
-		return
-	if baloon == 3:
-		$BaloonAna.hide()
-		$BaloonMestra.show()
-		$BaloonMestra/Mestra1.hide()
-		$BaloonMestra/Mestra2.show()
-		$BaloonMestra/Mestra3.hide()
-		return
-	if baloon == 4:
-		$BaloonAna.hide()
-		$BaloonMestra.show()
-		$BaloonMestra/Mestra1.hide()
-		$BaloonMestra/Mestra2.hide()
-		$BaloonMestra/Mestra3.show()
-		return
-	if baloon == 5:
+	if baloon == 6:
 		$Timer.stop()
 		ended.emit()
 

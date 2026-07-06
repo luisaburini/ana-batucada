@@ -13,10 +13,10 @@
 script = ExtResource("1_5v2qn")
 
 [node name="Compassos" parent="." unique_id=187875891 instance=ExtResource("2_v8v4g")]
-position = Vector2(19, 100)
+position = Vector2(10, 12)
 
 [node name="Palmas" type="TouchScreenButton" parent="." unique_id=1499034703]
-position = Vector2(693, 413)
+position = Vector2(459, 303)
 scale = Vector2(1.237443, 1.2371428)
 texture_normal = ExtResource("4_156ms")
 texture_pressed = ExtResource("5_rav1v")
@@ -24,6 +24,7 @@ texture_pressed = ExtResource("5_rav1v")
 [node name="AudioMestra" parent="." unique_id=1636664117 instance=ExtResource("6_rav1v")]
 
 [node name="AudioSemSolo" parent="." unique_id=414584930 instance=ExtResource("6_rav1v")]
+position = Vector2(30, 45)
 
 [node name="PreJogo" parent="." unique_id=519809489 instance=ExtResource("3_qpm5y")]
 visible = false
@@ -41,14 +42,15 @@ theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
+[node name="PalmasAudio" parent="." unique_id=1465967472 instance=ExtResource("6_rav1v")]
+position = Vector2(21, 13)
+
 [node name="TouchPalmas" type="TextureRect" parent="." unique_id=751911857]
 offset_left = 739.0
 offset_top = 486.0
 offset_right = 1133.0
 offset_bottom = 805.0
 texture = ExtResource("8_0k6iv")
-
-[node name="PalmasAudio" parent="." unique_id=1465967472 instance=ExtResource("6_rav1v")]
 
 [connection signal="ended" from="Compassos" to="." method="_on_compassos_ended"]
 [connection signal="seta_moved" from="Compassos" to="." method="_on_compassos_seta_moved"]

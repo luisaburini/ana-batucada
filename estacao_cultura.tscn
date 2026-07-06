@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl3fwomlf1rvq"]
+[gd_scene format=3 uid="uid://bl3fwomlf1rvq"]
 
 [ext_resource type="Script" uid="uid://biuyiwapx80mg" path="res://estacao_cultura.gd" id="1_ahnhr"]
 [ext_resource type="Texture2D" uid="uid://b23kopq8rdtco" path="res://img/estacao-cultura.jpg" id="1_hh0px"]
@@ -6,19 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://n386jdcbvm5m" path="res://controls.tscn" id="6_uqgng"]
 [ext_resource type="PackedScene" uid="uid://t6qfejjwvxo5" path="res://triangulo_controls.tscn" id="7_1u60a"]
 
-[node name="EstacaoCultura" type="Node2D"]
+[node name="EstacaoCultura" type="Node2D" unique_id=1706659136]
 script = ExtResource("1_ahnhr")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1408504437]
 offset_right = 1917.0
 offset_bottom = 1083.0
 texture = ExtResource("1_hh0px")
 
-[node name="Ambiente" parent="." instance=ExtResource("5_m7j7k")]
+[node name="Ambiente" parent="." unique_id=1565157318 instance=ExtResource("5_m7j7k")]
 
-[node name="FunkMPCControls" parent="." instance=ExtResource("6_uqgng")]
+[node name="FunkMPCControls" parent="." unique_id=1944572454 instance=ExtResource("6_uqgng")]
 
-[node name="TrianguloControls" parent="." instance=ExtResource("7_1u60a")]
+[node name="TrianguloControls" parent="." unique_id=479386014 instance=ExtResource("7_1u60a")]
+visible = false
+
+[node name="Timer" type="Timer" parent="." unique_id=531299390]
+
+[node name="Comemoracao" parent="." unique_id=617757483 instance=ExtResource("5_m7j7k")]
 
 [connection signal="finished" from="." to="." method="_on_finished"]
 [connection signal="bumbo_ended" from="FunkMPCControls" to="." method="_on_funk_mpc_controls_bumbo_ended"]

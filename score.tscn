@@ -1,94 +1,89 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3lv55xrdvjcd"]
+[gd_scene format=3 uid="uid://c3lv55xrdvjcd"]
 
 [ext_resource type="Script" uid="uid://wm01p0tg0rpd" path="res://score.gd" id="1_t1x8i"]
-[ext_resource type="Texture2D" uid="uid://c88kocon7s2og" path="res://img/score.jpg" id="2_vfhx4"]
+[ext_resource type="Texture2D" uid="uid://cxfagrx1ooyap" path="res://img/concha-placar.jpeg" id="2_vfhx4"]
+[ext_resource type="Texture2D" uid="uid://dt8fnyxecfu52" path="res://img/estadio-placar.jpeg" id="4_jm6bp"]
+[ext_resource type="Texture2D" uid="uid://b7c8fcyxkrak" path="res://img/estacao-placar.jpeg" id="5_2paxd"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_i4m08"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="5_jm6bp"]
 [ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="6_2paxd"]
 
-[node name="Score" type="Node2D"]
+[node name="Score" type="Node2D" unique_id=1745373055]
 script = ExtResource("1_t1x8i")
 
-[node name="Fase1" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Fase1" type="TextureRect" parent="." unique_id=993152588]
+visible = false
+offset_right = 1921.0
+offset_bottom = 1078.0
 texture = ExtResource("2_vfhx4")
 
-[node name="ColorRect" type="ColorRect" parent="Fase1"]
-layout_mode = 0
-offset_left = 173.0
-offset_top = 170.0
-offset_right = 1778.0
-offset_bottom = 887.0
-color = Color(0.9254902, 0.50980395, 0.17254902, 0.5176471)
-
-[node name="Palmas" type="Label" parent="Fase1"]
+[node name="Palmas" type="Label" parent="Fase1" unique_id=1175132454]
 layout_mode = 0
 offset_left = 175.0
-offset_top = 171.0
+offset_top = 183.0
 offset_right = 1772.0
-offset_bottom = 332.0
+offset_bottom = 344.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Palmas"
 
-[node name="Aro" type="Label" parent="Fase1"]
+[node name="Aro" type="Label" parent="Fase1" unique_id=1449939271]
 layout_mode = 0
 offset_left = 176.0
-offset_top = 313.0
+offset_top = 353.0
 offset_right = 1762.0
-offset_bottom = 474.0
+offset_bottom = 514.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Aro"
 
-[node name="Caixa" type="Label" parent="Fase1"]
+[node name="Caixa" type="Label" parent="Fase1" unique_id=381084496]
 layout_mode = 0
 offset_left = 178.0
-offset_top = 485.0
+offset_top = 517.0
 offset_right = 1764.0
-offset_bottom = 646.0
+offset_bottom = 678.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Caixa"
 
-[node name="PontosPalmas" type="Label" parent="Fase1"]
+[node name="PontosPalmas" type="Label" parent="Fase1" unique_id=101042385]
 layout_mode = 0
 offset_left = 178.0
-offset_top = 163.0
+offset_top = 169.0
 offset_right = 1778.0
-offset_bottom = 324.0
+offset_bottom = 330.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="PontosAro" type="Label" parent="Fase1"]
+[node name="PontosAro" type="Label" parent="Fase1" unique_id=773007269]
 layout_mode = 0
 offset_left = 188.0
-offset_top = 308.0
+offset_top = 338.0
 offset_right = 1776.0
-offset_bottom = 469.0
+offset_bottom = 499.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="PontosCaixa" type="Label" parent="Fase1"]
+[node name="PontosCaixa" type="Label" parent="Fase1" unique_id=880310271]
 layout_mode = 0
 offset_left = 184.0
-offset_top = 465.0
+offset_top = 505.0
 offset_right = 1772.0
-offset_bottom = 626.0
+offset_bottom = 666.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="PontosTotal" type="Label" parent="Fase1"]
+[node name="PontosTotal" type="Label" parent="Fase1" unique_id=1615054412]
 layout_mode = 0
 offset_left = 172.0
 offset_top = 709.0
@@ -100,7 +95,7 @@ text = "0%"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Total" type="Label" parent="Fase1"]
+[node name="Total" type="Label" parent="Fase1" unique_id=1547050736]
 layout_mode = 0
 offset_left = 182.0
 offset_top = 716.0
@@ -110,21 +105,13 @@ theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Total"
 
-[node name="Fase2" type="TextureRect" parent="."]
+[node name="Fase2" type="TextureRect" parent="." unique_id=4312699]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_vfhx4")
+offset_right = 1914.0
+offset_bottom = 1074.0
+texture = ExtResource("4_jm6bp")
 
-[node name="ColorRect" type="ColorRect" parent="Fase2"]
-layout_mode = 0
-offset_left = 173.0
-offset_top = 170.0
-offset_right = 1778.0
-offset_bottom = 887.0
-color = Color(0.09019608, 0.08235294, 1, 0.5921569)
-
-[node name="Total" type="Label" parent="Fase2"]
+[node name="Total" type="Label" parent="Fase2" unique_id=481015493]
 layout_mode = 0
 offset_left = 182.0
 offset_top = 716.0
@@ -134,7 +121,7 @@ theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Total"
 
-[node name="Hihat" type="Label" parent="Fase2"]
+[node name="Hihat" type="Label" parent="Fase2" unique_id=641119464]
 layout_mode = 0
 offset_left = 175.0
 offset_top = 171.0
@@ -144,60 +131,60 @@ theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Hihat"
 
-[node name="Bumbo" type="Label" parent="Fase2"]
+[node name="Bumbo" type="Label" parent="Fase2" unique_id=145169783]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 326.0
-offset_right = 1766.0
-offset_bottom = 487.0
+offset_left = 173.0
+offset_top = 344.0
+offset_right = 1759.0
+offset_bottom = 505.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Bumbo"
 
-[node name="Guinkogui" type="Label" parent="Fase2"]
+[node name="Guinkogui" type="Label" parent="Fase2" unique_id=1446409206]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 482.0
-offset_right = 1770.0
-offset_bottom = 643.0
+offset_left = 170.0
+offset_top = 503.0
+offset_right = 1756.0
+offset_bottom = 664.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Agogo"
 
-[node name="PontosHihat" type="Label" parent="Fase2"]
+[node name="PontosHihat" type="Label" parent="Fase2" unique_id=1226423023]
 layout_mode = 0
 offset_left = 1428.0
-offset_top = 169.0
+offset_top = 178.0
 offset_right = 1779.0
-offset_bottom = 330.0
+offset_bottom = 339.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
-[node name="PontosBumbo" type="Label" parent="Fase2"]
+[node name="PontosBumbo" type="Label" parent="Fase2" unique_id=225606525]
 layout_mode = 0
 offset_left = 1419.0
-offset_top = 323.0
+offset_top = 345.0
 offset_right = 1770.0
-offset_bottom = 484.0
+offset_bottom = 506.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
-[node name="PontosGankogui" type="Label" parent="Fase2"]
+[node name="PontosGankogui" type="Label" parent="Fase2" unique_id=1027112284]
 layout_mode = 0
 offset_left = 1419.0
-offset_top = 478.0
+offset_top = 511.0
 offset_right = 1770.0
-offset_bottom = 639.0
+offset_bottom = 672.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
-[node name="PontosTotal" type="Label" parent="Fase2"]
+[node name="PontosTotal" type="Label" parent="Fase2" unique_id=1926576122]
 layout_mode = 0
 offset_left = 1419.0
 offset_top = 710.0
@@ -208,21 +195,13 @@ theme_override_font_sizes/font_size = 100
 text = "0%"
 horizontal_alignment = 2
 
-[node name="Fase3" type="TextureRect" parent="."]
+[node name="Fase3" type="TextureRect" parent="." unique_id=493936634]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_vfhx4")
+offset_right = 1917.0
+offset_bottom = 1079.0
+texture = ExtResource("5_2paxd")
 
-[node name="ColorRect" type="ColorRect" parent="Fase3"]
-layout_mode = 0
-offset_left = 173.0
-offset_top = 170.0
-offset_right = 1778.0
-offset_bottom = 887.0
-color = Color(0.09019608, 0.08235294, 1, 0.5921569)
-
-[node name="Total" type="Label" parent="Fase3"]
+[node name="Total" type="Label" parent="Fase3" unique_id=2066411100]
 layout_mode = 0
 offset_left = 199.0
 offset_top = 744.0
@@ -232,38 +211,40 @@ theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Total"
 
-[node name="PontosTotal" type="Label" parent="Fase3"]
+[node name="PontosTotal" type="Label" parent="Fase3" unique_id=1690931858]
 layout_mode = 0
-offset_left = 1607.0
+offset_left = 1275.0
 offset_top = 738.0
-offset_right = 1747.0
+offset_right = 1737.0
 offset_bottom = 859.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
+horizontal_alignment = 2
 
-[node name="Triangulo" type="Label" parent="Fase3"]
+[node name="Triangulo" type="Label" parent="Fase3" unique_id=792480306]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 553.0
-offset_right = 1754.0
-offset_bottom = 674.0
+offset_left = 189.0
+offset_top = 525.0
+offset_right = 1753.0
+offset_bottom = 646.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Triangulo"
 
-[node name="PontosTriangulo" type="Label" parent="Fase3"]
+[node name="PontosTriangulo" type="Label" parent="Fase3" unique_id=1612583112]
 layout_mode = 0
-offset_left = 1605.0
-offset_top = 546.0
-offset_right = 1745.0
-offset_bottom = 667.0
+offset_left = 1311.0
+offset_top = 536.0
+offset_right = 1737.0
+offset_bottom = 657.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
+horizontal_alignment = 2
 
-[node name="Congas" type="Label" parent="Fase3"]
+[node name="Congas" type="Label" parent="Fase3" unique_id=405412152]
 layout_mode = 0
 offset_left = 181.0
 offset_top = 371.0
@@ -273,17 +254,18 @@ theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Congas"
 
-[node name="PontosConga" type="Label" parent="Fase3"]
+[node name="PontosConga" type="Label" parent="Fase3" unique_id=1349746038]
 layout_mode = 0
-offset_left = 1600.0
+offset_left = 1321.0
 offset_top = 366.0
-offset_right = 1740.0
+offset_right = 1732.0
 offset_bottom = 487.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
+horizontal_alignment = 2
 
-[node name="Bumbo" type="Label" parent="Fase3"]
+[node name="Bumbo" type="Label" parent="Fase3" unique_id=236647572]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 194.0
@@ -293,24 +275,25 @@ theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "Bumbo"
 
-[node name="PontosBumbo" type="Label" parent="Fase3"]
+[node name="PontosBumbo" type="Label" parent="Fase3" unique_id=751618484]
 layout_mode = 0
-offset_left = 1591.0
+offset_left = 1355.0
 offset_top = 186.0
 offset_right = 1731.0
 offset_bottom = 307.0
 theme_override_fonts/font = ExtResource("5_jm6bp")
 theme_override_font_sizes/font_size = 100
 text = "0%"
+horizontal_alignment = 2
 
-[node name="TitleShadow" type="ColorRect" parent="."]
+[node name="TitleShadow" type="ColorRect" parent="." unique_id=64655342]
 offset_left = 295.0
 offset_top = 15.0
 offset_right = 1630.0
 offset_bottom = 115.0
 color = Color(1, 0.25882354, 0.13725491, 0.5647059)
 
-[node name="Fase" type="Label" parent="."]
+[node name="Fase" type="Label" parent="." unique_id=243138763]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -328,4 +311,4 @@ theme_override_font_sizes/font_size = 75
 text = "Concha Acustica do Taquaral"
 horizontal_alignment = 1
 
-[node name="Ambiente" parent="." instance=ExtResource("5_i4m08")]
+[node name="Ambiente" parent="." unique_id=1463832631 instance=ExtResource("5_i4m08")]

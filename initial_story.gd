@@ -7,11 +7,10 @@ signal ended()
 func _ready() -> void:
 	print("ready baloon 0")
 	baloon = 0
-	$BaloonAna.hide()
-	$BaloonMestra.hide()
-	$BaloonMestra/Mestra1.hide()
-	$BaloonMestra/Mestra2.hide()
-	$BaloonMestra/Mestra3.hide()
+	$AudioLoader.load_audio("res://sounds/CLICK.mp3")
+	$AudioLoader.set_volume(20)
+	$Background.texture = load("res://img/Conversas/Conversaconchaacustica1.jpg")
+	$Background.show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,36 +29,10 @@ func _on_timer_timeout() -> void:
 	$Timer.start(3)
 	baloon = baloon+1
 	print("timer timeout baloon ", baloon)
-	if baloon == 1:
-		$BaloonAna.hide()
-		$BaloonMestra.show()
-		$BaloonMestra/Mestra1.show()
-		$BaloonMestra/Mestra2.hide()
-		$BaloonMestra/Mestra3.hide()
+	if baloon >= 1 and baloon <= 5:
+		$Background.texture = load("res://img/Conversas/Conversaconchaacustica"+str(baloon)+".jpg")
 		return
-	if baloon == 2:
-		$BaloonAna.show()
-		$BaloonAna/Ana.show()
-		$BaloonMestra.hide()
-		$BaloonMestra/Mestra1.hide()
-		$BaloonMestra/Mestra2.hide()
-		$BaloonMestra/Mestra3.hide()
-		return
-	if baloon == 3:
-		$BaloonAna.hide()
-		$BaloonMestra.show()
-		$BaloonMestra/Mestra1.hide()
-		$BaloonMestra/Mestra2.show()
-		$BaloonMestra/Mestra3.hide()
-		return
-	if baloon == 4:
-		$BaloonAna.hide()
-		$BaloonMestra.show()
-		$BaloonMestra/Mestra1.hide()
-		$BaloonMestra/Mestra2.hide()
-		$BaloonMestra/Mestra3.show()
-		return
-	if baloon == 5:
+	if baloon == 6:
 		$Timer.stop()
 		ended.emit()
 
@@ -67,3 +40,4 @@ func _on_timer_timeout() -> void:
 func _on_touch_screen_button_pressed() -> void:
 	$Timer.stop()
 	ended.emit()
+	$AudioLoader.play()

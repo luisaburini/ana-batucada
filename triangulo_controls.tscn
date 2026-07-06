@@ -14,7 +14,7 @@
 script = ExtResource("1_onpox")
 
 [node name="Compasso" parent="." unique_id=1128237120 instance=ExtResource("3_dusqt")]
-position = Vector2(19, 100)
+position = Vector2(12, 13)
 
 [node name="TrianguloLoader" parent="." unique_id=1259770350 instance=ExtResource("2_b6gyb")]
 
@@ -36,9 +36,9 @@ visible = false
 
 [node name="Pontuacao" type="Label" parent="." unique_id=1785546562]
 offset_left = 1412.0
-offset_top = 506.0
+offset_top = 281.0
 offset_right = 1913.0
-offset_bottom = 684.0
+offset_bottom = 459.0
 size_flags_stretch_ratio = 0.0
 theme_override_fonts/font = ExtResource("7_ruwoj")
 theme_override_font_sizes/font_size = 120

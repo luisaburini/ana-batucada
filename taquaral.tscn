@@ -1,24 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://djd5g50wdvimd"]
+[gd_scene format=3 uid="uid://djd5g50wdvimd"]
 
 [ext_resource type="Script" uid="uid://crevljbysayss" path="res://taquaral.gd" id="1_hyn5j"]
-[ext_resource type="Texture2D" uid="uid://b1nxe5051ch7j" path="res://img/taquaral.jpg" id="1_s7qdt"]
+[ext_resource type="Texture2D" uid="uid://durvyerj72eb2" path="res://img/concha-final.jpeg" id="2_13thw"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_sslfs"]
 [ext_resource type="PackedScene" uid="uid://bt05l8viuiiid" path="res://samba_trap_controls.tscn" id="6_ila5i"]
 [ext_resource type="PackedScene" uid="uid://cau0l3jvharvy" path="res://palmas_controls.tscn" id="7_8xhoj"]
 
-[node name="Taquaral" type="Node2D"]
+[node name="Taquaral" type="Node2D" unique_id=1802148181]
 script = ExtResource("1_hyn5j")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1190793255]
 offset_right = 1920.0
 offset_bottom = 1082.0
-texture = ExtResource("1_s7qdt")
+texture = ExtResource("2_13thw")
 
-[node name="Ambiente" parent="." instance=ExtResource("5_sslfs")]
+[node name="Ambiente" parent="." unique_id=1243277493 instance=ExtResource("5_sslfs")]
 
-[node name="SambaTrapControls" parent="." instance=ExtResource("6_ila5i")]
+[node name="SambaTrapControls" parent="." unique_id=1399343752 instance=ExtResource("6_ila5i")]
+visible = false
 
-[node name="PalmasControls" parent="." instance=ExtResource("7_8xhoj")]
+[node name="PalmasControls" parent="." unique_id=200288748 instance=ExtResource("7_8xhoj")]
+visible = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1719713352]
+
+[node name="Comemoracao" parent="." unique_id=686145288 instance=ExtResource("5_sslfs")]
 
 [connection signal="aro_ended" from="SambaTrapControls" to="." method="_on_samba_trap_controls_aro_ended"]
 [connection signal="caixa_ended" from="SambaTrapControls" to="." method="_on_samba_trap_controls_caixa_ended"]
@@ -28,3 +34,4 @@ texture = ExtResource("1_s7qdt")
 [connection signal="ended" from="PalmasControls" to="." method="_on_palmas_controls_ended"]
 [connection signal="play_ambient" from="PalmasControls" to="." method="_on_palmas_controls_play_ambient"]
 [connection signal="stop_ambient" from="PalmasControls" to="." method="_on_palmas_controls_stop_ambient"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

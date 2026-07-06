@@ -1,5 +1,6 @@
 extends Node2D
 
+var bg_state = 0
 var counter = 0
 signal ended
 signal countdown_show
@@ -12,11 +13,21 @@ var instruction_node = ""
 
 func set_instruction_node(i):
 	instruction_node = i
+	#$Metronomo.set_volume(80)
+	#if instruction_node == "SambaTrapPalmas" or instruction_node == "SambaTrapAro" or instruction_node == "SambaTrapPalmas":
+		#$Metronomo.load_audio("res://sounds/FASE1/100BPM/METRONOMO.mp3")
+	#if instruction_node == "AfroHouseHihat" or instruction_node == "AfroHouseBumbo" or instruction_node == "AfroHouseGankogui":
+		#$Metronomo.load_audio("res://sounds/FASE2/100BPM/METRONOMO.mp3")
+	#if instruction_node == "FunkBumbo" or instruction_node == "FunkConga" or instruction_node == "FunkTriangulo":
+		#$Metronomo.load_audio("res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/METRONOMO.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$ClickNext.load_audio("res://sounds/CLICK.mp3")
+	$ClickNext.set_volume(15)
+	$Next.hide()
 	$Ambiente.load_audio("res://sounds/MUSICA_TUTORIAL_MESTRA.mp3")
-	$Ambiente.set_volume(15)
+	$Ambiente.set_volume(5)
 	$FunkBumbo.hide()
 	$FunkConga.hide()
 	$FunkTriangulo.hide()
@@ -42,20 +53,21 @@ func set_second_screen(s, t):
 	second_text = t
 
 func start():
-	$Ambiente.play()
 	counter = 0
-	$TimerCena1.set_one_shot(true)
-	$TimerCena2.set_one_shot(true)
 	$Cena1.show()
 	$Instructions.show()
 	if show_telas:
+		$Ambiente.play()
 		$Cena1.texture = load(first_screen)
 		$Instructions.text = first_text
-		$TimerCena1.start(3)
+		$Next.show()
 		$Countdown.hide()
 	else:
 		$Cena1.hide()
 		$Instructions.hide()
+		$Metronomo.play()
+		$Ambiente.stop()
+		$Next.hide()
 		$Countdown.show()
 		$Timer.start()
 	show()
@@ -73,6 +85,7 @@ func _on_timer_timeout():
 		$Countdown.text = str(counter)
 		$Timer.start()
 		return
+	$Next.hide()
 	countdown_show.emit()
 	ended.emit()
 	$Ambiente.stop()
@@ -86,7 +99,6 @@ func _on_timer_cena_1_timeout() -> void:
 	print("TIMER CENA 1 TIMEOUT")
 	$Cena1.texture = load(second_screen)
 	$Instructions.text = second_text
-	$TimerCena2.start(3)
 
 
 func _on_timer_cena_2_timeout() -> void:
@@ -96,16 +108,37 @@ func _on_timer_cena_2_timeout() -> void:
 	var inode = get_node(instruction_node)
 	if inode != null:
 		inode.show()
-		$TimerCena3.start(10)
+		$ClickNext.show()
 	else:
+		$Next.hide()
 		$ClickAudio.play()
 		$Countdown.show()
+		$Ambiente.stop()
 		$Timer.start()
 
 func _on_timer_cena_3_timeout() -> void:
 	var inode = get_node(instruction_node)
 	if inode != null:
+		$Next.hide()
 		inode.hide()
 		$ClickAudio.play()
 		$Countdown.show()
+		$Ambiente.stop()
 		$Timer.start()
+
+func reset():
+	bg_state = 0
+	$Next.hide()
+	
+
+func _on_next_pressed() -> void:
+	$ClickNext.play()
+	bg_state = bg_state+1
+	print("BG STATE: ", bg_state)
+	if bg_state == 1:
+		_on_timer_cena_1_timeout()
+	if bg_state == 2:
+		_on_timer_cena_2_timeout()
+	if bg_state == 3:
+		_on_timer_cena_3_timeout()
+		$Next.hide()

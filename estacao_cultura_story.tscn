@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://brvfn1kyqbhwt" path="res://estacao_cultura_story.gd" id="1_mrgmv"]
 [ext_resource type="Texture2D" uid="uid://blujydpkrbkgv" path="res://img/init-story3.jpeg" id="1_xwm4l"]
-[ext_resource type="Texture2D" uid="uid://d1x26r44e5cos" path="res://img/baloon1.png" id="2_3eeoc"]
-[ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="3_mrgmv"]
-[ext_resource type="Texture2D" uid="uid://bp6lde755gkew" path="res://img/baloon2.png" id="4_836yh"]
 [ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="6_836yh"]
 
 [node name="EstacaoCulturaStory" type="Node2D" unique_id=179103994]
@@ -14,63 +11,6 @@ script = ExtResource("1_mrgmv")
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_xwm4l")
-
-[node name="BaloonMestra" type="TextureRect" parent="." unique_id=1466255124]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_3eeoc")
-
-[node name="Mestra1" type="Label" parent="BaloonMestra" unique_id=1502482425]
-layout_mode = 0
-offset_left = 729.0
-offset_top = 13.0
-offset_right = 1429.0
-offset_bottom = 454.0
-theme_override_colors/font_color = Color(0.12156863, 0, 0.30588236, 1)
-theme_override_fonts/font = ExtResource("3_mrgmv")
-theme_override_font_sizes/font_size = 42
-text = "vamos la para a estaçao cultura! Inaugurada em 11 de agosto de 1872, seu propósito veio com a necessidade de transportes em um período de grande crescimento da produção cafeeira"
-autowrap_mode = 3
-
-[node name="Mestra2" type="Label" parent="BaloonMestra" unique_id=1213300678]
-layout_mode = 0
-offset_left = 724.0
-offset_top = 18.0
-offset_right = 1388.0
-offset_bottom = 556.0
-theme_override_colors/font_color = Color(0.12156863, 0, 0.30588236, 1)
-theme_override_fonts/font = ExtResource("3_mrgmv")
-theme_override_font_sizes/font_size = 40
-text = "e traçava o percurso Campinas-Jundiaí, em um contexto de expansão da economia cafeeira paulista e da construção da Companhia Paulista de Estradas de Ferro, "
-autowrap_mode = 3
-
-[node name="Mestra3" type="Label" parent="BaloonMestra" unique_id=244993900]
-layout_mode = 0
-offset_left = 698.0
-offset_top = 54.0
-offset_right = 1488.0
-offset_bottom = 717.0
-theme_override_colors/font_color = Color(0.12156863, 0, 0.30588236, 1)
-theme_override_fonts/font = ExtResource("3_mrgmv")
-theme_override_font_sizes/font_size = 40
-text = "empreendimento financiado por importantes fazendeiros e investidores da região, entre os quais figurava Antônio Pompêo de Camargo, um dos principais acionistas da companhia."
-autowrap_mode = 3
-
-[node name="BaloonAna" type="TextureRect" parent="." unique_id=1325542578]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_836yh")
-
-[node name="Ana" type="Label" parent="BaloonAna" unique_id=627056143]
-layout_mode = 0
-offset_left = 671.0
-offset_top = 790.0
-offset_right = 1086.0
-offset_bottom = 1009.0
-theme_override_fonts/font = ExtResource("3_mrgmv")
-theme_override_font_sizes/font_size = 60
-text = "vou terminar meu lanche e vou"
-autowrap_mode = 3
 
 [node name="Timer" type="Timer" parent="." unique_id=1868115725]
 

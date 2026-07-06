@@ -1,8 +1,11 @@
 extends Node
 var replay_audio = true
+var logos_state = 0
 
 
 func _ready():
+	$Logos1.show()
+	$Timer.start(2)
 	$ALongTimeAgoInAGalaxyFarFarAway.hide()
 	$InitialStory.hide()
 	$AudioStreamPlayer.set_volume_linear(0.5)
@@ -15,7 +18,19 @@ func _on_hud_init():
 	$ALongTimeAgoInAGalaxyFarFarAway.start()
 
 func _on_timer_timeout() -> void:
-	$Logos.hide()
+	
+	$HUD.hide()
+	logos_state = logos_state + 1
+	if logos_state == 1:
+		$Timer.start(2)
+		$Logos1.hide()
+		$Logos2.show()
+	if logos_state == 2:
+		$Logos2.hide()
+		$Timer.set_one_shot(true)
+		$Timer.stop()
+		$HUD.show()
+		
 
 func _on_mapa_finished() -> void:
 	$Map.must_blink_map(false)
