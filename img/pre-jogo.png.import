@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qftmvb00fac8"
-path="res://.godot/imported/tutorial-conga1.png-d43f1cc8922500b0f0b957a09c7a5d1c.ctex"
+uid="uid://civf8h3unv3uw"
+path="res://.godot/imported/pre-jogo.png-a48fee1866e7114ce7a012d670a3d8c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/tutorial-conga1.png"
-dest_files=["res://.godot/imported/tutorial-conga1.png-d43f1cc8922500b0f0b957a09c7a5d1c.ctex"]
+source_file="res://img/pre-jogo.png"
+dest_files=["res://.godot/imported/pre-jogo.png-a48fee1866e7114ce7a012d670a3d8c6.ctex"]
 
 [params]
 

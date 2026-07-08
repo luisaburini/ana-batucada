@@ -109,8 +109,8 @@ func start():
 		$Compassos.set_is_tutorial(true)
 		$Aro1.set_is_tutorial(true)
 		$Tutorial.reset()
-		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital de Aro!")
-		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de aro para tocar.
+Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Aro1.show()
 		stop_ambient.emit()
@@ -275,12 +275,10 @@ func _on_compassos_ended() -> void:
 		pontos = 0
 		$Pontuacao.text = "0%"
 		if current_instrument == 0:
-			$PreJogo.set_first_screen("res://img/pre-jogo-aro1.png", "aperte o botao em destaque quando piscar")
-			$PreJogo.set_second_screen("res://img/pre-jogo-aro2.png", "bora tocar um pouco de aro!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 			$Compassos/Partitura.set_current_fase("Fase1Aro", 0.6)
 		if current_instrument == 1:
-			$PreJogo.set_first_screen("res://img/pre-jogo-caixa1.png", "aperte o botao em destaque quando piscar")
-			$PreJogo.set_second_screen("res://img/pre-jogo-caixa2.png", "sua vez de tocar caixa!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 			$Compassos/Partitura.set_current_fase("Fase1Caixa", 0.6)
 		$Compassos/Partitura.reset()
 		$PreJogo.show()
@@ -315,8 +313,8 @@ func _on_compassos_ended() -> void:
 		$Tutorial.reset()
 		$Compassos/Partitura.set_current_fase("Fase1Caixa", 0.6)
 		$Compassos/Partitura.reset()
-		$Tutorial.set_first_screen("res://img/tutorial-caixa1.png", "agora vamos usar o som da caixa!")
-		$Tutorial.set_second_screen("res://img/tutorial-caixa2.png", "veja como se faz")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de caixa para tocar.
+Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
 		$Tutorial.start()

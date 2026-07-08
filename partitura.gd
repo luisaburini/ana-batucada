@@ -373,51 +373,38 @@ func _ready() -> void:
 
 func start():
 	$Timer.start(current_time)
-	$Metronomo.set_volume(40)
-	$Metronomo.play()
-	print("PLAY METRONOMO ", $Metronomo.current_sound)
 
 func set_current_fase(fase, timeout):
-	$Metronomo.set_volume(90)
 	current_fase = fase
 	current_time = timeout
 	if fase == "Fase1Aro":
 		current_partitura = fase1_aro
 		current_background = "res://img/taquaral.jpg"
-		$Metronomo.load_audio("res://sounds/FASE1/100BPM/METRONOMO.mp3")
 	if fase == "Fase1Caixa":
 		current_partitura = fase1_caixa
 		current_background = "res://img/taquaral.jpg"
-		$Metronomo.load_audio("res://sounds/FASE1/100BPM/METRONOMO.mp3")
 	if fase == "Fase1Palmas":
 		current_partitura = fase1_palmas
 		current_background = "res://img/taquaral.jpg"
-		$Metronomo.load_audio("res://sounds/FASE1/100BPM/METRONOMO.mp3")
 	if fase == "Fase2Agogo":
 		current_partitura = fase2_agogo
 		current_background = "res://img/cerecamp-mogiana.jpg"
-		$Metronomo.load_audio("res://sounds/FASE2/100BPM/METRONOMO.mp3")
 	if fase == "Fase2Hihat":
 		current_partitura = fase2_hihat
 		current_background = "res://img/cerecamp-mogiana.jpg"
-		$Metronomo.load_audio("res://sounds/FASE2/100BPM/METRONOMO.mp3")
 	if fase == "Fase2Bumbo":
 		print("FASE 2 BUMBO")
 		current_partitura = fase2_bumbo
 		current_background = "res://img/cerecamp-mogiana.jpg"
-		$Metronomo.load_audio("res://sounds/FASE2/100BPM/METRONOMO.mp3")
 	if fase == "Fase3Bumbo":
 		current_partitura = fase3_bumbo
 		current_background = "res://img/estacao-cultura.jpg"
-		$Metronomo.load_audio("res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/METRONOMO.mp3")
 	if fase == "Fase3Triangulo":
 		current_partitura = fase3_triangulo
 		current_background = "res://img/estacao-cultura.jpg"
-		$Metronomo.load_audio("res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/METRONOMO.mp3")
 	if fase == "Fase3Conga":
 		current_partitura = fase3_conga
 		current_background = "res://img/estacao-cultura.jpg"
-		$Metronomo.load_audio("res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/METRONOMO.mp3")
 	$Background.texture = load(current_background)
 	$Desenho.texture = load(current_partitura[p_index%len(current_partitura)])
 	
@@ -428,7 +415,6 @@ func _process(delta: float) -> void:
 
 func stop():
 	$Timer.stop()
-	$Metronomo.stop()
 	
 func reset():
 	p_index = 0
@@ -438,7 +424,3 @@ func _on_timer_timeout() -> void:
 	p_index = p_index+1
 	$Desenho.texture = load(current_partitura[p_index%len(current_partitura)])
 	$Timer.start(current_time)
-
-
-func _on_metronomo_finished() -> void:
-	$Metronomo.play()

@@ -44,7 +44,6 @@ scale = Vector2(0.67999935, 0.72638613)
 texture_normal = ExtResource("5_ltv3l")
 
 [node name="Taquaral" parent="." unique_id=13345832 instance=ExtResource("6_w30at")]
-visible = false
 
 [node name="CerecampMogiana" parent="." unique_id=1282545839 instance=ExtResource("7_2eut3")]
 visible = false

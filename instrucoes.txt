@@ -1,0 +1,33 @@
+Palmas
+
+Tutorial
+1a tela
+Clique nas palmas para tocar
+Primeiro eu toco, depois você me acompanha
+
+PreJogo
+1a tela
+Agora é sua vez de tocar!
+
+
+Caixa
+
+Tutorial
+1a tela
+Clique no botão do sample para tocar
+Primeiro eu toco, depois você me acompanha
+
+Prejogo
+1a tela
+Agora é sua vez de tocar!
+
+Agogo
+Tutorial
+1a tela 
+Clique no agogô para tocar
+Primeiro eu toco, depois você me acompanha
+
+Triangulo
+1a tela
+Clique na mão à direita para segurar ou soltar o triângulo
+Clique à esquerda para tocar o triângulo

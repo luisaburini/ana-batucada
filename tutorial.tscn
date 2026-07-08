@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kc53kmnctf4c"]
 
 [ext_resource type="Script" uid="uid://lks6ofb2al6x" path="res://tutorial.gd" id="1_ph66d"]
-[ext_resource type="Texture2D" uid="uid://c245xurpgs5rx" path="res://img/tutorial1.jpeg" id="2_5mrt3"]
+[ext_resource type="Texture2D" path="res://img/tutorial2.jpeg" id="2_bsk3x"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="3_4hjyh"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_5mrt3"]
 [ext_resource type="PackedScene" uid="uid://deai557pn1v2b" path="res://funk_bumbo.tscn" id="5_4hjyh"]
@@ -24,9 +24,10 @@ wait_time = 0.4
 [node name="Cena1" type="TextureRect" parent="." unique_id=467098806]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_5mrt3")
+texture = ExtResource("2_bsk3x")
 
 [node name="Countdown" type="Label" parent="." unique_id=1331645891]
+visible = false
 offset_left = 4.0
 offset_top = -1.0
 offset_right = 1925.0
@@ -41,12 +42,13 @@ vertical_alignment = 1
 [node name="ClickAudio" parent="." unique_id=1557772249 instance=ExtResource("4_5mrt3")]
 
 [node name="Instructions" type="Label" parent="." unique_id=28640877]
-offset_left = 11.0
-offset_top = 19.0
-offset_right = 1915.0
-offset_bottom = 909.0
+offset_left = 625.0
+offset_top = 22.0
+offset_right = 1635.0
+offset_bottom = 546.0
 theme_override_fonts/font = ExtResource("3_4hjyh")
 theme_override_font_sizes/font_size = 70
+text = "teste"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -87,6 +89,8 @@ scale = Vector2(0.64666665, 0.68666685)
 texture_normal = ExtResource("14_bsk3x")
 
 [node name="ClickNext" parent="." unique_id=659444863 instance=ExtResource("4_5mrt3")]
+
+[node name="Metronomo" parent="." unique_id=1937118199 instance=ExtResource("4_5mrt3")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

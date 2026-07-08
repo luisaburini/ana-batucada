@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brvfn1kyqbhwt" path="res://estacao_cultura_story.gd" id="1_mrgmv"]
 [ext_resource type="Texture2D" uid="uid://blujydpkrbkgv" path="res://img/init-story3.jpeg" id="1_xwm4l"]
+[ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_3eeoc"]
 [ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="6_836yh"]
 
 [node name="EstacaoCulturaStory" type="Node2D" unique_id=179103994]
@@ -17,6 +18,8 @@ texture = ExtResource("1_xwm4l")
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=399764390]
 position = Vector2(1580, 47)
 texture_normal = ExtResource("6_836yh")
+
+[node name="ClickAudio" parent="." unique_id=501599602 instance=ExtResource("4_3eeoc")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

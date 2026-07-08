@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 	pass
 	
 func start():
+	$ClickAudio.load_audio("res://sounds/CLICK.mp3")
+	$ClickAudio.set_volume(30)
 	$Timer.autostart = false
 	$Timer.one_shot = true
 	baloon = 0
@@ -35,5 +37,6 @@ func _on_timer_timeout() -> void:
 
 
 func _on_touch_screen_button_pressed() -> void:
+	$ClickAudio.play()
 	$Timer.stop()
 	ended.emit()

@@ -108,8 +108,8 @@ func start():
 		$Compasso.set_is_tutorial(true)
 		$bumbo1.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("FunkBumbo")
-		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
-		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de bumbo para tocar.
+Primeiro eu toco, depois você me acompanha!")
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
 		$Compasso/Partitura.set_current_fase("Fase3Bumbo", 0.6)
@@ -172,12 +172,10 @@ func _on_compasso_ended():
 		$PreJogo.reset()
 		if current_instrument == 0:
 			$Compasso/Partitura.set_current_fase("Fase3Bumbo", 0.6)
-			$PreJogo.set_first_screen("res://img/pre-jogo1.png", "aperte o botao em destaque quando piscar")
-			$PreJogo.set_second_screen("res://img/pre-jogo2.png", "bora tocar um pouco de bumbo!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 		if current_instrument == 1:
 			$Compasso/Partitura.set_current_fase("Fase3Conga", 0.6)
-			$PreJogo.set_first_screen("res://img/pre-jogo-conga1.png", "aperte o botao em destaque quando piscar")
-			$PreJogo.set_second_screen("res://img/pre-jogo-conga2.png", "sua vez de tocar!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 		$Compasso/Partitura.reset()
 		$PreJogo.show()
 		stop_ambient.emit()
@@ -210,8 +208,8 @@ func _on_compasso_ended():
 		$Compasso/Partitura.set_current_fase("Fase3Conga", 0.6)
 		$Compasso/Partitura.reset()
 		$Tutorial.set_instruction_node("FunkConga")
-		$Tutorial.set_first_screen("res://img/tutorial-conga1.png", "agora vamos usar o som das congas!")
-		$Tutorial.set_second_screen("res://img/tutorial-conga2.png", "veja como se faz")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de conga para tocar.
+Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Compasso.set_is_tutorial(true)
 		$conga1.set_is_tutorial(true)
@@ -350,6 +348,8 @@ func _on_conga_4_pressed() -> void:
 
 func _on_audio_sem_solo_finished() -> void:
 	print("Audio sem solo finished")
+	$AudioSemSolo.load_audio(current_audio_sem_solo())
+	$AudioSemSolo.set_volume(30)
 	$AudioSemSolo.play()
 
 
@@ -388,7 +388,6 @@ func _on_pre_jogo_ended() -> void:
 
 
 func _on_audio_mestra_finished() -> void:
-	print("audio mestra finished")
-	if !compasso_ended:
-		print("but compasso didnt, play audio again")
-		$AudioMestra.play()
+	$AudioMestra.load_audio(current_audio_mestra())
+	$AudioMestra.set_volume(40)
+	$AudioMestra.play()

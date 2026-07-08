@@ -6,23 +6,19 @@ signal ended
 signal countdown_show
 var show_telas = true
 var first_screen = "res://img/tutorial1.png"
-var first_text = "vamos tocar um sample digital!\ndispare sons previamente gravados"
-var second_screen = "res://img/tutorial2.jpeg"
-var second_text = "da uma olhada como se faz"
+var first_text = "Clique no botão do sample para tocar
+Primeiro eu toco, depois você me acompanha"
+
 var instruction_node = ""
 
 func set_instruction_node(i):
 	instruction_node = i
-	#$Metronomo.set_volume(80)
-	#if instruction_node == "SambaTrapPalmas" or instruction_node == "SambaTrapAro" or instruction_node == "SambaTrapPalmas":
-		#$Metronomo.load_audio("res://sounds/FASE1/100BPM/METRONOMO.mp3")
-	#if instruction_node == "AfroHouseHihat" or instruction_node == "AfroHouseBumbo" or instruction_node == "AfroHouseGankogui":
-		#$Metronomo.load_audio("res://sounds/FASE2/100BPM/METRONOMO.mp3")
-	#if instruction_node == "FunkBumbo" or instruction_node == "FunkConga" or instruction_node == "FunkTriangulo":
-		#$Metronomo.load_audio("res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/METRONOMO.mp3")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Metronomo.load_audio("res://sounds/FASE1/100BPM/METRONOMO.mp3")
+	$Metronomo.set_volume(50)
 	$ClickNext.load_audio("res://sounds/CLICK.mp3")
 	$ClickNext.set_volume(15)
 	$Next.hide()
@@ -40,17 +36,13 @@ func _ready():
 	$SambaTrapAro.hide()
 	$SambaTrapCaixa.hide()
 	
-	$ClickAudio.set_volume(40)
-	$ClickAudio.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/CLICK.mp3")
+	$ClickAudio.set_volume(30)
+	$ClickAudio.load_audio("res://sounds/CLICK.mp3")
 
 func set_first_screen(f, t):
 	first_screen = f
 	first_text = t
 	
-
-func set_second_screen(s, t):
-	second_screen = s
-	second_text = t
 
 func start():
 	counter = 0
@@ -65,7 +57,6 @@ func start():
 	else:
 		$Cena1.hide()
 		$Instructions.hide()
-		$Metronomo.play()
 		$Ambiente.stop()
 		$Next.hide()
 		$Countdown.show()
@@ -82,10 +73,14 @@ func set_show_telas(new_show_telas):
 func _on_timer_timeout():
 	counter = counter+1
 	if counter < 5:
+		if counter == 1:
+			print("METRONOMO PLAY")
+			$Metronomo.play()
 		$Countdown.text = str(counter)
 		$Timer.start()
 		return
 	$Next.hide()
+	$Metronomo.stop()
 	countdown_show.emit()
 	ended.emit()
 	$Ambiente.stop()
@@ -96,12 +91,6 @@ func _on_timer_timeout():
 
 
 func _on_timer_cena_1_timeout() -> void:
-	print("TIMER CENA 1 TIMEOUT")
-	$Cena1.texture = load(second_screen)
-	$Instructions.text = second_text
-
-
-func _on_timer_cena_2_timeout() -> void:
 	print("TIMER CENA 2 TIMEOUT")
 	$Cena1.hide()
 	$Instructions.hide()
@@ -116,7 +105,9 @@ func _on_timer_cena_2_timeout() -> void:
 		$Ambiente.stop()
 		$Timer.start()
 
-func _on_timer_cena_3_timeout() -> void:
+
+
+func _on_timer_cena_2_timeout() -> void:
 	var inode = get_node(instruction_node)
 	if inode != null:
 		$Next.hide()
@@ -139,6 +130,4 @@ func _on_next_pressed() -> void:
 		_on_timer_cena_1_timeout()
 	if bg_state == 2:
 		_on_timer_cena_2_timeout()
-	if bg_state == 3:
-		_on_timer_cena_3_timeout()
 		$Next.hide()

@@ -65,7 +65,7 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Bumbo1.set_volume(30)
+	$Bumbo1.set_volume(28)
 	$Hihat1.set_volume(35)
 	$Hihat1.set_texture("res://img/mpc-button-green.png")
 	$Bumbo1.set_texture("res://img/mpc-button-green.png")
@@ -104,8 +104,8 @@ func start():
 		$Hihat1.set_is_tutorial(true)
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseHihat")
-		$Tutorial.set_first_screen("res://img/tutorial1.jpeg", "voce vai tocar um sample digital!")
-		$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "dispare sons previamente gravados")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de hihat para tocar.
+Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
 		$Hihat1.show()
@@ -310,12 +310,10 @@ func _on_compassos_ended() -> void:
 		pontos = 0
 		$Pontuacao.text = "0%"
 		if current_instrument == 0:
-			$PreJogo.set_first_screen("res://img/pre-jogo-hihat1.png", "aperte o botao em destaque quando piscar")
-			$PreJogo.set_second_screen("res://img/pre-jogo-hihat2.png", "bora tocar um pouco de hihat!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 			$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
 		if current_instrument == 1:
-			$PreJogo.set_first_screen("res://img/pre-jogo1.png", "aperte o botao em destaque quando piscar")
-			$PreJogo.set_second_screen("res://img/pre-jogo2.png", "sua vez de tocar bumbo!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 			$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
 		$Compassos/Partitura.reset()
 		$PreJogo.reset()
@@ -346,8 +344,8 @@ func _on_compassos_ended() -> void:
 		$Pontuacao.hide()
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseBumbo")
-		$Tutorial.set_first_screen("res://img/tutorial-bumbo1.png", "agora vamos tocar bumbo!")
-		$Tutorial.set_second_screen("res://img/tutorial-bumbo2.png", "veja como se faz")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de bumbo para tocar.
+Primeiro eu toco, depois você me acompanha.")
 		$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
 		$Compassos/Partitura.reset()
 		$Tutorial.set_show_telas(true)

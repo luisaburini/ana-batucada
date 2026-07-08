@@ -41,7 +41,7 @@ func music_according_to_phase():
 func start():
 	$Compassos/Partitura.set_current_fase("Fase1Palmas", 0.6)
 	$AudioMestra.load_audio(current_audio_mestra())
-	$AudioMestra.set_volume(20)
+	$AudioMestra.set_volume(30)
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(25)
 	if current_instrument >= len(instruments):
@@ -53,13 +53,8 @@ func start():
 		must_vibrate = false
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("SambaTrapPalmas")
-		$Tutorial.set_first_screen("res://img/tutorial-palmas1.png", "Para não esquecermos as músicas,
-escrevemos partituras.
-Quando tem uma nota, tocamos,
-quando tem uma pausa, fazemos silêncio.")
-		$Tutorial.set_second_screen("res://img/tutorial-palmas2.png", "Eu toco primeiro, depois é a sua vez!
-		Habilite a vibração do seu celular e
-bora, Ana Batucada!")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique nas palmas para tocar.
+Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
 		$TouchPalmas.hide()
@@ -81,9 +76,7 @@ func _ready() -> void:
 	$Compassos.note_width = 42
 	$TouchPalmas.texture = load("")
 	$TouchPalmas.hide()
-	$PreJogo.set_first_screen("res://img/pre-jogo-palmas1.png", "Sua vez, Ana Batucada!
-Bora tocar um pouco!")
-	$PreJogo.set_second_screen("res://img/pre-jogo-palmas2.png", "Clique para bater palmas!")
+	$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
@@ -152,7 +145,6 @@ func _on_palmas_pressed() -> void:
 	$TouchPalmas.show()
 	if must_vibrate:
 		Input.vibrate_handheld(500)
-		print("VIBROU PALMAS")
 
 
 func _on_compassos_ended() -> void:
@@ -193,7 +185,6 @@ func _on_compassos_seta_moved(current_note: Variant) -> void:
 	if current_note == "p" or current_note =="P" or current_note == "d" or current_note == "D" or current_note == "O":
 		update_pontos()
 	if  current_note == "k":
-		print("Current note is ", current_note)
 		$TouchPalmas.show()
 		pontos = pontos+1
 		update_pontos()

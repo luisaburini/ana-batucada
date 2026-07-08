@@ -23,8 +23,8 @@ func _start() -> void:
 func _on_triangulo_controls_ended(pontos: Variant) -> void:
 	print("Ended triangulo" + str(pontos))
 	triangulo_percent = pontos
-	$Ambiente.stop()
-	finished.emit()
+	$Comemoracao.play()
+	$Timer.start(3)
 
 func get_pontos_bumbo():
 	return bumbo_percent
@@ -68,3 +68,15 @@ func _on_triangulo_controls_play_ambient() -> void:
 
 func _on_triangulo_controls_stop_ambient() -> void:
 	$Ambiente.stop()
+
+
+func _on_timer_timeout() -> void:
+	$FunkMPCControls.hide()
+	$TrianguloControls.hide()
+	$TextureRect.show()
+	
+	$Timer.set_one_shot(true)
+	$Timer.stop()
+	
+	$Ambiente.stop()
+	finished.emit()

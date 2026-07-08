@@ -54,8 +54,8 @@ func start():
 		$Compassos.set_is_tutorial(true)
 		_is_tutorial = true
 		$Tutorial.set_instruction_node("AfroHouseGankogui")
-		$Tutorial.set_first_screen("res://img/tutorial-gankogui1.png", "o som agora e do agogo")
-		$Tutorial.set_second_screen("res://img/tutorial-gankogui2.png", "sente so como a Mestra faz")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no agogô para tocar.
+Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Gankogui1Audio.load_audio("")
 		$Tutorial.start()
@@ -74,13 +74,12 @@ func _ready() -> void:
 	$Compassos.note_width = 42
 	$TouchGankogui1.hide()
 
-	$PreJogo.set_first_screen("res://img/pre-jogo-gankogui1.png", "bora tocar um pouco")
-	$PreJogo.set_second_screen("res://img/pre-jogo-gankogui2.png", "clique no agogo para tocar!")
+	$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
 func update_pontos():
-	pontos = pontos+2
+	pontos = pontos+1
 	$Pontuacao.text = str(get_percent()) + "%"
 
 func get_percent():

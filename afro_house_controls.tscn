@@ -27,19 +27,19 @@ scale = Vector2(0.68, 0.68)
 position = Vector2(811.00006, 730.00006)
 scale = Vector2(0.68, 0.68)
 
-[node name="TouchHihat1" type="TextureRect" parent="." unique_id=1883084716]
-offset_left = 802.0
-offset_top = 736.0
-offset_right = 1250.0
-offset_bottom = 1043.0
-texture = ExtResource("6_m2rn1")
-
 [node name="MPCBackground" type="TextureRect" parent="." unique_id=757037644]
 offset_left = 561.0
 offset_top = 424.0
 offset_right = 1567.0
 offset_bottom = 1082.0
 texture = ExtResource("2_etg83")
+
+[node name="TouchHihat1" type="TextureRect" parent="." unique_id=1883084716]
+offset_left = 802.0
+offset_top = 736.0
+offset_right = 1250.0
+offset_bottom = 1043.0
+texture = ExtResource("6_m2rn1")
 
 [node name="TouchBumbo1" type="TextureRect" parent="." unique_id=471596058]
 offset_left = 832.0

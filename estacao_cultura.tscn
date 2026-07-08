@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bl3fwomlf1rvq"]
 
 [ext_resource type="Script" uid="uid://biuyiwapx80mg" path="res://estacao_cultura.gd" id="1_ahnhr"]
-[ext_resource type="Texture2D" uid="uid://b23kopq8rdtco" path="res://img/estacao-cultura.jpg" id="1_hh0px"]
+[ext_resource type="Texture2D" uid="uid://dmmmwo7ds5v0d" path="res://img/estacao-final.jpeg" id="2_m7j7k"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="5_m7j7k"]
 [ext_resource type="PackedScene" uid="uid://n386jdcbvm5m" path="res://controls.tscn" id="6_uqgng"]
 [ext_resource type="PackedScene" uid="uid://t6qfejjwvxo5" path="res://triangulo_controls.tscn" id="7_1u60a"]
@@ -12,7 +12,7 @@ script = ExtResource("1_ahnhr")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1408504437]
 offset_right = 1917.0
 offset_bottom = 1083.0
-texture = ExtResource("1_hh0px")
+texture = ExtResource("2_m7j7k")
 
 [node name="Ambiente" parent="." unique_id=1565157318 instance=ExtResource("5_m7j7k")]
 
@@ -34,3 +34,4 @@ visible = false
 [connection signal="ended" from="TrianguloControls" to="." method="_on_triangulo_controls_ended"]
 [connection signal="play_ambient" from="TrianguloControls" to="." method="_on_triangulo_controls_play_ambient"]
 [connection signal="stop_ambient" from="TrianguloControls" to="." method="_on_triangulo_controls_stop_ambient"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

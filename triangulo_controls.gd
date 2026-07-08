@@ -46,10 +46,10 @@ func _ready():
 	$BrilhoEmcima.hide()
 	$BrilhoNaMao.hide()
 	$Tutorial.set_instruction_node("FunkTriangulo")
-	$Tutorial.set_first_screen("res://img/tutorial-triangulo1.png", "o som agora e do triangulo")
-	$Tutorial.set_second_screen("res://img/tutorial2.jpeg", "sente so como a Mestra faz")
-	$PreJogo.set_first_screen("res://img/pre-jogo-triangulo1.png", "bora tocar um pouco")
-	$PreJogo.set_second_screen("res://img/pre-jogo-triangulo2.png", "clique no triangulo e na maozinha para tocar!")
+	$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique na mão à direita para segurar ou soltar o triângulo
+Clique à esquerda para tocar o triângulo
+Primeiro eu toco, depois você me acompanha")
+	$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
 

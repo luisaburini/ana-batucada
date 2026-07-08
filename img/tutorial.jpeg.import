@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv10xk4h7r0v6"
-path="res://.godot/imported/pre-jogo-triangulo2.png-5a3df6ba9318f4e51b1e7a6122ebca92.ctex"
+uid="uid://ck62kgx5ib7mc"
+path="res://.godot/imported/tutorial.jpeg-f466837e75dbbb34312adc2a66f78c48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/pre-jogo-triangulo2.png"
-dest_files=["res://.godot/imported/pre-jogo-triangulo2.png-5a3df6ba9318f4e51b1e7a6122ebca92.ctex"]
+source_file="res://img/tutorial.jpeg"
+dest_files=["res://.godot/imported/tutorial.jpeg-f466837e75dbbb34312adc2a66f78c48.ctex"]
 
 [params]
 

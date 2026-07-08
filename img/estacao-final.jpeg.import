@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7xsb4cdt3ut7"
-path="res://.godot/imported/tutorial-conga2.png-46b952a174f6a95baaf3a03cb510fd65.ctex"
+uid="uid://dmmmwo7ds5v0d"
+path="res://.godot/imported/estacao-final.jpeg-74059ced2eb15ee9fe270ccfe8432ca4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/tutorial-conga2.png"
-dest_files=["res://.godot/imported/tutorial-conga2.png-46b952a174f6a95baaf3a03cb510fd65.ctex"]
+source_file="res://img/estacao-final.jpeg"
+dest_files=["res://.godot/imported/estacao-final.jpeg-74059ced2eb15ee9fe270ccfe8432ca4.ctex"]
 
 [params]
 

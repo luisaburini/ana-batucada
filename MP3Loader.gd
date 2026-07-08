@@ -19,7 +19,7 @@ func load_audio(path):
 		
 		
 func play():
-	$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.play(0)
 
 func stop():
 	$AudioStreamPlayer2D.stop()

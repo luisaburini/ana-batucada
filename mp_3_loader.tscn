@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://hvfgktj3o36l"]
+[gd_scene format=3 uid="uid://hvfgktj3o36l"]
 
 [ext_resource type="Script" uid="uid://dpwfsvdmqdnfr" path="res://MP3Loader.gd" id="1_kkpb5"]
 
-[node name="AudioLoader" type="Node2D"]
+[node name="AudioLoader" type="Node2D" unique_id=924062178]
 script = ExtResource("1_kkpb5")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1192576029]
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
