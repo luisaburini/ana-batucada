@@ -2,15 +2,22 @@ extends Node2D
 
 signal finished
 signal clicked_taquaral
-var show_mogiana = false
-signal clicked_mogiana
-var show_estacao = false
 signal clicked_estacao_cultura
+signal clicked_mogiana
+var show_mogiana = false
+var show_estacao = false
 var show_end = false
 var should_blink = false
 var _show_blink = true
 
 func _ready():
+	show_mogiana = false
+	show_estacao = false
+	show_end = false
+	should_blink = false
+	_show_blink = true
+	$Background.texture = load("res://img/mapa-concha.jpeg")
+	$Campinas.show()
 	$MogianaStory.hide()
 	$EstacaoCulturaStory.hide()
 	$Fanfarra.load_audio("res://sounds/FANFARRA_DE_VITORIA.mp3")
@@ -18,6 +25,8 @@ func _ready():
 	$ButtonClick.set_volume(30)
 	$BlinkTimer.start(0.5)
 	$Score.hide()
+	$TaquaralLabel.show()
+	$TaquaralButton.show()
 	$Taquaral.hide()
 	$CerecampMogiana.hide()
 	$EstacaoCultura.hide()
@@ -62,6 +71,7 @@ func _on_cerescamp_mogiana_button_pressed() -> void:
 
 
 func _on_estacao_cultura_button_pressed() -> void:
+	$EstacaoCulturaButton.hide()
 	$Campinas.hide()
 	$EstacaoCulturaLabel.hide()
 	$ButtonClick.load_audio("res://sounds/FASE1/100_BPM_CONGAS_E_TRIANGULO_REV/BOTAO_INICIAR1.mp3")
@@ -198,3 +208,10 @@ func _on_estacao_cultura_story_ended() -> void:
 	$Campinas.show()
 	$EstacaoCulturaLabel.show()
 	$EstacaoCulturaButton.show()
+
+func reset():
+	$Taquaral.reset()
+	$CerecampMogiana.reset()
+	$EstacaoCultura.reset()
+	_ready()
+	

@@ -18,11 +18,14 @@ func _start() -> void:
 	show()
 	$TextureRect.show()
 	$FunkMPCControls.show()
+	print("ESTACAO CULTURA START")
 	$FunkMPCControls.start()
 
 func _on_triangulo_controls_ended(pontos: Variant) -> void:
 	print("Ended triangulo" + str(pontos))
 	triangulo_percent = pontos
+	$Comemoracao.load_audio("res://sounds/FANFARRA_DE_VITORIA.mp3")
+	$Comemoracao.set_volume(30)
 	$Comemoracao.play()
 	$Timer.start(3)
 
@@ -71,6 +74,7 @@ func _on_triangulo_controls_stop_ambient() -> void:
 
 
 func _on_timer_timeout() -> void:
+	$Comemoracao.stop()
 	$FunkMPCControls.hide()
 	$TrianguloControls.hide()
 	$TextureRect.show()
@@ -80,3 +84,12 @@ func _on_timer_timeout() -> void:
 	
 	$Ambiente.stop()
 	finished.emit()
+	
+func reset():
+	current_phase = 0
+	bumbo_percent = 0
+	conga_percent = 0
+	triangulo_percent = 0
+	_ready()
+	$FunkMPCControls._ready()
+	$TrianguloControls._ready()

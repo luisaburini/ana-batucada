@@ -55,6 +55,7 @@ func start():
 		_is_tutorial = true
 		$Tutorial.set_instruction_node("AfroHouseGankogui")
 		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no agogô para tocar.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Gankogui1Audio.load_audio("")
@@ -71,6 +72,16 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Tutorial._ready()
+	$PreJogo._ready()
+	current_instrument = 0
+	was_pressed = false
+	tutorial_ended = false
+	already_played = false
+	must_leave = false
+	total_notas = 0
+	pontos = 0
+	_is_tutorial = false
 	$Compassos.note_width = 42
 	$TouchGankogui1.hide()
 

@@ -74,3 +74,12 @@ func _on_timer_timeout() -> void:
 	$Ambiente.stop()
 	finished.emit()
 	$Timer.stop()
+	
+func reset():
+	palmas = 0
+	aro = 0
+	caixa = 0
+	bumbo = 0
+	$PalmasControls._ready()
+	$SambaTrapControls._ready()
+	_ready()

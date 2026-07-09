@@ -68,6 +68,20 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$MPCBackground.show()
+	$Compassos.show()
+	$Tutorial._ready()
+	$PreJogo._ready()
+	tutorial_ended = false
+	instruments = ["ARO", "CAIXA"]
+	current_instrument = 0
+	must_leave = false
+	showed_aro1 = false
+	showed_caixa1 = false
+	pontos = 0
+	was_pressed = false
+	total_notas = 0
+	compasso_ended = false
 	$Aro1.set_texture("res://img/mpb-button-green.png")
 	$Aro1.hide()
 	$Caixa1.set_texture("res://img/mpb-button-green.png")
@@ -110,6 +124,7 @@ func start():
 		$Aro1.set_is_tutorial(true)
 		$Tutorial.reset()
 		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de aro para tocar.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Aro1.show()
@@ -314,6 +329,7 @@ func _on_compassos_ended() -> void:
 		$Compassos/Partitura.set_current_fase("Fase1Caixa", 0.6)
 		$Compassos/Partitura.reset()
 		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de caixa para tocar.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()

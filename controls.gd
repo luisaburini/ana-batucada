@@ -1,16 +1,16 @@
 extends Node2D
 
 signal ended
-var must_leave = false
-var tutorial_ended = false
 signal bumbo_ended(pontos)
 signal conga_ended(pontos)
 signal stop_ambient()
 signal play_ambient()
 
 var instruments = ["BUMBO", "CONGAS"]
-var current_instrument = 0
 
+var current_instrument = 0
+var must_leave = false
+var tutorial_ended = false
 var pontos = 0
 var was_pressed = false
 var total_notas = 0
@@ -69,8 +69,21 @@ func current_audio_mestra():
 var showed_bumbo1 = false
 var showed_conga1 = false
 var showed_conga2 = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Compasso.show()
+	$MPCBackground.texture = load("res://img/mpc 1.png")
+	$MPCBackground.show()
+	$Tutorial._ready()
+	$PreJogo._ready()
+	current_instrument = 0
+	must_leave = false
+	tutorial_ended = false
+	pontos = 0
+	was_pressed = false
+	total_notas = 0
+	compasso_ended = false
 	$conga1.set_texture("res://img/mpc-button-blue.png")
 	$conga1.hide()
 	$conga2.set_texture("res://img/mpc-button-orange.png")
@@ -98,6 +111,7 @@ func start():
 	$conga2.hide()
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(40)
+	print("START")
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	if current_instrument >= len(instruments):
@@ -109,6 +123,7 @@ func start():
 		$bumbo1.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("FunkBumbo")
 		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de bumbo para tocar.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha!")
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
@@ -130,6 +145,7 @@ func get_instrument():
 	
 func next():
 	$Compasso.reset()
+	print("NEXT")
 	start()
 	show()
 	
@@ -142,6 +158,7 @@ func reset():
 	$Pontuacao.show()
 	$AudioSemSolo.stop()
 	$AudioMestra.load_audio(current_audio_mestra())
+	print("RESET")
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$Compasso/Partitura.reset()
 	$Compasso.reset()
@@ -151,6 +168,7 @@ func reset():
 		$bumbo1.show()
 		$Compasso.set_note_width(70)
 		$TouchBumbo1.show()
+	print("RESET")
 	start()
 	show()
 
@@ -209,6 +227,7 @@ func _on_compasso_ended():
 		$Compasso/Partitura.reset()
 		$Tutorial.set_instruction_node("FunkConga")
 		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de conga para tocar.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Compasso.set_is_tutorial(true)
@@ -295,6 +314,7 @@ func _on_tutorial_ended():
 		return
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(40)
+	print("ON TUTORIAL ENDED")
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	tutorial_ended = true
@@ -309,6 +329,7 @@ func _on_conga1_pressed():
 		
 func _on_mp_3_loader_finished():
 	if !compasso_ended:
+		print("ON MP3 LOADER FINISHED")
 		$AudioSemSolo.load_audio(current_audio_sem_solo())
 		$AudioSemSolo.set_volume(30)
 		$AudioSemSolo.play()
@@ -347,7 +368,7 @@ func _on_conga_4_pressed() -> void:
 
 
 func _on_audio_sem_solo_finished() -> void:
-	print("Audio sem solo finished")
+	print("AUDIO SEM SOLO FINISHED", current_audio_sem_solo())
 	$AudioSemSolo.load_audio(current_audio_sem_solo())
 	$AudioSemSolo.set_volume(30)
 	$AudioSemSolo.play()
@@ -388,6 +409,7 @@ func _on_pre_jogo_ended() -> void:
 
 
 func _on_audio_mestra_finished() -> void:
+	print("AUDIO MESTRA FINISHED ", current_audio_mestra())
 	$AudioMestra.load_audio(current_audio_mestra())
 	$AudioMestra.set_volume(40)
 	$AudioMestra.play()

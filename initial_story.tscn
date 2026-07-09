@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdncafoa6632y" path="res://initial_story.gd" id="1_u1oer"]
 [ext_resource type="Texture2D" uid="uid://bsekflhp0tecj" path="res://img/init-story1.jpeg" id="1_u3aum"]
-[ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="6_2cd72"]
+[ext_resource type="Texture2D" uid="uid://cgkt7n7mh63k0" path="res://img/pular_nova-campinas.png" id="4_65i44"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="7_gi5ig"]
 
 [node name="InitialStory" type="Node2D" unique_id=1939244834]
@@ -19,7 +19,7 @@ texture = ExtResource("1_u3aum")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=1640186640]
 position = Vector2(1564, 57)
-texture_normal = ExtResource("6_2cd72")
+texture_normal = ExtResource("4_65i44")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

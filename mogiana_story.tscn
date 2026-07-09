@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bpn6g8xpvryhc"]
 
 [ext_resource type="Script" uid="uid://cfwhhd57v6y8q" path="res://mogiana_story.gd" id="1_i1uq0"]
-[ext_resource type="Texture2D" uid="uid://rgeg0ktufa1f" path="res://img/init-story2.jpeg" id="1_yjsj0"]
+[ext_resource type="Texture2D" uid="uid://ku0hrthvcnda" path="res://img/Conversas/Conversaestadio1.jpg" id="2_gmkcc"]
+[ext_resource type="Texture2D" uid="uid://cgkt7n7mh63k0" path="res://img/pular_nova-campinas.png" id="3_gmkcc"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_gmkcc"]
-[ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="6_f7ya4"]
 
 [node name="MogianaStory" type="Node2D" unique_id=1555040148]
 script = ExtResource("1_i1uq0")
@@ -11,13 +11,13 @@ script = ExtResource("1_i1uq0")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1194041020]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_yjsj0")
+texture = ExtResource("2_gmkcc")
 
 [node name="Timer" type="Timer" parent="." unique_id=2076246811]
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=125799338]
 position = Vector2(1569, 63)
-texture_normal = ExtResource("6_f7ya4")
+texture_normal = ExtResource("3_gmkcc")
 
 [node name="CLickAudio" parent="." unique_id=1188092839 instance=ExtResource("4_gmkcc")]
 

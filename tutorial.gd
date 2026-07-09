@@ -1,9 +1,10 @@
 extends Node2D
 
+signal countdown_show
+signal ended
+
 var bg_state = 0
 var counter = 0
-signal ended
-signal countdown_show
 var show_telas = true
 var first_screen = "res://img/tutorial1.png"
 var first_text = "Clique no botão do sample para tocar
@@ -17,6 +18,15 @@ func set_instruction_node(i):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	bg_state = 0
+	counter = 0
+	show_telas = true
+	first_screen = "res://img/tutorial1.png"
+	first_text = "Clique no botão do sample para tocar
+Primeiro eu toco, depois você me acompanha"
+
+	instruction_node = ""
+
 	$Metronomo.load_audio("res://sounds/FASE1/100BPM/METRONOMO.mp3")
 	$Metronomo.set_volume(50)
 	$ClickNext.load_audio("res://sounds/CLICK.mp3")

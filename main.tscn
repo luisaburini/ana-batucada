@@ -9,25 +9,30 @@
 [ext_resource type="AudioStream" uid="uid://dxspstjsg1022" path="res://sounds/TEMA_AB.mp3" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://d26jgm6mdlk02" path="res://initial_story.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://ckk4uo0h6vosq" path="res://a_long_time_ago_in_a_galaxy_far_far_away.tscn" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dssqyf63ojg8r" path="res://img/reset.png" id="10_4c57u"]
 
 [node name="Main" type="Node" unique_id=2024718014]
 script = ExtResource("1_6bcuf")
 
 [node name="HUD" parent="." unique_id=381557931 instance=ExtResource("2_dw5fr")]
+visible = false
 
 [node name="Timer" type="Timer" parent="." unique_id=109654600]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="Map" parent="." unique_id=523234685 instance=ExtResource("6_7mycd")]
-visible = false
-
 [node name="End" type="TextureRect" parent="." unique_id=72759139]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_7mycd")
+
+[node name="Reset" type="TouchScreenButton" parent="." unique_id=808225635]
+position = Vector2(671, 300)
+texture_normal = ExtResource("10_4c57u")
+
+[node name="Map" parent="." unique_id=523234685 instance=ExtResource("6_7mycd")]
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1057062210]
 stream = ExtResource("6_272bh")
@@ -39,12 +44,14 @@ visible = false
 visible = false
 
 [node name="Logos2" type="TextureRect" parent="." unique_id=987621027]
+visible = false
 z_index = 500
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("4_kek77")
 
 [node name="Logos1" type="TextureRect" parent="." unique_id=516520677]
+visible = false
 z_index = 4096
 offset_right = 1942.0
 offset_bottom = 1084.0
@@ -52,6 +59,7 @@ texture = ExtResource("3_5vw27")
 
 [connection signal="init" from="HUD" to="." method="_on_hud_init"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
 [connection signal="clicked_estacao_cultura" from="Map" to="." method="_on_map_clicked_estacao_cultura"]
 [connection signal="clicked_mogiana" from="Map" to="." method="_on_map_clicked_mogiana"]
 [connection signal="clicked_taquaral" from="Map" to="." method="_on_map_clicked_taquaral"]

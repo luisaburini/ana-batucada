@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kc53kmnctf4c"]
 
 [ext_resource type="Script" uid="uid://lks6ofb2al6x" path="res://tutorial.gd" id="1_ph66d"]
-[ext_resource type="Texture2D" path="res://img/tutorial2.jpeg" id="2_bsk3x"]
+[ext_resource type="Texture2D" uid="uid://ck62kgx5ib7mc" path="res://img/tutorial.jpeg" id="2_bsk3x"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="3_4hjyh"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_5mrt3"]
 [ext_resource type="PackedScene" uid="uid://deai557pn1v2b" path="res://funk_bumbo.tscn" id="5_4hjyh"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://1sfxy05y8s6j" path="res://samba_trap_palmas.tscn" id="11_0lped"]
 [ext_resource type="PackedScene" uid="uid://doldo8sbeqxu4" path="res://samba_trap_aro.tscn" id="12_dudfa"]
 [ext_resource type="PackedScene" uid="uid://caf4cod8ffq5" path="res://samba_trap_caixa.tscn" id="13_5gpbq"]
-[ext_resource type="Texture2D" uid="uid://qsg61jfihh6s" path="res://img/pular.png" id="14_bsk3x"]
+[ext_resource type="Texture2D" uid="uid://cgkt7n7mh63k0" path="res://img/pular_nova-campinas.png" id="14_bsk3x"]
 
 [node name="Tutorial" type="Node2D" unique_id=372437428]
 script = ExtResource("1_ph66d")
@@ -84,8 +84,8 @@ visible = false
 visible = false
 
 [node name="Next" type="TouchScreenButton" parent="." unique_id=1403383476]
-position = Vector2(1688, 936.99994)
-scale = Vector2(0.64666665, 0.68666685)
+position = Vector2(1646.9999, 982.99994)
+scale = Vector2(0.89149445, 0.9318188)
 texture_normal = ExtResource("14_bsk3x")
 
 [node name="ClickNext" parent="." unique_id=659444863 instance=ExtResource("4_5mrt3")]

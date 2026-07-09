@@ -90,3 +90,11 @@ func _on_timer_timeout() -> void:
 	$AudioLoader.stop()
 	$Timer.stop()
 	finished.emit()
+	
+func reset():
+	$GankoguiControls._ready()
+	$AfroHouseControls._ready()
+	hihat = 0
+	bumbo = 0
+	gankogui = 0
+	_ready()

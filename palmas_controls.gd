@@ -54,6 +54,7 @@ func start():
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("SambaTrapPalmas")
 		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique nas palmas para tocar.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
@@ -73,6 +74,18 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Tutorial._ready()
+	$PreJogo._ready()
+	instruments = ["PALMAS"]
+	current_instrument = 0
+	was_pressed = false
+	tutorial_ended = false
+	already_played = false
+	must_leave = false
+	total_notas = 0
+	pontos = 0
+	showed_palmas = false
+	must_vibrate = false
 	$Compassos.note_width = 42
 	$TouchPalmas.texture = load("")
 	$TouchPalmas.hide()
@@ -170,6 +183,8 @@ func _on_compassos_ended() -> void:
 	$Pontuacao.text = "0"
 	pontos = 0
 	end()
+
+
 
 
 func reset():

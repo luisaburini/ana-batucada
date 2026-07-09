@@ -1,6 +1,7 @@
 extends Node
 var replay_audio = true
 var logos_state = 0
+var ended = false
 
 
 func _ready():
@@ -35,6 +36,7 @@ func _on_timer_timeout() -> void:
 func _on_mapa_finished() -> void:
 	$Map.must_blink_map(false)
 	$Map.hide()
+	ended = true
 	$End.show()
 	
 	
@@ -71,3 +73,12 @@ func _on_a_long_time_ago_in_a_galaxy_far_far_away_ended() -> void:
 	$ALongTimeAgoInAGalaxyFarFarAway.hide()
 	$InitialStory.show()
 	$InitialStory.start()
+
+
+func _on_reset_pressed() -> void:
+	if ended:
+		ended = false
+		replay_audio = true
+		logos_state = 0
+		$Map.reset()
+		_ready()

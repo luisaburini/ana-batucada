@@ -40,14 +40,26 @@ func current_music_sheet():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Tutorial._ready()
+	$PreJogo._ready()
+	already_played = false
+	must_leave = false
+	total_notas = 0
+	audio_sem_solo = "res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/LOOPS_SEM_OS_SOLOS/LOOP_SEM_TRIANGULO.mp3"
+	audio_mestra =  "res://sounds/FASE3/100_BPM_CONGAS_E_TRIANGULO_REV/INSTRUMENTOS_SOLO/TRIANGULO.mp3"
+	pontos = 0
+	maozinha_solta = false
+	tutorial_ended = false
+	_is_tutorial = true
 	$Compasso/Partitura.set_current_fase("Fase3Triangulo", 0.6)
 	$Compasso/Partitura.reset()
 	$Compasso.note_width = 42
 	$BrilhoEmcima.hide()
 	$BrilhoNaMao.hide()
 	$Tutorial.set_instruction_node("FunkTriangulo")
-	$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique na mão à direita para segurar ou soltar o triângulo
-Clique à esquerda para tocar o triângulo
+	$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique na mão à direita para segurar ou soltar o triângulo.
+Clique à esquerda para tocar o triângulo.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha")
 	$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 	$Pontuacao.hide()

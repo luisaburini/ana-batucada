@@ -6,18 +6,14 @@ signal bumbo_ended(pontos)
 signal stop_ambient()
 signal play_ambient()
 
-var tutorial_ended = false
 var instruments = ["HIHAT", "BUMBO"]
+var tutorial_ended = false
 var current_instrument = 0
 var must_leave = false
-
-
 var pontos = 0
 var was_pressed = false
 var total_notas = 0
 var compasso_ended = false
-
-
 var showed_hihat1 = false
 var showed_bumbo1 = false
 
@@ -65,6 +61,19 @@ func current_audio_mestra():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$MPCBackground.show()
+	$Compassos.show()
+	$Tutorial._ready()
+	$PreJogo._ready()
+	tutorial_ended = false
+	current_instrument = 0
+	must_leave = false
+	pontos = 0
+	was_pressed = false
+	total_notas = 0
+	compasso_ended = false
+	showed_hihat1 = false
+	showed_bumbo1 = false
 	$Bumbo1.set_volume(28)
 	$Hihat1.set_volume(35)
 	$Hihat1.set_texture("res://img/mpc-button-green.png")
@@ -105,6 +114,7 @@ func start():
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseHihat")
 		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de hihat para tocar.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
@@ -345,6 +355,7 @@ func _on_compassos_ended() -> void:
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseBumbo")
 		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de bumbo para tocar.
+Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha.")
 		$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
 		$Compassos/Partitura.reset()

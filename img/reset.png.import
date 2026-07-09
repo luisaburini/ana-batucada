@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1x26r44e5cos"
-path="res://.godot/imported/baloon1.png-d1b0d2412212472f24c0a82ca5691e75.ctex"
+uid="uid://dssqyf63ojg8r"
+path="res://.godot/imported/reset.png-2ae449abe4066a83e66bafc9f73f2bf5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/baloon1.png"
-dest_files=["res://.godot/imported/baloon1.png-d1b0d2412212472f24c0a82ca5691e75.ctex"]
+source_file="res://img/reset.png"
+dest_files=["res://.godot/imported/reset.png-2ae449abe4066a83e66bafc9f73f2bf5.ctex"]
 
 [params]
 
