@@ -144,9 +144,7 @@
 				ORGANIZATIONNAME = GodotEngine;
 				TargetAttributes = {
 					D0BCFE3318AEBDA2004A7AAE = {
-						DevelopmentTeam = 73V3W57PF2;
 						LastSwiftMigration = 1250;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 						};
 					};
