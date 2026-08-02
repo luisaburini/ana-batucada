@@ -51,6 +51,7 @@ FmodManager="*res://addons/fmod/FmodManager.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+display_server/driver.ios="iOS"
 
 [input]
 
@@ -100,5 +101,6 @@ pseudolocalization/replace_with_accents=false
 
 [rendering]
 
+rendering_device/driver.ios="vulkan"
 renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

@@ -11,7 +11,7 @@
 		9039D3BE24C093AC0020482C /* MoltenVK in Frameworks */ = {isa = PBXBuildFile; fileRef = 9039D3BD24C093AC0020482C /* MoltenVK */; };
 		90B4C2B62680C7E90039117A /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B4C2B52680C7E90039117A /* dummy.swift */; };
 		90DD2D9E24B36E8000717FE1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90DD2D9D24B36E8000717FE1 /* Launch Screen.storyboard */; };
-		A009AE58301E5DF400879920 /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = A009AE57301E5DF400879920 /* TestPlan.xctestplan */; };
+		A032EDF3301FAC01009486B5 /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = A032EDF2301FAC01009486B5 /* TestPlan.xctestplan */; };
 		D07CD44E1C5D589C00B7FB28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07CD44D1C5D589C00B7FB28 /* Images.xcassets */; };
 		D0BCFE4618AEBDA2004A7AAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0BCFE4418AEBDA2004A7AAE /* InfoPlist.strings */; };
 		D0BCFE7818AEBFEB004A7AAE /* anabatucada.pck in Resources */ = {isa = PBXBuildFile; fileRef = D0BCFE7718AEBFEB004A7AAE /* anabatucada.pck */; };
@@ -40,7 +40,8 @@
 		90B4C2AA2680BC560039117A /* dummy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dummy.h; sourceTree = "<group>"; };
 		90B4C2B52680C7E90039117A /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		90DD2D9D24B36E8000717FE1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		A009AE57301E5DF400879920 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		A032EDF2301FAC01009486B5 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		A032EDF4301FAC4C009486B5 /* anabatucada.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = anabatucada.xctestplan; path = ../anabatucada.xctestplan; sourceTree = "<group>"; };
 		D07CD44D1C5D589C00B7FB28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D0BCFE3418AEBDA2004A7AAE /* anabatucada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = anabatucada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0BCFE4318AEBDA2004A7AAE /* anabatucada-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "anabatucada-Info.plist"; sourceTree = "<group>"; };
@@ -66,13 +67,14 @@
 		D0BCFE2B18AEBDA2004A7AAE = {
 			isa = PBXGroup;
 			children = (
-				A009AE57301E5DF400879920 /* TestPlan.xctestplan */,
+				A032EDF2301FAC01009486B5 /* TestPlan.xctestplan */,
 				1F1575711F582BE20003B888 /* dylibs */,
 				D0BCFE7718AEBFEB004A7AAE /* anabatucada.pck */,
 				D0BCFE4118AEBDA2004A7AAE /* anabatucada */,
 				D0BCFE3618AEBDA2004A7AAE /* Frameworks */,
 				D0BCFE3518AEBDA2004A7AAE /* Products */,
 				F965960C2BC2C3A800579C7E /* PrivacyInfo.xcprivacy */,
+				A032EDF4301FAC4C009486B5 /* anabatucada.xctestplan */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,7 +182,7 @@
 			files = (
 				D07CD44E1C5D589C00B7FB28 /* Images.xcassets in Resources */,
 				D0BCFE7818AEBFEB004A7AAE /* anabatucada.pck in Resources */,
-				A009AE58301E5DF400879920 /* TestPlan.xctestplan in Resources */,
+				A032EDF3301FAC01009486B5 /* TestPlan.xctestplan in Resources */,
 				90DD2D9E24B36E8000717FE1 /* Launch Screen.storyboard in Resources */,
 				D0BCFE4618AEBDA2004A7AAE /* InfoPlist.strings in Resources */,
 				F965960D2BC2C3A800579C7E /* PrivacyInfo.xcprivacy in Resources */,

@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "34C66C5E-9A2E-4758-8DC5-1D86D7C20CAF",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:anabatucada.xcodeproj",
+      "identifier" : "D0BCFE3318AEBDA2004A7AAE",
+      "name" : "anabatucada"
+    }
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}

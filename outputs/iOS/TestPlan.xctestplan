@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7ce5eb630ca62488f62dee581222621ebe373114594e9e74f2c8528e178ce1ad
-size 263
+{
+  "configurations" : [
+    {
+      "id" : "B93A56F0-D653-42AA-8ECB-04875154BB5D",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}
