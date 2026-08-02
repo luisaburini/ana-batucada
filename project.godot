@@ -98,9 +98,11 @@ pointing/emulate_touch_from_mouse=true
 
 locale/include_text_server_data=true
 pseudolocalization/replace_with_accents=false
+rendering/text_driver="ICU / HarfBuzz / Graphite (Built-in)"
 
 [rendering]
 
 rendering_device/driver.ios="vulkan"
 renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+reflections/sky_reflections/texture_array_reflections.mobile=true
