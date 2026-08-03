@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b455rsqg2djr4"
-path="res://.godot/imported/Screenshot-estadio.png-7b0d8e0ac61a39c92b9203c78d017362.ctex"
+uid="uid://b551y2ckjnpka"
+path="res://.godot/imported/Screenshot-estacao-final-ipad.jpeg-924a9d6f63a0374213fe8dc9a300c7a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/Screenshot-estadio.png"
-dest_files=["res://.godot/imported/Screenshot-estadio.png-7b0d8e0ac61a39c92b9203c78d017362.ctex"]
+source_file="res://img/Screenshot-estacao-final-ipad.jpeg"
+dest_files=["res://.godot/imported/Screenshot-estacao-final-ipad.jpeg-924a9d6f63a0374213fe8dc9a300c7a1.ctex"]
 
 [params]
 

@@ -100,14 +100,11 @@ theme_override_font_sizes/font_size = 40
 text = "Estação Cultura"
 
 [node name="Score" parent="." unique_id=658535700 instance=ExtResource("9_w30at")]
-visible = false
 position = Vector2(4, 3)
 
 [node name="MogianaStory" parent="." unique_id=1555040148 instance=ExtResource("14_00yci")]
-visible = false
 
 [node name="EstacaoCulturaStory" parent="." unique_id=179103994 instance=ExtResource("14_tbd83")]
-visible = false
 
 [connection signal="pressed" from="TaquaralButton" to="." method="_on_taquaral_button_pressed"]
 [connection signal="pressed" from="CerescampMogianaButton" to="." method="_on_cerescamp_mogiana_button_pressed"]

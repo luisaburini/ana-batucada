@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brc8du4kmev6i"
-path="res://.godot/imported/Screenshot-concha.png-74b37b2bb5b2e521be11aacd08e48501.ctex"
+uid="uid://bw0q70stx0f0q"
+path="res://.godot/imported/Screenshot-concha-final-ipad.jpeg-a28d33e7de39625a9aa836258973d29d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/Screenshot-concha.png"
-dest_files=["res://.godot/imported/Screenshot-concha.png-74b37b2bb5b2e521be11aacd08e48501.ctex"]
+source_file="res://img/Screenshot-concha-final-ipad.jpeg"
+dest_files=["res://.godot/imported/Screenshot-concha-final-ipad.jpeg-a28d33e7de39625a9aa836258973d29d.ctex"]
 
 [params]
 

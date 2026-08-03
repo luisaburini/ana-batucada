@@ -5,7 +5,7 @@
                 margin: 0 auto;
                 padding: 0 0%;
                 clear: both;
-                background-color: blueviolet;
+                background-color: #de7218;
             }
             @font-face {
                 font-family: fredoka;
@@ -71,7 +71,10 @@
                 font-size: 8vh;
                 text-align: center;
                 color: white;
-                background-color: rgba(137, 43, 226, 0.5);
+            }
+            .downloads {
+                display: grid;
+                grid-template-columns: 50% 50%;
             }
         </style>
         <meta name="viewport" content="width=device-width, user-scalable=yes">
@@ -80,7 +83,16 @@
     </head>
     <body>
         <div class="title-img">
-            <h1 class="title"><a class="title" target="_blank" href="https://play.google.com/store/apps/details?id=ana.batucada">Ana Batucada</a></h1>
+            <img class="map" src="./img/logo2.jpeg">
+        </div>
+        <h2 class="subtitle">Downloads</h2>
+        <div class="downloads">
+            <p class="events"><a class="events" target="_blank" href="https://play.google.com/store/apps/details?id=ana.batucada">Google Play Store</a></p>
+            <p class="events"><a class="events" target="_blank" href="https://drive.google.com/drive/folders/1AtP2rwanWObF4-eAXG60fqaMECpXFAas?usp=sharing">Android APK</a></p>
+            <p class="events"><a class="events" target="_blank" href="https://testflight.apple.com/join/JvSU7Apg">Apple Store</a></p>
+            <p class="events"><a class="events" target="_blank" href="https://drive.google.com/drive/folders/1z971EKKD-7vocX6Xj4a4AxNw4NDulZlM?usp=sharing">Windows</a></p>
+            <p class="events"><a class="events" target="_blank" href="https://drive.google.com/drive/folders/1kY2XSsYm5e0Cv0SXErJBwzDKf7Pi1O_g?usp=sharing">MacOS</a></p>
+            <p class="events"><a class="events" target="_blank" href="https://drive.google.com/drive/folders/1GXy5zmtWBI6FKBlrIOcKshMtPP7GVfGi?usp=sharing">Linux</a></p>
         </div>
         <div class="home">
             <h2 class="subtitle">Eventos de lançamento</h2>
@@ -110,9 +122,6 @@ afro-brasileira, para que a música ainda exista no futuro.</p>
         <div class="screenshots">
             <img class="screenshot" src="./img/Screenshot-concha.png">
             <img class="screenshot" src="./img/Screenshot-estadio.png">
-        </div>
-        <div id="click-para-baixar" class="google-button">
-            <h1 class="click-to-dowload"><a class="click-to-dowload" target="_blank" href="https://play.google.com/store/apps/details?id=ana.batucada">Clique aqui para baixar o jogo na Google Play!</a></h1>
         </div>
     </body>
 </html>

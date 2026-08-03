@@ -25,7 +25,7 @@ func start():
 
 
 func _on_timer_timeout() -> void:
-	$Timer.start(3)
+	$Timer.start(6)
 	baloon = baloon+1
 	print("timer timeout baloon ", baloon)
 	if baloon >= 1 and baloon <= 5:

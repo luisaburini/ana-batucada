@@ -97,7 +97,7 @@ func _on_estacao_cultura_finished() -> void:
 	$Score.set_pontos_fase3(bumbo, conga, triangulo)
 	$Fanfarra.play()
 	$Score.show()
-	$ScoreTimer.start(3)
+	$ScoreTimer.start(9)
 
 
 func _on_taquaral_finished() -> void:
@@ -113,7 +113,7 @@ func _on_taquaral_finished() -> void:
 	$Score/Fase.text = "Concha Acustica do Taquaral"
 	$Fanfarra.play()
 	$Score.show()
-	$ScoreTimer.start(3)
+	$ScoreTimer.start(9)
 
 func _on_cerecamp_mogiana_finished() -> void:
 	show_estacao = true
@@ -139,7 +139,7 @@ func _on_cerecamp_mogiana_finished() -> void:
 	$Fanfarra.play()
 	$Score.show()
 	print("Start score timer")
-	$ScoreTimer.start(3)
+	$ScoreTimer.start(9)
 
 
 func _on_score_timer_timeout() -> void:
