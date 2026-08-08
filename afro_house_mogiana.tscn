@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dvbxccne0wsak"]
 
 [ext_resource type="PackedScene" uid="uid://deai557pn1v2b" path="res://funk_bumbo.tscn" id="1_8rlmn"]
-[ext_resource type="Texture2D" uid="uid://brjruosk4lffl" path="res://img/a.png" id="2_wbgvv"]
-[ext_resource type="Texture2D" uid="uid://bfteau2kcfko" path="res://img/A.png" id="3_lk02q"]
+[ext_resource type="Texture2D" uid="uid://c4o5okem4fqap" path="res://img/azinho.png" id="2_wbgvv"]
+[ext_resource type="Texture2D" uid="uid://ddvkcx8o3xido" path="res://img/Azao.png" id="3_lk02q"]
 
 [node name="AfroHouseHihat" unique_id=1240257173 instance=ExtResource("1_8rlmn")]
 

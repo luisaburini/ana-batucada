@@ -78,7 +78,6 @@ visible = false
 visible = false
 
 [node name="SambaTrapCaixa" parent="." unique_id=223969965 instance=ExtResource("13_5gpbq")]
-visible = false
 
 [node name="Ambiente" parent="." unique_id=1391179761 instance=ExtResource("4_5mrt3")]
 visible = false

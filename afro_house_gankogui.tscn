@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bt0fcdbrecsy7"]
 
 [ext_resource type="PackedScene" uid="uid://diweymv6b86n2" path="res://afro_house_bumbo.tscn" id="1_cp51n"]
-[ext_resource type="Texture2D" uid="uid://c8bwq2qn0agon" path="res://img/D.png" id="2_5d4vj"]
-[ext_resource type="Texture2D" uid="uid://c45mkva17nsnf" path="res://img/G.png" id="2_72xyp"]
-[ext_resource type="Texture2D" uid="uid://diomgnnnuea80" path="res://img/g.png" id="3_wxfa5"]
-[ext_resource type="Texture2D" uid="uid://b72ye2ggfhwi3" path="res://img/d.png" id="4_8ydif"]
-[ext_resource type="Texture2D" uid="uid://ym5pntcfu3py" path="res://img/p.png" id="5_5d4vj"]
+[ext_resource type="Texture2D" uid="uid://tvnrxkq5kng7" path="res://img/Dezao.png" id="2_62puu"]
+[ext_resource type="Texture2D" uid="uid://bon1tdokcweiu" path="res://img/gezinho.png" id="3_62puu"]
+[ext_resource type="Texture2D" uid="uid://bi1rr4kgpow46" path="res://img/pezinho.png" id="4_6kj63"]
+[ext_resource type="Texture2D" uid="uid://qessx017hiw3" path="res://img/Gezao.png" id="6_6kj63"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="7_5d4vj"]
 [ext_resource type="Texture2D" uid="uid://bm526bahdn5lm" path="res://img/O.png" id="7_62puu"]
+[ext_resource type="Texture2D" uid="uid://b5j7klsax3766" path="res://img/dezinho.png" id="7_yyiv0"]
 [ext_resource type="Texture2D" uid="uid://brjruosk4lffl" path="res://img/a.png" id="8_62puu"]
 
 [node name="AfroHouseGankogui" unique_id=121173897 instance=ExtResource("1_cp51n")]
@@ -41,7 +41,7 @@ visible = true
 [node name="1stPause" parent="VBoxContainer2/VBoxContainer2" index="3" unique_id=1406105847]
 visible = true
 custom_minimum_size = Vector2(55, 150)
-texture = ExtResource("2_5d4vj")
+texture = ExtResource("2_62puu")
 
 [node name="MeioTempo" parent="VBoxContainer2/VBoxContainer2" index="4" unique_id=1563145725]
 text = "   1/4"
@@ -58,7 +58,7 @@ custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_wxfa5")
+texture = ExtResource("3_62puu")
 
 [node name="Spacing" type="Label" parent="VBoxContainer2/VBoxContainer5" index="1" unique_id=1152266186]
 visible = false
@@ -73,7 +73,7 @@ propagate_maximum_size = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("5_5d4vj")
+texture = ExtResource("4_6kj63")
 
 [node name="MeioTempo" type="Label" parent="VBoxContainer2/VBoxContainer5" index="4" unique_id=899320653]
 custom_minimum_size = Vector2(200, 0)
@@ -97,7 +97,7 @@ custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_72xyp")
+texture = ExtResource("6_6kj63")
 
 [node name="Spacing" type="Label" parent="VBoxContainer2/VBoxContainer6" index="1" unique_id=252508231]
 visible = false
@@ -112,7 +112,7 @@ propagate_maximum_size = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("4_8ydif")
+texture = ExtResource("7_yyiv0")
 
 [node name="MeioTempo" type="Label" parent="VBoxContainer2/VBoxContainer6" index="4" unique_id=1142693800]
 custom_minimum_size = Vector2(200, 0)

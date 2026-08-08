@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dnlam0kvahltt" path="res://img/R.png" id="2_doxun"]
 [ext_resource type="Texture2D" uid="uid://cd3kcfnuokiib" path="res://img/S.png" id="3_utcyr"]
 [ext_resource type="Texture2D" uid="uid://dwihwp3kl3tf5" path="res://img/T.png" id="4_fhrgp"]
-[ext_resource type="Texture2D" uid="uid://ym5pntcfu3py" path="res://img/p.png" id="4_utcyr"]
+[ext_resource type="Texture2D" uid="uid://bi1rr4kgpow46" path="res://img/pezinho.png" id="4_ncy2w"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="5_fhrgp"]
-[ext_resource type="Texture2D" uid="uid://caukw0433fevu" path="res://img/P.png" id="7_ncy2w"]
+[ext_resource type="Texture2D" uid="uid://buppt7f065d76" path="res://img/Pezao.png" id="7_ncy2w"]
 
 [node name="FunkTriangulo" unique_id=566160781 instance=ExtResource("1_qnglk")]
 
@@ -38,7 +38,7 @@ propagate_maximum_size = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("4_utcyr")
+texture = ExtResource("4_ncy2w")
 
 [node name="MeioTempo" type="Label" parent="VBoxContainer2/VBoxContainer4" index="3" unique_id=632746905]
 custom_minimum_size = Vector2(200, 0)
@@ -83,6 +83,8 @@ texture = ExtResource("3_utcyr")
 custom_minimum_size = Vector2(70, 150)
 layout_mode = 2
 texture = ExtResource("7_ncy2w")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="1Tempo" type="Label" parent="VBoxContainer2/VBoxContainer5" index="2" unique_id=1090257374]
 custom_minimum_size = Vector2(200, 0)

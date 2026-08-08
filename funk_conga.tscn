@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c3vgn35yhuanh"]
 
 [ext_resource type="PackedScene" uid="uid://deai557pn1v2b" path="res://funk_bumbo.tscn" id="1_62kbj"]
+[ext_resource type="Texture2D" uid="uid://tvnrxkq5kng7" path="res://img/Dezao.png" id="2_1itcs"]
 [ext_resource type="Texture2D" uid="uid://cr05oglalee6a" path="res://img/7.png" id="2_e174k"]
 [ext_resource type="Texture2D" uid="uid://cipt5vc6u2pja" path="res://img/8.png" id="3_pwpnj"]
-[ext_resource type="Texture2D" uid="uid://ym5pntcfu3py" path="res://img/p.png" id="4_bd6aj"]
-[ext_resource type="Texture2D" uid="uid://c8bwq2qn0agon" path="res://img/D.png" id="4_e174k"]
+[ext_resource type="Texture2D" uid="uid://bi1rr4kgpow46" path="res://img/pezinho.png" id="5_dbs3s"]
 [ext_resource type="Texture2D" uid="uid://tn4r1carv1ho" path="res://img/2.png" id="6_dv5e3"]
 [ext_resource type="Texture2D" uid="uid://f85swpo67t0s" path="res://img/1.png" id="7_1itcs"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="9_bkd7w"]
@@ -33,7 +33,7 @@ layout_mode = 2
 [node name="1stPause" type="TextureRect" parent="VBoxContainer2/VBoxContainer4" index="2" unique_id=806608222]
 custom_minimum_size = Vector2(60, 200)
 layout_mode = 2
-texture = ExtResource("4_e174k")
+texture = ExtResource("2_1itcs")
 
 [node name="UmQuarto" type="Label" parent="VBoxContainer2/VBoxContainer4" index="3" unique_id=55023494]
 custom_minimum_size = Vector2(200, 0)
@@ -64,7 +64,7 @@ propagate_maximum_size = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("4_bd6aj")
+texture = ExtResource("5_dbs3s")
 
 [node name="MeioTempo" type="Label" parent="VBoxContainer2/VBoxContainer6" index="2" unique_id=425632428]
 custom_minimum_size = Vector2(200, 0)

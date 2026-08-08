@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://deai557pn1v2b"]
 
 [ext_resource type="Texture2D" uid="uid://biucxfjwp4kw3" path="res://img/b.png" id="1_fymtq"]
-[ext_resource type="Texture2D" uid="uid://ym5pntcfu3py" path="res://img/p.png" id="2_yav62"]
-[ext_resource type="Texture2D" uid="uid://caukw0433fevu" path="res://img/P.png" id="3_an8db"]
+[ext_resource type="Texture2D" uid="uid://bi1rr4kgpow46" path="res://img/pezinho.png" id="3_an8db"]
+[ext_resource type="Texture2D" uid="uid://buppt7f065d76" path="res://img/Pezao.png" id="4_an8db"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="5_1t4sa"]
 
 [node name="FunkBumbo" type="Node2D" unique_id=1803017267]
@@ -66,7 +66,7 @@ propagate_maximum_size = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("2_yav62")
+texture = ExtResource("3_an8db")
 
 [node name="MeioTempo" type="Label" parent="VBoxContainer2/VBoxContainer2" unique_id=1563145725]
 custom_minimum_size = Vector2(200, 0)
@@ -95,7 +95,7 @@ layout_mode = 2
 [node name="3rdNote" type="TextureRect" parent="VBoxContainer2/VBoxContainer3" unique_id=404956080]
 custom_minimum_size = Vector2(70, 150)
 layout_mode = 2
-texture = ExtResource("3_an8db")
+texture = ExtResource("4_an8db")
 
 [node name="1Tempo" type="Label" parent="VBoxContainer2/VBoxContainer3" unique_id=1574803834]
 custom_minimum_size = Vector2(200, 0)
