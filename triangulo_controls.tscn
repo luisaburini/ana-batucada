@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bvfci3ptk4mgy" path="res://compasso.tscn" id="3_dusqt"]
 [ext_resource type="PackedScene" uid="uid://c5g75l2jle23l" path="res://triangulo.tscn" id="5_lp6sv"]
 [ext_resource type="FontFile" uid="uid://bkfw8tormj306" path="res://fonts/Fredoka_Expanded-SemiBold.ttf" id="7_ruwoj"]
-[ext_resource type="Texture2D" uid="uid://cl4psa6y3n1cf" path="res://img/maozinha.png" id="8_lp6sv"]
+[ext_resource type="Texture2D" uid="uid://dgr4ktgcuqfq3" path="res://img/maozinha.png" id="8_lp6sv"]
 [ext_resource type="PackedScene" uid="uid://kc53kmnctf4c" path="res://tutorial.tscn" id="8_ruwoj"]
 [ext_resource type="Texture2D" uid="uid://ce0ct8vgoklpu" path="res://img/touch_double.png" id="10_acp3m"]
 [ext_resource type="Texture2D" uid="uid://bg32sft8ugjjw" path="res://img/stars.png" id="10_oh1e3"]
@@ -22,9 +22,8 @@ position = Vector2(12, 13)
 position = Vector2(626, 283)
 
 [node name="Maozinha" type="TouchScreenButton" parent="." unique_id=485194699]
-position = Vector2(1014.00006, 432.99997)
-rotation = 0.25830874
-scale = Vector2(0.75, 0.75)
+position = Vector2(470.99997, 331.99994)
+scale = Vector2(1.1431769, 1.1227545)
 texture_normal = ExtResource("8_lp6sv")
 
 [node name="AudioMestra" parent="." unique_id=712855729 instance=ExtResource("2_b6gyb")]
@@ -56,10 +55,10 @@ offset_bottom = 881.0
 texture = ExtResource("10_oh1e3")
 
 [node name="BrilhoNaMao" type="TextureRect" parent="." unique_id=616275140]
-offset_left = 1031.0
-offset_top = 515.0
-offset_right = 1287.0
-offset_bottom = 771.0
+offset_left = 1014.0
+offset_top = 541.0
+offset_right = 1270.0
+offset_bottom = 797.0
 texture = ExtResource("10_acp3m")
 
 [connection signal="ended" from="Compasso" to="." method="_on_compasso_ended"]

@@ -90,7 +90,7 @@ func _on_estacao_cultura_finished() -> void:
 	show_estacao = false
 	show_mogiana = false
 	show_end = true
-	$Score/Fase.text = "Estacao Cultura"
+	$Score/Fase.text = "Estação Cultura"
 	var bumbo = $EstacaoCultura.get_pontos_bumbo()
 	var conga = $EstacaoCultura.get_pontos_conga()
 	var triangulo = $EstacaoCultura.get_pontos_triangulo()
@@ -110,7 +110,7 @@ func _on_taquaral_finished() -> void:
 	var aro = $Taquaral.get_pontos_aro()
 	var caixa = $Taquaral.get_pontos_caixa()
 	$Score.set_pontos_fase1(palmas, aro, caixa)
-	$Score/Fase.text = "Concha Acustica do Taquaral"
+	$Score/Fase.text = "Concha Acústica do Taquaral"
 	$Fanfarra.play()
 	$Score.show()
 	$ScoreTimer.start(9)
@@ -134,7 +134,7 @@ func _on_cerecamp_mogiana_finished() -> void:
 	print("$CerecampMogiana.get_pontos_bumbo()", bumbo)
 	var gankogui = $CerecampMogiana.get_pontos_gankogui()
 	print("$CerecampMogiana.get_pontos_gankogui()", gankogui)
-	$Score/Fase.text = "Estadio Cerecamp Mogiana"
+	$Score/Fase.text = "Estádio Cerecamp Mogiana"
 	$Score.set_pontos_fase2(hihat, bumbo, gankogui)
 	$Fanfarra.play()
 	$Score.show()
