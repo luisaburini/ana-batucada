@@ -8,3 +8,6 @@ func _on_button_pressed():
 	$ButtonClick.play()
 	$ButtonClick.set_volume(30)
 	init.emit()
+
+func change_language(language):
+	$Button.texture_normal = load("res://img/iniciar-" + language + ".jpg")

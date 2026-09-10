@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ckk4uo0h6vosq"]
 
 [ext_resource type="Script" uid="uid://5ohtvmtymvm2" path="res://a_long_time_ago_in_a_galaxy_far_far_away.gd" id="1_25y03"]
-[ext_resource type="Texture2D" uid="uid://5fmm0u0texpj" path="res://img/04 - nova campinas com botão escrito.jpg" id="2_25y03"]
-[ext_resource type="Texture2D" uid="uid://cgkt7n7mh63k0" path="res://img/pular_nova-campinas.png" id="3_wja45"]
+[ext_resource type="Texture2D" uid="uid://cx2eodfg0lwf8" path="res://img/04 - nova campinas com botão escrito-pt.jpg" id="2_25y03"]
+[ext_resource type="Texture2D" uid="uid://bmo3pam1msuuc" path="res://img/pular_nova-campinas-pt.png" id="3_wja45"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="6_d8ffl"]
 
 [node name="ALongTimeAgoInAGalaxyFarFarAway" type="Node2D" unique_id=517388781]

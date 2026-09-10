@@ -41,6 +41,12 @@ var compasso_bumbo6 = "AAaaA"
 var compasso_bumbo7 = "AAAA"
 var compasso_bumbo8 = "Aaaaaaa"
 
+var language = "pt"
+
+func change_language(lang):
+	language = lang
+	$Tutorial.change_language(lang)
+	$PreJogo.change_language(lang)
 
 func music_according_to_phase():
 	if current_instrument == 0:
@@ -113,9 +119,7 @@ func start():
 		$Hihat1.set_is_tutorial(true)
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseHihat")
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de hihat para tocar.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha.")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_hihat_text())
 		$Tutorial.set_show_telas(true)
 		$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
 		$Hihat1.show()
@@ -123,6 +127,20 @@ Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.start()
 		$Compassos.set_music(music_according_to_phase())
 		$Compassos.reset()
+
+func tutorial_first_screen_hihat_text():
+	if language == "pt":
+		return "Clique no botão do sample de chimbal para tocar.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha."
+	if language == "es":
+		return "Haz clic en el botón de muestra de hi-hat para tocar.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, luego me acompañas."
+	if language == "en":
+		return "Click the hi-hat sample button to play.
+Follow the white dot that keeps the beat.
+First I play, then you play along."
 
 func set_instrument(i):
 	current_instrument = i
@@ -307,7 +325,13 @@ func _on_pre_jogo_ended() -> void:
 	$Bumbo1.set_is_tutorial(false)
 	$Hihat1.set_is_tutorial(false)
 		
-
+func prejogo_first_screen_text():
+	if language == "pt":
+		return "Agora é sua vez de tocar!"
+	if language == "es":
+		return "¡Ahora te toca jugar!"
+	if language == "en":
+		return "Now it's your turn to play!"
 
 func _on_compassos_ended() -> void:
 	$Pontuacao.hide()
@@ -320,10 +344,10 @@ func _on_compassos_ended() -> void:
 		pontos = 0
 		$Pontuacao.text = "0%"
 		if current_instrument == 0:
-			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 			$Compassos/Partitura.set_current_fase("Fase2Hihat", 0.6)
 		if current_instrument == 1:
-			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 			$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
 		$Compassos/Partitura.reset()
 		$PreJogo.reset()
@@ -354,9 +378,7 @@ func _on_compassos_ended() -> void:
 		$Pontuacao.hide()
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseBumbo")
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de bumbo para tocar.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha.")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", )
 		$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
 		$Compassos/Partitura.reset()
 		$Tutorial.set_show_telas(true)
@@ -369,6 +391,19 @@ Primeiro eu toco, depois você me acompanha.")
 		end()
 		ended.emit()
 
+func tutorial_first_screen_kick_text():
+	if language == "pt":
+		return "Clique no botão do sample de bumbo para tocar.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha."
+	if language == "es":
+		return "Haz clic en el botón de muestra de bombo para reproducir.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, luego me acompañas."
+	if language == "en":
+		return "Click the kick drum sample button to play.
+Follow the small white ball that sets the rhythm.
+First I play, then you play along."
 
 func _on_hihat_1_visibility_changed() -> void:
 	print("HIHAT1 VISIBILITY CHANGED: is_visible_in_tree ", $Hihat1.is_visible_in_tree())

@@ -11,7 +11,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func start():
+func start(language):
+	print("res://img/04 - nova campinas com botão escrito-" + language + ".jpg")
+	$TextureRect.texture = load("res://img/04 - nova campinas com botão escrito-" + language + ".jpg")
+	print("res://img/pular_nova-campinas-" + language + ".png")
+	$Pular.texture_normal = load("res://img/pular_nova-campinas-" + language + ".png")
 	$Timer.start(10)
 	$AudioLoader.load_audio("res://sounds/CLICK.mp3")
 	$AudioLoader.set_volume(20)

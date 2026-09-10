@@ -14,6 +14,10 @@ func _ready() -> void:
 	$SambaTrapControls.hide()
 	$PalmasControls.hide()
 
+func change_language(language):
+	$SambaTrapControls.change_language(language)
+	$PalmasControls.change_language(language)
+
 func _start() -> void:
 	show()
 	$Background.show()

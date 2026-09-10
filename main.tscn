@@ -9,13 +9,15 @@
 [ext_resource type="AudioStream" uid="uid://dxspstjsg1022" path="res://sounds/TEMA_AB.mp3" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://d26jgm6mdlk02" path="res://initial_story.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://ckk4uo0h6vosq" path="res://a_long_time_ago_in_a_galaxy_far_far_away.tscn" id="8_5vw27"]
-[ext_resource type="Texture2D" uid="uid://dssqyf63ojg8r" path="res://img/reset.png" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://blqp2i8ltbfs7" path="res://img/reset-pt.png" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://cfdhy2nripehj" path="res://img/espanhol.png" id="11_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://bvxmiuv5egi14" path="res://img/english.png" id="12_w48qg"]
+[ext_resource type="Texture2D" uid="uid://cohtw02sakq86" path="res://img/portugues.png" id="13_vivmo"]
 
 [node name="Main" type="Node" unique_id=2024718014]
 script = ExtResource("1_6bcuf")
 
 [node name="HUD" parent="." unique_id=381557931 instance=ExtResource("2_dw5fr")]
-visible = false
 
 [node name="Timer" type="Timer" parent="." unique_id=109654600]
 wait_time = 5.0
@@ -31,17 +33,15 @@ texture = ExtResource("5_7mycd")
 position = Vector2(671, 300)
 texture_normal = ExtResource("10_4c57u")
 
-[node name="Map" parent="." unique_id=523234685 instance=ExtResource("6_7mycd")]
-visible = false
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1057062210]
 stream = ExtResource("6_272bh")
 
+[node name="Map" parent="." unique_id=523234685 instance=ExtResource("6_7mycd")]
+position = Vector2(0, -1)
+
 [node name="InitialStory" parent="." unique_id=1939244834 instance=ExtResource("7_272bh")]
-visible = false
 
 [node name="ALongTimeAgoInAGalaxyFarFarAway" parent="." unique_id=517388781 instance=ExtResource("8_5vw27")]
-visible = false
 
 [node name="Logos2" type="TextureRect" parent="." unique_id=987621027]
 visible = false
@@ -57,13 +57,39 @@ offset_right = 1942.0
 offset_bottom = 1084.0
 texture = ExtResource("3_5vw27")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=699047177]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Espanhol" type="TouchScreenButton" parent="VBoxContainer" unique_id=1996131550]
+z_index = 500
+position = Vector2(1582, 735)
+texture_normal = ExtResource("11_ycdy4")
+
+[node name="Portugues" type="TouchScreenButton" parent="VBoxContainer" unique_id=427023792]
+z_index = 500
+position = Vector2(1575, 964)
+texture_normal = ExtResource("13_vivmo")
+texture_pressed = ExtResource("13_vivmo")
+
+[node name="Ingles" type="TouchScreenButton" parent="VBoxContainer" unique_id=313614004]
+z_index = 500
+position = Vector2(1577, 852)
+texture_normal = ExtResource("12_w48qg")
+
 [connection signal="init" from="HUD" to="." method="_on_hud_init"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="clicked_estacao_cultura" from="Map" to="." method="_on_map_clicked_estacao_cultura"]
 [connection signal="clicked_mogiana" from="Map" to="." method="_on_map_clicked_mogiana"]
 [connection signal="clicked_taquaral" from="Map" to="." method="_on_map_clicked_taquaral"]
 [connection signal="finished" from="Map" to="." method="_on_mapa_finished"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="ended" from="InitialStory" to="." method="_on_initial_story_ended"]
 [connection signal="ended" from="ALongTimeAgoInAGalaxyFarFarAway" to="." method="_on_a_long_time_ago_in_a_galaxy_far_far_away_ended"]
+[connection signal="pressed" from="VBoxContainer/Espanhol" to="." method="_on_espanhol_pressed"]
+[connection signal="pressed" from="VBoxContainer/Portugues" to="." method="_on_portugues_pressed"]
+[connection signal="pressed" from="VBoxContainer/Ingles" to="." method="_on_ingles_pressed"]

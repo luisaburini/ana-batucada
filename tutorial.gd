@@ -49,6 +49,21 @@ Primeiro eu toco, depois você me acompanha"
 	$ClickAudio.set_volume(30)
 	$ClickAudio.load_audio("res://sounds/CLICK.mp3")
 
+func change_language(language):
+	$FunkBumbo.change_language(language)
+	$FunkConga.change_language(language)
+	$FunkTriangulo.change_language(language)
+	
+	$AfroHouseBumbo.change_language(language)
+	$AfroHouseHihat.change_language(language)
+	$AfroHouseGankogui.change_language(language)
+	
+	$SambaTrapAro.change_language(language)
+	$SambaTrapPalmas.change_language(language)
+	$SambaTrapCaixa.change_language(language)
+	
+	$Next.texture_normal = load("res://img/pular_nova-campinas-"+language+".png")
+
 func set_first_screen(f, t):
 	first_screen = f
 	first_text = t

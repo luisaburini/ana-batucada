@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bpn6g8xpvryhc"]
 
 [ext_resource type="Script" uid="uid://cfwhhd57v6y8q" path="res://mogiana_story.gd" id="1_i1uq0"]
-[ext_resource type="Texture2D" uid="uid://ku0hrthvcnda" path="res://img/Conversas/Conversaestadio1.jpg" id="2_gmkcc"]
-[ext_resource type="Texture2D" uid="uid://cgkt7n7mh63k0" path="res://img/pular_nova-campinas.png" id="3_gmkcc"]
+[ext_resource type="Texture2D" uid="uid://wrmk0ekghks2" path="res://img/Conversas/Conversaestacao1-pt.jpg" id="2_gmkcc"]
+[ext_resource type="Texture2D" uid="uid://bmo3pam1msuuc" path="res://img/pular_nova-campinas-pt.png" id="3_gmkcc"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_gmkcc"]
 
 [node name="MogianaStory" type="Node2D" unique_id=1555040148]

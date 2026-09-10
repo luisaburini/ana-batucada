@@ -5,6 +5,10 @@ var hihat = 0
 var bumbo = 0
 var gankogui = 0
 
+func change_language(language):
+	$AfroHouseControls.change_language(language)
+	$GankoguiControls.change_language(language)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Ambiente.load_audio("res://sounds/FASE2/100BPM/AMBIENTE_ESTADIO.mp3")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpuv23l7ugco"]
 
 [ext_resource type="Script" uid="uid://caylvj2oejk8e" path="res://hud.gd" id="1_irc72"]
-[ext_resource type="Texture2D" uid="uid://cpwvcx5cdmwdk" path="res://img/iniciar.jpg" id="3_vq8kx"]
+[ext_resource type="Texture2D" uid="uid://btvljgrhcmdva" path="res://img/iniciar-pt.jpg" id="2_640wx"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_640wx"]
 [ext_resource type="Texture2D" uid="uid://crcof6ome5lrm" path="res://img/logo2.jpeg" id="4_a2258"]
 
@@ -12,7 +12,7 @@ script = ExtResource("1_irc72")
 z_index = 1000
 position = Vector2(38, 908)
 scale = Vector2(0.89810437, 0.8785714)
-texture_normal = ExtResource("3_vq8kx")
+texture_normal = ExtResource("2_640wx")
 
 [node name="ButtonClick" parent="." unique_id=352110421 instance=ExtResource("4_640wx")]
 

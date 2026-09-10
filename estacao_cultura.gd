@@ -14,6 +14,11 @@ func _ready() -> void:
 	$FunkMPCControls.hide()
 	$TextureRect.hide()
 	
+func change_language(language):
+	$FunkMPCControls.change_language(language)
+	$TrianguloControls.change_language(language)
+	
+	
 func _start() -> void:
 	show()
 	$TextureRect.show()

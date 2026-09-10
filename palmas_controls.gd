@@ -30,6 +30,7 @@ var compasso_palmas6 = "kppkO"
 var compasso_palmas7 = "PkppkP"
 var compasso_palmas8 = "kppkO"
 
+var language = "pt"
 
 var current_sheet = [compasso_palmas1, compasso_palmas2, compasso_palmas3, compasso_palmas4,
 					 compasso_palmas5, compasso_palmas6, compasso_palmas7, compasso_palmas8,
@@ -37,6 +38,11 @@ var current_sheet = [compasso_palmas1, compasso_palmas2, compasso_palmas3, compa
 
 func music_according_to_phase():
 	return current_sheet
+
+func change_language(lang):
+	language = lang
+	$Tutorial.change_language(lang)
+	$PreJogo.change_language(lang)
 
 func start():
 	$Compassos/Partitura.set_current_fase("Fase1Palmas", 0.6)
@@ -53,9 +59,7 @@ func start():
 		must_vibrate = false
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("SambaTrapPalmas")
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique nas palmas para tocar.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha.")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_clapping_text())
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
 		$TouchPalmas.hide()
@@ -65,6 +69,19 @@ Primeiro eu toco, depois você me acompanha.")
 		$Compassos.set_music(music_according_to_phase())
 		
 
+func tutorial_first_screen_clapping_text():
+	if language == "pt":
+		return "Clique nas palmas para tocar.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha."
+	if language == "es":
+		return "Haz clic en las palmas para tocar.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, luego tú me sigues."
+	if language == "en":
+		return "Click on the clapping hands to play.
+Follow the white ball that sets the rhythm.
+First I play, then you join in."
 
 func current_audio_sem_solo():
 	return "res://sounds/FASE1/100BPM/LOOPS/FASE1_LOOP_SEM_" + instruments[current_instrument] + ".mp3"
@@ -89,9 +106,17 @@ func _ready() -> void:
 	$Compassos.note_width = 42
 	$TouchPalmas.texture = load("")
 	$TouchPalmas.hide()
-	$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
+	$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 	$Pontuacao.hide()
 	$PreJogo.hide()
+
+func prejogo_first_screen_text():
+	if language == "pt":
+		return "Agora é sua vez de tocar!"
+	if language == "es":
+		return "¡Ahora te toca jugar!"
+	if language == "en":
+		return "Now it's your turn to play!"
 
 func update_pontos():
 	pontos = pontos+1

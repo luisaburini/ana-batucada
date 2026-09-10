@@ -32,12 +32,19 @@ var gankogui_compasso6 = "GgDgO"
 var gankogui_compasso7 = "GgDgpgP"
 var gankogui_compasso8 = "GgDgO"
 
+var language = "pt"
+
 var current_sheet = [gankogui_compasso1, gankogui_compasso2, gankogui_compasso3, gankogui_compasso4,
 					 gankogui_compasso5, gankogui_compasso6, gankogui_compasso7, gankogui_compasso8,
 					 gankogui_compasso1]
 
 func music_according_to_phase():
 	return current_sheet
+
+func change_language(lang):
+	language = lang
+	$Tutorial.change_language(lang)
+	$PreJogo.change_language(lang)
 
 func start():
 	$Compassos/Partitura.set_current_fase("Fase2Agogo", 0.6)

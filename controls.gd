@@ -45,6 +45,13 @@ var conga_compasso6 = "82D2771"
 var conga_compasso7 = "82D2p727"
 var conga_compasso8 = "82D2771"
 
+var language = "pt"
+
+func change_language(lang):
+	language = lang
+	$Tutorial.change_language(lang)
+	$PreJogo.change_language(lang)
+
 func music_according_to_phase():
 	if current_instrument == 0:
 		return  [bumbo_compasso1, bumbo_compasso2,	 bumbo_compasso3,	 bumbo_compasso4,
@@ -105,6 +112,21 @@ func init_phase_buttons(btns, btn_color):
 		obj.set_volume(35)
 		obj.show()
 	
+func tutorial_first_screen_kick_text():
+	if language == "pt":
+		return "Clique no botão do sample de bumbo para tocar.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha!"
+	if language == "es":
+		return "Haz clic en el botón de sample de bombo para reproducir.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, ¡luego me acompañas!"
+	if language == "en":
+		return "Click the kick drum sample button to play.
+Follow the little white ball that sets the rhythm.
+First I play, then you join in!"
+
+	
 func start():
 	$bumbo1.hide()
 	$conga1.hide()
@@ -122,9 +144,7 @@ func start():
 		$Compasso.set_is_tutorial(true)
 		$bumbo1.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("FunkBumbo")
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de bumbo para tocar.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha!")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_kick_text())
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
 		$Compasso/Partitura.set_current_fase("Fase3Bumbo", 0.6)
@@ -180,6 +200,13 @@ func update_pontos():
 			$Pontuacao.text = str(get_percent()) + "%"
 		was_pressed = true
 
+func prejogo_first_screen_text():
+	if language == "pt":
+		return "Agora é sua vez de tocar!"
+	if language == "es":
+		return "¡Ahora te toca jugar!"
+	if language == "en":
+		return "Now it's your turn to play!"
 
 func _on_compasso_ended():
 	if tutorial_ended && !must_leave:
@@ -190,10 +217,10 @@ func _on_compasso_ended():
 		$PreJogo.reset()
 		if current_instrument == 0:
 			$Compasso/Partitura.set_current_fase("Fase3Bumbo", 0.6)
-			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 		if current_instrument == 1:
 			$Compasso/Partitura.set_current_fase("Fase3Conga", 0.6)
-			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 		$Compasso/Partitura.reset()
 		$PreJogo.show()
 		stop_ambient.emit()
@@ -226,9 +253,7 @@ func _on_compasso_ended():
 		$Compasso/Partitura.set_current_fase("Fase3Conga", 0.6)
 		$Compasso/Partitura.reset()
 		$Tutorial.set_instruction_node("FunkConga")
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de conga para tocar.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha.")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_conga_text())
 		$Tutorial.set_show_telas(true)
 		$Compasso.set_is_tutorial(true)
 		$conga1.set_is_tutorial(true)
@@ -246,6 +271,19 @@ Primeiro eu toco, depois você me acompanha.")
 		ended.emit()
 		return
 	
+func tutorial_first_screen_conga_text():
+	if language == "pt":
+		return "Clique no botão do sample de conga para tocar.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha."
+	if language == "es":
+		return "Haz clic en el botón de muestra de conga para tocar.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, luego me acompañas."
+	if language == "en":
+		return "Click the conga sample button to play.
+Follow the white dot that sets the rhythm.
+First I play, then you join in."
 	
 func get_pontos():
 	return pontos

@@ -13,7 +13,7 @@ var pontos = 0
 var maozinha_solta = false
 var tutorial_ended = false
 var _is_tutorial = true
-
+var language = "pt"
 
 # P - pausa de 1 tempo (Semínima)
 # p - pausa de meio tempo (colcheia)
@@ -37,6 +37,11 @@ var current_sheet = [compasso1, compasso2, compasso3, compasso4,
 
 func current_music_sheet():
 	return current_sheet
+	
+func change_language(lang):
+	language = lang
+	$Tutorial.change_language(lang)
+	$PreJogo.change_language(lang)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,13 +62,27 @@ func _ready():
 	$BrilhoEmcima.hide()
 	$BrilhoNaMao.hide()
 	$Tutorial.set_instruction_node("FunkTriangulo")
-	$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique na mão à direita para segurar ou soltar o triângulo.
-Clique à esquerda para tocar o triângulo.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha")
+	$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_triangle())
 	$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
+
+func tutorial_first_screen_triangle():
+	if language == "pt":
+		return "Clique na mão à direita para segurar ou soltar o triângulo.
+Clique à esquerda para tocar o triângulo.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha"
+	if language == "es":
+		return "Haz clic en la mano derecha para sujetar o soltar el triángulo.
+Haz clic en la izquierda para tocar el triángulo.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, luego tú sigues."
+	if language == "en":
+		return "Click the hand on the right to hold or release the triangle.
+Click on the left to play the triangle.
+Follow the small white ball that sets the rhythm.
+First I play, then you join in."
 
 func instrument_time():
 	return 0.05

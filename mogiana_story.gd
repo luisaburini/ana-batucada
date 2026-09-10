@@ -1,13 +1,15 @@
 extends Node2D
 
 var baloon = 0
+var lang = "pt"
+
 signal ended()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("ready baloon 0")
 	baloon = 0
-	$TextureRect.texture = load("res://img/Conversas/Conversaestadio1.jpg")
+	$TextureRect.texture = load("res://img/Conversas/Conversaestadio1-pt.jpg")
 	$TextureRect.show()
 
 
@@ -30,7 +32,7 @@ func _on_timer_timeout() -> void:
 	baloon = baloon+1
 	print("timer timeout baloon ", baloon)
 	if baloon >= 1 and baloon <= 5:
-		$TextureRect.texture = load("res://img/Conversas/Conversaestadio"+str(baloon)+".jpg")
+		$TextureRect.texture = load("res://img/Conversas/Conversaestadio"+str(baloon)+"-"+lang+".jpg")
 		return
 	if baloon == 6:
 		$Timer.stop()
@@ -41,3 +43,7 @@ func _on_touch_screen_button_pressed() -> void:
 	$CLickAudio.play()
 	$Timer.stop()
 	ended.emit()
+
+func change_language(language):
+	lang = language
+	$TouchScreenButton.texture_normal = load("res://img/pular_nova-campinas-"+language+".png")

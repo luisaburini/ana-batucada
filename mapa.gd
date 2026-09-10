@@ -35,6 +35,12 @@ func _ready():
 	$EstacaoCulturaLabel.hide()
 	$EstacaoCulturaButton.hide()
 
+func change_language(language):
+	$EstacaoCulturaStory.change_language(language)
+	$MogianaStory.change_language(language)
+	$Taquaral.change_language(language)
+	
+
 func _on_taquaral_button_pressed() -> void:
 	$ButtonClick.load_audio("res://sounds/FASE1/100BPM/BOTAO_INICIAR3.mp3")
 	$ButtonClick.play()

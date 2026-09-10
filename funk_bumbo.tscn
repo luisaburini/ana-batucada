@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://deai557pn1v2b"]
 
 [ext_resource type="Texture2D" uid="uid://biucxfjwp4kw3" path="res://img/b.png" id="1_fymtq"]
+[ext_resource type="Script" uid="uid://da3s36ba3f1vb" path="res://funk_bumbo.gd" id="1_lyj5g"]
 [ext_resource type="Texture2D" uid="uid://bi1rr4kgpow46" path="res://img/pezinho.png" id="3_an8db"]
 [ext_resource type="Texture2D" uid="uid://buppt7f065d76" path="res://img/Pezao.png" id="4_an8db"]
 [ext_resource type="FontFile" uid="uid://x412q46p0hcn" path="res://fonts/Roboto-Bold.ttf" id="5_1t4sa"]
 
 [node name="FunkBumbo" type="Node2D" unique_id=1803017267]
+script = ExtResource("1_lyj5g")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1042979515]
 offset_right = 1922.0

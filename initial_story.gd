@@ -1,6 +1,8 @@
 extends Node2D
 
 var baloon = 0
+var language = "pt"
+
 signal ended()
 
 # Called when the node enters the scene tree for the first time.
@@ -9,7 +11,7 @@ func _ready() -> void:
 	baloon = 0
 	$AudioLoader.load_audio("res://sounds/CLICK.mp3")
 	$AudioLoader.set_volume(20)
-	$Background.texture = load("res://img/Conversas/Conversaconchaacustica1.jpg")
+	$Background.texture = load("res://img/Conversas/Conversaconchaacustica1"+language+".jpg")
 	$Background.show()
 
 
@@ -17,7 +19,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func start():
+func start(lang):
+	language = lang
+	print("res://img/pular_nova-campinas-"+lang+".png")
+	$TouchScreenButton.texture_normal = load("res://img/pular_nova-campinas-"+lang+".png")
+	print("res://img/Conversas/Conversaconchaacustica1-"+lang+".jpg")
+	$Background.texture = load("res://img/Conversas/Conversaconchaacustica1-"+lang+".jpg")
 	$Timer.autostart = false
 	$Timer.one_shot = true
 	baloon = 0
@@ -28,9 +35,9 @@ func start():
 func _on_timer_timeout() -> void:
 	$Timer.start(6)
 	baloon = baloon+1
-	print("timer timeout baloon ", baloon)
+	print("timer timeout baloon ", "res://img/Conversas/Conversaconchaacustica"+str(baloon)+"-"+language+".jpg")
 	if baloon >= 1 and baloon <= 5:
-		$Background.texture = load("res://img/Conversas/Conversaconchaacustica"+str(baloon)+".jpg")
+		$Background.texture = load("res://img/Conversas/Conversaconchaacustica"+str(baloon)+"-"+language+".jpg")
 		return
 	if baloon == 6:
 		$Timer.stop()

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://hwgcanrppq7n"]
 
 [ext_resource type="Script" uid="uid://brvfn1kyqbhwt" path="res://estacao_cultura_story.gd" id="1_mrgmv"]
-[ext_resource type="Texture2D" uid="uid://yagg6dp6rxpw" path="res://img/Conversas/Conversaestacao1.jpg" id="2_3eeoc"]
-[ext_resource type="Texture2D" uid="uid://cgkt7n7mh63k0" path="res://img/pular_nova-campinas.png" id="3_3eeoc"]
+[ext_resource type="Texture2D" uid="uid://wrmk0ekghks2" path="res://img/Conversas/Conversaestacao1-pt.jpg" id="2_3eeoc"]
+[ext_resource type="Texture2D" uid="uid://bmo3pam1msuuc" path="res://img/pular_nova-campinas-pt.png" id="3_3eeoc"]
 [ext_resource type="PackedScene" uid="uid://hvfgktj3o36l" path="res://mp_3_loader.tscn" id="4_3eeoc"]
 
 [node name="EstacaoCulturaStory" type="Node2D" unique_id=179103994]

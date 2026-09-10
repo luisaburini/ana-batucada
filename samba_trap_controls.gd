@@ -48,6 +48,12 @@ var compasso_caixa11 = "OXP"
 var compasso_caixa12 = "OxxX"
 var compasso_caixa13 = "OXP"
 
+var language = "pt"
+
+func change_language(lang):
+	language = lang
+	$Tutorial.change_language(lang)
+	$PreJogo.change_language(lang)
 
 func music_according_to_phase():
 	if current_instrument == 0:
@@ -123,9 +129,7 @@ func start():
 		$Compassos.set_is_tutorial(true)
 		$Aro1.set_is_tutorial(true)
 		$Tutorial.reset()
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de aro para tocar.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha.")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_rim_text())
 		$Tutorial.set_show_telas(true)
 		$Aro1.show()
 		stop_ambient.emit()
@@ -133,6 +137,20 @@ Primeiro eu toco, depois você me acompanha.")
 		$Compassos/Partitura.set_current_fase("Fase1Aro", 0.6)
 		$Compassos.set_music(music_according_to_phase())
 		$Compassos.reset()
+
+func tutorial_first_screen_rim_text():
+	if language == "pt":
+		return "Clique no botão do sample de aro para tocar.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha."
+	if language == "es":
+		return "Haz clic en el botón de muestra del aro para reproducir.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, luego me acompañas."
+	if language == "en":
+		return 	"Click the rim sample button to play.
+Follow the small white ball that sets the rhythm.
+First I play, then you play along."
 
 func reset():
 	pontos = 0
@@ -277,7 +295,13 @@ func _on_pre_jogo_ended() -> void:
 	$Compassos.start_timer(instrument_time())
 	$AudioSemSolo.play()
 		
-
+func prejogo_first_screen_text():
+	if language == "pt":
+		return "Agora é sua vez de tocar!"
+	if language == "es":
+		return "¡Ahora te toca jugar!"
+	if language == "en":
+		return "Now it's your turn to play!"
 
 func _on_compassos_ended() -> void:
 	$Pontuacao.hide()
@@ -290,10 +314,10 @@ func _on_compassos_ended() -> void:
 		pontos = 0
 		$Pontuacao.text = "0%"
 		if current_instrument == 0:
-			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 			$Compassos/Partitura.set_current_fase("Fase1Aro", 0.6)
 		if current_instrument == 1:
-			$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
+			$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 			$Compassos/Partitura.set_current_fase("Fase1Caixa", 0.6)
 		$Compassos/Partitura.reset()
 		$PreJogo.show()
@@ -328,9 +352,7 @@ func _on_compassos_ended() -> void:
 		$Tutorial.reset()
 		$Compassos/Partitura.set_current_fase("Fase1Caixa", 0.6)
 		$Compassos/Partitura.reset()
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no botão do sample de caixa para tocar.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha.")
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_snare_text())
 		$Tutorial.set_show_telas(true)
 		stop_ambient.emit()
 		$Tutorial.start()
@@ -339,6 +361,22 @@ Primeiro eu toco, depois você me acompanha.")
 		end()
 		ended.emit()
 
+
+func tutorial_first_screen_snare_text():
+	if language == "pt":
+		return "Clique no botão do sample de caixa para tocar.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha."
+	if language == "es":
+		return "Haz clic en el botón de muestra de caja para reproducir.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, luego tú sigues."
+	if language == "en":
+		return "Click the snare drum sample button to play.
+Follow the white dot that sets the rhythm.
+First I play, then you play along.
+Enviar feedback
+Resultados de tradução disponíveis"
 
 func _on_caixa_1_pressed() -> void:
 	var curr_note = $Compassos.get_current_note_name()
