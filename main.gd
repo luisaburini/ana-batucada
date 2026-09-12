@@ -100,6 +100,7 @@ func _on_reset_pressed() -> void:
 
 
 func _on_espanhol_pressed() -> void:
+	$Reset.texture_normal = load("res://img/reset-es.png")
 	$VBoxContainer/Ingles.show()
 	$VBoxContainer/Portugues.show()
 	$VBoxContainer/Espanhol.hide()
@@ -108,6 +109,7 @@ func _on_espanhol_pressed() -> void:
 
 
 func _on_portugues_pressed() -> void:
+	$Reset.texture_normal = load("res://img/reset-pt.png")
 	$VBoxContainer/Ingles.show()
 	$VBoxContainer/Portugues.hide()
 	$VBoxContainer/Espanhol.show()
@@ -116,6 +118,7 @@ func _on_portugues_pressed() -> void:
 
 
 func _on_ingles_pressed() -> void:
+	$Reset.texture_normal = load("res://img/reset-en.png")
 	$VBoxContainer/Ingles.hide()
 	$VBoxContainer/Portugues.show()
 	$VBoxContainer/Espanhol.show()

@@ -40,6 +40,8 @@ func current_music_sheet():
 	
 func change_language(lang):
 	language = lang
+	$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_triangle())
+	$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 	$Tutorial.change_language(lang)
 	$PreJogo.change_language(lang)
 
@@ -62,12 +64,20 @@ func _ready():
 	$BrilhoEmcima.hide()
 	$BrilhoNaMao.hide()
 	$Tutorial.set_instruction_node("FunkTriangulo")
-	$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_triangle())
-	$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
+func prejogo_first_screen_text():
+	if language == "pt":
+		return "Agora é sua vez de tocar!"
+	if language == "es":
+		return "¡Ahora te toca jugar!"
+	if language == "en":
+		return "Now it's your turn to play!"
+
+
 func tutorial_first_screen_triangle():
+	print("TRIANGULO", language)
 	if language == "pt":
 		return "Clique na mão à direita para segurar ou soltar o triângulo.
 Clique à esquerda para tocar o triângulo.

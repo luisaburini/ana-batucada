@@ -37,7 +37,6 @@ visible = false
 
 [node name="Seminima" parent="VBoxContainer2/VBoxContainer3" index="5" unique_id=1748007601]
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="2Tempos" parent="VBoxContainer2/VBoxContainer4" parent_id_path=PackedInt32Array(574618207) index="3" unique_id=1589833112]
 text = "   2"

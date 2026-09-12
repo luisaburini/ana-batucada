@@ -106,11 +106,12 @@ func _ready() -> void:
 	$Compassos.note_width = 42
 	$TouchPalmas.texture = load("")
 	$TouchPalmas.hide()
-	$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
+	print("_ready", language)
 	$Pontuacao.hide()
 	$PreJogo.hide()
 
 func prejogo_first_screen_text():
+	print(name, " ", prejogo_first_screen_text, " ", language)
 	if language == "pt":
 		return "Agora é sua vez de tocar!"
 	if language == "es":
@@ -196,6 +197,7 @@ func _on_compassos_ended() -> void:
 		$TouchPalmas.hide()
 		$TouchPalmas.texture = load("")
 		$PalmasAudio.load_audio("")
+		$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 		$PreJogo.show()
 		stop_ambient.emit()		
 		$PreJogo.start()

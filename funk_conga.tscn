@@ -45,7 +45,7 @@ text = " 1/4"
 [node name="Semicolcheia" type="Label" parent="VBoxContainer2/VBoxContainer4" index="4" unique_id=74850283]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_bkd7w")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = " semicolcheia"
 
 [node name="VBoxContainer6" type="HBoxContainer" parent="VBoxContainer2" index="2" unique_id=190829929]
@@ -76,8 +76,10 @@ text = "1/2"
 [node name="Seminima" type="Label" parent="VBoxContainer2/VBoxContainer6" index="3" unique_id=179681608]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_bkd7w")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "colcheia"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer2" parent="VBoxContainer2" index="3" unique_id=848195263]
 theme_override_constants/separation = 163
@@ -91,6 +93,11 @@ custom_minimum_size = Vector2(50, 200)
 
 [node name="MeioTempo" parent="VBoxContainer2/VBoxContainer2" index="3" unique_id=1563145725]
 text = "   1/2     "
+
+[node name="Colcheia" parent="VBoxContainer2/VBoxContainer2" index="4" unique_id=1069355433]
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer5" type="HBoxContainer" parent="VBoxContainer2" index="4" unique_id=1529926805]
 propagate_maximum_size = false
@@ -118,9 +125,8 @@ text = " 3/4"
 [node name="Seminima" type="Label" parent="VBoxContainer2/VBoxContainer5" index="4" unique_id=2081484726]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_bkd7w")
-theme_override_font_sizes/font_size = 100
-text = "semicolcheia 
-pontuada"
+theme_override_font_sizes/font_size = 80
+text = "colcheia pontuada"
 horizontal_alignment = 1
 vertical_alignment = 1
 

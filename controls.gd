@@ -277,7 +277,7 @@ func tutorial_first_screen_conga_text():
 Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha."
 	if language == "es":
-		return "Haz clic en el botón de muestra de conga para tocar.
+		return "Haz clic en el botón de sample de conga para tocar.
 Sigue el punto blanco que marca el ritmo.
 Primero toco yo, luego me acompañas."
 	if language == "en":

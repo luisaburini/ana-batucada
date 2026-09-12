@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 	pass
 
 func start():
+	$TextureRect.texture = load("res://img/Conversas/Conversaestadio1-"+lang+".jpg")
 	$CLickAudio.load_audio("res://sounds/CLICK.mp3")
 	$CLickAudio.set_volume(30)
 	$Timer.autostart = false
@@ -30,7 +31,7 @@ func start():
 func _on_timer_timeout() -> void:
 	$Timer.start(6)
 	baloon = baloon+1
-	print("timer timeout baloon ", baloon)
+	print("timer timeout baloon ", baloon, " res://img/Conversas/Conversaestadio"+str(baloon)+"-"+lang+".jpg")
 	if baloon >= 1 and baloon <= 5:
 		$TextureRect.texture = load("res://img/Conversas/Conversaestadio"+str(baloon)+"-"+lang+".jpg")
 		return

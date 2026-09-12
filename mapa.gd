@@ -39,7 +39,9 @@ func change_language(language):
 	$EstacaoCulturaStory.change_language(language)
 	$MogianaStory.change_language(language)
 	$Taquaral.change_language(language)
-	
+	$CerecampMogiana.change_language(language)
+	$EstacaoCultura.change_language(language)
+	$Score.change_language(language)
 
 func _on_taquaral_button_pressed() -> void:
 	$ButtonClick.load_audio("res://sounds/FASE1/100BPM/BOTAO_INICIAR3.mp3")
@@ -120,6 +122,7 @@ func _on_taquaral_finished() -> void:
 	$Fanfarra.play()
 	$Score.show()
 	$ScoreTimer.start(9)
+	$MogianaStory.show()
 
 func _on_cerecamp_mogiana_finished() -> void:
 	show_estacao = true
@@ -146,6 +149,7 @@ func _on_cerecamp_mogiana_finished() -> void:
 	$Score.show()
 	print("Start score timer")
 	$ScoreTimer.start(9)
+	$EstacaoCulturaStory.show()
 
 
 func _on_score_timer_timeout() -> void:
@@ -160,9 +164,10 @@ func _on_score_timer_timeout() -> void:
 		$EstacaoCulturaStory.show()
 		$EstacaoCulturaStory.start()
 	if show_mogiana:
-		print("Mogiana")
-		$MogianaStory.show()
+		print("show Mogiana")
+		$MogianaStory/TextureRect.show()
 		$MogianaStory.start()
+		$MogianaStory.show()
 		
 	if show_end:
 		finished.emit()

@@ -57,6 +57,7 @@ autowrap_mode = 3
 visible = false
 
 [node name="FunkConga" parent="." unique_id=2067175657 instance=ExtResource("6_bsk3x")]
+visible = false
 
 [node name="FunkTriangulo" parent="." unique_id=1231501180 instance=ExtResource("7_dl7dh")]
 visible = false
@@ -77,7 +78,6 @@ visible = false
 visible = false
 
 [node name="SambaTrapCaixa" parent="." unique_id=223969965 instance=ExtResource("13_5gpbq")]
-visible = false
 
 [node name="Ambiente" parent="." unique_id=1391179761 instance=ExtResource("4_5mrt3")]
 visible = false

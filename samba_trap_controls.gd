@@ -144,7 +144,7 @@ func tutorial_first_screen_rim_text():
 Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha."
 	if language == "es":
-		return "Haz clic en el botón de muestra del aro para reproducir.
+		return "Haz clic en el botón de sample del aro para reproducir.
 Sigue el punto blanco que marca el ritmo.
 Primero toco yo, luego me acompañas."
 	if language == "en":
@@ -368,15 +368,13 @@ func tutorial_first_screen_snare_text():
 Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha."
 	if language == "es":
-		return "Haz clic en el botón de muestra de caja para reproducir.
+		return "Haz clic en el botón de sample de caja para reproducir.
 Sigue el punto blanco que marca el ritmo.
 Primero toco yo, luego tú sigues."
 	if language == "en":
 		return "Click the snare drum sample button to play.
 Follow the white dot that sets the rhythm.
-First I play, then you play along.
-Enviar feedback
-Resultados de tradução disponíveis"
+First I play, then you play along."
 
 func _on_caixa_1_pressed() -> void:
 	var curr_note = $Compassos.get_current_note_name()

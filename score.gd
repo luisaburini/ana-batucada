@@ -9,6 +9,46 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func change_language(language):
+	if language == "pt":
+		$Fase1/Palmas.text = "Palmas"
+		$Fase1/Aro.text = "Aro"
+		$Fase1/Caixa.text = "Caixa"
+		
+		$Fase2/Hihat.text = "Chimbal"
+		$Fase2/Bumbo.text = "Bumbo"
+		$Fase2/Guinkogui.text = "Agogô"
+	
+		$Fase3/Congas.text = "Conga"
+		$Fase3/Bumbo.text = "Bumbo"
+		$Fase3/Triangulo.text = "Triângulo"
+	
+	if language == "es":
+		$Fase1/Palmas.text = "Palmas"
+		$Fase1/Aro.text = "Aro"
+		$Fase1/Caixa.text = "Caja"
+		
+		$Fase2/Hihat.text = "Platillo"
+		$Fase2/Bumbo.text = "Bombo"
+		$Fase2/Guinkogui.text = "Agogó"
+		
+		$Fase3/Congas.text = "Conga"
+		$Fase3/Bumbo.text = "Bombo"
+		$Fase3/Triangulo.text = "Triángulo"
+		
+	if language == "en":
+		$Fase1/Palmas.text = "Clapping"
+		$Fase1/Aro.text = "Rim"
+		$Fase1/Caixa.text = "Snare drum"
+		
+		$Fase2/Hihat.text = "Hi-hat"
+		$Fase2/Bumbo.text = "Bass drum"
+		$Fase2/Guinkogui.text = "Gankogui"
+		
+		$Fase3/Congas.text = "Conga"
+		$Fase3/Bumbo.text = "Bass drum"
+		$Fase3/Triangulo.text = "Triangle"
+
 func set_pontos_fase1(palmas, aro, caixa):
 	$Fase1.show()
 	$Fase2.hide()
@@ -31,7 +71,7 @@ func set_pontos_fase1(palmas, aro, caixa):
 	$Fase1/PontosTotal.text = str((palmas+aro+caixa)/3)+ "%"
 
 func set_pontos_fase2(hihat, bumbo, gankogui):
-	$Fase.text = "Estadio Cerecamp Mogiana"
+	$Fase.text = "Estádio Cerecamp Mogiana"
 	$Fase1.hide()
 	$Fase2.show()
 	$Fase3.hide()
@@ -54,7 +94,7 @@ func set_pontos_fase2(hihat, bumbo, gankogui):
 	$Fase2/PontosTotal.text = str((hihat+bumbo+gankogui)/3) + "%"
 	
 func set_pontos_fase3(bumbo, congas, triangulo):
-	$Fase.text = "Estacao Cultura"
+	$Fase.text = "Estação Cultura"
 	$Fase1.hide()
 	$Fase2.hide()
 	$Fase3.show()

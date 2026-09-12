@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func start():
+	$Background.texture = load("res://img/Conversas/Conversaestacao1-"+lang+".jpg")
 	$ClickAudio.load_audio("res://sounds/CLICK.mp3")
 	$ClickAudio.set_volume(30)
 	$Timer.autostart = false

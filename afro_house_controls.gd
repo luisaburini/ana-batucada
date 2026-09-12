@@ -134,7 +134,7 @@ func tutorial_first_screen_hihat_text():
 Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha."
 	if language == "es":
-		return "Haz clic en el botón de muestra de hi-hat para tocar.
+		return "Haz clic en el botón de sample de platillo para tocar.
 Sigue el punto blanco que marca el ritmo.
 Primero toco yo, luego me acompañas."
 	if language == "en":
@@ -378,7 +378,7 @@ func _on_compassos_ended() -> void:
 		$Pontuacao.hide()
 		$Compassos.set_is_tutorial(true)
 		$Tutorial.set_instruction_node("AfroHouseBumbo")
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", )
+		$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_kick_text())
 		$Compassos/Partitura.set_current_fase("Fase2Bumbo", 0.6)
 		$Compassos/Partitura.reset()
 		$Tutorial.set_show_telas(true)
@@ -397,7 +397,7 @@ func tutorial_first_screen_kick_text():
 Siga a bolinha branca que dá o ritmo.
 Primeiro eu toco, depois você me acompanha."
 	if language == "es":
-		return "Haz clic en el botón de muestra de bombo para reproducir.
+		return "Haz clic en el botón de sample de bombo para reproducir.
 Sigue el punto blanco que marca el ritmo.
 Primero toco yo, luego me acompañas."
 	if language == "en":

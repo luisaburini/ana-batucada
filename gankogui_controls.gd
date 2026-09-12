@@ -45,6 +45,8 @@ func change_language(lang):
 	language = lang
 	$Tutorial.change_language(lang)
 	$PreJogo.change_language(lang)
+	$Tutorial.set_first_screen("res://img/tutorial.jpeg", tutorial_first_screen_gankogui())
+	$PreJogo.set_first_screen("res://img/pre-jogo.png", prejogo_first_screen_text())
 
 func start():
 	$Compassos/Partitura.set_current_fase("Fase2Agogo", 0.6)
@@ -61,15 +63,27 @@ func start():
 		$Compassos.set_is_tutorial(true)
 		_is_tutorial = true
 		$Tutorial.set_instruction_node("AfroHouseGankogui")
-		$Tutorial.set_first_screen("res://img/tutorial.jpeg", "Clique no agogô para tocar.
-Siga a bolinha branca que dá o ritmo.
-Primeiro eu toco, depois você me acompanha.")
 		$Tutorial.set_show_telas(true)
 		$Gankogui1Audio.load_audio("")
 		$Tutorial.start()
 		stop_ambient.emit()
 		$Compassos.set_music(music_according_to_phase())
 		$Compassos.reset()
+		
+func tutorial_first_screen_gankogui():
+	if language == "pt":
+		return "Clique no agogô para tocar.
+Siga a bolinha branca que dá o ritmo.
+Primeiro eu toco, depois você me acompanha."
+	if language == "es":
+		return "Haz clic en el agogó para tocar.
+Sigue el punto blanco que marca el ritmo.
+Primero toco yo, luego me acompañas."
+	if language == "en":
+		return "Click the gankogui to play.
+Follow the small white ball that sets the rhythm.
+First I play, then you join in."
+		
 
 func current_audio_sem_solo():
 	return "res://sounds/FASE2/100BPM/LOOPS/LOOP_SEM_" + instruments[current_instrument] + ".mp3"
@@ -91,10 +105,16 @@ func _ready() -> void:
 	_is_tutorial = false
 	$Compassos.note_width = 42
 	$TouchGankogui1.hide()
-
-	$PreJogo.set_first_screen("res://img/pre-jogo.png", "Agora é sua vez de tocar!")
 	$Pontuacao.hide()
 	$PreJogo.hide()
+
+func prejogo_first_screen_text():
+	if language == "pt":
+		return "Agora é sua vez de tocar!"
+	if language == "es":
+		return "¡Ahora te toca jugar!"
+	if language == "en":
+		return "Now it's your turn to play!"
 
 func update_pontos():
 	pontos = pontos+1

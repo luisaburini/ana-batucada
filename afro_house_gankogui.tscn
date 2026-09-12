@@ -47,6 +47,7 @@ texture = ExtResource("2_62puu")
 text = "   1/4"
 
 [node name="Colcheia" parent="VBoxContainer2/VBoxContainer2" index="5" unique_id=1069355433]
+theme_override_font_sizes/font_size = 80
 text = "semicolcheia"
 
 [node name="VBoxContainer5" type="HBoxContainer" parent="VBoxContainer2" index="2" unique_id=1018792241]
@@ -85,7 +86,7 @@ text = "   1/2 "
 [node name="Colcheia" type="Label" parent="VBoxContainer2/VBoxContainer5" index="5" unique_id=181542293]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_5d4vj")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "  colcheia"
 
 [node name="VBoxContainer6" type="HBoxContainer" parent="VBoxContainer2" index="3" unique_id=393679562]
@@ -124,7 +125,7 @@ text = "   3/4  "
 [node name="Colcheia" type="Label" parent="VBoxContainer2/VBoxContainer6" index="5" unique_id=622210310]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_5d4vj")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "colcheia 
 pontuada"
 
@@ -149,6 +150,7 @@ custom_minimum_size = Vector2(70, 120)
 text = "     1 "
 
 [node name="Seminima" parent="VBoxContainer2/VBoxContainer3" index="5" unique_id=1748007601]
+theme_override_font_sizes/font_size = 80
 text = "    seminima"
 
 [node name="VBoxContainer4" type="HBoxContainer" parent="VBoxContainer2" index="5" unique_id=273805997]
@@ -187,5 +189,5 @@ text = "     2   "
 [node name="Minima" type="Label" parent="VBoxContainer2/VBoxContainer4" index="5" unique_id=1939017693]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_5d4vj")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = " minima"
